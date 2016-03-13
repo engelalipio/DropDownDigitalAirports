@@ -1,0 +1,24 @@
+//
+//  DropDownMenus-Prefix.pch
+//  DropDownDigitalAirports
+//
+//  Created by Engel Alipio on 10/23/14.
+//  Copyright (c) 2014 Digital World International. All rights reserved.
+//
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Constants.h"
+#import "SWRevealViewController.h"
+#import <Parse/Parse.h>
+#import "UIColor+ColorWithHexString.h"
+#import "Utilities.h"
+#endif
