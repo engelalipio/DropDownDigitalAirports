@@ -1,9 +1,7 @@
-//
 //  Constants.h
-//
 //  Created by Engel Alipio on 9/26/14.
 //  Copyright (c) 2014 All rights reserved.
-//
+//  Testing TFS Git server
 #import "UIColor+ColorWithHexString.h"
 //Providers
 
