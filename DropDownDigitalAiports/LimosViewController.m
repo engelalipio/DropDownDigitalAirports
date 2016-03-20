@@ -464,6 +464,9 @@ AppDelegate *appDelegate;
         [item.TerminalValue setText: add];
         [item.instructionsLabel setText:title];
         [item.StatusLabel setText:@"Phone Number: "];
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

@@ -631,13 +631,30 @@
         
         [item.Arrival_DepartureValue setText:cuisine];
         
-        [item.FlightLabel setText:@"Hotel Distance:"];
+        NSString *hotelDistanceLabel = (appDelegate.isiPhone ? @"Hotel\nDistance:": @"Hotel Distance: ");
         
+        [item.FlightLabel setText:hotelDistanceLabel];
+        
+        if (appDelegate.isiPhone){
+            hours = [NSString stringWithFormat:@"\n%@",hours];
+        }
         [item.FlightValue setText:hours];
-        [item.TerminalLabel setText:@"Hotel Address: "];
+        
+        NSString *hotelAddressLabel = (appDelegate.isiPhone ? @"Hotel\nAddress:": @"Hotel Address: ");
+        [item.TerminalLabel setText:hotelAddressLabel];
+        
         [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in Terminal " withString:@""]];
+        if (appDelegate.isiPhone){
+            item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
+        }
+        
+        
+
         [item.instructionsLabel setText:[titleSplit firstObject]];
         [item.StatusLabel setText:@"Phone Number: "];
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

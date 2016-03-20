@@ -571,7 +571,9 @@
 
         }
         
-        [item.TerminalLabel setText:@"Terminal/Gate: "];
+        [item.TerminalLabel setNumberOfLines:0];
+        [item.TerminalLabel setText:@"Terminal - Gate: "];
+ 
     
         [item.WeatherValue setText:weather];
         [item.WeatherValue setHidden:YES];
@@ -606,7 +608,9 @@
                 arr_depImg = [UIImage imageNamed:@"airplane_land-100.png"];
                 status = instArr;
                 [item.AircraftLabel setText:@"Baggage Claim: "];
+
                 [item.AircraftValue setText:@"To Be Announced"];
+
                 if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Arriving" withString:@"Arrived"];
  
@@ -654,12 +658,25 @@
         
         randomImg  = [UIImage imageNamed:randomImgName];
         
+        if (appDelegate.isiPhone){
+            [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",item.AircraftValue.text]];
+            [item.FlightValue setNumberOfLines:0];
+            if (item.FlightValue.text.length > 40){
+            [item.FlightValue  setFont:[UIFont systemFontOfSize:11.5f]];
+            }else{
+            [item.FlightValue  setFont:[UIFont systemFontOfSize:15.0f]];
+            }
+        }
+        
         NSArray *titleData = [gate componentsSeparatedByString:@"| Flight# "];
         NSString *gateFinal = [titleData firstObject];
         
         if (titleData){
-            instructions  = [NSString stringWithFormat:@"Flight %@ Details", [titleData lastObject]];
+            instructions  = [NSString stringWithFormat:@"Flight %@", [titleData lastObject]];
             [item.TerminalValue setNumberOfLines:0];
+            if (appDelegate.isiPhone){
+                gateFinal = [gateFinal stringByReplacingOccurrencesOfString:@"-" withString:@"-\n"];
+            }
             [item.TerminalValue setText:gateFinal];
         }
         
@@ -674,6 +691,7 @@
         UIColor *borderColor = [UIColor darkGrayColor];
        [item.AirlineIMGView.layer setBorderColor: borderColor.CGColor];*/
         
+   
         [item.weatherIMGView setImage:weatherIMG];
         [item.weatherIMGView setHidden:YES];
 

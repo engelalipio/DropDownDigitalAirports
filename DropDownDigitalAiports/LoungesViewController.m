@@ -16,6 +16,7 @@
     AppDelegate *appDelegate;
     UIImageView *selectedImageView;
     NSArray *lounges;
+    NSString *selectedRestaurant;
 }
 -(void) initTableView;
 @end
@@ -616,9 +617,14 @@
         
         [item.FlightValue setText:hours];
         
+        selectedRestaurant =  title;
+        
         [item.TerminalValue setText: desc];
         [item.instructionsLabel setText:title];
         [item.StatusLabel setText:@"Phone Number: "];
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];
@@ -635,19 +641,38 @@
 
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     NSURL  *url= nil;
+    
+    NSString *currentName = @"",
+    *message= @"",
+    *launchURL = @"";
+    
     @try {
-        url=  [[NSURL alloc] initWithString:kOMTN];
+        
+        currentName = selectedRestaurant;
+        if ([currentName length] > 0){
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        }
+        
+        launchURL = [NSString stringWithFormat:@"%@?name=%@",kOMTNApp,currentName];
+        
+        url=  [[NSURL alloc] initWithString:launchURL];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]){
-            [[UIApplication sharedApplication] openURL:url];
+            message = [NSString stringWithFormat:@"Launching OMTN App-> %@",url];
+        }else{
+            url=  [[NSURL alloc] initWithString:kOMTN];
+            message = [NSString stringWithFormat:@"Launching OMTN Web-> %@",url];
         }
+        [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
-        
+        message = exception.description;
     }
     @finally {
         url = nil;
     }
+    
+
 }
 
 -(UIView*) getSpecialTitleView: (NSString*) anyTitle{

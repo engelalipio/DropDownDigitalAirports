@@ -754,7 +754,9 @@
         [item.instructionsLabel setText:Newtitle];
         [item.Arrival_DepartureValue setText:NewType];
         [item.StatusLabel setText:@"Phone Number: "];
-        
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[NewSite stringByReplacingOccurrencesOfString:@" " withString:@""]];

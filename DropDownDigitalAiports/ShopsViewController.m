@@ -325,7 +325,7 @@
         }
 
         if (! gifts){
-            gifts = [[NSArray alloc] initWithObjects: @"La Maison De Chocolate - Chocolates",@"Hudson News - News & Events",@"Relay - Magazines", @"Loccitane - Skin Care",@"Brookstone - Gadgets", @"CNBC News - Smart Shop", nil];
+            gifts = [[NSArray alloc] initWithObjects: @"Chocolate La Maison - Chocolates",@"Hudson News - News & Events",@"La Relay - Magazines", @"Loccitane - Skin Care",@"Le Brookstone - Gadgets", @"News CNBC - Smart Shop", nil];
             
         }
         
@@ -728,6 +728,9 @@
         [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in " withString:@""]];
         [item.instructionsLabel setText:newTitle];
         [item.StatusLabel setText:@"Phone Number: "];
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

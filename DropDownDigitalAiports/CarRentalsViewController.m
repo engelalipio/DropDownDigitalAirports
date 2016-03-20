@@ -444,11 +444,21 @@
             
         }
         [item.Arrival_DepartureValue setText:cuisine];
-        [item.TerminalLabel setText:@"Location: "];
+        NSString *locationLabel = (appDelegate.isiPhone? @"Location:\n" : @"Location: ");
+        
+        [item.TerminalLabel setText:locationLabel];
+        if (appDelegate.isiPhone){
+            if (item.TerminalValue.text.length > 40){
+                [item.TerminalValue setFont:[UIFont systemFontOfSize:11.0f]];
+            }
+        }
          [item.TerminalValue setText: desc];
        // [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@". " withString:@".\n"]];
         [item.instructionsLabel setText:title];
         [item.StatusLabel setText:@"Phone Number: "];
+        if (appDelegate.isiPhone){
+            phone = [NSString stringWithFormat:@"\n%@",phone];
+        }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];
