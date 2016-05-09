@@ -693,7 +693,7 @@
         [item.ArrDepIMGView setImage:nImage];
         
         [item.TempValue setNumberOfLines:0];
-        [item.TempValue setText:@"ROP\n (Reserve, Order & Pay)"];
+        [item.TempValue setText:@"R.O.P.\n (Reserve, Order & Pay)"];
         
         //[item.WeatherValue setText:cuisine];
        // [item.Arrival_DepartureValue setText:shopTypeImageName];
@@ -727,9 +727,18 @@
         
         [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in " withString:@""]];
         [item.instructionsLabel setText:newTitle];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+            
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    break;
+                    
+                default:
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    break;
+            }
         }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];

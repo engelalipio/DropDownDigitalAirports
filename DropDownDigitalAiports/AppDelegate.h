@@ -25,7 +25,7 @@ typedef int OrderTypeSelection;
 @property (assign,nonatomic) Boolean isSent;
 @property (assign,nonatomic) Boolean isPaid;
 @property (assign,nonatomic) Boolean isiPhone;
-
+@property (assign,nonatomic) NSInteger screenHeight;
 @property (assign,nonatomic) NSInteger interval;
 
 @property (strong, nonatomic) UIWindow *window;

@@ -45,6 +45,7 @@
 @synthesize clubsbackgrounds = _clubsbackgrounds;
 @synthesize hotelbackgrounds = _hotelbackgrounds;
 @synthesize groundbackgrounds = _groundbackgrounds;
+@synthesize screenHeight = _screenHeight;
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
@@ -65,7 +66,45 @@
                         [UIView commitAnimations];
                     }];
 }
- 
+
+
+- (UIStoryboard *)grabStoryboard {
+    
+    // determine screen size
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
+    UIStoryboard *storyboard;
+    
+    storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    switch (screenHeight) {
+            
+            // iPhone 4s
+        case 480:
+            //   storyboard = [UIStoryboard storyboardWithName:@"Main-4s" bundle:nil];
+            break;
+            
+            // iPhone 5s
+        case 568:
+            //storyboard = [UIStoryboard storyboardWithName:@"Main-5s" bundle:nil];
+            break;
+            
+            // iPhone 6
+        case 667:
+            // storyboard = [UIStoryboard storyboardWithName:@"Main-6" bundle:nil];
+            break;
+            
+            // iPhone 6 Plus
+        case 736:
+            storyboard = [UIStoryboard storyboardWithName:@"Main_6Plus" bundle:nil];
+            break;
+            
+        default:
+            // storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            break;
+    }
+    
+    return storyboard;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -84,9 +123,22 @@
     [self initParseFramework];
     [self prepareAirportbackgrounds];
     
+
+    _screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
     if (  [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
         _isiPhone = YES;
+        // grab correct storyboard depending on screen height
+        UIStoryboard *storyboard = [self grabStoryboard];
+        
+        // display storyboard
+        self.window.rootViewController = [storyboard instantiateInitialViewController];
+        [self.window makeKeyAndVisible];
+        
     }
+    
+    
+    NSLog(@"Screen Height -> %ld",(long)_screenHeight);
     
     return YES;
 }

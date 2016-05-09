@@ -591,7 +591,7 @@
         [item.Arrival_DepartureValue setText:time];
         [item.Arrival_DepartureValue setHidden:YES];
         
-        [item.AircraftValue setText:aircraft];
+
         
         UIImage *arr_depImg = nil,
                        *tempIMG     = [UIImage imageNamed:@"temperature-100.png"],
@@ -613,7 +613,6 @@
 
                 if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Arriving" withString:@"Arrived"];
- 
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",fligthDetail,time];
  
                 }else{
@@ -626,10 +625,6 @@
                 [item.FlightLabel setText:@"Arrival Details:"];
                 [item.FlightValue setText:fligthDetail];
                 
-//                [item.AircraftLabel setText:@"Weather \nConditions:"];
-   //             [item.AircraftValue setText:[NSString stringWithFormat:@"%@ - (%@)",weather,temp]];
-                
-   
                 if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
                     NSInteger iC = arc4random_uniform(13);
                     if (iC == 0){
@@ -657,16 +652,40 @@
         }
         
         randomImg  = [UIImage imageNamed:randomImgName];
-        
+        [item.AircraftValue setText:aircraft];
         if (appDelegate.isiPhone){
-            [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",item.AircraftValue.text]];
-            [item.FlightValue setNumberOfLines:0];
-            if (item.FlightValue.text.length > 40){
-            [item.FlightValue  setFont:[UIFont systemFontOfSize:11.5f]];
-            }else{
-            [item.FlightValue  setFont:[UIFont systemFontOfSize:15.0f]];
+
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //keep as ipad
+                    
+                    if (![item.AircraftLabel.text  isEqual: @"Baggage Claim: "]){
+                        [item.AircraftValue setText:[NSString stringWithFormat:@"%@\n",item.AircraftValue.text]];
+                    }
+                    
+                    if (item.FlightLabel.text.length >= 18){
+                        [item.FlightLabel setNumberOfLines:0];
+                        [item.FlightLabel  setFont:[UIFont systemFontOfSize:14.0f]];
+                    }
+                    
+                    if (item.FlightValue.text.length >= 40){
+                        [item.FlightValue setNumberOfLines:0];
+                        [item.FlightValue  setFont:[UIFont systemFontOfSize:12.0f]];
+                    }
+                    break;
+                default:
+                    [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",item.AircraftValue.text]];
+                    [item.FlightValue setNumberOfLines:0];
+                    if (item.FlightValue.text.length > 40){
+                        [item.FlightValue  setFont:[UIFont systemFontOfSize:11.5f]];
+                    }else{
+                        [item.FlightValue  setFont:[UIFont systemFontOfSize:15.0f]];
+                    }
+                    break;
             }
         }
+        
+
         
         NSArray *titleData = [gate componentsSeparatedByString:@"| Flight# "];
         NSString *gateFinal = [titleData firstObject];
@@ -675,7 +694,23 @@
             instructions  = [NSString stringWithFormat:@"Flight %@", [titleData lastObject]];
             [item.TerminalValue setNumberOfLines:0];
             if (appDelegate.isiPhone){
-                gateFinal = [gateFinal stringByReplacingOccurrencesOfString:@"-" withString:@"-\n"];
+                
+                switch (appDelegate.screenHeight) {
+                    case 736:
+                        //keep as ipad
+                        
+                        if (status.length <= 20){
+                            status = [NSString stringWithFormat:@"%@\n",status];
+                        }
+                        
+                        break;
+                        
+                    default:
+                            gateFinal = [gateFinal stringByReplacingOccurrencesOfString:@"-" withString:@"-\n"];
+                        break;
+                }
+            
+
             }
             [item.TerminalValue setText:gateFinal];
         }
@@ -687,6 +722,8 @@
         [item.ArrDepIMGView setHidden:YES];
         
         [item.AirlineIMGView setImage:airlineIMG];
+        [item.AirlineIMGView setFrame:CGRectMake(self.view.frame.size.width/3, item.AirlineIMGView.frame.origin.y,
+                                                 item.AirlineIMGView.frame.size.width, item.AirlineIMGView.frame.size.height)];
    /*     [item.AirlineIMGView.layer setBorderWidth:1.0f];
         UIColor *borderColor = [UIColor darkGrayColor];
        [item.AirlineIMGView.layer setBorderColor: borderColor.CGColor];*/

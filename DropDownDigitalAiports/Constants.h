@@ -98,6 +98,7 @@
 
 #define kItemViewPortrait @"ItemViewController"
 #define kItemViewiPhonePortrait @"ItemViewiPhoneController"
+#define kItemViewiPhone6PlusPortrait @"ItemViewiPhoneController_6Plus"
 #define kItemViewLandscape @"ItemViewLandscapeController"
 
 #define kTitleFont @"Avenir Next Medium"

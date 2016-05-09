@@ -51,7 +51,15 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         NSInteger size = 60;
     if (appDelegate.isiPhone){
-        size = 40;
+        switch (appDelegate.screenHeight) {
+            case 736:
+                size = 50;
+                break;
+                
+            default:
+                size = 40;
+                break;
+        }
     }
     return size;
 }
@@ -856,7 +864,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             
             [self setImageNames:appDelegate.loungesbackgrounds destData:lounges];
             
-            hotels = [[NSArray alloc] initWithObjects:@"AirportHotels_1.jpg",nil];
+            hotels = [[NSArray alloc] initWithObjects:@"AirportHotels_0.jpg",nil];
             
             [self setImageNames:appDelegate.hotelbackgrounds destData:hotels];
             

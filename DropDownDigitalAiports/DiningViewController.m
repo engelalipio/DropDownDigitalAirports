@@ -323,9 +323,12 @@
     @try{
         
         if (! restaurants){
-            restaurants = [[NSArray alloc] initWithObjects:@"Andaluca", @"Orsay",@"Terra Bistro", @"Carbone Ristorante Italiano",
+          /*  restaurants = [[NSArray alloc] initWithObjects:@"Andaluca", @"Orsay",@"Terra Bistro", @"Carbone Ristorante Italiano",
                            @"Chart House",@"SkyLine Terrace",@"BRIO",
-                           @"Tapastre",@"Cafe Prague",nil];
+                           @"Tapastre",@"Cafe Prague",nil];*/
+            
+            restaurants = [[NSArray alloc] initWithObjects:@"Andaluca" ,@"BRIO", @"Cafe Prague",@"Carbone Ristorante Italiano",@"Chart House",
+                                                                                       @"Orsay",@"SkyLine Terrace", @"Tapastre",@"Terra Bistro",nil];
         }
         
         if (! toGo){
@@ -706,7 +709,7 @@
         [item.WeatherValue setHidden:YES];
         
         
-        rating = @"ROP\n (Reserve, Order & Pay)";
+        rating = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:rating];
         
@@ -753,9 +756,20 @@
         }
         [item.instructionsLabel setText:Newtitle];
         [item.Arrival_DepartureValue setText:NewType];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+            
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    break;
+                    
+                default:
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    break;
+            }
+            
+ 
         }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
@@ -894,7 +908,18 @@
     @try {
         
         if (appDelegate.isiPhone){
-            fontSize = kTitleIPhoneSize;
+            
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    break;
+                    
+                default:
+                        fontSize = kTitleIPhoneSize;
+                    break;
+            }
+            
+     
         }
         
         titleView = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 65.0f)];

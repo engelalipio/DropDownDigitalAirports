@@ -605,7 +605,7 @@
         [item.Arrival_DepartureValue setText:rating];
         
         
-        price = @"ROP\n (Reserve, Order & Pay)";
+        price = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:price];
         
@@ -631,30 +631,37 @@
         
         [item.Arrival_DepartureValue setText:cuisine];
         
-        NSString *hotelDistanceLabel = (appDelegate.isiPhone ? @"Hotel\nDistance:": @"Hotel Distance: ");
-        
-        [item.FlightLabel setText:hotelDistanceLabel];
-        
-        if (appDelegate.isiPhone){
-            hours = [NSString stringWithFormat:@"\n%@",hours];
-        }
-        [item.FlightValue setText:hours];
-        
-        NSString *hotelAddressLabel = (appDelegate.isiPhone ? @"Hotel\nAddress:": @"Hotel Address: ");
-        [item.TerminalLabel setText:hotelAddressLabel];
-        
-        [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in Terminal " withString:@""]];
-        if (appDelegate.isiPhone){
-            item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
-        }
-        
+        NSString *hotelDistanceLabel = @"Hotel Distance: ",
+                        *hotelAddressLabel = @"Hotel Address: ";
         
 
-        [item.instructionsLabel setText:[titleSplit firstObject]];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in Terminal " withString:@""]];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    break;
+                    
+                default:
+                    hotelDistanceLabel = @"Hotel\nDistance:";
+                    hours = [NSString stringWithFormat:@"\n%@",hours];
+                    hotelAddressLabel =  @"Hotel\nAddress:";
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
+                    break;
+                    
+            }
+
         }
+        
+        [item.FlightLabel setText:hotelDistanceLabel];
+        [item.FlightValue setText:hours];
+        
+        [item.TerminalLabel setText:hotelAddressLabel];
+
+        [item.instructionsLabel setText:[titleSplit firstObject]];
+        [item.StatusLabel setText:@"Phone: "];
+ 
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

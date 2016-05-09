@@ -58,7 +58,17 @@
             if (appDelegate.isiPhone){
                 cellImage = cell.imageView.image;
                 if (cellImage){
-                    cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(100,100 )];
+                    
+                    switch (appDelegate.screenHeight) {
+                        case 736:
+                            cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(120,120 )];
+                            break;
+                            
+                        default:
+                                cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(100,100 )];
+                            break;
+                    }
+
                 }
 
 

@@ -411,7 +411,7 @@
                         [title stringByReplacingOccurrencesOfString:@"'" withString:@""]];
         
         
-        price = @"ROP\n (Reserve, Order & Pay)";
+        price = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:price];
         
@@ -447,18 +447,33 @@
         NSString *locationLabel = (appDelegate.isiPhone? @"Location:\n" : @"Location: ");
         
         [item.TerminalLabel setText:locationLabel];
-        if (appDelegate.isiPhone){
-            if (item.TerminalValue.text.length > 40){
-                [item.TerminalValue setFont:[UIFont systemFontOfSize:11.0f]];
-            }
-        }
-         [item.TerminalValue setText: desc];
+ 
        // [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@". " withString:@".\n"]];
         [item.instructionsLabel setText:title];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    if (desc.length > 90){
+                        [item.TerminalValue setFont:[UIFont systemFontOfSize:13.0f]];
+                    }
+                    break;
+                default:
+                    if (desc.length > 40){
+                        [item.TerminalValue setFont:[UIFont systemFontOfSize:11.0f]];
+                    }
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    break;
+            }
+        }else{
+            if (desc.length > 45){
+                [item.TerminalLabel setNumberOfLines:0];
+                [item.TerminalLabel setText: [NSString stringWithFormat:@"%@\n",item.TerminalLabel.text]];
+            }
         }
+        [item.TerminalValue setText: desc];
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

@@ -427,7 +427,7 @@ AppDelegate *appDelegate;
         
  
         
-        price = @"ROP\n (Reserve, Order & Pay)";
+        price = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:price];
         
@@ -463,9 +463,22 @@ AppDelegate *appDelegate;
         [item.TerminalLabel setText:@"Address:"];
         [item.TerminalValue setText: add];
         [item.instructionsLabel setText:title];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    
+                    if (site.length >= 37){
+                        [item.AircraftValue setNumberOfLines:0];
+                        [item.AircraftValue  setFont:[UIFont systemFontOfSize:14.0f]];
+                    }
+                    
+                    break;
+                default:
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    break;
+            }
         }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];

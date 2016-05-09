@@ -587,7 +587,7 @@
         
         [item.TempValue setText:cuisine];
 
-        price = @"ROP\n (Reserve, Order & Pay)";
+        price = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:price];
         
@@ -619,12 +619,38 @@
         
         selectedRestaurant =  title;
         
-        [item.TerminalValue setText: desc];
+
         [item.instructionsLabel setText:title];
-        [item.StatusLabel setText:@"Phone Number: "];
+        [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            phone = [NSString stringWithFormat:@"\n%@",phone];
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    //tread as ipad
+                    
+
+                    if (desc.length >= 39){
+                        [item.TerminalValue setNumberOfLines:0];
+                        [item.TerminalValue  setFont:[UIFont systemFontOfSize:14.5f]];
+                    }
+                    
+                    if (site.length >= 39){
+                        [item.AircraftValue setNumberOfLines:0];
+                        [item.AircraftValue  setFont:[UIFont systemFontOfSize:12.5f]];
+                    }
+                    
+                    break;
+                    
+                default:
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                    
+
+                    
+                    break;
+            
+            }
         }
+        
+        [item.TerminalValue setText: desc];
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

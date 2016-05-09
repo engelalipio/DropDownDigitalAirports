@@ -350,7 +350,16 @@
                 //Portrait
                 message = kItemViewPortrait;
                 if (appDelegate.isiPhone){
-                    message = kItemViewiPhonePortrait;
+                    switch (appDelegate.screenHeight) {
+                        case 736:
+                            message = kItemViewiPhone6PlusPortrait;
+                            break;
+                            
+                        default:
+                            message = kItemViewiPhonePortrait;
+                            break;
+                    }
+
                 }
                 break;
         }

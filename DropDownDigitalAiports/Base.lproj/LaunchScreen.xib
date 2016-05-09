@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,16 +11,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AirportBack_0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DWILogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
+                    <rect key="frame" x="100" y="249.5" width="400" height="100"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="cx1-99-0Z0" secondAttribute="bottom" id="DGx-Gs-7At"/>
-                <constraint firstItem="cx1-99-0Z0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="acx-eb-lrD"/>
-                <constraint firstAttribute="trailing" secondItem="cx1-99-0Z0" secondAttribute="trailing" id="eP4-5O-BnY"/>
-                <constraint firstItem="cx1-99-0Z0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zuE-mP-Rmz"/>
+                <constraint firstItem="cx1-99-0Z0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Sax-nS-8Z0"/>
+                <constraint firstItem="cx1-99-0Z0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UdL-m7-egs"/>
             </constraints>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
@@ -31,6 +29,6 @@
         </view>
     </objects>
     <resources>
-        <image name="AirportBack_0.jpg" width="700" height="500"/>
+        <image name="DWILogo.png" width="400" height="100"/>
     </resources>
 </document>

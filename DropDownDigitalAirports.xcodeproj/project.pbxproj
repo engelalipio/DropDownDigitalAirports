@@ -168,6 +168,8 @@
 		0FF46E2219F9979200E51218 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46E1F19F9979100E51218 /* UIView+Additions.m */; };
 		AA150BDE1B7A659B00F5526F /* shopping_bag_filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AA150BDD1B7A659B00F5526F /* shopping_bag_filled-100.png */; };
 		AA1956351BB7694A002FDEB3 /* ItemViewLandscapeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */; };
+		AA1AE11B1CC075D100FDAC2F /* Main_6Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1AE1191CC075D100FDAC2F /* Main_6Plus.storyboard */; };
+		AA1AE11D1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AE11C1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib */; };
 		AA20FB391B6C8BFF00DEE957 /* walkie_talkie_radio_filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB381B6C8BFF00DEE957 /* walkie_talkie_radio_filled-100.png */; };
 		AA20FB3B1B6D3BFC00DEE957 /* AirportShuttle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB3A1B6D3BFC00DEE957 /* AirportShuttle.jpg */; };
 		AA20FB3D1B6D419600DEE957 /* walkie_talkie_radio-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB3C1B6D419600DEE957 /* walkie_talkie_radio-25.png */; };
@@ -883,6 +885,8 @@
 		5145443E6104C440370A6A2C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AA150BDD1B7A659B00F5526F /* shopping_bag_filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping_bag_filled-100.png"; sourceTree = "<group>"; };
 		AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewLandscapeController.xib; sourceTree = "<group>"; };
+		AA1AE11A1CC075D100FDAC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_6Plus.storyboard; sourceTree = "<group>"; };
+		AA1AE11C1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewiPhoneController_6Plus.xib; sourceTree = "<group>"; };
 		AA20FB381B6C8BFF00DEE957 /* walkie_talkie_radio_filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walkie_talkie_radio_filled-100.png"; sourceTree = "<group>"; };
 		AA20FB3A1B6D3BFC00DEE957 /* AirportShuttle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AirportShuttle.jpg; sourceTree = "<group>"; };
 		AA20FB3C1B6D419600DEE957 /* walkie_talkie_radio-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walkie_talkie_radio-25.png"; sourceTree = "<group>"; };
@@ -1443,6 +1447,7 @@
 				0FD438F71A104C4D00A2436F /* ItemViewController.m */,
 				0FD438F81A104C4D00A2436F /* ItemViewController.xib */,
 				AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */,
+				AA1AE11C1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib */,
 				AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */,
 				0F2ACD2E19FAC4AE0028B6E2 /* HeaderImageCell.h */,
 				0F2ACD2F19FAC4AE0028B6E2 /* HeaderImageCell.m */,
@@ -1614,6 +1619,7 @@
 				0FF46D3219F881FC00E51218 /* AppDelegate.m */,
 				0FF46D3A19F881FC00E51218 /* Main_iPad.storyboard */,
 				AAA600F91BC57BA000F7B4E4 /* Main.storyboard */,
+				AA1AE1191CC075D100FDAC2F /* Main_6Plus.storyboard */,
 				0FF46D3F19F881FC00E51218 /* LaunchScreen.xib */,
 				0FD438C41A0DAF0B00A2436F /* Images.xcassets */,
 				0FD438EA1A0DB11C00A2436F /* Images-2.xcassets */,
@@ -2654,6 +2660,7 @@
 				AA5198551B51EA0A00398A4F /* Rental_7.png in Resources */,
 				AAE68BAD1B5C329300DA7A53 /* Services_5.jpg in Resources */,
 				AA6D13B41B63F7B600F71348 /* AirportShops_3_4.jpg in Resources */,
+				AA1AE11D1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib in Resources */,
 				AA8FA8AA1B27E26B003E79B4 /* AirportTerminal_2.png in Resources */,
 				AA51994C1B55A41B00398A4F /* copy-100.png in Resources */,
 				AA8FA93C1B2A70BD003E79B4 /* Icon-76@2x.png in Resources */,
@@ -2923,6 +2930,7 @@
 				AAE68B5E1B5AD34B00DA7A53 /* GiftStore_5.jpg in Resources */,
 				0FD438EB1A0DB11C00A2436F /* Images-2.xcassets in Resources */,
 				AA6D14691B658E7E00F71348 /* ChineseFood_0.png in Resources */,
+				AA1AE11B1CC075D100FDAC2F /* Main_6Plus.storyboard in Resources */,
 				AA8664581B34573100CFC7D5 /* Korean_Air.png in Resources */,
 				AA86645B1B34573100CFC7D5 /* Northwest_Airlines.png in Resources */,
 				AA8664A91B40B0E300CFC7D5 /* City_4.jpg in Resources */,
@@ -3296,6 +3304,14 @@
 				0FF46D4019F881FC00E51218 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AA1AE1191CC075D100FDAC2F /* Main_6Plus.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA1AE11A1CC075D100FDAC2F /* Base */,
+			);
+			name = Main_6Plus.storyboard;
 			sourceTree = "<group>";
 		};
 		AAA600F91BC57BA000F7B4E4 /* Main.storyboard */ = {

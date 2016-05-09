@@ -749,7 +749,7 @@
               sectionTitle = [menuTitles objectAtIndex:section];
     
     [titleLabel setBackgroundColor:kVerticalTableBackgroundColor];
-    titleLabel.TextColor = kHorizontalTableSelectedBackgroundColor;
+    titleLabel.textColor = kHorizontalTableSelectedBackgroundColor;
     [titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
     [titleLabel setText:sectionTitle];
 
