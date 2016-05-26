@@ -28,6 +28,16 @@
 #define kYelpSearchURL   @"search"
 
 
+#define kFligthStatsApp @"480249a6"
+#define kFligthStatsKey  @"88efd51922b4efb028cead1320d56e78"
+#define kFlightStatsBaseURL @"https://api.flightstats.com/flex/fids/rest/v1/json/"
+#define kFlightStatsArrivalURI @"{airport}/arrivals"
+#define kFlightStatsDepartureURI @"{airport}/departures"
+#define kFlightStatsAirport @"MIA"
+#define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,destinationFamiliarName"
+
+#define kFlightStatsMaxCount @"10"
+
 /*
  
  Name	Data Type	Required / Optional	Description
@@ -40,7 +50,6 @@
  deals_filter	bool	optional	Whether to exclusively search for businesses with deals
  
  */
-
 
 
 #define kYelpBusinessURL @"business/{id}"

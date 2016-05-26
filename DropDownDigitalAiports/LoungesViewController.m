@@ -622,7 +622,9 @@
 
         [item.instructionsLabel setText:title];
         [item.StatusLabel setText:@"Phone: "];
+        [item.TerminalValue setText: desc];
         if (appDelegate.isiPhone){
+            item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad
@@ -650,7 +652,7 @@
             }
         }
         
-        [item.TerminalValue setText: desc];
+
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];
         [item.AircraftValue setText:[site stringByReplacingOccurrencesOfString:@" " withString:@""]];

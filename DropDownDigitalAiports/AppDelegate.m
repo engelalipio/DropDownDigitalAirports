@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
-
+#import "NetworkAPISingleClient+FIDS.h"
+#import "DataModels.h"
 
 @interface AppDelegate ()
 
@@ -46,6 +47,9 @@
 @synthesize hotelbackgrounds = _hotelbackgrounds;
 @synthesize groundbackgrounds = _groundbackgrounds;
 @synthesize screenHeight = _screenHeight;
+@synthesize arrivals = _arrivals;
+@synthesize departures = _departures;
+
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
@@ -106,6 +110,68 @@
     return storyboard;
 }
 
+-(void) retrieveAirportFIDSArrivals{
+    
+    [NetworkAPISingleClient retrieveArrivals:kFlightStatsMaxCount completionBlock:^(NSArray *arrData) {
+        
+        if (arrData){
+            
+            BaseClass *baseFids =  (BaseClass*) [arrData firstObject];
+            
+            if (baseFids){
+                NSArray *arrivalsArray = [baseFids fidsData];
+                
+                if (arrivalsArray){
+                    _arrivals = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
+                    [_arrivals setValue:arrivalsArray forKey:@"Arrivals"];
+                }
+            }
+            
+        }
+        
+        
+    }andErrorBlock:^(NSError *arrError){
+        
+        if (arrError){
+            NSLog(@"%@",arrError.description);
+        }
+        
+    }];
+    
+}
+
+
+-(void) retrieveAirportFIDSDepartures{
+    
+ 
+    [NetworkAPISingleClient retrieveDepartures:kFlightStatsMaxCount completionBlock:^(NSArray *destData) {
+        
+        if (destData){
+            
+            BaseClass *baseFids =  (BaseClass*) [destData firstObject];
+            
+            if (baseFids){
+                NSArray *destArray = [baseFids fidsData];
+                
+                if (destArray){
+                    _departures = [[NSMutableDictionary alloc] initWithCapacity:destArray.count];
+                    [_departures setValue:destArray forKey:@"Departures"];
+                }
+            }
+            
+        }
+        
+        
+    }andErrorBlock:^(NSError *arrError){
+        
+        if (arrError){
+            NSLog(@"%@",arrError.description);
+        }
+        
+    }];
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _language = @"English";
@@ -122,8 +188,9 @@
     
     [self initParseFramework];
     [self prepareAirportbackgrounds];
+    [self retrieveAirportFIDSArrivals];
+    [self retrieveAirportFIDSDepartures];
     
-
     _screenHeight = [UIScreen mainScreen].bounds.size.height;
     
     if (  [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){

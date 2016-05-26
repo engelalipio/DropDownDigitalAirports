@@ -51,6 +51,8 @@
 
 }
 
+
+
 +(void) setParseImageCell:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UITableViewCell *) anyRow{
     
     
@@ -71,7 +73,22 @@
                     if (data){
                         UIImage *cellImage  = [UIImage imageWithData:data];
                         if (cellImage){
-                            [anyRow.imageView setImage:cellImage];
+                            //cellImage = [Utilities imageResize:cellImage andResizeTo:CGSizeMake(120,anyRow.frame.size.height)];
+                            if (anyRow.imageView.image){
+                                [anyRow.imageView setImage:cellImage];
+                            }else{
+                                
+                                UIImageView* imgView = nil;
+                                for (int idx = 0; idx < anyRow.contentView.subviews.count ; idx++){
+                                    UIView *subView =   [anyRow.contentView.subviews objectAtIndex:idx];
+                                    if ([subView isKindOfClass:[UIImageView class]]){
+                                        imgView = (UIImageView*) subView;
+                                        if (imgView){
+                                            [imgView setImage:cellImage];
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }];

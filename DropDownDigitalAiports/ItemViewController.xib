@@ -73,41 +73,20 @@
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flight Details:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W36-0g-c11" userLabel="FlightLabel">
-                    <rect key="frame" x="10" y="631" width="205" height="38"/>
+                    <rect key="frame" x="5" y="631" width="200" height="38"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-YE-8rp" userLabel="FlightValue">
-                    <rect key="frame" x="240" y="631" width="530" height="38"/>
-                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRO-79-UhX" userLabel="TerminalValue">
-                    <rect key="frame" x="240" y="715" width="530" height="72"/>
-                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aircraft:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqX-iy-xTN" userLabel="AircraftLabel">
-                    <rect key="frame" x="10" y="900" width="205" height="38"/>
+                    <rect key="frame" x="5" y="900" width="200" height="38"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-2Q-Lt5" userLabel="AircraftValue">
-                    <rect key="frame" x="240" y="900" width="530" height="38"/>
-                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AirportBack_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MYk-H7-aaR" userLabel="CityImage">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AirportBack_0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MYk-H7-aaR" userLabel="CityImage">
                     <rect key="frame" x="0.0" y="60" width="768" height="400"/>
                     <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                         <rect key="frame" x="0.0" y="60" width="1086" height="400"/>
@@ -140,13 +119,6 @@
                     <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-X5-5as" userLabel="StatusValue">
-                    <rect key="frame" x="240" y="816" width="530" height="38"/>
-                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04H-tn-Ec3" userLabel="WeatherLabel">
                     <rect key="frame" x="485" y="563" width="130" height="21"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
@@ -157,16 +129,16 @@
                     <rect key="frame" x="50" y="478" width="280" height="106"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terminal/Gate:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHS-Z1-pAC" userLabel="TerminalLabel">
-                    <rect key="frame" x="10" y="715" width="205" height="72"/>
+                    <rect key="frame" x="5" y="715" width="200" height="72"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrz-Z3-xko" userLabel="StatusLabel">
-                    <rect key="frame" x="10" y="816" width="205" height="38"/>
+                    <rect key="frame" x="5" y="816" width="200" height="38"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -176,6 +148,34 @@
                     <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-YE-8rp" userLabel="FlightValue">
+                    <rect key="frame" x="203" y="631" width="565" height="38"/>
+                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="22"/>
+                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRO-79-UhX" userLabel="TerminalValue">
+                    <rect key="frame" x="203" y="715" width="565" height="72"/>
+                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="22"/>
+                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-2Q-Lt5" userLabel="AircraftValue">
+                    <rect key="frame" x="203" y="900" width="565" height="38"/>
+                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="22"/>
+                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-X5-5as" userLabel="StatusValue">
+                    <rect key="frame" x="203" y="816" width="565" height="38"/>
+                    <accessibility key="accessibilityConfiguration" label="Item Title"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="22"/>
+                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
@@ -183,6 +183,6 @@
         </view>
     </objects>
     <resources>
-        <image name="AirportBack_1.jpg" width="700" height="500"/>
+        <image name="AirportBack_0.jpg" width="700" height="500"/>
     </resources>
 </document>

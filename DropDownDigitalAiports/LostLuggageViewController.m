@@ -390,7 +390,7 @@
             UIImage *cellImage = cell.imageView.image;
             
             if (cellImage != nil){
-                NSArray *airlines =[ [NSArray alloc ] initWithObjects:@"varig.png", @"Southwest_Airlines.png", @"Air_Caribbean.png",
+                NSArray *airlines =[ [NSArray alloc ] initWithObjects:@"Varig_Arline.png", @"Southwest_Airlines.png", @"Air_Caribbean.png",
                 @"IndiGo_Airlines.png", @"New_Swiss_International_Airlines.png", @"Korean_Air.png",@"AirJapan.png",
                 @"AAirlines.png", @"Northwest_Airlines.png", @"Hawaiian_Airlines.png", @"JetBlue_Airways.png",@"Alaska_Airlines.png",
                 @"Delta.png", @"Air_France.png",nil ];

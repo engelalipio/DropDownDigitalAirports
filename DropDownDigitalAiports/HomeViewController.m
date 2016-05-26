@@ -323,9 +323,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
             if (isParse) {
               
-                //[Utilities setParseImageCell:images anyIndex:rndIndex tableCell:cell];
+               // [Utilities setParseImageCell:images anyIndex:rndIndex tableCell:cell];
                 cellImage =  [Utilities getParseImage:images anyIndex:rndIndex];
-                //cellImage = cell.imageView.image;
+                cellImage = cell.imageView.image;
             }else{
                 imageName = [images objectAtIndex:rndIndex];
                 cellImage =  [UIImage imageNamed:imageName];
@@ -337,8 +337,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 }
             }
 
-
             [cell.imageView setImage:cellImage];
+        
+            
         }else{
             [cell.imageView setImage:nil];
         }
@@ -476,7 +477,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     if (appDelegate.backgrounds){
                      restaurantImages = [[NSArray alloc] initWithArray:appDelegate.backgrounds];
                     }else{
-                    restaurantImages = [[NSArray alloc] initWithObjects:@"AirportBack_1.jpg",@"AirportBack_2.jpg",@"AirportBack_3.jpg",@"AirportBack_4.jpg",
+                    restaurantImages = [[NSArray alloc] initWithObjects:@"AirportBack_0.jpg",@"AirportBack_2.jpg",@"AirportBack_3.jpg",@"AirportBack_4.jpg",
                                         @"AirportBack_5.jpg", @"AirportBack_7.jpg",@"AirportBack_8.jpg",@"AirportBack_9.jpg" ,@"AirportBack_0.jpg" ,@"AirportBack_10.jpg",nil];
                     }
                 }

@@ -40,6 +40,8 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSString *restaurantZip;
 
 @property (nonatomic, assign) NSInteger currentOrderItems;
+@property (strong, nonatomic) NSMutableDictionary *arrivals;
+@property (strong, nonatomic) NSMutableDictionary *departures;
 
 @property (strong, nonatomic) NSMutableDictionary *drinkItems;
 @property (strong, nonatomic) NSMutableDictionary *appItems;

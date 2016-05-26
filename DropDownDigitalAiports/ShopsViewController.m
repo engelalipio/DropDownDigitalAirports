@@ -729,7 +729,7 @@
         [item.instructionsLabel setText:newTitle];
         [item.StatusLabel setText:@"Phone: "];
         if (appDelegate.isiPhone){
-            
+            item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad

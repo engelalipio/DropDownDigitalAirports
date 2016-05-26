@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DWILogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DWILogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-99-0Z0">
                     <rect key="frame" x="100" y="249.5" width="400" height="100"/>
                 </imageView>
             </subviews>

@@ -10,12 +10,17 @@
 #import "Constants.h"
 #import "ItemViewController.h"
 #import "AppDelegate.h"
+#import "DataModels.h"
 
 @interface FlightsViewController ()
 {
-    NSMutableArray *menuTitles;
+    NSMutableArray *menuTitles,
+                                *arrivals,
+                                *departures;
+    
     AppDelegate *appDelegate;
     UIImageView *selectedImageView;
+    
 }
 -(void) checkOrderCount;
 -(void) initTableView;
@@ -325,7 +330,6 @@
             self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
         }
         
-        
         self.tableView.backgroundColor =  kVerticalTableBackgroundColor;
         
         [self.tableView setDelegate:self];
@@ -380,7 +384,7 @@
             [header setTextAlignment:alignment];
             [header setTextColor:[UIColor whiteColor]];
             [header setBackgroundColor:[UIColor blackColor]];
-            [header setText:@"Arrival Times"];
+            [header setText:[NSString stringWithFormat:@"%lu Arrival Times",(unsigned long)arrivals.count]];
             break;
 
         case 1:
@@ -389,10 +393,112 @@
             [header setTextColor:[UIColor whiteColor]];
             [header setTextAlignment:alignment];
             [header setBackgroundColor:[UIColor blackColor]];
-            [header setText:@"Departure Times"];
+            [header setText:[NSString stringWithFormat:@"%lu Departure Times",(unsigned long)departures.count]];
             break;
     }
     return header;
+}
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = nil;
+    
+    FidsData *fidsData = [[FidsData alloc] init];
+    
+    //airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarks,weather,destinationFamiliarName"
+    
+    NSString *cellID = @"cbFlights",
+                    *airlineName = @"",
+                    *airlineLogoUrlPng  = @"",
+                    *flightNumber = @"",
+                    *city  =@"",
+                    *currentTime  =@"",
+                    *gate = @"",
+                    *baggage  =@"",
+                    *remarks  =@"",
+                    *weather  =@"",
+                    *destinationFamiliarName = @"",
+                    *terminal = @"",
+                    *finalLocation = @"";
+    
+    UIImage *image = nil;
+
+    
+    switch (indexPath.section) {
+        case 0:
+            fidsData = [FidsData objectFromJSONObject:[arrivals objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
+              destinationFamiliarName = [NSString stringWithFormat:@"Arriving from %@ at %@", [fidsData city],[fidsData currentTime]];
+            break;
+            
+        case 1:
+            fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
+            destinationFamiliarName = [NSString stringWithFormat:@"Departing to %@ at %@", [fidsData destinationFamiliarName],[fidsData currentTime]];
+            break;
+    }
+    
+    cell =  [tableView  dequeueReusableCellWithIdentifier:cellID];
+ 
+ 
+    
+    
+    if (! cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellID];
+    }
+    
+ 
+    airlineName = [fidsData airlineName];
+    airlineLogoUrlPng = [fidsData airlineLogoUrlPng];
+    flightNumber = [fidsData flightNumber];
+    city = [fidsData city];
+    currentTime = [fidsData currentTime];
+    gate = [fidsData gate];
+    if (! gate){
+        gate = @"tbd";
+    }
+    baggage = [fidsData baggage];
+    remarks = [fidsData remarks];
+    
+    if (remarks){
+        destinationFamiliarName = [destinationFamiliarName stringByReplacingOccurrencesOfString:@"Arriving" withString:remarks];
+        destinationFamiliarName = [destinationFamiliarName stringByReplacingOccurrencesOfString:@"Departing" withString:remarks];
+    }
+    
+    weather = [fidsData weather];
+
+    terminal = [fidsData terminal];
+    if (!terminal){
+        terminal = @"tbd";
+    }
+    
+    if (airlineLogoUrlPng){
+        NSURL *url  = [[NSURL alloc] initWithString:airlineLogoUrlPng];
+        if (url){
+ 
+            NSData *imageData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:nil];
+            if (imageData){
+                image  = [UIImage imageWithData:imageData];
+                
+                if (appDelegate.isiPhone){
+                     image  = [Utilities imageResize:image andResizeTo:CGSizeMake(90.0f, 45.0f)];
+                }else{
+                    image  = [Utilities imageResize:image andResizeTo:CGSizeMake(150.0f, 50.0f)];
+                }
+            }
+        }
+    }
+ 
+
+    finalLocation = [NSString stringWithFormat:@"Terminal %@ - Gate %@ | Flight# %@",terminal,gate,flightNumber];
+    
+   
+    [cell.textLabel setText:destinationFamiliarName];
+    [cell.detailTextLabel setText:finalLocation];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    cell.accessoryView.tintColor = [UIColor whiteColor];
+    [cell.imageView setImage:image];
+    
+    
+    return cell;
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -415,27 +521,11 @@
                     }
                 }
         
-                [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:14.0f]];
-                [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:12.0f]];
+               [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:12.0f]];
+                [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];
             }
             
-            
-            if (cellImage != nil){
-                NSArray *airlines =[ [NSArray alloc ] initWithObjects:@"varig.png", @"Southwest_Airlines.png", @"Air_Caribbean.png",
-                @"IndiGo_Airlines.png", @"New_Swiss_International_Airlines.png", @"Korean_Air.png",@"AirJapan.png",
-                @"AAirlines.png", @"Northwest_Airlines.png", @"Hawaiian_Airlines.png", @"JetBlue_Airways.png",@"Alaska_Airlines.png",
-                @"Delta.png", @"Air_France.png",nil ];
-                
-                NSInteger rndImageNumber  = arc4random_uniform(airlines.count );
-                NSString *rndImageName = [airlines objectAtIndex:rndImageNumber];
-                cellImage = [UIImage imageNamed:rndImageName];
-                if (! appDelegate){
-                    appDelegate = [AppDelegate currentDelegate];
-                }
-               /* if (appDelegate.isDynamic){
-                    [cell.imageView setImage:cellImage];
-                }*/
-            }
+        
         }
         
     }
@@ -453,6 +543,8 @@
     
     ItemViewController *item = [[ItemViewController alloc] init];
     
+
+    
     NSString
                     *flight = @"",
                     *gate  = @"",
@@ -461,11 +553,14 @@
                     *flightType = (indexPath.section == 0 ? @"A" : @"D"),
                     *randomImgName = [NSString stringWithFormat:@"%@_%d.jpg", flightType, indexPath.row];
     
-    UIImage *image = [UIImage imageNamed:randomImgName];
+    int imgIdx =  arc4random_uniform(appDelegate.flightbackgrounds.count);
+    
+    UIImage *image = [Utilities getParseImage:appDelegate.flightbackgrounds anyIndex:imgIdx];
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (selectedCell){
+        
         UIView *contentView = selectedCell.contentView;
         
         if (contentView){
@@ -500,6 +595,8 @@
     
     if (selectedCell.imageView){
         selectedImageView = selectedCell.imageView;
+    }else{
+        [selectedCell.imageView setImage: image];
     }
     
    
@@ -572,7 +669,7 @@
         }
         
         [item.TerminalLabel setNumberOfLines:0];
-        [item.TerminalLabel setText:@"Terminal - Gate: "];
+        [item.TerminalLabel setText:@"Terminal/Gate: "];
  
     
         [item.WeatherValue setText:weather];
@@ -596,22 +693,36 @@
         UIImage *arr_depImg = nil,
                        *tempIMG     = [UIImage imageNamed:@"temperature-100.png"],
                        *airlineIMG   =  selectedCell.imageView.image;
+        
+        airlineIMG = [Utilities imageResize:airlineIMG andResizeTo:CGSizeMake(300.0f, 100.0f)];
     
         if (tempHId > 50){
             tempIMG =   [UIImage imageNamed:@"temperature_filled-100.png"];
         }
         NSString *fligthDetail = @"";
+        BOOL isDeparture = NO;
+        
+        FidsData *fidsData = [[FidsData alloc] init];
+       
+        
         switch (indexPath.section){
                 //Arrivals
  
             case 0:
+               fidsData = [FidsData objectFromJSONObject:[arrivals objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
                 arr_depImg = [UIImage imageNamed:@"airplane_land-100.png"];
-                status = instArr;
+                status = [fidsData remarksCode];
                 [item.AircraftLabel setText:@"Baggage Claim: "];
 
-                [item.AircraftValue setText:@"To Be Announced"];
+                instArr =fidsData.baggage;
+                if (! instArr){
+                    instArr = @"tbd";
+                }
+                
+                [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel #%@", instArr]];
 
-                if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
+                fligthDetail = flight;
+                /*if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Arriving" withString:@"Arrived"];
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",fligthDetail,time];
  
@@ -620,7 +731,8 @@
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",flight,time];
  
                     fligthDetail = [fligthDetail  stringByReplacingOccurrencesOfString:@"Arriving from" withString:@"Scheduled to Arrive From"];
-                }
+                }*/
+               
                 
                 [item.FlightLabel setText:@"Arrival Details:"];
                 [item.FlightValue setText:fligthDetail];
@@ -630,47 +742,69 @@
                     if (iC == 0){
                         iC = 1;
                     }
-                    [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel #%d",iC]];
+                    [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel #%ld",(long)iC]];
                 }
                 break;
                 //Departures
             case 1:
-                
+                fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
+                isDeparture = YES;
                 arr_depImg = [UIImage imageNamed:@"airplane_takeoff-100.png"];
-                status = instDept;
-                
-                if ([status isEqualToString:@"Departed"] || [status isEqualToString:@"Taxiing"]){
+                status = [fidsData remarksCode];
+                fligthDetail = flight;
+                /*if ([status isEqualToString:@"Departed"] || [status isEqualToString:@"Taxiing"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Departing" withString:@"Departed"];
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",fligthDetail,time];
                 }else{
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",flight,time];
                     fligthDetail = [fligthDetail  stringByReplacingOccurrencesOfString:@"Departing to" withString:@"Scheduled To Depart To"];
-                }
+                }*/
                 [item.FlightLabel setText:@"Departure Details:"];
                 [item.FlightValue setText:fligthDetail];
+                [item.AircraftLabel setText:@"Baggage Claim: "];
+                
+                aircraft = fidsData.weather;
+                [item.AircraftLabel setText:@"Weather: "];
+                [item.AircraftValue setText:aircraft];
                 break;
         }
         
         randomImg  = [UIImage imageNamed:randomImgName];
-        [item.AircraftValue setText:aircraft];
-        if (appDelegate.isiPhone){
 
+        if (appDelegate.isiPhone){
+            if (isDeparture){
+            //    item.FlightValue.text =   [NSString stringWithFormat:@"\n%@", item.FlightValue.text];
+            }
             switch (appDelegate.screenHeight) {
                 case 736:
                     //keep as ipad
                     
-                    if (![item.AircraftLabel.text  isEqual: @"Baggage Claim: "]){
+                  /*  if (![item.AircraftLabel.text  isEqual: @"Baggage Claim: "]){
                         [item.AircraftValue setText:[NSString stringWithFormat:@"%@\n",item.AircraftValue.text]];
-                    }
+                    }*/
                     
                     if (item.FlightLabel.text.length >= 18){
-                        [item.FlightLabel setNumberOfLines:0];
-                        [item.FlightLabel  setFont:[UIFont systemFontOfSize:14.0f]];
+
+                      /*  [item.FlightLabel  setFont:[UIFont systemFontOfSize:14.0f]];
+                        if(item.FlightValue.text.length <= 35){
+                            item.FlightValue.text =   [NSString stringWithFormat:@"\n%@", item.FlightValue.text];
+                        }
+                    */
                     }
                     
-                    if (item.FlightValue.text.length >= 40){
-                        [item.FlightValue setNumberOfLines:0];
-                        [item.FlightValue  setFont:[UIFont systemFontOfSize:12.0f]];
+                  if (item.FlightValue.text.length >= 43){
+ 
+                      item.FlightLabel.text =   [NSString stringWithFormat:@"%@\n", item.FlightLabel.text];
+                       //   item.FlightValue.text =   [NSString stringWithFormat:@"\n%@", item.FlightValue.text];
+     
+                      /*
+                       
+                        item.FlightLabel.text =   [item.FlightLabel.text stringByReplacingOccurrencesOfString:@"Departure Details:" withString:@"Departure\nDetails:"];
+                        
+                        [item.FlightValue  setFont:[UIFont systemFontOfSize:13.0f]];
+                        if (item.FlightValue.text.length >= 40){
+                            [item.FlightValue  setFont:[UIFont systemFontOfSize:12.0f]];
+                        }*/
                     }
                     break;
                 default:
@@ -694,7 +828,7 @@
             instructions  = [NSString stringWithFormat:@"Flight %@", [titleData lastObject]];
             [item.TerminalValue setNumberOfLines:0];
             if (appDelegate.isiPhone){
-                
+               // gateFinal =  [NSString stringWithFormat:@"\n%@",[titleData firstObject]];
                 switch (appDelegate.screenHeight) {
                     case 736:
                         //keep as ipad
@@ -722,7 +856,7 @@
         [item.ArrDepIMGView setHidden:YES];
         
         [item.AirlineIMGView setImage:airlineIMG];
-        [item.AirlineIMGView setFrame:CGRectMake(self.view.frame.size.width/3, item.AirlineIMGView.frame.origin.y,
+        [item.AirlineIMGView setFrame:CGRectMake(self.view.frame.size.width/3 - 15.0f, item.AirlineIMGView.frame.origin.y,
                                                  item.AirlineIMGView.frame.size.width, item.AirlineIMGView.frame.size.height)];
    /*     [item.AirlineIMGView.layer setBorderWidth:1.0f];
         UIColor *borderColor = [UIColor darkGrayColor];
@@ -733,7 +867,10 @@
         [item.weatherIMGView setHidden:YES];
 
         [item.instructionsLabel setText:instructions];
-        [item.StatusValue setText:status];
+        
+        status = [status stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+        
+        [item.StatusValue setText:[status capitalizedString]];
     }];
     
 }
@@ -752,10 +889,10 @@
     NSInteger rowCount = 0;
     switch (section) {
      case 0:
-            rowCount = 9 ;
+            rowCount = arrivals.count ;
      break;
         case 1:
-            rowCount = 9;
+            rowCount = departures.count;
             break;
      }
     return rowCount;
@@ -795,6 +932,12 @@
     if (! appDelegate){
         appDelegate = [AppDelegate currentDelegate];
     }
+    
+    if (appDelegate){
+        arrivals = [appDelegate.arrivals objectForKey:@"Arrivals"];
+        departures = [appDelegate.departures objectForKey:@"Departures"];
+    }
+    
     [self initTableView];
     [self.navigationItem setTitleView:[self getSpecialTitleView:@"Arriving/Departing Flights"]];
     // Do any additional setup after loading the view.
