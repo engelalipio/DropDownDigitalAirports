@@ -6,6 +6,7 @@
 //Providers
 
 #define kOMTNApp @"OMTN://"
+#define kOMPN @"http://www.ordermyproductnow.com"
 #define kOMTN @"http://www.ordermytablenow.com"
 #define kDDDM @"http://dropdowndigitalmenus.com"
 
@@ -28,6 +29,7 @@
 #define kYelpSearchURL   @"search"
 
 
+#define kBingSearchKey @"a6ca68495f7a492e8883264a6698f002i"
 #define kFligthStatsApp @"480249a6"
 #define kFligthStatsKey  @"88efd51922b4efb028cead1320d56e78"
 #define kFlightStatsBaseURL @"https://api.flightstats.com/flex/fids/rest/v1/json/"
@@ -37,6 +39,8 @@
 #define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"
+
+
 
 /*
  

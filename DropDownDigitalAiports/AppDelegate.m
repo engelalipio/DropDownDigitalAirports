@@ -49,6 +49,10 @@
 @synthesize screenHeight = _screenHeight;
 @synthesize arrivals = _arrivals;
 @synthesize departures = _departures;
+@synthesize airlines = _airlines;
+@synthesize selectedAirlineName = _selectedAirlineName;
+@synthesize selectedAirlineLogo = _selectedAirlineLogo;
+@synthesize locationManager = _locationManager;
 
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -117,13 +121,40 @@
         if (arrData){
             
             BaseClass *baseFids =  (BaseClass*) [arrData firstObject];
-            
+        
             if (baseFids){
+                
                 NSArray *arrivalsArray = [baseFids fidsData];
+                NSMutableArray   *airlinesArray = [[NSMutableArray alloc] init];
                 
                 if (arrivalsArray){
                     _arrivals = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
                     [_arrivals setValue:arrivalsArray forKey:@"Arrivals"];
+                    
+                    NSString *airlineName = @"";
+        
+                    int fCount = 0;
+                    
+                    for (int idx = 0; idx < arrivalsArray.count; idx++) {
+                        
+                        FidsData *fidsData = [[FidsData alloc] init];
+                        
+                                         fidsData = [FidsData objectFromJSONObject:[arrivalsArray objectAtIndex:idx]
+                                                                           mapping:[fidsData dictionaryRepresentation]];
+                        
+                        if (![fidsData.airlineName isEqualToString:airlineName]){
+                            [airlinesArray addObject:fidsData];
+                        }
+                            airlineName = fidsData.airlineName;
+                    }
+                    
+                 
+                    
+                    if (! self.airlines){
+                        _airlines = [[NSMutableDictionary alloc] initWithCapacity:airlinesArray.count];
+                        [_airlines setValue:airlinesArray forKey:@"Airlines"];
+                    }
+                    
                 }
             }
             
@@ -185,7 +216,7 @@
     _restaurantState     = @"FL";
     _restaurantZip         = @"32233";
     _interval                   = 4;
-    
+    [self initLocationServices];
     [self initParseFramework];
     [self prepareAirportbackgrounds];
     [self retrieveAirportFIDSArrivals];
@@ -210,6 +241,15 @@
     return YES;
 }
 
+-(void) initLocationServices{
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    
+    [_locationManager requestWhenInUseAuthorization];
+    [_locationManager setDelegate:self];
+    
+}
+
 -(void) initParseFramework{
     
     NSDictionary *infoDictionary = nil;
@@ -222,7 +262,6 @@
         infoDictionary = [[NSBundle mainBundle] infoDictionary];
         
         [Parse setApplicationId:appKey clientKey:clientKey];
-        
         
         message = [NSString  stringWithFormat:@"Successfully initialized Parse for %@ - %@",appKey,clientKey];
         

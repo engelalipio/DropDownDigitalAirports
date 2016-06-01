@@ -1,101 +1,38 @@
 //
-//  DessertDetailViewController.m
+//  MenuDetailViewController.m
 //  DropDownDigitalAirports
 //
-//  Created by Engel Alipio on 11/10/14.
+//  Created by Engel Alipio on 11/5/14.
 //  Copyright (c) 2014 Digital World International. All rights reserved.
 //
-
-#import "HotelsShuttleViewController.h"
+#import "FlightsViewController.h"
+#import "AirlinesViewController.h"
+#import "Constants.h"
 #import "ItemViewController.h"
 #import "AppDelegate.h"
-#import "Constants.h"
+#import "DataModels.h"
 
-@interface HotelsShuttleViewController(){
+@interface AirlinesViewController ()
+{
+    NSMutableArray *menuTitles,
+                                *arrivals,
+                                *departures,
+                                *airlines;
+    
     AppDelegate *appDelegate;
-    NSArray *hotels ;
-    NSMutableArray  *shuttles;
+    
     UIImageView *selectedImageView;
-    NSString *selectedShuttle;
+    
+    NSString *airlineName,
+                    *airlineLogo;
+    
 }
 -(void) checkOrderCount;
 -(void) initTableView;
 @end
 
-@implementation HotelsShuttleViewController
-
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-
-    NSString  *message = @"",
-                     *trimName = selectedShuttle;
-    
-    NSArray  *randomData  = [[NSArray alloc] initWithObjects:
-                             [NSString stringWithFormat:@"%@'s shuttle is on the way!", selectedShuttle],
-                             [NSString stringWithFormat:@"Please proceed to %@'s shuttle located outside each terminal.",trimName],nil];
-    
-    UIAlertView *alert = nil;
-    
-    UITableViewCell *cell = nil;
-    UIImageView *accView = nil;
-    
-    NSInteger index= -1;
-    @try {
-        
-        index = self.tableView.indexPathForSelectedRow.row;
-        
-        switch (buttonIndex) {
-            case 0:
-                selectedShuttle = nil;
-                [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-                break;
-            case 1:
-                message = [randomData objectAtIndex:arc4random_uniform(randomData.count)];
-                break;
-        }
-        
-        if ([message length] > 0){
-            
-            alert =  [[UIAlertView alloc] initWithTitle:@"Your Request Has Been Received"
-                                                message:message
-                                               delegate:nil
-                                      cancelButtonTitle:@"Ok"
-                                      otherButtonTitles:nil, nil];
-                if (alert){
-                        [alert show];
-                    }
-        
-             cell = [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
-            message = [hotels objectAtIndex:index];
-            
-            if (cell){
-                accView =  (UIImageView *)[cell accessoryView];
-                if (accView){
-                   [ accView setImage:[UIImage imageNamed:@"walkie_talkie_radio_filled-25.png"]];
-                }else{
-                   accView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"walkie_talkie_radio_filled-25.png"]];
-                }
-            [cell setAccessoryView:accView];
-                if ([message isEqualToString:selectedShuttle]){
-                    
-                    [shuttles setObject:@"" atIndexedSubscript:index];
-                }
-            }
-        
-        }
-    }
-    @catch (NSException *exception) {
-        message = exception.description;
-    }
-    @finally {
-        if ([message length] > 0){
-            NSLog(@"%@",message);
-        }
-        message = @"";
-        alert        = nil;
-    }
-}
-
-
+@implementation AirlinesViewController
+ 
 - (CGRect)approximateFrameForTabBarItemAtIndex:(NSUInteger)barItemIndex inTabBar:(UITabBar *)tabBar {
     
     CGRect tabBarRect;
@@ -105,9 +42,9 @@
     NSString *message = @"";
     
     CGFloat barMidX = 0.0f,
-            distanceBetweenBarItems = 0.0f,
-            totalBarItemsWidth = 0.0f,
-            barItemX = 0.0f;
+                  distanceBetweenBarItems = 0.0f,
+                    totalBarItemsWidth = 0.0f,
+                   barItemX = 0.0f;
     
     CGSize  barItemSize;
     
@@ -178,6 +115,7 @@
         layerToAnimate = selectedImageView.layer;
         
         itemViewCurvingIntoCartAnimation = [self itemViewCurvingIntoCartAnimation];
+        
         
         
         itemViewShrinkingAnimation =  [CABasicAnimation animationWithKeyPath:@"bounds"];
@@ -288,15 +226,17 @@
 -(void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     
     NSString *message   = @"",
-    *orderItem = @"";
+             *orderItem = @"";
     
-    NSInteger orderItems        = 0,
-    currentOrderCount = 0,
-    itemsCount        = 0;
+    NSInteger orderItems    = 0,
+              currentOrderCount = 0,
+              itemsCount        = 0;
     
     @try {
         
         itemsCount = kOrderTabItemIndex;
+        
+
         
         currentOrderCount = [appDelegate currentOrderItems];
         if (! currentOrderCount){
@@ -328,16 +268,14 @@
     
     NSInteger orderItems        = 0,
               currentOrderCount = 0,
-              dessertCount      = 0,
+              drinksCount       = 0,
               itemsCount        = 0;
     
     @try {
         
         itemsCount = kOrderTabItemIndex;
         
-        if (! appDelegate){
-            appDelegate = [AppDelegate currentDelegate];
-        }
+
         
         currentOrderCount = [appDelegate currentOrderItems];
         if (! currentOrderCount){
@@ -357,10 +295,10 @@
                 orderItems = currentOrderCount;
                 
                 if (selectedImageView != nil){
-                    if (appDelegate.dessertItems){
-                        dessertCount = [[appDelegate.dessertItems objectForKey:@"Quantity"] integerValue];
+                    if (appDelegate.drinkItems){
+                        drinksCount = [[appDelegate.drinkItems objectForKey:@"Quantity"] integerValue];
                         
-                        [self initiateAddToCart:dessertCount];
+                        [self initiateAddToCart:drinksCount];
                     }
                 }
                 
@@ -383,7 +321,6 @@
     
 }
 
-
 #pragma -mark Table View Events
 
 
@@ -393,14 +330,6 @@
     NSString *message = @"";
     
     @try{
-        
-        if (! hotels){
-            hotels = [[NSArray alloc] initWithObjects: @"Block Hotel",@"Cabana Hotel",@"Eastin Hotel",@"Glass Palace Hotel",
-                                                                                @"Hilton Hotel",@"Radisson Hotel", @"Regal Airport Hotel", @"Safari Court Hotel",
-                                                                                @"Sheraton Suites Hotel",@"The Towers Hotel",nil];
-            
-            shuttles = [[NSMutableArray alloc] initWithArray:hotels];
-        }
         
         if (! self.tableView){
             self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, kTableYStart, kTabletWidth, kTableHeight)];
@@ -424,10 +353,11 @@
     
 }
 
+
 -(NSString*) randomCalories{
     NSString *cal  =  @"%d calories";
     
-    NSInteger calories =  arc4random_uniform(360);
+    NSInteger calories =  arc4random_uniform(200);
     
     cal = [NSString stringWithFormat:cal,calories];
     
@@ -435,106 +365,186 @@
     
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    CGFloat headerH = 30.0f;
+    
+    return headerH;
+}
+
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *header = nil;
-    header = [[UILabel alloc] init];
-    [header setFont:[UIFont fontWithName:@"Avenir Medium" size:20]];
-    [header setTextAlignment:NSTextAlignmentCenter];
-    [header setTextColor:[UIColor whiteColor]];
-    [header setBackgroundColor:[UIColor blackColor]];
+    NSInteger size = 20.0f;
+    
+    NSTextAlignment alignment = NSTextAlignmentCenter;
+    
+    
+    if (appDelegate.isiPhone){
+        size = 15.0f;
+    }
     switch (section) {
         case 0:
-            [header setText:@"Airport Hotel Shuttle Services"];
-            [self.navigationItem setTitleView:nil];
-            [self setTitle:@""];
-            [self.navigationItem setTitle:@""];
+            header = [[UILabel alloc] init];
+            [header setFont:[UIFont fontWithName:@"Avenir Medium" size:size]];
+            [header setTextAlignment:alignment];
+            [header setTextColor:[UIColor whiteColor]];
+            [header setBackgroundColor:[UIColor blackColor]];
+            [header setText:[NSString stringWithFormat:@"%lu Total Airline(s)",(unsigned long)airlines.count]];
             break;
+
     }
     return header;
 }
 
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40.f;
-}
-
-
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     
-    NSString *cellID = @"cbHotelsShuttle",
-                   *restaurantName = @"",
-                    *locationFormat = @"%d %@, Atlanta, GA, 30320" ,
-                    *restaurantImageNameFormat = @"AirportHotels_%d.jpg",
-                    *restaurantImageName = @"",
+    FidsData *fidsData = [[FidsData alloc] init];
+    
+    //airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarks,weather,destinationFamiliarName"
+    
+    NSString *cellID = @"cbFlights",
+                    *airlineLogoUrlPng  = @"",
+                    *flightNumber = @"",
+                    *city  =@"",
+                    *currentTime  =@"",
+                    *gate = @"",
+                    *baggage  =@"",
+                    *remarks  =@"",
+                    *weather  =@"",
+                    *destinationFamiliarName = @"",
                     *terminal = @"",
-                    *finalLocation = @"",
-                    *phone = @"";
+                    *finalLocation = @"";
     
-    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"Street", @"Avenue", @"Boulevard", @"Lane", @"Plaza", @"Road", nil];
+    UIImage *image = nil;
+
     
-    NSInteger terminalId = arc4random_uniform(Terminals.count),
-                     gateId = arc4random_uniform(1450),
-                     distanceId = arc4random_uniform(25),
-                     imageId = 1;
+    int row = 0;
     
-    if (distanceId ==0){
-        distanceId = 1;
+    if (indexPath.row){
+        row = indexPath.row;
     }
+ 
+    fidsData =  [airlines objectAtIndex:row];
     
-    if (gateId == 0){
-        gateId = 1;
-    }
     
     cell =  [tableView  dequeueReusableCellWithIdentifier:cellID];
-    imageId = indexPath.row;
-    
-    terminal = [Terminals objectAtIndex:terminalId];
-    
+ 
+
     if (! cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellID];
     }
-    restaurantImageName = [NSString stringWithFormat:restaurantImageNameFormat,imageId];
-    restaurantName = [hotels objectAtIndex:indexPath.row];
-
-    phone = [ItemViewController generateRandomPhone];
     
-    [cell.textLabel setText:phone];
-    
-    finalLocation   = [NSString stringWithFormat:@"http://www.%@.com", [restaurantName stringByReplacingOccurrencesOfString:@"'" withString:@""]];
-    finalLocation =  [finalLocation stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [cell.detailTextLabel setText:finalLocation];
-    [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
-    UIImageView *accView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"walkie_talkie_radio-25.png"]];
-    
-    [cell setAccessoryView:accView];
  
-   // [cell.imageView setImage:[UIImage imageNamed:restaurantImageName]];
-    [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:indexPath.row tableCell:cell];
+    airlineName = [fidsData airlineName];
+    airlineLogoUrlPng = [fidsData airlineLogoUrlPng];
+    flightNumber = [fidsData flightNumber];
+    city = [fidsData city];
+    currentTime = [fidsData currentTime];
+    gate = [fidsData gate];
+    if (! gate){
+        gate = @"tbd";
+    }
+    baggage = [fidsData baggage];
+    remarks = [fidsData remarks];
+    
+    if (remarks){
+        destinationFamiliarName = [destinationFamiliarName stringByReplacingOccurrencesOfString:@"Arriving" withString:remarks];
+        destinationFamiliarName = [destinationFamiliarName stringByReplacingOccurrencesOfString:@"Departing" withString:remarks];
+    }
+    
+    weather = [fidsData weather];
+
+    terminal = [fidsData terminal];
+    if (!terminal){
+        terminal = @"tbd";
+    }
+    
+    if (airlineLogoUrlPng){
+        NSURL *url  = [[NSURL alloc] initWithString:airlineLogoUrlPng];
+        if (url){
+ 
+            NSData *imageData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:nil];
+            if (imageData){
+                image  = [UIImage imageWithData:imageData];
+                
+                if (appDelegate.isiPhone){
+                     image  = [Utilities imageResize:image andResizeTo:CGSizeMake(90.0f, 45.0f)];
+                }else{
+                    image  = [Utilities imageResize:image andResizeTo:CGSizeMake(150.0f, 50.0f)];
+                }
+            }
+        }
+    }
+ 
+
+    NSPredicate *predicate =  [NSPredicate predicateWithFormat:@"airlineName like %@", airlineName],
+                          *dPredic = [NSPredicate predicateWithFormat:@"airlineLogoUrlPng like %@", airlineLogoUrlPng];
+    
+ 
+    
+    int arrivalCount = 0,
+    departureCount = 0;
+    
+    NSArray *fArrivals =  [arrivals filteredArrayUsingPredicate:predicate],
+                    *fDepartures = [departures filteredArrayUsingPredicate:dPredic];
+    
+    if (fArrivals){
+        arrivalCount = fArrivals.count;
+    }
+
+    if (fDepartures){
+        departureCount = fDepartures.count;
+    }
+    
+    NSDate *today = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                                   dateFormatter.timeStyle = NSDateFormatterNoStyle;
+                                   dateFormatter.dateStyle = NSDateIntervalFormatterShortStyle;
+    
+   NSString *strToday = [dateFormatter stringFromDate:today];
+    
+   finalLocation = [NSString stringWithFormat:@"%lu Arrival(s) | %d Departure(s)",(unsigned long)arrivalCount,departureCount];
+    
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@ Available Flight(s) for %@ ",airlineName,strToday]] ;
+    [cell.detailTextLabel setText:finalLocation];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    cell.accessoryView.tintColor = [UIColor whiteColor];
+    [cell.imageView setImage:image];
+    
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *message   = @"";
-
     @try {
         
         if (cell){
             //This will set the background of all of the views within the tablecell
             cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
-            [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:indexPath.row tableCell:cell];
             
             UIImage *cellImage = nil;
             
             if (appDelegate.isiPhone){
                 cellImage = cell.imageView.image;
                 if (cellImage){
-                    cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90, 45)];
+              //      cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90,50)];
+                    if (cellImage.size.width > 200.0f){
+                        cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(80,cellImage.size.height / 2)];
+                        [cell.imageView setImage:cellImage];
+                    }
                 }
-                /*    [cell.imageView setImage:cellImage];
-                 [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:14.0f]];
-                 [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:12.0f]];*/
-            }        }
+        
+               [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:12.0f]];
+               [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];
+            }else{
+                
+             /*   [cell.imageView setFrame:CGRectMake( cell.imageView.frame.size.width/3 - 15.0f,  cell.imageView.frame.origin.y,
+                                                          cell.imageView.frame.size.width, cell.imageView.frame.size.height)];*/
+            }
+            
+        
+        }
         
     }
     @catch (NSException *exception) {
@@ -545,88 +555,24 @@
     }
     
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-       [self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
-}
 
 
--(void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    NSString *message  =@"",
-                    *hotelName = @"",
-                    *pShuttle = @"",
-                    *shuttleName = @"";
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIAlertView *alert = nil;
+ 
+    FidsData *fData =  (FidsData*) [airlines objectAtIndex:indexPath.row];
     
-    BOOL hasSelection = NO;
+    airlineName = fData.airlineName;
+    airlineLogo = fData.airlineLogoUrlPng;
     
-    @try {
-        hotelName =  [hotels objectAtIndex:indexPath.row];
-        
-        shuttleName = selectedShuttle;
-        
-        if ([shuttles containsObject:pShuttle]){
-            hasSelection = YES;
-        }
-    
-        
-        if (! shuttleName && ! hasSelection){
-            message = [NSString stringWithFormat:@"Press Ok To Contact %@'s Shuttle Service", hotelName];
-        
-            alert =[ [UIAlertView alloc] initWithTitle:hotelName
-                                                            message:message
-                                                            delegate:self
-                                                cancelButtonTitle:@"Cancel"
-                                                otherButtonTitles:@"Ok", nil];
-            
-        selectedShuttle = hotelName;
-            
-        }else{
-            
-            
-            
-            alert =[ [UIAlertView alloc] initWithTitle:@"Airport shuttle services have already been contacted."
-                                               message:@"Please contact the hotel directly for any additional questions or concerns."
-                                              delegate:self
-                                     cancelButtonTitle:@"Ok"
-                                     otherButtonTitles:nil, nil];
-        }
-        
-        if (alert){
-            [alert show];
-        }
-        
+    if (appDelegate){
+        [appDelegate setSelectedAirlineName:airlineName];
+        [appDelegate setSelectedAirlineLogo:airlineLogo];
     }
-    @catch (NSException *exception) {
-        message = [exception description];
-    }
-    @finally {
-        if ([message length] > 0){
-            NSLog(@"%@",message);
-        }
-        message = @"";
-        alert = nil;
-    }
+    
+    
 }
 
-- (IBAction)actionReserveClicked:(UIButton *)sender {
-    UIAlertView *alert = nil;
-    @try {
-        alert = [[UIAlertView alloc] initWithTitle:@"OrderMyServiceNow.Com"
-                                           message:@"Coming soon..."
-                                          delegate:self
-                                 cancelButtonTitle:@"Ok"
-                                 otherButtonTitles:nil, nil];
-        
-        [alert show];
-    }
-    @catch (NSException *exception) {
-        
-    }
-    @finally {
-        alert = nil;
-    }
-}
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     NSInteger sectionCount = 1  ;
@@ -634,28 +580,14 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger rowCount = 1;
-    
+    NSInteger rowCount = 0;
     switch (section) {
-        case 0:
-            rowCount = 9 ;
-            break;
-    }
+     case 0:
+            rowCount = airlines.count;
+     break;
+
+     }
     return rowCount;
-}
-
--(void) viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self checkOrderCount];
-}
-
--(void) viewDidLoad{
-    [super viewDidLoad];
-    if (! appDelegate){
-        appDelegate = [AppDelegate currentDelegate];
-    }
-    [self initTableView];
-    [self.navigationItem setTitleView:[self getSpecialTitleView:@"Airport Hotel Shuttle Services"]];
 }
 
 -(UIView*) getSpecialTitleView: (NSString*) anyTitle{
@@ -665,9 +597,9 @@
         titleView = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 65.0f)];
         [titleView setBackgroundColor:[UIColor clearColor]];
         [titleView setNumberOfLines:0];
-        [titleView setTextColor:[UIColor blackColor]];
-        [titleView setTextAlignment:NSTextAlignmentJustified];
-        [titleView setFont:[UIFont fontWithName:@"Avenir Roman" size:18.0f]];
+        [titleView setTextColor:kTitleColor];
+        [titleView setTextAlignment:NSTextAlignmentCenter];
+        [titleView setFont:[UIFont fontWithName:kTitleFont size:kTitleSize]];
         [titleView setText:anyTitle];
     }
     @catch (NSException *exception) {
@@ -681,5 +613,51 @@
     }
     return titleView;
 }
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self checkOrderCount];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    if (! appDelegate){
+        appDelegate = [AppDelegate currentDelegate];
+    }
+    
+    if (appDelegate){
+        airlines = [appDelegate.airlines objectForKey:@"Airlines"];
+        arrivals = [appDelegate.arrivals objectForKey:@"Arrivals"];
+        departures = [appDelegate.departures objectForKey:@"Departures"];
+    }
+    
+    [self initTableView];
+    [self.navigationItem setTitleView:[self getSpecialTitleView:@"Available Airlines"]];
+    // Do any additional setup after loading the view.
+    //[self roundLabel];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    FlightsViewController *fVC = (FlightsViewController *) [segue destinationViewController];
+    if (fVC){
+        [appDelegate setSelectedAirlineName:airlineName];
+        [appDelegate setSelectedAirlineLogo:airlineLogo];
+    }
+    
+}
+
 
 @end

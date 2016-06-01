@@ -10,9 +10,9 @@
 #import "Constants.h"
 
 
-@interface FlightsViewController : UITableViewController
+@interface AirlinesViewController : UITableViewController
 
 
-@property (nonatomic, strong) NSString  *AirLineName;
-@property (nonatomic, strong) NSString  *AirLineLogoURL;
+
+
 @end

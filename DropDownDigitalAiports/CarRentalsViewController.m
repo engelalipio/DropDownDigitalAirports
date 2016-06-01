@@ -489,8 +489,8 @@
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     UIAlertView *alert = nil;
     @try {
-        alert = [[UIAlertView alloc] initWithTitle:@"Reserve, Order and Pay"
-                                           message:@"Coming soon..."
+        alert = [[UIAlertView alloc] initWithTitle:@"OrderMyServiceNow.Com"
+                                           message:@"Coming Soon..."
                                           delegate:self
                                  cancelButtonTitle:@"Ok"
                                  otherButtonTitles:nil, nil];

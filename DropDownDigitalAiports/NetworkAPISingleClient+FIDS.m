@@ -32,9 +32,9 @@ completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     NetworkAPISingleClient *api = nil;
     
     @try {
- 
+
     
-        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true",kFlightStatsBaseURL,kFlightStatsArrivalURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
+        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",kFlightStatsBaseURL,kFlightStatsArrivalURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
         
         servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:kFlightStatsAirport];
         
@@ -83,7 +83,7 @@ completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     @try {
         
         
-        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true",
+        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",
                         kFlightStatsBaseURL,kFlightStatsDepartureURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
         
         servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:kFlightStatsAirport];

@@ -27,7 +27,9 @@
 @end
 
 @implementation FlightsViewController
- 
+@synthesize AirLineName = _AirLineName;
+@synthesize AirLineLogoURL = _AirLineLogoURL;
+
 - (CGRect)approximateFrameForTabBarItemAtIndex:(NSUInteger)barItemIndex inTabBar:(UITabBar *)tabBar {
     
     CGRect tabBarRect;
@@ -370,7 +372,7 @@
     UILabel *header = nil;
     NSInteger size = 20.0f;
     
-    NSTextAlignment alignment = NSTextAlignmentRight;
+    NSTextAlignment alignment = NSTextAlignmentCenter;
     
     
     if (appDelegate.isiPhone){
@@ -384,7 +386,7 @@
             [header setTextAlignment:alignment];
             [header setTextColor:[UIColor whiteColor]];
             [header setBackgroundColor:[UIColor blackColor]];
-            [header setText:[NSString stringWithFormat:@"%lu Arrival Times",(unsigned long)arrivals.count]];
+            [header setText:[NSString stringWithFormat:@"%lu Arrival Time(s)",(unsigned long)arrivals.count]];
             break;
 
         case 1:
@@ -393,7 +395,7 @@
             [header setTextColor:[UIColor whiteColor]];
             [header setTextAlignment:alignment];
             [header setBackgroundColor:[UIColor blackColor]];
-            [header setText:[NSString stringWithFormat:@"%lu Departure Times",(unsigned long)departures.count]];
+            [header setText:[NSString stringWithFormat:@"%lu Departure Time(s)",(unsigned long)departures.count]];
             break;
     }
     return header;
@@ -431,7 +433,7 @@
             
         case 1:
             fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
-            destinationFamiliarName = [NSString stringWithFormat:@"Departing to %@ at %@", [fidsData destinationFamiliarName],[fidsData currentTime]];
+            destinationFamiliarName = [NSString stringWithFormat:@"Departing to %@ at %@", [fidsData city],[fidsData currentTime]];
             break;
     }
     
@@ -608,7 +610,7 @@
                        *weatherIMG = nil;
     
     
-        NSArray *weatherData = [[NSArray alloc] initWithObjects:@"Sunny", @"Rainy", @"Windy", @"Overcast", @"Snow", @"Cloudy", @"Sleet", nil],
+        NSArray *weatherData = [[NSArray alloc] initWithObjects:@"Sunny", @"Rainy", @"Windy", @"Overcast",@"Cloudy", @"Snow",  @"Sleet", nil],
         
                         *instArrData = [[NSArray alloc] initWithObjects:@"Luggage Being Loaded to Baggage Belt", @"Landed", @"Delayed", nil],
         
@@ -619,7 +621,7 @@
                         *planeData = [[NSArray alloc] initWithObjects:@"Boeing 737 AirBus", @"Boeing 747-8",@"Boeing 727 AirMax",
                                                                                                     @"Boeing 777-X", @"Boeing 777 AirBus",  nil];
        
-        NSInteger imageId =  arc4random_uniform(weatherData.count),
+        NSInteger imageId =  arc4random_uniform(weatherData.count - 2),
                          statusId  = arc4random_uniform(statusData.count),
                          instArrId = arc4random_uniform(instArrData.count),
                          instDepId = arc4random_uniform(instDepData.count),
@@ -657,10 +659,10 @@
                   weatherIMG = [UIImage imageNamed:@"partly_cloudy_day-100.png"];
                 break;
             case 4:
-                  weatherIMG = [UIImage imageNamed:@"snow-100.png"];
-                break;
+                weatherIMG = [UIImage imageNamed:@"clouds-100.png"];
+                    break;
             case 5:
-                  weatherIMG = [UIImage imageNamed:@"clouds-100.png"];
+                weatherIMG = [UIImage imageNamed:@"snow-100.png"];
                 break;
             case 6:
                   weatherIMG = [UIImage imageNamed:@"sleet-100.png"];
@@ -750,7 +752,7 @@
                 fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
                 isDeparture = YES;
                 arr_depImg = [UIImage imageNamed:@"airplane_takeoff-100.png"];
-                status = [fidsData remarksCode];
+                status = [fidsData remarks];
                 fligthDetail = flight;
                 /*if ([status isEqualToString:@"Departed"] || [status isEqualToString:@"Taxiing"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Departing" withString:@"Departed"];
@@ -763,7 +765,12 @@
                 [item.FlightValue setText:fligthDetail];
                 [item.AircraftLabel setText:@"Baggage Claim: "];
                 
-                aircraft = fidsData.weather;
+                aircraft = weather;
+                
+                if (fidsData.weather){
+                    aircraft = weather;
+                }
+                
                 [item.AircraftLabel setText:@"Weather: "];
                 [item.AircraftValue setText:aircraft];
                 break;
@@ -877,11 +884,19 @@
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 2  ;
+    NSInteger sectionCount = 0  ;
     /*
       1- Arrivals
       2- Departures
      */
+    
+    if (arrivals.count > 0){
+        sectionCount ++ ;
+    }
+    
+    if (departures.count > 0){
+        sectionCount++;
+    }
     return sectionCount;
 }
 
@@ -935,7 +950,34 @@
     
     if (appDelegate){
         arrivals = [appDelegate.arrivals objectForKey:@"Arrivals"];
+        
+        self.AirLineName = appDelegate.selectedAirlineName;
+        
+        if (arrivals){
+            if (self.AirLineName){
+                NSPredicate *predicate =  [NSPredicate predicateWithFormat:@"airlineName like %@", self.AirLineName];
+                if (predicate){
+                    arrivals = [NSMutableArray arrayWithArray: [arrivals filteredArrayUsingPredicate:predicate]];
+                }
+            }
+        }
+        
+    
+        
         departures = [appDelegate.departures objectForKey:@"Departures"];
+        if (departures){
+            
+            self.AirLineLogoURL = appDelegate.selectedAirlineLogo;
+            
+            if (self.AirLineLogoURL){
+                 NSPredicate *dPredic = [NSPredicate predicateWithFormat:@"airlineLogoUrlPng like %@", self.AirLineLogoURL];
+                
+                if (dPredic){
+                    departures = [NSMutableArray arrayWithArray: [departures filteredArrayUsingPredicate:dPredic]];
+                }
+            }
+        }
+        
     }
     
     [self initTableView];

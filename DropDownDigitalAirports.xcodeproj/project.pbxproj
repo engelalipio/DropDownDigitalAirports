@@ -443,6 +443,10 @@
 		AA8FA9471B2A70BD003E79B4 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AA8FA9361B2A70BD003E79B4 /* iTunesArtwork@2x */; };
 		AAA600FB1BC57BA000F7B4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA600F91BC57BA000F7B4E4 /* Main.storyboard */; };
 		AAA600FD1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */; };
+		AAAF19AC1CFE538900BED8EE /* AirlinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAF19AB1CFE538900BED8EE /* AirlinesViewController.m */; };
+		AAAF19B01CFF7F0200BED8EE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAF19AF1CFF7F0200BED8EE /* MapViewController.m */; };
+		AAAF19B41CFF7FC200BED8EE /* MIA_Parking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAAF19B21CFF7FC200BED8EE /* MIA_Parking.jpg */; };
+		AAAF19B51CFF7FC200BED8EE /* MIA_Gates.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAAF19B31CFF7FC200BED8EE /* MIA_Gates.jpg */; };
 		AAB41B061CF54B050078CB75 /* FidsData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B051CF54B050078CB75 /* FidsData.m */; };
 		AAB41B0A1CF54B7F0078CB75 /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B081CF54B7F0078CB75 /* BaseClass.m */; };
 		AAB41B0E1CF54C480078CB75 /* NetworkAPISingleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B0D1CF54C480078CB75 /* NetworkAPISingleClient.m */; };
@@ -1121,6 +1125,12 @@
 		AA8FA9361B2A70BD003E79B4 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		AAA600FA1BC57BA000F7B4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DropDownDigitalAiports/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewiPhoneController.xib; sourceTree = "<group>"; };
+		AAAF19AA1CFE537C00BED8EE /* AirlinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesViewController.h; sourceTree = "<group>"; };
+		AAAF19AB1CFE538900BED8EE /* AirlinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlinesViewController.m; sourceTree = "<group>"; };
+		AAAF19AE1CFF7F0200BED8EE /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		AAAF19AF1CFF7F0200BED8EE /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		AAAF19B21CFF7FC200BED8EE /* MIA_Parking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MIA_Parking.jpg; sourceTree = "<group>"; };
+		AAAF19B31CFF7FC200BED8EE /* MIA_Gates.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MIA_Gates.jpg; sourceTree = "<group>"; };
 		AAB41B041CF54B050078CB75 /* FidsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FidsData.h; sourceTree = "<group>"; };
 		AAB41B051CF54B050078CB75 /* FidsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FidsData.m; sourceTree = "<group>"; };
 		AAB41B071CF54B7F0078CB75 /* BaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClass.h; sourceTree = "<group>"; };
@@ -1530,6 +1540,7 @@
 		0FF46D5619F88B0200E51218 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AAAF19B11CFF7FB100BED8EE /* Maps */,
 				AAE68BA11B5C30CB00DA7A53 /* Services */,
 				AAE68B7B1B5B0C7B00DA7A53 /* Limos */,
 				AA5199141B557A1900398A4F /* Planes */,
@@ -1850,6 +1861,8 @@
 		0FF46E1619F995A600E51218 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AAAF19AE1CFF7F0200BED8EE /* MapViewController.h */,
+				AAAF19AF1CFF7F0200BED8EE /* MapViewController.m */,
 				0FF46D3419F881FC00E51218 /* CurrencyExchangeViewController.h */,
 				0FF46D3519F881FC00E51218 /* CurrencyExchangeViewController.m */,
 				0FF46D3719F881FC00E51218 /* CarRentalsViewController.h */,
@@ -1864,6 +1877,8 @@
 				0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */,
 				0F2ACD801A01E7AC0028B6E2 /* MenuViewController.h */,
 				0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */,
+				AAAF19AA1CFE537C00BED8EE /* AirlinesViewController.h */,
+				AAAF19AB1CFE538900BED8EE /* AirlinesViewController.m */,
 				0FD438AD1A0B151100A2436F /* FlightsViewController.h */,
 				0FD438AE1A0B151100A2436F /* FlightsViewController.m */,
 				AA6D149A1B6716F000F71348 /* LostLuggageViewController.h */,
@@ -2016,6 +2031,15 @@
 				AA5199591B55E87900398A4F /* Rental_9.jpg */,
 			);
 			name = Rentals;
+			sourceTree = "<group>";
+		};
+		AAAF19B11CFF7FB100BED8EE /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				AAAF19B21CFF7FC200BED8EE /* MIA_Parking.jpg */,
+				AAAF19B31CFF7FC200BED8EE /* MIA_Gates.jpg */,
+			);
+			name = Maps;
 			sourceTree = "<group>";
 		};
 		AAB41B0B1CF54BF30078CB75 /* Networking */ = {
@@ -2524,6 +2548,7 @@
 				AA5198551B51EA0A00398A4F /* Rental_7.png in Resources */,
 				AAE68BAD1B5C329300DA7A53 /* Services_5.jpg in Resources */,
 				AA6D13B41B63F7B600F71348 /* AirportShops_3_4.jpg in Resources */,
+				AAAF19B51CFF7FC200BED8EE /* MIA_Gates.jpg in Resources */,
 				AA1AE11D1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib in Resources */,
 				AA8FA8AA1B27E26B003E79B4 /* AirportTerminal_2.png in Resources */,
 				AA51994C1B55A41B00398A4F /* copy-100.png in Resources */,
@@ -2809,6 +2834,7 @@
 				AA88FCF31B51BE290054A65C /* Hotel_0.jpg in Resources */,
 				AA8664AA1B40B0E300CFC7D5 /* City_5.jpg in Resources */,
 				0F4D5D491A8AA8180040DC12 /* banknotes-50.png in Resources */,
+				AAAF19B41CFF7FC200BED8EE /* MIA_Parking.jpg in Resources */,
 				AA5199641B55F70300398A4F /* RentalCar_7.jpg in Resources */,
 				0FF46D4119F881FC00E51218 /* LaunchScreen.xib in Resources */,
 				AAD93DE01B476A84009B354B /* Italian_2.png in Resources */,
@@ -3053,11 +3079,13 @@
 			files = (
 				0FF46DF819F9952A00E51218 /* AFURLConnectionOperation.m in Sources */,
 				0F7270901A1ED68300F9C2E2 /* ShopsViewController.m in Sources */,
+				AAAF19B01CFF7F0200BED8EE /* MapViewController.m in Sources */,
 				0FD438F91A104C4D00A2436F /* ItemViewController.m in Sources */,
 				0FF46DFA19F9952A00E51218 /* UIImageView+AFNetworking.m in Sources */,
 				0FD439011A110DBF00A2436F /* NumberFormatter.m in Sources */,
 				AAE68B8C1B5B0FDD00DA7A53 /* LimosViewController.m in Sources */,
 				0FF46E2019F9979200E51218 /* UIImage+ImageEffects.m in Sources */,
+				AAAF19AC1CFE538900BED8EE /* AirlinesViewController.m in Sources */,
 				AAE1FE601BD96F570006410F /* Utilities.m in Sources */,
 				0FCAD8B51A3B605100BE42E5 /* LanguagesViewController.m in Sources */,
 				0FD438911A047FEA00A2436F /* HorizontalTableViewCell.m in Sources */,

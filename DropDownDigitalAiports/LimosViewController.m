@@ -495,7 +495,7 @@ AppDelegate *appDelegate;
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     UIAlertView *alert = nil;
     @try {
-        alert = [[UIAlertView alloc] initWithTitle:@"Reserve, Order and Pay"
+        alert = [[UIAlertView alloc] initWithTitle:@"OrderMyServiceNow.Com"
                                            message:@"Coming soon..."
                                           delegate:self
                                  cancelButtonTitle:@"Ok"

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreLocation/CoreLocation.h>
 
 enum OrderType {
      OrderTypeDrinks	= 1,
@@ -18,8 +18,8 @@ enum OrderType {
 
 typedef int OrderTypeSelection;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,CLLocationManagerDelegate>
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (assign,nonatomic) Boolean isDynamic;
 
 @property (assign,nonatomic) Boolean isSent;
@@ -31,6 +31,8 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) NSString *language;
+@property (strong, nonatomic) NSString *selectedAirlineName;
+@property (strong, nonatomic) NSString *selectedAirlineLogo;
 
 @property (strong, nonatomic) NSString *restaurantTable;
 @property (strong, nonatomic) NSString *restaurantName;
@@ -42,6 +44,7 @@ typedef int OrderTypeSelection;
 @property (nonatomic, assign) NSInteger currentOrderItems;
 @property (strong, nonatomic) NSMutableDictionary *arrivals;
 @property (strong, nonatomic) NSMutableDictionary *departures;
+@property (strong, nonatomic) NSMutableDictionary  *airlines;
 
 @property (strong, nonatomic) NSMutableDictionary *drinkItems;
 @property (strong, nonatomic) NSMutableDictionary *appItems;

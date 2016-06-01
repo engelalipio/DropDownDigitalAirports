@@ -808,21 +808,31 @@
 }
 
 - (IBAction)actionReserveClicked:(UIButton *)sender {
-    UIAlertView *alert = nil;
+    NSURL  *url= nil;
+    
+    NSString *message= @"",
+                    *launchURL = @"";
+    
     @try {
-        alert = [[UIAlertView alloc] initWithTitle:@"Reserve, Order and Pay"
-                                           message:@"Coming soon..."
-                                          delegate:self
-                                 cancelButtonTitle:@"Ok"
-                                 otherButtonTitles:nil, nil];
         
-        [alert show];
+        
+        launchURL =kOMPN;
+        
+        url=  [[NSURL alloc] initWithString:launchURL];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]){
+            message = [NSString stringWithFormat:@"Launching OMPN App-> %@",url];
+        }else{
+            url=  [[NSURL alloc] initWithString:kOMTN];
+            message = [NSString stringWithFormat:@"Launching OMPN Web-> %@",url];
+        }
+        [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
-        
+        message = exception.description;
     }
     @finally {
-        alert = nil;
+        url = nil;
     }
 }
 
