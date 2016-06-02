@@ -281,7 +281,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ItemViewController *item = [[ItemViewController alloc] init];
-    
+        [item setFoodType:Terminal];
     NSString *price = @"$0.00",
                     *title = @"",
                     *data  = @"",
@@ -444,7 +444,7 @@
             
         }
         [item.Arrival_DepartureValue setText:cuisine];
-        NSString *locationLabel = (appDelegate.isiPhone? @"Location:\n" : @"Location: ");
+        NSString *locationLabel = (appDelegate.isiPhone? @"Location: " : @"Location: ");
         
         [item.TerminalLabel setText:locationLabel];
  
@@ -456,7 +456,9 @@
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad
+                    
                     if (desc.length > 90){
+                        [item.TerminalLabel setText: [NSString stringWithFormat:@"%@\n",item.TerminalLabel.text]];
                         [item.TerminalValue setFont:[UIFont systemFontOfSize:13.0f]];
                     }
                     break;

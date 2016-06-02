@@ -447,7 +447,7 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ItemViewController *item = [[ItemViewController alloc] init];
-    
+    [item setFoodType:Hotel];
     NSString *price = @"$0.00",
                     *title = @"",
                     *data  = @"",
@@ -640,14 +640,15 @@
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad
-                    break;
-                    
-                default:
+               
                     hotelDistanceLabel = @"Hotel\nDistance:";
                     hours = [NSString stringWithFormat:@"\n%@",hours];
                     hotelAddressLabel =  @"Hotel\nAddress:";
-                    phone = [NSString stringWithFormat:@"\n%@",phone];
+                   
                     item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
+                    break;
+                     default:
+                    phone = [NSString stringWithFormat:@"\n%@",phone];
                     break;
                     
             }

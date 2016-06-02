@@ -576,7 +576,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ItemViewController *item = [[ItemViewController alloc] init];
-    
+    [item setFoodType:Dining];
     NSString *price = @"$0.00",
                     *title = @"",
                     *data  = @"",
@@ -679,7 +679,7 @@
         [item.weatherIMGView setHidden:YES];
         
         [item.ArrDepIMGView setImage:[UIImage imageNamed:@"food-100.png"]];
-        [item setFoodType:Dining];
+
      
         
         NSArray *cuisines = [[NSArray alloc] initWithObjects: @"American", @"Steakhouse", @"Chinese", @"Seafood", @"Italian",@"Burgers and Fries",@"Latin", @"Thai",@"Mexican", nil],

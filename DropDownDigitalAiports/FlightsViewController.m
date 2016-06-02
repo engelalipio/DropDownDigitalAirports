@@ -515,8 +515,9 @@
             
             if (appDelegate.isiPhone){
                 cellImage = cell.imageView.image;
+                 /*
                 if (cellImage){
-              //      cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90,50)];
+                   cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90,50)];
                     if (cellImage.size.width > 200.0f){
                         cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(80,cellImage.size.height / 2)];
                         [cell.imageView setImage:cellImage];
@@ -524,7 +525,7 @@
                 }
         
                [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:12.0f]];
-                [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];
+                [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];*/
             }
             
         
@@ -544,9 +545,8 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ItemViewController *item = [[ItemViewController alloc] init];
-    
+    [item setFoodType:Flight];
 
-    
     NSString
                     *flight = @"",
                     *gate  = @"",
@@ -556,8 +556,10 @@
                     *randomImgName = [NSString stringWithFormat:@"%@_%d.jpg", flightType, indexPath.row];
     
     int imgIdx =  arc4random_uniform(appDelegate.flightbackgrounds.count);
-    
+ 
     UIImage *image = [Utilities getParseImage:appDelegate.flightbackgrounds anyIndex:imgIdx];
+    
+ 
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     
@@ -671,8 +673,9 @@
         }
         
         [item.TerminalLabel setNumberOfLines:0];
-        [item.TerminalLabel setText:@"Terminal/Gate: "];
- 
+        if (! appDelegate.isiPhone){
+            [item.TerminalLabel setText:@"Terminal/Gate: "];
+        }
     
         [item.WeatherValue setText:weather];
         [item.WeatherValue setHidden:YES];
@@ -691,7 +694,6 @@
         [item.Arrival_DepartureValue setHidden:YES];
         
 
-        
         UIImage *arr_depImg = nil,
                        *tempIMG     = [UIImage imageNamed:@"temperature-100.png"],
                        *airlineIMG   =  selectedCell.imageView.image;
@@ -701,7 +703,8 @@
         if (tempHId > 50){
             tempIMG =   [UIImage imageNamed:@"temperature_filled-100.png"];
         }
-        NSString *fligthDetail = @"";
+        NSString *fligthDetail = @"",
+                        *flightNumber = @"";
         BOOL isDeparture = NO;
         
         FidsData *fidsData = [[FidsData alloc] init];
@@ -714,37 +717,57 @@
                fidsData = [FidsData objectFromJSONObject:[arrivals objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
                 arr_depImg = [UIImage imageNamed:@"airplane_land-100.png"];
                 status = [fidsData remarksCode];
-                [item.AircraftLabel setText:@"Baggage Claim: "];
+                flightNumber = fidsData.flightNumber;
+                
+                if (! appDelegate.isiPhone){
+                    [item.AircraftLabel setText:@"Baggage Claim: "];
+                }
+                else
+                {
+                    [item.AircraftLabel setText:@"Baggage\nClaim: "];   
+                }
 
                 instArr =fidsData.baggage;
+                bool isMissing = false;
                 if (! instArr){
-                    instArr = @"tbd";
+                    instArr = @"Carousel Information To Be Determined";
+                    isMissing = true;
+                }else{
+                   instArr = [NSString stringWithFormat:@"Carousel %@",instArr];
                 }
                 
-                [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel #%@", instArr]];
-
-                fligthDetail = flight;
-                /*if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
-                    fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Arriving" withString:@"Arrived"];
-                    fligthDetail = [NSString stringWithFormat:@"%@ at %@",fligthDetail,time];
- 
-                }else{
- 
-                    fligthDetail = [NSString stringWithFormat:@"%@ at %@",flight,time];
- 
-                    fligthDetail = [fligthDetail  stringByReplacingOccurrencesOfString:@"Arriving from" withString:@"Scheduled to Arrive From"];
-                }*/
-               
+                if (! appDelegate.isiPhone){
+                    [item.AircraftValue setText:[NSString stringWithFormat:@"%@", instArr]];
+                }
+                else
+                {
+                    [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",instArr]];
+                }
+            
                 
-                [item.FlightLabel setText:@"Arrival Details:"];
+                 fligthDetail = [NSString stringWithFormat:@"Flight %@ is %@",flightNumber, flight];
+                
+                if (! appDelegate.isiPhone){
+                    [item.FlightLabel setText:@"Arrival Details:"];
+                }
+                else
+                {
+                    [item.FlightLabel setText:@"Arrival\nDetails:"];
+                //    fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"from " withString:@"from\n"];
+                }
+                
+                fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"is Arrived" withString:@"has Arrived"];
+                if (appDelegate.isiPhone && fligthDetail.length <= 43){
+                    fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                }
                 [item.FlightValue setText:fligthDetail];
-                
+
                 if ([status isEqualToString:@"Luggage Being Loaded to Baggage Belt"] || [status isEqualToString:@"Landed"]){
                     NSInteger iC = arc4random_uniform(13);
                     if (iC == 0){
                         iC = 1;
                     }
-                    [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel #%ld",(long)iC]];
+                    [item.AircraftValue setText:[NSString stringWithFormat:@"Carousel %ld",(long)iC]];
                 }
                 break;
                 //Departures
@@ -753,6 +776,7 @@
                 isDeparture = YES;
                 arr_depImg = [UIImage imageNamed:@"airplane_takeoff-100.png"];
                 status = [fidsData remarks];
+                flightNumber = fidsData.flightNumber;
                 fligthDetail = flight;
                 /*if ([status isEqualToString:@"Departed"] || [status isEqualToString:@"Taxiing"]){
                     fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Departing" withString:@"Departed"];
@@ -761,10 +785,23 @@
                     fligthDetail = [NSString stringWithFormat:@"%@ at %@",flight,time];
                     fligthDetail = [fligthDetail  stringByReplacingOccurrencesOfString:@"Departing to" withString:@"Scheduled To Depart To"];
                 }*/
-                [item.FlightLabel setText:@"Departure Details:"];
-                [item.FlightValue setText:fligthDetail];
-                [item.AircraftLabel setText:@"Baggage Claim: "];
+
+                fligthDetail = [NSString stringWithFormat:@"Flight %@ Is %@",flightNumber, flight];
                 
+                if (! appDelegate.isiPhone){
+                    [item.FlightLabel setText:@"Departure Details:"];
+                }
+                else
+                {
+                    [item.FlightLabel setText:@"Departure\nDetails:"];
+                  //  fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"to " withString:@"to\n"];
+                }
+                fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"Is Departed" withString:@"Has Departed"];
+                if (appDelegate.isiPhone && fligthDetail.length <= 43){
+                    fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                }
+                [item.FlightValue setText:fligthDetail];
+            
                 aircraft = weather;
                 
                 if (fidsData.weather){
@@ -800,9 +837,9 @@
                     }
                     
                   if (item.FlightValue.text.length >= 43){
- 
-                      item.FlightLabel.text =   [NSString stringWithFormat:@"%@\n", item.FlightLabel.text];
-                       //   item.FlightValue.text =   [NSString stringWithFormat:@"\n%@", item.FlightValue.text];
+                   // item.FlightValue.text =   [NSString stringWithFormat:@"\n%@", item.FlightValue.text];
+                  //    item.FlightLabel.text =   [NSString stringWithFormat:@"%@\n", item.FlightLabel.text];
+                     
      
                       /*
                        
@@ -835,14 +872,14 @@
             instructions  = [NSString stringWithFormat:@"Flight %@", [titleData lastObject]];
             [item.TerminalValue setNumberOfLines:0];
             if (appDelegate.isiPhone){
-               // gateFinal =  [NSString stringWithFormat:@"\n%@",[titleData firstObject]];
+                gateFinal =  [NSString stringWithFormat:@"\n%@",[titleData firstObject]];
                 switch (appDelegate.screenHeight) {
                     case 736:
                         //keep as ipad
                         
-                        if (status.length <= 20){
+                       /* if (status.length <= 20){
                             status = [NSString stringWithFormat:@"%@\n",status];
-                        }
+                        }*/
                         
                         break;
                         
@@ -853,6 +890,7 @@
             
 
             }
+            gateFinal = [gateFinal stringByReplacingOccurrencesOfString:@"tbd" withString:@"To Be Determined"];
             [item.TerminalValue setText:gateFinal];
         }
         

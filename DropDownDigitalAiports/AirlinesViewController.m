@@ -527,8 +527,8 @@
             
             if (appDelegate.isiPhone){
                 cellImage = cell.imageView.image;
-                if (cellImage){
-              //      cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90,50)];
+               /* if (cellImage){
+                   cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(90,50)];
                     if (cellImage.size.width > 200.0f){
                         cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(80,cellImage.size.height / 2)];
                         [cell.imageView setImage:cellImage];
@@ -536,7 +536,7 @@
                 }
         
                [cell.textLabel setFont:[UIFont fontWithName: @"Avenir Next Medium" size:12.0f]];
-               [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];
+               [cell.detailTextLabel setFont:[UIFont fontWithName: @"Avenir Next" size:11.0f]];*/
             }else{
                 
              /*   [cell.imageView setFrame:CGRectMake( cell.imageView.frame.size.width/3 - 15.0f,  cell.imageView.frame.origin.y,

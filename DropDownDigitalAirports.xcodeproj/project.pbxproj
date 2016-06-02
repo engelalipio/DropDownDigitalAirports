@@ -447,6 +447,7 @@
 		AAAF19B01CFF7F0200BED8EE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAF19AF1CFF7F0200BED8EE /* MapViewController.m */; };
 		AAAF19B41CFF7FC200BED8EE /* MIA_Parking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAAF19B21CFF7FC200BED8EE /* MIA_Parking.jpg */; };
 		AAAF19B51CFF7FC200BED8EE /* MIA_Gates.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAAF19B31CFF7FC200BED8EE /* MIA_Gates.jpg */; };
+		AAAF19B71D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAAF19B61D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib */; };
 		AAB41B061CF54B050078CB75 /* FidsData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B051CF54B050078CB75 /* FidsData.m */; };
 		AAB41B0A1CF54B7F0078CB75 /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B081CF54B7F0078CB75 /* BaseClass.m */; };
 		AAB41B0E1CF54C480078CB75 /* NetworkAPISingleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B0D1CF54C480078CB75 /* NetworkAPISingleClient.m */; };
@@ -1131,6 +1132,7 @@
 		AAAF19AF1CFF7F0200BED8EE /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AAAF19B21CFF7FC200BED8EE /* MIA_Parking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MIA_Parking.jpg; sourceTree = "<group>"; };
 		AAAF19B31CFF7FC200BED8EE /* MIA_Gates.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MIA_Gates.jpg; sourceTree = "<group>"; };
+		AAAF19B61D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemFlightViewiPhoneController_6Plus.xib; sourceTree = "<group>"; };
 		AAB41B041CF54B050078CB75 /* FidsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FidsData.h; sourceTree = "<group>"; };
 		AAB41B051CF54B050078CB75 /* FidsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FidsData.m; sourceTree = "<group>"; };
 		AAB41B071CF54B7F0078CB75 /* BaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClass.h; sourceTree = "<group>"; };
@@ -1358,6 +1360,7 @@
 				0FD438F81A104C4D00A2436F /* ItemViewController.xib */,
 				AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */,
 				AA1AE11C1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib */,
+				AAAF19B61D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib */,
 				AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */,
 				0F2ACD2E19FAC4AE0028B6E2 /* HeaderImageCell.h */,
 				0F2ACD2F19FAC4AE0028B6E2 /* HeaderImageCell.m */,
@@ -2623,6 +2626,7 @@
 				AA88FCC71B509A2C0054A65C /* Rental_2.png in Resources */,
 				AA6D13A41B63F3FF00F71348 /* AirportShops_0_3.jpg in Resources */,
 				AAD93E081B484E6B009B354B /* pos_terminal-100.png in Resources */,
+				AAAF19B71D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib in Resources */,
 				0FCAD8EE1A3E2F8C00BE42E5 /* settings3-256.png in Resources */,
 				0FF46D9A19F8902F00E51218 /* wine-50.png in Resources */,
 				0FCAD8E31A3E1A2300BE42E5 /* DUTCH.png in Resources */,

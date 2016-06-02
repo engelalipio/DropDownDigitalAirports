@@ -339,6 +339,7 @@
     
     NSString *message = @"";
    
+
     @try {
         
         switch (anyOrientation) {
@@ -353,6 +354,11 @@
                     switch (appDelegate.screenHeight) {
                         case 736:
                             message = kItemViewiPhone6PlusPortrait;
+                            
+                            if (_foodType == Flight){
+                            message = kItemFlightViewIPhone6PlusPortrait;
+                            }
+                            
                             break;
                             
                         default:
@@ -368,8 +374,6 @@
         self.view = [[NSBundle mainBundle] loadNibNamed:message owner:self options:nil][0];
 
         currentOrientation = anyOrientation;
-        
- 
         
     }
     @catch (NSException *exception) {

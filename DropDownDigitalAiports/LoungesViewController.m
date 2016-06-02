@@ -460,7 +460,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ItemViewController *item = [[ItemViewController alloc] init];
-    
+    [item setFoodType:Lounge];
     NSString *price = @"$0.00",
                     *title = @"",
                     *data  = @"",
