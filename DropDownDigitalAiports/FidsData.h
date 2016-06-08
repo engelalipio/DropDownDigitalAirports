@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *destinationFamiliarName;
 @property (nonatomic, strong) NSString *flightNumber;
 @property (nonatomic, strong) NSString *weather;
+@property (nonatomic, strong) NSString *temperatureF;
 @property (nonatomic, strong) NSString *remarksCode;
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
  

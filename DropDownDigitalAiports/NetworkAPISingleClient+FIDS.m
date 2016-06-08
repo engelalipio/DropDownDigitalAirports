@@ -83,12 +83,12 @@ completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     @try {
         
         
-        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",
+        servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",
                         kFlightStatsBaseURL,kFlightStatsDepartureURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
         
         servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:kFlightStatsAirport];
         
-        NSLog(@"Invoking::retrieveArrivals::%@",servicePath);
+        NSLog(@"Invoking::Departures::%@",servicePath);
         
         url = [[NSURL alloc] initWithString:kFlightStatsBaseURL];
         

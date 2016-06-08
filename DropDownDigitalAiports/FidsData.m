@@ -16,10 +16,13 @@ NSString *const kFidsDataAirlineLogoUrlPng = @"airlineLogoUrlPng";
 NSString *const kFidsDataGate = @"gate";
 NSString *const kFidsDataFlightNumber = @"flightNumber";
 NSString *const kFidsDataWeather = @"weather";
+NSString *const kFidsDataTemperatureF = @"temperatureF";
 NSString *const kFidsDataTerminal = @"terminal";
 NSString *const kFidsDataBaggage = @"baggage";
 NSString *const kFidsDataDestinationFamiliarName = @"destinationFamiliarName";
 NSString *const kFidsDataRemarksCode = @"remarksCode";
+
+
 @interface FidsData ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
@@ -40,6 +43,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
 @synthesize baggage = _baggage;
 @synthesize destinationFamiliarName = _destinationFamiliarName;
 @synthesize remarksCode = _remarksCode;
+@synthesize temperatureF = _temperatureF;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -61,6 +65,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
             self.gate = [self objectOrNilForKey:kFidsDataGate fromDictionary:dict];
             self.flightNumber = [self objectOrNilForKey:kFidsDataFlightNumber fromDictionary:dict];
             self.weather = [self objectOrNilForKey:kFidsDataWeather fromDictionary:dict];
+            self.temperatureF = [self objectOrNilForKey:kFidsDataTemperatureF fromDictionary:dict];
             self.terminal = [self objectOrNilForKey:kFidsDataTerminal fromDictionary:dict];
             self.baggage = [self objectOrNilForKey:kFidsDataBaggage fromDictionary:dict];
             self.destinationFamiliarName = [self objectOrNilForKey:kFidsDataDestinationFamiliarName fromDictionary:dict];
@@ -82,6 +87,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
     [mutableDict setValue:self.gate forKey:kFidsDataGate];
     [mutableDict setValue:self.flightNumber forKey:kFidsDataFlightNumber];
     [mutableDict setValue:self.weather forKey:kFidsDataWeather];
+    [mutableDict setValue:self.temperatureF forKey:kFidsDataTemperatureF];
     [mutableDict setValue:self.terminal forKey:kFidsDataTerminal];
     [mutableDict setValue:self.baggage forKey:kFidsDataBaggage];
     [mutableDict setValue:self.destinationFamiliarName forKey:kFidsDataDestinationFamiliarName];
@@ -117,6 +123,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
     self.gate = [aDecoder decodeObjectForKey:kFidsDataGate];
     self.flightNumber = [aDecoder decodeObjectForKey:kFidsDataFlightNumber];
     self.weather = [aDecoder decodeObjectForKey:kFidsDataWeather];
+    self.temperatureF = [aDecoder decodeObjectForKey:kFidsDataTemperatureF];
     self.terminal = [aDecoder decodeObjectForKey:kFidsDataTerminal];
     self.baggage = [aDecoder decodeObjectForKey:kFidsDataBaggage];
     self.destinationFamiliarName = [aDecoder decodeObjectForKey:kFidsDataDestinationFamiliarName];
@@ -136,6 +143,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
     [aCoder encodeObject:_gate forKey:kFidsDataGate];
     [aCoder encodeObject:_flightNumber forKey:kFidsDataFlightNumber];
     [aCoder encodeObject:_weather forKey:kFidsDataWeather];
+    [aCoder encodeObject:_temperatureF forKey:kFidsDataTemperatureF];
     [aCoder encodeObject:_terminal forKey:kFidsDataTerminal];
     [aCoder encodeObject:_baggage forKey:kFidsDataBaggage];
     [aCoder encodeObject:_destinationFamiliarName forKey:kFidsDataDestinationFamiliarName];
@@ -156,6 +164,7 @@ NSString *const kFidsDataRemarksCode = @"remarksCode";
         copy.gate = [self.gate copyWithZone:zone];
         copy.flightNumber = [self.flightNumber copyWithZone:zone];
         copy.weather = [self.weather copyWithZone:zone];
+        copy.temperatureF = [self.temperatureF copyWithZone:zone];
         copy.terminal = [self.terminal copyWithZone:zone];
         copy.baggage = [self.baggage copyWithZone:zone];
         copy.destinationFamiliarName = [self.destinationFamiliarName copyWithZone:zone];

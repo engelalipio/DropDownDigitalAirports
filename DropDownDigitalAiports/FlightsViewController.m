@@ -644,6 +644,7 @@
                         *instArr    = [instArrData objectAtIndex:instArrId],
                         *instDept     = [instDepData objectAtIndex:instDepId],
                         *instructions = @"",
+                        *tempF = @"",
                         *aircraft    = [planeData objectAtIndex:planeId];
         
         
@@ -674,7 +675,7 @@
         
         [item.TerminalLabel setNumberOfLines:0];
         if (! appDelegate.isiPhone){
-            [item.TerminalLabel setText:@"Terminal/Gate: "];
+         //   [item.TerminalLabel setText:@"Terminal/Gate: "];
         }
     
         [item.WeatherValue setText:weather];
@@ -748,7 +749,8 @@
                  fligthDetail = [NSString stringWithFormat:@"Flight %@ is %@",flightNumber, flight];
                 
                 if (! appDelegate.isiPhone){
-                    [item.FlightLabel setText:@"Arrival Details:"];
+              //      [item.FlightLabel setText:@"Arrival Details:"];
+                      [item.FlightLabel setText:@"Arrival\nDetails:"];
                 }
                 else
                 {
@@ -757,8 +759,14 @@
                 }
                 
                 fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"is Arrived" withString:@"has Arrived"];
-                if (appDelegate.isiPhone && fligthDetail.length <= 43){
-                    fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                if (appDelegate.isiPhone){
+                    if ( [fligthDetail length] <= 43){
+                        fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                    }
+                }else{
+                    if ( [fligthDetail length] <= 59){
+                        fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                    }
                 }
                 [item.FlightValue setText:fligthDetail];
 
@@ -774,22 +782,32 @@
             case 1:
                 fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
                 isDeparture = YES;
+                
+                if ([fidsData weather]){
+                    weather = [fidsData weather];
+                }else{
+                   weather = @"n/a";
+                }
+                if ([fidsData temperatureF]){
+                    tempF = [NSString stringWithFormat:@"%@", [fidsData temperatureF]] ;
+                    if (tempF.length > 5){
+                        tempF = [tempF substringToIndex:5];
+                    }
+                }
+                else{
+                    tempF = @"n/a";
+                }
+                weather = [NSString stringWithFormat:@"%@º with %@ Conditions",tempF,weather];
                 arr_depImg = [UIImage imageNamed:@"airplane_takeoff-100.png"];
                 status = [fidsData remarks];
                 flightNumber = fidsData.flightNumber;
                 fligthDetail = flight;
-                /*if ([status isEqualToString:@"Departed"] || [status isEqualToString:@"Taxiing"]){
-                    fligthDetail = [flight stringByReplacingOccurrencesOfString:@"Departing" withString:@"Departed"];
-                    fligthDetail = [NSString stringWithFormat:@"%@ at %@",fligthDetail,time];
-                }else{
-                    fligthDetail = [NSString stringWithFormat:@"%@ at %@",flight,time];
-                    fligthDetail = [fligthDetail  stringByReplacingOccurrencesOfString:@"Departing to" withString:@"Scheduled To Depart To"];
-                }*/
-
+                
                 fligthDetail = [NSString stringWithFormat:@"Flight %@ Is %@",flightNumber, flight];
                 
                 if (! appDelegate.isiPhone){
-                    [item.FlightLabel setText:@"Departure Details:"];
+             //       [item.FlightLabel setText:@"Departure Details:"];
+                      [item.FlightLabel setText:@"Departure\nDetails:"];
                 }
                 else
                 {
@@ -797,19 +815,20 @@
                   //  fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"to " withString:@"to\n"];
                 }
                 fligthDetail = [fligthDetail stringByReplacingOccurrencesOfString:@"Is Departed" withString:@"Has Departed"];
-                if (appDelegate.isiPhone && fligthDetail.length <= 43){
+                if (appDelegate.isiPhone){
+                    if ( fligthDetail.length <= 43){
                     fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                    }
+                }else{
+                    if ( [fligthDetail length] <= 59){
+                        fligthDetail = [NSString stringWithFormat:@"%@\n",fligthDetail];
+                    }
                 }
+                
                 [item.FlightValue setText:fligthDetail];
-            
-                aircraft = weather;
-                
-                if (fidsData.weather){
-                    aircraft = weather;
-                }
-                
+        
                 [item.AircraftLabel setText:@"Weather: "];
-                [item.AircraftValue setText:aircraft];
+                [item.AircraftValue setText:weather];
                 break;
         }
         
@@ -889,6 +908,8 @@
                 }
             
 
+            }else{
+                gateFinal =  [NSString stringWithFormat:@"\n%@",[titleData firstObject]];
             }
             gateFinal = [gateFinal stringByReplacingOccurrencesOfString:@"tbd" withString:@"To Be Determined"];
             [item.TerminalValue setText:gateFinal];

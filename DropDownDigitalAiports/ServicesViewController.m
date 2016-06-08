@@ -90,14 +90,14 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat size = 120.0f;
-    if ((indexPath.row ==  4 || indexPath.row == 9) && (appDelegate.isiPhone)){
+    if ((indexPath.row ==  4 || indexPath.row == 10) && (appDelegate.isiPhone)){
         size = 160.0f;
     }
     return size;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger rows = 10;
+    NSInteger rows = 11;
 
     return    rows;
 }

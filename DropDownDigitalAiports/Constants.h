@@ -36,7 +36,7 @@
 #define kFlightStatsArrivalURI @"{airport}/arrivals"
 #define kFlightStatsDepartureURI @"{airport}/departures"
 #define kFlightStatsAirport @"MIA"
-#define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,destinationFamiliarName"
+#define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,temperatureF,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"
 
@@ -110,6 +110,7 @@
 #define kAnimationSpeed 0.85f
 
 #define kItemViewPortrait @"ItemViewController"
+#define kItemFlightViewPortrait @"ItemFlightViewController"
 #define kItemViewiPhonePortrait @"ItemViewiPhoneController"
 #define kItemViewiPhone6PlusPortrait @"ItemViewiPhoneController_6Plus"
 #define kItemFlightViewIPhone6PlusPortrait @"ItemFlightViewiPhoneController_6Plus"

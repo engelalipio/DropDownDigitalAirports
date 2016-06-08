@@ -350,13 +350,18 @@
             default:
                 //Portrait
                 message = kItemViewPortrait;
+                
+                if (_foodType == Flight){
+                    message = kItemFlightViewPortrait;
+                }
+                
                 if (appDelegate.isiPhone){
                     switch (appDelegate.screenHeight) {
                         case 736:
                             message = kItemViewiPhone6PlusPortrait;
                             
                             if (_foodType == Flight){
-                            message = kItemFlightViewIPhone6PlusPortrait;
+                                message = kItemFlightViewIPhone6PlusPortrait;
                             }
                             
                             break;

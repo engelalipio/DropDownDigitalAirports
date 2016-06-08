@@ -1535,8 +1535,39 @@ Telephone:  1-888-384-6958</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="zoJ-Wz-or8" detailTextLabel="fNw-hd-omp" imageView="hYP-qb-xqT" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="O4e-V0-RQw" userLabel="Wireless (Wi-Fi) Internet">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="Kan-99-H7S" detailTextLabel="Nkh-xM-oo5" imageView="VAc-sY-OyH" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="zVg-mC-qZL" userLabel="Directions">
                                         <rect key="frame" x="0.0" y="844" width="768" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zVg-mC-qZL" id="QSC-rf-wCa">
+                                            <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Directional Location Guide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kan-99-H7S">
+                                                    <rect key="frame" x="250" y="19" width="269.5" height="30.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="View information about Miami terminal, shops, restaurants, services, amenities and more." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nkh-xM-oo5">
+                                                    <rect key="frame" x="250" y="49.5" width="403" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Directions.jpg" id="VAc-sY-OyH">
+                                                    <rect key="frame" x="68" y="0.0" width="167" height="119.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="e4G-qm-o7Z" kind="show" id="GbI-Lw-8Ho"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="zoJ-Wz-or8" detailTextLabel="fNw-hd-omp" imageView="hYP-qb-xqT" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="O4e-V0-RQw" userLabel="Wireless (Wi-Fi) Internet">
+                                        <rect key="frame" x="0.0" y="964" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O4e-V0-RQw" id="Jug-pd-cAW">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1564,7 +1595,7 @@ Telephone:  1-888-384-6958</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="kt8-6E-GK5" detailTextLabel="DSU-22-JST" imageView="709-jA-6S5" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="VOL-TV-ZsQ" userLabel="Children's Play Area">
-                                        <rect key="frame" x="0.0" y="964" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="1084" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOL-TV-ZsQ" id="wEd-b6-iyc">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1592,7 +1623,7 @@ Telephone:  1-888-384-6958</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="fy6-P5-02v" detailTextLabel="p3W-gA-Rwf" imageView="QLM-jo-NT2" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="SJv-hA-EH6" userLabel="Shoe Shine Stations">
-                                        <rect key="frame" x="0.0" y="1084" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="1204" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SJv-hA-EH6" id="qig-Uv-EoR">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1620,7 +1651,7 @@ Telephone:  1-888-384-6958</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="GUf-hv-uQK" detailTextLabel="161-gm-C65" imageView="uCk-NN-nuz" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="fNk-iI-bs7" userLabel="Parking">
-                                        <rect key="frame" x="0.0" y="1204" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="1324" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fNk-iI-bs7" id="cZ7-ox-X9q">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1653,14 +1684,7 @@ Telephone:  1-888-384-6958</string>
                         </sections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Airport Services" id="wTG-88-Jag">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="w1R-vT-PEh">
-                            <color key="tintColor" red="0.1215686275" green="0.2470588235" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="e4G-qm-o7Z" kind="show" id="kd2-Xh-6mb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Airport Services" id="wTG-88-Jag"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GN-CV-6Iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3079,6 +3103,7 @@ Telephone:  1-888-384-6958</string>
         <image name="CarRentals.jpg" width="700" height="500"/>
         <image name="DWILogo.png" width="400" height="100"/>
         <image name="Delta.png" width="240" height="37"/>
+        <image name="Directions.jpg" width="700" height="500"/>
         <image name="ENGLISH.png" width="93" height="63"/>
         <image name="IndiGo_Airlines.png" width="240" height="72"/>
         <image name="Korean_Air.png" width="240" height="29"/>
@@ -3124,14 +3149,14 @@ Telephone:  1-888-384-6958</string>
     <inferredMetricsTieBreakers>
         <segue reference="0iv-O6-VKS"/>
         <segue reference="tJP-0D-Tol"/>
-        <segue reference="vKe-fs-S7W"/>
-        <segue reference="74s-xb-a1G"/>
         <segue reference="KMJ-xx-IwF"/>
+        <segue reference="74s-xb-a1G"/>
         <segue reference="zEC-4U-h7j"/>
-        <segue reference="V3P-2b-HFN"/>
+        <segue reference="vKe-fs-S7W"/>
         <segue reference="aze-Na-iDU"/>
         <segue reference="zRY-xX-kr3"/>
         <segue reference="Jae-ms-EYb"/>
+        <segue reference="V3P-2b-HFN"/>
         <segue reference="Gfh-Ot-UgZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

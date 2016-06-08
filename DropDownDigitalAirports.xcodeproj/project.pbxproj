@@ -453,6 +453,8 @@
 		AAB41B0E1CF54C480078CB75 /* NetworkAPISingleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B0D1CF54C480078CB75 /* NetworkAPISingleClient.m */; };
 		AAB41B111CF559850078CB75 /* NetworkAPISingleClient+FIDS.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB41B101CF559850078CB75 /* NetworkAPISingleClient+FIDS.m */; };
 		AAB6A88A1CE4F26D008F767B /* Varig_Arline.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB6A8891CE4F26D008F767B /* Varig_Arline.png */; };
+		AAC6EEEF1D087A1A0037A6C3 /* Directions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */; };
+		AAC6EF0B1D08BB6C0037A6C3 /* ItemFlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC6EF0A1D08BB6C0037A6C3 /* ItemFlightViewController.xib */; };
 		AAD93DAD1B471868009B354B /* snow-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DAC1B471868009B354B /* snow-100.png */; };
 		AAD93DAF1B471879009B354B /* rain-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DAE1B471879009B354B /* rain-100.png */; };
 		AAD93DB11B47196C009B354B /* fog_day-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DB01B47196C009B354B /* fog_day-100.png */; };
@@ -1144,6 +1146,8 @@
 		AAB41B101CF559850078CB75 /* NetworkAPISingleClient+FIDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkAPISingleClient+FIDS.m"; sourceTree = "<group>"; };
 		AAB6A8891CE4F26D008F767B /* Varig_Arline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Varig_Arline.png; sourceTree = "<group>"; };
 		AAB6A88C1CE4FBFB008F767B /* DropDownDigitalAirports.profdata */ = {isa = PBXFileReference; lastKnownFileType = file; path = DropDownDigitalAirports.profdata; sourceTree = "<group>"; };
+		AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Directions.jpg; sourceTree = "<group>"; };
+		AAC6EF0A1D08BB6C0037A6C3 /* ItemFlightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemFlightViewController.xib; sourceTree = "<group>"; };
 		AAD93DAC1B471868009B354B /* snow-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow-100.png"; sourceTree = "<group>"; };
 		AAD93DAE1B471879009B354B /* rain-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain-100.png"; sourceTree = "<group>"; };
 		AAD93DB01B47196C009B354B /* fog_day-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fog_day-100.png"; sourceTree = "<group>"; };
@@ -1358,6 +1362,7 @@
 				0FD438F61A104C4D00A2436F /* ItemViewController.h */,
 				0FD438F71A104C4D00A2436F /* ItemViewController.m */,
 				0FD438F81A104C4D00A2436F /* ItemViewController.xib */,
+				AAC6EF0A1D08BB6C0037A6C3 /* ItemFlightViewController.xib */,
 				AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */,
 				AA1AE11C1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib */,
 				AAAF19B61D00964E00BED8EE /* ItemFlightViewiPhoneController_6Plus.xib */,
@@ -2224,6 +2229,7 @@
 			isa = PBXGroup;
 			children = (
 				AA20FB3A1B6D3BFC00DEE957 /* AirportShuttle.jpg */,
+				AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */,
 				AA8FA8D61B27F622003E79B4 /* AirportLuggage_1.jpg */,
 			);
 			name = Terminals;
@@ -2540,6 +2546,7 @@
 				AA89A20D1B6C4E3200874971 /* pin_cushion-100.png in Resources */,
 				AAE68AEC1B59F1DA00DA7A53 /* noodles-100.png in Resources */,
 				AA88FCE21B517D080054A65C /* treatment_plan-100.png in Resources */,
+				AAC6EEEF1D087A1A0037A6C3 /* Directions.jpg in Resources */,
 				AAE68B5F1B5AD34B00DA7A53 /* GiftStore_4.jpg in Resources */,
 				AA6D13A81B63F67300F71348 /* AirportShops_1_3.jpg in Resources */,
 				AA8664571B34573100CFC7D5 /* New_Swiss_International_Airlines.png in Resources */,
@@ -2699,6 +2706,7 @@
 				AA8664A61B40B0E300CFC7D5 /* City_1.jpg in Resources */,
 				AAE68BB71B5C342700DA7A53 /* Services_9.jpg in Resources */,
 				AA8664591B34573100CFC7D5 /* AirJapan.png in Resources */,
+				AAC6EF0B1D08BB6C0037A6C3 /* ItemFlightViewController.xib in Resources */,
 				AAE68B701B5AEEC900DA7A53 /* AirportShops_1_0.jpg in Resources */,
 				AA6D13EE1B6419C800F71348 /* tie_filled-100.png in Resources */,
 				0F2ACD4B1A004A590028B6E2 /* gift-32.png in Resources */,
