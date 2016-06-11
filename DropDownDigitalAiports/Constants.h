@@ -5,8 +5,13 @@
 #import "UIColor+ColorWithHexString.h"
 //Providers
 
+#define ProjectOxfordFaceSubscriptionKey  @"a5d41fea7c804f46baff41653dd81f10"
+#define ComputerVisionSubscriptionKey @"fc0a1a92167d4769a7842721df0d776b"
+
+
 #define kOMTNApp @"OMTN://"
 #define kOMPN @"http://www.ordermyproductnow.com"
+#define kOMSN @"http://www.ordermyservicenow.com"
 #define kOMTN @"http://www.ordermytablenow.com"
 #define kDDDM @"http://dropdowndigitalmenus.com"
 
@@ -30,8 +35,8 @@
 
 
 #define kBingSearchKey @"a6ca68495f7a492e8883264a6698f002i"
-#define kFligthStatsApp @"480249a6"
-#define kFligthStatsKey  @"88efd51922b4efb028cead1320d56e78"
+#define kFligthStatsApp @"84301912"
+#define kFligthStatsKey  @"2edee356478b49815bf14ec11dc6e625"
 #define kFlightStatsBaseURL @"https://api.flightstats.com/flex/fids/rest/v1/json/"
 #define kFlightStatsArrivalURI @"{airport}/arrivals"
 #define kFlightStatsDepartureURI @"{airport}/departures"

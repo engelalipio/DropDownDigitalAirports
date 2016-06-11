@@ -24,25 +24,45 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ProjectOxfordFace-ProjectOxfordFace.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ProjectOxfordFace.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>87750976899298B91BAD0FB6BBEE55A2</key>
+		<key>3C40AD938D23DF5F8345D23B4D3E1644</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A5E54941769F502C47E59574B295569</key>
+		<key>5366B7F679CF2BA31EA583EA35CA2D90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1A89B1F683BD552352AB3CF927CB84F</key>
+		<key>8396E4EE07D2453708F3785B85A39DF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD14D372E26F1BE25D4BE9016E185A10</key>
+		<key>A4D242E1BA377EB843DB99F43A9E3432</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD2B367A6ADAD06EE4F327DD0F8F1B6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5E94936F2A972A04324CEBB30ECF2E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -25,6 +25,8 @@ typedef int OrderTypeSelection;
 @property (assign,nonatomic) Boolean isSent;
 @property (assign,nonatomic) Boolean isPaid;
 @property (assign,nonatomic) Boolean isiPhone;
+@property (assign,nonatomic) Boolean useAPI;
+@property (assign,nonatomic) Boolean isMissingPerson;
 @property (assign,nonatomic) NSInteger screenHeight;
 @property (assign,nonatomic) NSInteger interval;
 
@@ -62,6 +64,8 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSArray  *clubsbackgrounds;
 @property (strong, nonatomic) NSArray  *hotelbackgrounds;
 @property (strong, nonatomic) NSArray  *groundbackgrounds;
+@property (strong, nonatomic)  UIImage *missingPersonImage;
+
 +(AppDelegate *) currentDelegate;
 
 @end

@@ -40,7 +40,6 @@
 		0F2ACD5D1A004C380028B6E2 /* user_male4-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD5C1A004C380028B6E2 /* user_male4-32.png */; };
 		0F2ACD5F1A004C400028B6E2 /* user_female4-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD5E1A004C400028B6E2 /* user_female4-32.png */; };
 		0F2ACD611A004DC30028B6E2 /* settings3-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD601A004DC30028B6E2 /* settings3-32.png */; };
-		0F2ACD7C1A01B5640028B6E2 /* Tic-Tac-Toe.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */; };
 		0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */; };
 		0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2ACD811A01E7AC0028B6E2 /* MenuViewController.m */; };
 		0F4D5D451A8AA2140040DC12 /* PaymentMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D5D441A8AA2140040DC12 /* PaymentMethodViewController.m */; };
@@ -146,6 +145,15 @@
 		AA20FB471B71765300DEE957 /* plus_1hour-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB461B71765300DEE957 /* plus_1hour-50.png */; };
 		AA20FB491B71768100DEE957 /* pin_cushion-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB481B71768100DEE957 /* pin_cushion-50.png */; };
 		AA20FB4B1B7176C700DEE957 /* red_hat-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20FB4A1B7176C700DEE957 /* red_hat-50.png */; };
+		AA297D0A1D0B9BB70019B185 /* FIDS.json in Resources */ = {isa = PBXBuildFile; fileRef = AA297D091D0B9BB70019B185 /* FIDS.json */; };
+		AA297D0C1D0C59920019B185 /* MissingPerson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA297D0B1D0C59920019B185 /* MissingPerson.jpg */; };
+		AA297D131D0C5D4F0019B185 /* MPOImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA297D101D0C5D4F0019B185 /* MPOImageCollectionViewCell.m */; };
+		AA297D141D0C5D4F0019B185 /* MPOUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = AA297D121D0C5D4F0019B185 /* MPOUtilities.m */; };
+		AA297D191D0C5D710019B185 /* MPODetectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA297D161D0C5D710019B185 /* MPODetectionCollectionViewCell.m */; };
+		AA297D1A1D0C5D710019B185 /* MPODetectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA297D181D0C5D710019B185 /* MPODetectionViewController.m */; };
+		AA297D1E1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA297D1C1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.m */; };
+		AA297D1F1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA297D1D1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib */; };
+		AA297D211D0C5E910019B185 /* facial_recognition_scan_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA297D201D0C5E910019B185 /* facial_recognition_scan_filled.png */; };
 		AA4CAC391BC02348003C1948 /* Icon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4CAC381BC02348003C1948 /* Icon-87.png */; };
 		AA4CAC3B1BC0237F003C1948 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4CAC3A1BC0237F003C1948 /* Icon-80.png */; };
 		AA4CAC3D1BC023D9003C1948 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4CAC3C1BC023D9003C1948 /* Icon-180.png */; };
@@ -669,7 +677,6 @@
 		0F2ACD5C1A004C380028B6E2 /* user_male4-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male4-32.png"; sourceTree = "<group>"; };
 		0F2ACD5E1A004C400028B6E2 /* user_female4-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_female4-32.png"; sourceTree = "<group>"; };
 		0F2ACD601A004DC30028B6E2 /* settings3-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings3-32.png"; sourceTree = "<group>"; };
-		0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Tic-Tac-Toe.json"; sourceTree = "<group>"; };
 		0F2ACD7D1A01B7A80028B6E2 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		0F2ACD7E1A01B7A80028B6E2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		0F2ACD801A01E7AC0028B6E2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -827,6 +834,20 @@
 		AA20FB481B71768100DEE957 /* pin_cushion-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_cushion-50.png"; sourceTree = "<group>"; };
 		AA20FB4A1B7176C700DEE957 /* red_hat-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_hat-50.png"; sourceTree = "<group>"; };
 		AA256FEC1CF63067005C974C /* AbstractModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractModel.h; sourceTree = "<group>"; };
+		AA297D091D0B9BB70019B185 /* FIDS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FIDS.json; sourceTree = "<group>"; };
+		AA297D0B1D0C59920019B185 /* MissingPerson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MissingPerson.jpg; sourceTree = "<group>"; };
+		AA297D0F1D0C5D4F0019B185 /* MPOImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOImageCollectionViewCell.h; sourceTree = "<group>"; };
+		AA297D101D0C5D4F0019B185 /* MPOImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOImageCollectionViewCell.m; sourceTree = "<group>"; };
+		AA297D111D0C5D4F0019B185 /* MPOUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOUtilities.h; sourceTree = "<group>"; };
+		AA297D121D0C5D4F0019B185 /* MPOUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOUtilities.m; sourceTree = "<group>"; };
+		AA297D151D0C5D710019B185 /* MPODetectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPODetectionCollectionViewCell.h; sourceTree = "<group>"; };
+		AA297D161D0C5D710019B185 /* MPODetectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPODetectionCollectionViewCell.m; sourceTree = "<group>"; };
+		AA297D171D0C5D710019B185 /* MPODetectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPODetectionViewController.h; sourceTree = "<group>"; };
+		AA297D181D0C5D710019B185 /* MPODetectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPODetectionViewController.m; sourceTree = "<group>"; };
+		AA297D1B1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOActivityIndicatorViewController.h; sourceTree = "<group>"; };
+		AA297D1C1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOActivityIndicatorViewController.m; sourceTree = "<group>"; };
+		AA297D1D1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPOActivityIndicatorViewController.xib; sourceTree = "<group>"; };
+		AA297D201D0C5E910019B185 /* facial_recognition_scan_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facial_recognition_scan_filled.png; sourceTree = "<group>"; };
 		AA4CAC381BC02348003C1948 /* Icon-87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-87.png"; sourceTree = "<group>"; };
 		AA4CAC3A1BC0237F003C1948 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		AA4CAC3C1BC023D9003C1948 /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-180.png"; sourceTree = "<group>"; };
@@ -1399,17 +1420,9 @@
 		0F2ACD791A01B4E70028B6E2 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				0F2ACD7A1A01B4F30028B6E2 /* Games */,
+				AA297D081D0B9B980019B185 /* FIDS */,
 			);
 			name = Content;
-			sourceTree = "<group>";
-		};
-		0F2ACD7A1A01B4F30028B6E2 /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				0F2ACD7B1A01B5640028B6E2 /* Tic-Tac-Toe.json */,
-			);
-			name = Games;
 			sourceTree = "<group>";
 		};
 		0F5841F51A23D49C00A51F3A /* Ads */ = {
@@ -1802,6 +1815,7 @@
 		0FF46DDD19F994FC00E51218 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				AA297D0D1D0C5D1F0019B185 /* Cognitive */,
 				AAB41B0B1CF54BF30078CB75 /* Networking */,
 				0FF46E0E19F9956B00E51218 /* RevealController */,
 				0FF46DFB19F9953500E51218 /* JTObjectMapping */,
@@ -1947,6 +1961,40 @@
 				AF88914F6A5BD895152AB1DB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA297D081D0B9B980019B185 /* FIDS */ = {
+			isa = PBXGroup;
+			children = (
+				AA297D091D0B9BB70019B185 /* FIDS.json */,
+			);
+			name = FIDS;
+			sourceTree = "<group>";
+		};
+		AA297D0D1D0C5D1F0019B185 /* Cognitive */ = {
+			isa = PBXGroup;
+			children = (
+				AA297D0E1D0C5D3B0019B185 /* Face */,
+			);
+			name = Cognitive;
+			sourceTree = "<group>";
+		};
+		AA297D0E1D0C5D3B0019B185 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				AA297D1B1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.h */,
+				AA297D1C1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.m */,
+				AA297D1D1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib */,
+				AA297D151D0C5D710019B185 /* MPODetectionCollectionViewCell.h */,
+				AA297D161D0C5D710019B185 /* MPODetectionCollectionViewCell.m */,
+				AA297D171D0C5D710019B185 /* MPODetectionViewController.h */,
+				AA297D181D0C5D710019B185 /* MPODetectionViewController.m */,
+				AA297D0F1D0C5D4F0019B185 /* MPOImageCollectionViewCell.h */,
+				AA297D101D0C5D4F0019B185 /* MPOImageCollectionViewCell.m */,
+				AA297D111D0C5D4F0019B185 /* MPOUtilities.h */,
+				AA297D121D0C5D4F0019B185 /* MPOUtilities.m */,
+			);
+			name = Face;
 			sourceTree = "<group>";
 		};
 		AA51985E1B51FA9B00398A4F /* Clubs */ = {
@@ -2398,6 +2446,8 @@
 		AAE68BA11B5C30CB00DA7A53 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA297D201D0C5E910019B185 /* facial_recognition_scan_filled.png */,
+				AA297D0B1D0C59920019B185 /* MissingPerson.jpg */,
 				AAE68BA31B5C329300DA7A53 /* Services_0.jpg */,
 				AAE68BA21B5C329300DA7A53 /* Services_1.jpg */,
 				AAE68BA41B5C329300DA7A53 /* Services_2.jpg */,
@@ -2424,6 +2474,7 @@
 				0FF46D2719F881FC00E51218 /* Frameworks */,
 				0FF46D2819F881FC00E51218 /* Resources */,
 				0F34B0930A2ADC9CB76446B7 /* Copy Pods Resources */,
+				235A0E896B0C711E8FC355D6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2643,6 +2694,7 @@
 				AA4CAC3D1BC023D9003C1948 /* Icon-180.png in Resources */,
 				AA8FA8B91B27E26B003E79B4 /* AirportShops_0.jpg in Resources */,
 				AA8FA93E1B2A70BD003E79B4 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				AA297D1F1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib in Resources */,
 				AA5199671B55F70300398A4F /* RentalCar_4.jpg in Resources */,
 				AAE68B621B5AD34B00DA7A53 /* GiftStore_1.jpg in Resources */,
 				AAE68B7F1B5B0C8D00DA7A53 /* Limo_6.png in Resources */,
@@ -2704,6 +2756,7 @@
 				AAE68B021B5A0E3100DA7A53 /* French_3.png in Resources */,
 				AAE68B921B5C25ED00DA7A53 /* LimoCar_3.jpg in Resources */,
 				AA8664A61B40B0E300CFC7D5 /* City_1.jpg in Resources */,
+				AA297D211D0C5E910019B185 /* facial_recognition_scan_filled.png in Resources */,
 				AAE68BB71B5C342700DA7A53 /* Services_9.jpg in Resources */,
 				AA8664591B34573100CFC7D5 /* AirJapan.png in Resources */,
 				AAC6EF0B1D08BB6C0037A6C3 /* ItemFlightViewController.xib in Resources */,
@@ -2716,7 +2769,6 @@
 				AA8664561B34573100CFC7D5 /* IndiGo_Airlines.png in Resources */,
 				AA6D14281B65609200F71348 /* Tacos_3.png in Resources */,
 				AA8FA8CB1B27F4D7003E79B4 /* AirportGarage_7.jpg in Resources */,
-				0F2ACD7C1A01B5640028B6E2 /* Tic-Tac-Toe.json in Resources */,
 				AA6D14781B6699B000F71348 /* News&Events_3.jpg in Resources */,
 				AA8FA8DE1B27FBBD003E79B4 /* home-32.png in Resources */,
 				AAE68B981B5C265600DA7A53 /* LimoCar_1.jpg in Resources */,
@@ -2837,6 +2889,7 @@
 				0FD438FA1A104C4D00A2436F /* ItemViewController.xib in Resources */,
 				AA88FCB41B5067A70054A65C /* garage-50.png in Resources */,
 				AAD93DEE1B477E84009B354B /* restaurant-100.png in Resources */,
+				AA297D0C1D0C59920019B185 /* MissingPerson.jpg in Resources */,
 				AAE68B0A1B5A12C900DA7A53 /* Mexican_2.png in Resources */,
 				AA86646C1B379D6A00CFC7D5 /* active_directory-32.png in Resources */,
 				AA88FCAA1B5067410054A65C /* charge_battery_filled-50.png in Resources */,
@@ -2906,6 +2959,7 @@
 				AAD93DB51B4719B1009B354B /* clouds-100.png in Resources */,
 				0F2ACD4D1A004A990028B6E2 /* collaboration-32.png in Resources */,
 				AAE68BAA1B5C329300DA7A53 /* Services_0.jpg in Resources */,
+				AA297D0A1D0B9BB70019B185 /* FIDS.json in Resources */,
 				AAE68B901B5C25D200DA7A53 /* LimoCar_4.jpg in Resources */,
 				AAE68BAB1B5C329300DA7A53 /* Services_2.jpg in Resources */,
 				AA89A1FC1B6C036F00874971 /* SouthernCooking_2.png in Resources */,
@@ -3082,6 +3136,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		235A0E896B0C711E8FC355D6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -3109,6 +3178,7 @@
 				AA88FCE01B5179CF0054A65C /* ProvidedByViewController.m in Sources */,
 				0F2ACD2A19FAA7270028B6E2 /* HomeViewController.m in Sources */,
 				0FF46E0B19F9953500E51218 /* JTSetMappings.m in Sources */,
+				AA297D1E1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.m in Sources */,
 				0FF46E2119F9979200E51218 /* UIColor+ColorWithHexString.m in Sources */,
 				0F153D331A3A7B7E0073DED2 /* WeatherViewController.m in Sources */,
 				0F2ACD3519FAD74F0028B6E2 /* ContainerCellView.m in Sources */,
@@ -3126,11 +3196,15 @@
 				AA6D14991B66D9FA00F71348 /* HotelsShuttleViewController.m in Sources */,
 				0FF46E0A19F9953500E51218 /* JTMappings.m in Sources */,
 				0FF46E1519F9958300E51218 /* SWRevealViewController.m in Sources */,
+				AA297D1A1D0C5D710019B185 /* MPODetectionViewController.m in Sources */,
 				0FF46DF319F9952A00E51218 /* AFHTTPRequestOperation.m in Sources */,
 				0FE60ADA1A116F9900435F32 /* GroundTransportationViewController.m in Sources */,
 				0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */,
 				0FE60AE41A11B47800435F32 /* NewsViewController.m in Sources */,
+				AA297D131D0C5D4F0019B185 /* MPOImageCollectionViewCell.m in Sources */,
 				AAB41B0A1CF54B7F0078CB75 /* BaseClass.m in Sources */,
+				AA297D141D0C5D4F0019B185 /* MPOUtilities.m in Sources */,
+				AA297D191D0C5D710019B185 /* MPODetectionCollectionViewCell.m in Sources */,
 				0FF46DF219F9952A00E51218 /* AFHTTPClient.m in Sources */,
 				0FF46E0919F9953500E51218 /* JTDateMappings.m in Sources */,
 				0FF46DF919F9952A00E51218 /* AFXMLRequestOperation.m in Sources */,
@@ -3293,7 +3367,7 @@
 					"/Users/Engel/Downloads/azuresdk-iOS-v1.2.4",
 				);
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;
@@ -3316,7 +3390,7 @@
 					"/Users/Engel/Downloads/azuresdk-iOS-v1.2.4",
 				);
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;

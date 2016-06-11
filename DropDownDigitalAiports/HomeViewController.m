@@ -570,8 +570,6 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     double interval = [appDelegate interval];
     
-  
-        
         self.timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeInterval:interval sinceDate:[NSDate date]]
                                               interval:interval target:self
                                               selector:@selector(timerFireMethod:)
@@ -592,17 +590,74 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.timer = nil;
 }
 
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        [self ResetMissingPerson];
+    }
+}
+
+-(void) ResetMissingPerson{
+    if (appDelegate.missingPersonImage){
+        [appDelegate setMissingPersonImage:nil];
+    }
+    if (appDelegate.isMissingPerson){
+        [appDelegate setIsMissingPerson:NO];
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Person Information"
+                                                        message:@"Airport Security Has Been Contacted And Will Be Here Shortly.\nThank You!" delegate:self
+                                              cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        if (alert){
+            [alert show];
+        }
+        
+    }
+    [self.imageView setContentMode:UIViewContentModeScaleToFill];
+    
+    if(!self.btnLight.isHidden){
+        [self.btnLight setHidden:YES];
+    }
+    if (self.addressLabel.textColor == [UIColor redColor]){
+        [self.addressLabel setText:appDelegate.restaurantName];
+        [self.addressLabel setTextColor:[UIColor whiteColor]];
+    }
+    
+    [self.imageView setBackgroundColor:[UIColor clearColor]];
+    [self.imageView setImage:[UIImage imageNamed:@"AirportBack_0.jpg"]];
+}
+
 - (IBAction)actionLight:(UIButton *)sender {
     
-   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Lighting Setting"
-                                       message:@"Users will be able to adjust the lighting settings" delegate:self
-                             cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Person Information"
+                                       message:@"Click 'Ok' To Report Information About This Missing Person" delegate:self
+                             cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
     
     if (alert){
         [alert show];
     }
     
 }
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    NSString *message = @"";
+    
+    @try {
+        message = @"Unwinding...";
+    }
+    @catch (NSException *exception) {
+        message = exception.debugDescription;
+    }
+    @finally {
+        if (message.length > 0){
+            NSLog(@"prepareForUnwind->%@",message);
+        }
+        message = @"";
+    }
+    
+    
+}
+
 
 - (IBAction)actionAdClicked:(UIButton *)sender {
     return;
@@ -704,13 +759,30 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     NSInteger randomAnimation = 0,
                       randomSection   = 0,
                      pagesCount = 0;
+    
+    BOOL isMissingPerson = NO;
     @try {
         
- 
+      
+        isMissingPerson = [appDelegate isMissingPerson];
         
-       pagesCount = arc4random_uniform(appDelegate.backgrounds.count);
-
-        [Utilities setParseImageViewl:appDelegate.backgrounds anyIndex:pagesCount tableCell:self.imageView];
+        if (! isMissingPerson){
+            if (! [self.btnLight isHidden]){
+                [self  ResetMissingPerson];
+            }
+            pagesCount = arc4random_uniform(appDelegate.backgrounds.count);
+            [Utilities setParseImageViewl:appDelegate.backgrounds anyIndex:pagesCount tableCell:self.imageView];
+        }else{
+            
+            image = appDelegate.missingPersonImage;
+            [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+            [self.btnLight setHidden:NO];
+            [self.addressLabel setNumberOfLines:0];
+            [self.addressLabel setText:@"Missing Person Alert,\nClick On The Informational Button To Provide Any Details!"];
+            [self.addressLabel setTextColor:[UIColor redColor]];
+            [self.imageView setBackgroundColor:[UIColor blackColor]];
+            [self.imageView setImage:image];
+        }
     
         _currentPageIndex = pagesCount;
     
@@ -1106,13 +1178,13 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) initMenuSettings{
     
     BOOL isDynamic = NO;
-    
     NSString *welcomeMessage = @"%@ \n %@, %@, %@ %@";
     
     isDynamic = [appDelegate isDynamic];
-    
+ 
     [self initCategorySections];
     [self.tableView reloadData];
+    
     if (isDynamic){
       [self startTimer];
     }

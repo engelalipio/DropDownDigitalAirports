@@ -240,6 +240,8 @@
                                                                                                 success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                                                                     NSLog(@"Base request header: %@ \n\n\nRequest Successful: \n\n\nrequest = %@ \n\n\nresponse = %@ \n\n\nresponseString = %@", [me description], [request description], [[operation request] allHTTPHeaderFields], [operation responseString]);
                                                                                                     
+                                                                                    
+                                                                                    
                                                                                                     // [[amsAppDelegate currentDelegate] resetTimer];
                                                                                                     
                                                                                                     if (successBlock) {

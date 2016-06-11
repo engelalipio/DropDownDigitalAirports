@@ -489,22 +489,33 @@
     }];
 }
 - (IBAction)actionReserveClicked:(UIButton *)sender {
-    UIAlertView *alert = nil;
+    NSURL  *url= nil;
+    
+    NSString *message= @"",
+                    *launchURL = @"";
+    
     @try {
-        alert = [[UIAlertView alloc] initWithTitle:@"OrderMyServiceNow.Com"
-                                           message:@"Coming Soon..."
-                                          delegate:self
-                                 cancelButtonTitle:@"Ok"
-                                 otherButtonTitles:nil, nil];
         
-        [alert show];
+        
+        launchURL =kOMSN;
+        
+        url=  [[NSURL alloc] initWithString:launchURL];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]){
+            message = [NSString stringWithFormat:@"Launching OMSN App-> %@",url];
+        }else{
+            url=  [[NSURL alloc] initWithString:kOMSN];
+            message = [NSString stringWithFormat:@"Launching OMSN Web-> %@",url];
+        }
+        [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
-        
+        message = exception.description;
     }
     @finally {
-        alert = nil;
+        url = nil;
     }
+
 }
 #pragma mark - Navigation
 

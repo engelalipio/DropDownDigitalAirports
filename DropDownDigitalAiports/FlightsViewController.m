@@ -559,8 +559,6 @@
  
     UIImage *image = [Utilities getParseImage:appDelegate.flightbackgrounds anyIndex:imgIdx];
     
- 
-    
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (selectedCell){
@@ -645,6 +643,7 @@
                         *instDept     = [instDepData objectAtIndex:instDepId],
                         *instructions = @"",
                         *tempF = @"",
+                        *airlineName = @"",
                         *aircraft    = [planeData objectAtIndex:planeId];
         
         
@@ -719,9 +718,10 @@
                 arr_depImg = [UIImage imageNamed:@"airplane_land-100.png"];
                 status = [fidsData remarksCode];
                 flightNumber = fidsData.flightNumber;
-                
+                airlineName = [fidsData airlineName];
                 if (! appDelegate.isiPhone){
-                    [item.AircraftLabel setText:@"Baggage Claim: "];
+                  //  [item.AircraftLabel setText:@"Baggage Claim: "];
+                       [item.AircraftLabel setText:@"Baggage\nClaim: "];
                 }
                 else
                 {
@@ -738,11 +738,15 @@
                 }
                 
                 if (! appDelegate.isiPhone){
-                    [item.AircraftValue setText:[NSString stringWithFormat:@"%@", instArr]];
+                  //  [item.AircraftValue setText:[NSString stringWithFormat:@"%@", instArr]];
+                    if ( [instArr length] <= 59){
+                        instArr = [NSString stringWithFormat:@"%@\n",instArr];
+                    }
+                       [item.AircraftValue setText:[NSString stringWithFormat:@"%@",instArr]];
                 }
                 else
                 {
-                    [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",instArr]];
+                       [item.AircraftValue setText:[NSString stringWithFormat:@"\n%@",instArr]];
                 }
             
                 
@@ -782,7 +786,7 @@
             case 1:
                 fidsData = [FidsData objectFromJSONObject:[departures objectAtIndex:indexPath.row]  mapping:[fidsData dictionaryRepresentation]];
                 isDeparture = YES;
-                
+                airlineName = [fidsData airlineName];
                 if ([fidsData weather]){
                     weather = [fidsData weather];
                 }else{
@@ -827,7 +831,18 @@
                 
                 [item.FlightValue setText:fligthDetail];
         
-                [item.AircraftLabel setText:@"Weather: "];
+                [item.AircraftLabel setText:@"Destination's\nWeather: "];
+                
+                if (appDelegate.isiPhone){
+ 
+                    weather = [NSString stringWithFormat:@"\n%@",weather];
+ 
+                }else{
+                    if ( [weather length] <= 59){
+                        weather = [NSString stringWithFormat:@"%@\n",weather];
+                    }
+                }
+                
                 [item.AircraftValue setText:weather];
                 break;
         }
@@ -888,7 +903,7 @@
         NSString *gateFinal = [titleData firstObject];
         
         if (titleData){
-            instructions  = [NSString stringWithFormat:@"Flight %@", [titleData lastObject]];
+            instructions  = [NSString stringWithFormat:@"%@ Flight %@", airlineName, [titleData lastObject]];
             [item.TerminalValue setNumberOfLines:0];
             if (appDelegate.isiPhone){
                 gateFinal =  [NSString stringWithFormat:@"\n%@",[titleData firstObject]];
@@ -1040,7 +1055,7 @@
     }
     
     [self initTableView];
-    [self.navigationItem setTitleView:[self getSpecialTitleView:@"Arriving/Departing Flights"]];
+    [self.navigationItem setTitleView:[self getSpecialTitleView:[NSString stringWithFormat:@"Arriving/Departing Flights For %@",self.AirLineName]]];
     // Do any additional setup after loading the view.
     //[self roundLabel];
     

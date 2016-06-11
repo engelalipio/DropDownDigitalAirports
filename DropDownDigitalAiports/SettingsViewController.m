@@ -168,8 +168,9 @@
     }
     
     [appDelegate setIsDynamic:self.switchDynamic.isOn];
-    
-    
+    [appDelegate setIsMissingPerson:NO];
+    [appDelegate setMissingPersonImage:nil];
+
     [appDelegate setInterval:[self.txtSeconds.text integerValue]];
     
     if (self.switchOrderReset.isOn){
@@ -191,6 +192,7 @@
         [self.imgDWI setHidden:YES];
     }
    
+    [self performSegueWithIdentifier:@"segUnload" sender:self];
 }
 
 - (IBAction)actionChangeInterval:(UIStepper *)sender {

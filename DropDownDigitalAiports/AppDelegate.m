@@ -53,6 +53,9 @@
 @synthesize selectedAirlineName = _selectedAirlineName;
 @synthesize selectedAirlineLogo = _selectedAirlineLogo;
 @synthesize locationManager = _locationManager;
+@synthesize useAPI = _useAPI;
+@synthesize  isMissingPerson = _isMissingPerson;
+@synthesize  missingPersonImage = _missingPersonImage;
 
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -121,7 +124,7 @@
         if (arrData){
             
             BaseClass *baseFids =  (BaseClass*) [arrData firstObject];
-        
+            
             if (baseFids){
                 
                 NSArray *arrivalsArray = [baseFids fidsData];
@@ -129,7 +132,33 @@
                 
                 if (arrivalsArray){
                     _arrivals = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
+                    
+                    if (self.arrivals.count == 0){
+
+                        NSString * filePath =[[NSBundle mainBundle] pathForResource:@"FIDS" ofType:@"json"];
+                        
+                        NSError * error;
+                        NSString* fileContents =[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+                    
+                        if(error){
+                            NSLog(@"Error reading file: %@",error.localizedDescription);
+                        }
+                        
+                        NSDictionary* fData = (NSDictionary *)[NSJSONSerialization
+                                                             JSONObjectWithData:[fileContents dataUsingEncoding:NSUTF8StringEncoding]
+                                                             options:0 error:NULL];
+                        
+                        arrivalsArray = [fData objectForKey:@"fidsData"];
+                        
+                        _arrivals = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
+                        _departures = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
+                        
+                    }else{
+                        _useAPI = YES;
+                    }
+                    
                     [_arrivals setValue:arrivalsArray forKey:@"Arrivals"];
+                    [_departures setValue:arrivalsArray forKey:@"Departures"];
                     
                     NSString *airlineName = @"";
         
@@ -148,8 +177,7 @@
                             airlineName = fidsData.airlineName;
                     }
                     
-                 
-                    
+                
                     if (! self.airlines){
                         _airlines = [[NSMutableDictionary alloc] initWithCapacity:airlinesArray.count];
                         [_airlines setValue:airlinesArray forKey:@"Airlines"];
@@ -157,7 +185,6 @@
                     
                 }
             }
-            
         }
         
         
@@ -184,7 +211,7 @@
             if (baseFids){
                 NSArray *destArray = [baseFids fidsData];
                 
-                if (destArray){
+                if ([destArray count]){
                     _departures = [[NSMutableDictionary alloc] initWithCapacity:destArray.count];
                     [_departures setValue:destArray forKey:@"Departures"];
                 }
@@ -209,12 +236,13 @@
     _isDynamic = YES;
     _isSent   = NO;
     _isiPhone = NO;
+    _useAPI = NO;
     _restaurantTable     = @"Welcome To DropDownDigitalMenus.Com\n Proudly Serving All Airports";
     _restaurantName    = @"Sample International Airport ®";
-    _restaurantAddress = @"123 First Street North";
-    _restaurantCity       = @"Atlantic Beach";
+    _restaurantAddress = @"2100 North West 42nd Avenue";
+    _restaurantCity       = @"Miami";
     _restaurantState     = @"FL";
-    _restaurantZip         = @"32233";
+    _restaurantZip         = @"33142";
     _interval                   = 4;
     [self initLocationServices];
     [self initParseFramework];

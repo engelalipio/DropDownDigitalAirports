@@ -138,8 +138,9 @@
     UIImage  *image           = nil;
     
     NSInteger rndFoodImgId        = 0,
-    imageUBId             = rndImageUpperBounds,
-    rndMessageId        = 0;
+                      imageUBId             = rndImageUpperBounds,
+                      rndMessageId        = 0;
+        
     @try {
         
         

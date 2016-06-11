@@ -41,7 +41,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.33</string>
+	<string>1.34</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -68,7 +68,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Granting location permissions to Airport Directory Services application will allow for better accurate information around your surrrounding</string>
+	<string>Granting location permissions to Airport Directory Services application will allow for better accurate information around your surrroundings</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

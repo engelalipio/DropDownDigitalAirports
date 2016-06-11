@@ -32,5 +32,5 @@
 -(void) stopTimer;
 - (IBAction)actionLight:(UIButton *)sender;
 - (IBAction)actionAdClicked:(UIButton *)sender;
-
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
 @end
