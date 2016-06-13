@@ -623,8 +623,9 @@
         [item.instructionsLabel setText:title];
         [item.StatusLabel setText:@"Phone: "];
         [item.TerminalValue setText: desc];
+        item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
         if (appDelegate.isiPhone){
-            item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
+
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad
@@ -650,6 +651,9 @@
                     break;
             
             }
+        }else{
+            [item.TerminalLabel setNumberOfLines:0];
+            item.TerminalLabel.text =  [item.TerminalLabel.text stringByReplacingOccurrencesOfString:@"/" withString:@"/\n"];
         }
         
 

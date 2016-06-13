@@ -1365,39 +1365,8 @@ Please click on the 'Menu' button to view new settings.</string>
                         <sections>
                             <tableViewSection headerTitle="Our Amenities" id="DJB-c5-Gwf">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="h4A-cP-EiZ" detailTextLabel="DB3-jm-NcS" imageView="Zsh-mh-b1h" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="FoR-li-O81" userLabel="Missing">
-                                        <rect key="frame" x="0.0" y="124" width="768" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FoR-li-O81" id="YET-Cm-xz2">
-                                            <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Missing Person Alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h4A-cP-EiZ">
-                                                    <rect key="frame" x="250" y="6" width="205.5" height="30.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Report here a new missing person alert or provide your own sightings of an existing missing person case." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DB3-jm-NcS">
-                                                    <rect key="frame" x="250" y="36.5" width="432" height="78"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
-                                                    <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="MissingPerson.jpg" id="Zsh-mh-b1h">
-                                                    <rect key="frame" x="68" y="0.0" width="167" height="119.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="9I8-6K-3BE" kind="show" id="KjY-eZ-KY3"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="3q9-Al-Dbd" detailTextLabel="S42-uA-I1d" imageView="pSv-DW-jHo" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="35v-SD-dT0" userLabel="Lost Luggage">
-                                        <rect key="frame" x="0.0" y="244" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="124" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="35v-SD-dT0" id="KD7-C1-QFa">
                                             <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
@@ -1428,7 +1397,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="hFi-Py-sk4" detailTextLabel="Lkg-n9-M3k" imageView="je6-PI-PE2" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="Lmc-i4-rsT" userLabel="Lost &amp; Found">
-                                        <rect key="frame" x="0.0" y="364" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="244" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lmc-i4-rsT" id="1Id-6b-63v">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1454,6 +1423,37 @@ Please click on the 'Menu' button to view new settings.</string>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="Kan-99-H7S" detailTextLabel="Nkh-xM-oo5" imageView="VAc-sY-OyH" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="zVg-mC-qZL" userLabel="Directions">
+                                        <rect key="frame" x="0.0" y="364" width="768" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zVg-mC-qZL" id="QSC-rf-wCa">
+                                            <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Directional Location Guide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kan-99-H7S">
+                                                    <rect key="frame" x="250" y="19" width="269.5" height="30.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Map View of all Terminals and Gates at Miami International Airport." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nkh-xM-oo5">
+                                                    <rect key="frame" x="250" y="49.5" width="394" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Directions.jpg" id="VAc-sY-OyH">
+                                                    <rect key="frame" x="68" y="0.0" width="167" height="119.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="e4G-qm-o7Z" kind="show" id="GbI-Lw-8Ho"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="WtJ-7U-ATI" detailTextLabel="Igy-uj-2bp" imageView="0E5-JO-2PD" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="Cat-Wt-UhE" userLabel="Wheel Chair Assistance">
                                         <rect key="frame" x="0.0" y="484" width="768" height="120"/>
@@ -1570,39 +1570,8 @@ Telephone:  1-888-384-6958</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="Kan-99-H7S" detailTextLabel="Nkh-xM-oo5" imageView="VAc-sY-OyH" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="zVg-mC-qZL" userLabel="Directions">
-                                        <rect key="frame" x="0.0" y="964" width="768" height="120"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zVg-mC-qZL" id="QSC-rf-wCa">
-                                            <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Directional Location Guide" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kan-99-H7S">
-                                                    <rect key="frame" x="250" y="19" width="269.5" height="30.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="View information about Miami terminal, shops, restaurants, services, amenities and more." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nkh-xM-oo5">
-                                                    <rect key="frame" x="250" y="49.5" width="403" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
-                                                    <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Directions.jpg" id="VAc-sY-OyH">
-                                                    <rect key="frame" x="68" y="0.0" width="167" height="119.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="e4G-qm-o7Z" kind="show" id="GbI-Lw-8Ho"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="zoJ-Wz-or8" detailTextLabel="fNw-hd-omp" imageView="hYP-qb-xqT" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="O4e-V0-RQw" userLabel="Wireless (Wi-Fi) Internet">
-                                        <rect key="frame" x="0.0" y="1084" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="964" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O4e-V0-RQw" id="Jug-pd-cAW">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1630,7 +1599,7 @@ Telephone:  1-888-384-6958</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="kt8-6E-GK5" detailTextLabel="DSU-22-JST" imageView="709-jA-6S5" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="VOL-TV-ZsQ" userLabel="Children's Play Area">
-                                        <rect key="frame" x="0.0" y="1204" width="768" height="120"/>
+                                        <rect key="frame" x="0.0" y="1084" width="768" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOL-TV-ZsQ" id="wEd-b6-iyc">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
@@ -1656,6 +1625,37 @@ Telephone:  1-888-384-6958</string>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Service_5" textLabel="h4A-cP-EiZ" detailTextLabel="DB3-jm-NcS" imageView="Zsh-mh-b1h" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="FoR-li-O81" userLabel="Missing">
+                                        <rect key="frame" x="0.0" y="1204" width="768" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FoR-li-O81" id="YET-Cm-xz2">
+                                            <rect key="frame" x="0.0" y="0.0" width="682" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Missing Person Alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h4A-cP-EiZ">
+                                                    <rect key="frame" x="250" y="6" width="205.5" height="30.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Report here a new missing person alert or provide your own sightings of an existing missing person case." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DB3-jm-NcS">
+                                                    <rect key="frame" x="250" y="36.5" width="432" height="78"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="MissingPerson.jpg" id="Zsh-mh-b1h">
+                                                    <rect key="frame" x="68" y="0.0" width="167" height="119.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9I8-6K-3BE" kind="show" id="KjY-eZ-KY3"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Service_5" textLabel="fy6-P5-02v" detailTextLabel="p3W-gA-Rwf" imageView="QLM-jo-NT2" rowHeight="120" style="IBUITableViewCellStyleSubtitle" id="SJv-hA-EH6" userLabel="Shoe Shine Stations">
                                         <rect key="frame" x="0.0" y="1324" width="768" height="120"/>

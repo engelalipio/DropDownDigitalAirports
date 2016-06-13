@@ -729,8 +729,8 @@
         [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in " withString:@""]];
         [item.instructionsLabel setText:newTitle];
         [item.StatusLabel setText:@"Phone: "];
+        item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
         if (appDelegate.isiPhone){
-            item.TerminalValue.text =  [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
             switch (appDelegate.screenHeight) {
                 case 736:
                     //tread as ipad
@@ -740,6 +740,9 @@
                     phone = [NSString stringWithFormat:@"\n%@",phone];
                     break;
             }
+        }else{
+            [item.TerminalLabel setNumberOfLines:0];
+            item.TerminalLabel.text =  [item.TerminalLabel.text stringByReplacingOccurrencesOfString:@"/" withString:@"/\n"];
         }
         [item.StatusValue setText:phone];
         [item.AircraftLabel setText:@"Web Site: "];

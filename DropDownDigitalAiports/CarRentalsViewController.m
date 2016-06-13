@@ -457,9 +457,9 @@
                 case 736:
                     //tread as ipad
                     
-                    if (desc.length > 90){
+                    if (desc.length > 50){
                         [item.TerminalLabel setText: [NSString stringWithFormat:@"%@\n",item.TerminalLabel.text]];
-                        [item.TerminalValue setFont:[UIFont systemFontOfSize:13.0f]];
+                        [item.TerminalValue setFont:[UIFont systemFontOfSize:14.0f]];
                     }
                     break;
                 default:
@@ -470,7 +470,7 @@
                     break;
             }
         }else{
-            if (desc.length > 45){
+            if (desc.length > 51){
                 [item.TerminalLabel setNumberOfLines:0];
                 [item.TerminalLabel setText: [NSString stringWithFormat:@"%@\n",item.TerminalLabel.text]];
             }

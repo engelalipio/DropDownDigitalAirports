@@ -793,15 +793,16 @@
                    weather = @"n/a";
                 }
                 if ([fidsData temperatureF]){
+                    
                     tempF = [NSString stringWithFormat:@"%@", [fidsData temperatureF]] ;
-                    if (tempF.length > 5){
-                        tempF = [tempF substringToIndex:5];
+                    if (tempF.length > 2){
+                        tempF = [tempF substringToIndex:2];
                     }
                 }
                 else{
                     tempF = @"n/a";
                 }
-                weather = [NSString stringWithFormat:@"%@º with %@ Conditions",tempF,weather];
+                weather = [NSString stringWithFormat:@"%@º Fahrenheit with %@ Conditions",tempF,weather];
                 arr_depImg = [UIImage imageNamed:@"airplane_takeoff-100.png"];
                 status = [fidsData remarks];
                 flightNumber = fidsData.flightNumber;

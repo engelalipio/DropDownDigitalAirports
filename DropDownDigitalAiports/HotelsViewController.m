@@ -631,8 +631,8 @@
         
         [item.Arrival_DepartureValue setText:cuisine];
         
-        NSString *hotelDistanceLabel = @"Hotel Distance: ",
-                        *hotelAddressLabel = @"Hotel Address: ";
+        NSString *hotelDistanceLabel = @"Hotel\nDistance: ",
+                        *hotelAddressLabel = @"Hotel\nAddress: ";
         
 
         [item.TerminalValue setText: [desc stringByReplacingOccurrencesOfString:@"Located in Terminal " withString:@""]];
@@ -645,7 +645,7 @@
                     hours = [NSString stringWithFormat:@"\n%@",hours];
                     hotelAddressLabel =  @"Hotel\nAddress:";
                    
-                    item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
+
                     break;
                      default:
                     phone = [NSString stringWithFormat:@"\n%@",phone];
@@ -654,11 +654,15 @@
             }
 
         }
-        
+        [item.FlightLabel setNumberOfLines:0];
         [item.FlightLabel setText:hotelDistanceLabel];
+        
+        hours = [NSString stringWithFormat:@"\n%@",hours];
+        [item.FlightValue setNumberOfLines:0];
         [item.FlightValue setText:hours];
         
         [item.TerminalLabel setText:hotelAddressLabel];
+        item.TerminalValue.text = [NSString stringWithFormat:@"\n%@",item.TerminalValue.text];
 
         [item.instructionsLabel setText:[titleSplit firstObject]];
         [item.StatusLabel setText:@"Phone: "];
