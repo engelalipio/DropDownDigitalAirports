@@ -131,9 +131,10 @@
                 NSMutableArray   *airlinesArray = [[NSMutableArray alloc] init];
                 
                 if (arrivalsArray){
+                    
                     _arrivals = [[NSMutableDictionary alloc] initWithCapacity:arrivalsArray.count];
                     
-                    if (self.arrivals.count == 0){
+                    if (arrivalsArray.count == 0){
 
                         NSString * filePath =[[NSBundle mainBundle] pathForResource:@"FIDS" ofType:@"json"];
                         
@@ -158,7 +159,9 @@
                     }
                     
                     [_arrivals setValue:arrivalsArray forKey:@"Arrivals"];
-                    [_departures setValue:arrivalsArray forKey:@"Departures"];
+                    if (! self.useAPI){
+                        [_departures setValue:arrivalsArray forKey:@"Departures"];
+                    }
                     
                     NSString *airlineName = @"";
         
