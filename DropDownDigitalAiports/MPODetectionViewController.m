@@ -123,13 +123,13 @@
         [self presentViewController:picker animated:YES completion:nil];
 
     }]];
-    
+    /*
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Use Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self dismissViewControllerAnimated:YES completion:nil];
         [self presentViewController:picker animated:YES completion:nil];
 
-    }]];
+    }]];*/
     
 
     
@@ -175,17 +175,17 @@
 
             switch (collection.count) {
                 case 0:
-                    self.numberOfFacesDetectedLabel.text = @"Unable to Detect any Faces";
+                    self.numberOfFacesDetectedLabel.text = @"Unable to Capture any Headshots";
                     
                     hasImage = false;
                     [self.btnReset setHidden:NO];
                     break;
                 case 1:
-                    self.numberOfFacesDetectedLabel.text = [NSString stringWithFormat:@"%@ Face Detected,\nPlease Select the Missing Person Below", @(collection.count)];
+                    self.numberOfFacesDetectedLabel.text = [NSString stringWithFormat:@"%@ Headshot captured.", @(collection.count)];
                     break;
                     
                 default:
-                     self.numberOfFacesDetectedLabel.text = [NSString stringWithFormat:@"%@ Faces Detected,\nPlease Scrow and Select the Missing Person Below", @(collection.count)];
+                     self.numberOfFacesDetectedLabel.text = [NSString stringWithFormat:@"%@ Headshots captured.", @(collection.count)];
                     
                     break;
             }
@@ -230,6 +230,7 @@
         self.imageView.image = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:^(void){
         hasImage = true;
+        //[self.txtInstructions setHidden:YES];
         [self.btnReset setHidden:YES];
         [self.btnDetect setHidden:NO];
     }];
@@ -245,7 +246,7 @@
         if (self.imageView.image && hasImage) {
             [self runDetection];
         }else{
-            alert = [UIAlertController alertControllerWithTitle:@"Face Image Selection"
+            alert = [UIAlertController alertControllerWithTitle:@"Capture Image Selection"
                                                         message:@"Please select an image using the action button above"
                                                  preferredStyle:UIAlertControllerStyleAlert];
             
@@ -342,6 +343,7 @@
     [self.imageView setImage:[UIImage imageNamed:@"facial_recognition_scan_filled.png"]];
     [self.numberOfFacesDetectedLabel setText:@""];
     hasImage  = false;
+    [self.txtInstructions setHidden:NO];
     [self.btnReset setHidden:YES];
     [self.btnDetect setHidden:YES];
     [self.btnBroadCast setHidden:YES];
@@ -363,8 +365,8 @@
         if ([self.btnBroadCast.titleLabel.text isEqualToString:@"Report Information"]){
             
  
-            alert = [UIAlertController alertControllerWithTitle:@"Missing Person Information"
-                                                        message:@"Would You Like to Report Information About This Missing Person?"
+            alert = [UIAlertController alertControllerWithTitle:@"Missing Child Information"
+                                                        message:@"Would You Like to Report Information About This Missing Child?"
                                                  preferredStyle:UIAlertControllerStyleAlert];
             
             
@@ -386,7 +388,7 @@
         }else{
         
         alert = [UIAlertController alertControllerWithTitle:@"Broadcast Confirmation"
-                                                    message:@"Would You Like to Broadcast this Person Missing?"
+                                                    message:@"Would You Like to Broadcast this Child Missing?"
                                              preferredStyle:UIAlertControllerStyleAlert];
         
 
@@ -402,6 +404,7 @@
                 [self.btnBroadCast setHidden:YES];
                 [self.btnReset setHidden:YES];
                 [self.btnDetect setHidden:YES];
+               // [self.txtInstructions setHidden:YES];
                 [self.navigationItem.rightBarButtonItem setEnabled:NO];
                 [self resetDetectionAction:self.btnReset];
                 [self performSegueWithIdentifier:@"segUnload" sender:self];

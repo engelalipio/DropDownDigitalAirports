@@ -1632,15 +1632,15 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Missing Person Alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I2B-an-0rO">
-                                                    <rect key="frame" x="197" y="15" width="121.5" height="18"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Missing Child Alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I2B-an-0rO">
+                                                    <rect key="frame" x="197" y="42" width="113" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Report here a new missing person alert or provide your own sightings of an existing missing person case." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wRt-JD-CBb">
-                                                    <rect key="frame" x="197" y="33" width="167.5" height="71.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Report a missing child here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wRt-JD-CBb">
+                                                    <rect key="frame" x="197" y="60" width="162.5" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3011,15 +3011,15 @@ Telephone:  1-888-384-6958</string>
                                         </connections>
                                     </stepper>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIA_Gates.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lD9-7o-fdt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
+                                        <rect key="frame" x="0.0" y="-30" width="414" height="640"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="671" id="11e-fr-RQD"/>
+                                            <constraint firstAttribute="height" constant="640" id="11e-fr-RQD"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="lD9-7o-fdt" secondAttribute="bottom" id="8nW-MX-lTA"/>
-                                    <constraint firstItem="lD9-7o-fdt" firstAttribute="top" secondItem="f3v-kS-tft" secondAttribute="top" id="QoE-au-5q8"/>
+                                    <constraint firstItem="lD9-7o-fdt" firstAttribute="top" secondItem="f3v-kS-tft" secondAttribute="top" constant="-30" id="QoE-au-5q8"/>
                                     <constraint firstItem="lD9-7o-fdt" firstAttribute="leading" secondItem="f3v-kS-tft" secondAttribute="leading" id="R2E-Mh-q40"/>
                                     <constraint firstAttribute="trailing" secondItem="lD9-7o-fdt" secondAttribute="trailing" id="Wjo-ih-AKO"/>
                                     <constraint firstItem="CNs-Vh-3Ua" firstAttribute="trailing" secondItem="f3v-kS-tft" secondAttribute="trailingMargin" id="ZHd-F9-KAa"/>
@@ -3085,10 +3085,10 @@ Telephone:  1-888-384-6958</string>
             </objects>
             <point key="canvasLocation" x="4240" y="-246"/>
         </scene>
-        <!--Detection View Controller-->
+        <!--Missing Child Alert-->
         <scene sceneID="Ot9-F7-Gv9">
             <objects>
-                <viewController storyboardIdentifier="sbDetection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QXJ-hn-VEB" customClass="MPODetectionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbDetection" title="Missing Child Alert" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QXJ-hn-VEB" customClass="MPODetectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L52-Hy-K2p"/>
                         <viewControllerLayoutGuide type="bottom" id="Hml-A4-sCM"/>
@@ -3098,10 +3098,10 @@ Telephone:  1-888-384-6958</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsE-MN-vVG">
-                                <rect key="frame" x="162" y="280" width="90" height="30"/>
+                                <rect key="frame" x="162" y="242" width="90" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <state key="normal" title="Detect">
+                                <state key="normal" title="Capture">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -3109,7 +3109,7 @@ Telephone:  1-888-384-6958</string>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dH8-jk-qjQ">
-                                <rect key="frame" x="0.0" y="398" width="414" height="244"/>
+                                <rect key="frame" x="0.0" y="467" width="414" height="182"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="2" id="r2G-Bu-8A0">
@@ -3120,7 +3120,7 @@ Telephone:  1-888-384-6958</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="lKM-b7-Luq" customClass="MPODetectionCollectionViewCell">
-                                        <rect key="frame" x="2" y="47" width="150" height="150"/>
+                                        <rect key="frame" x="2" y="16" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -3148,14 +3148,14 @@ Telephone:  1-888-384-6958</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hf-Qy-q08">
-                                                                    <rect key="frame" x="0.0" y="23.5" width="370" height="44.5"/>
+                                                                    <rect key="frame" x="0.0" y="23" width="370" height="44.5"/>
                                                                     <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                     <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-gS-yzn" userLabel="Glasses Label">
-                                                                    <rect key="frame" x="0.0" y="47.5" width="370" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="47" width="370" height="44"/>
                                                                     <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                     <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -3203,14 +3203,8 @@ Telephone:  1-888-384-6958</string>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OT-7Y-pcZ">
-                                <rect key="frame" x="0.0" y="329" width="414" height="51"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpv-Jy-1sn">
-                                <rect key="frame" x="162" y="280" width="90" height="30"/>
+                                <rect key="frame" x="162" y="242" width="90" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <state key="normal" title="Reset">
@@ -3220,22 +3214,146 @@ Telephone:  1-888-384-6958</string>
                                     <action selector="resetDetectionAction:" destination="QXJ-hn-VEB" eventType="touchUpInside" id="Han-Dd-mK7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facial_recognition_scan_filled.png" translatesAutoresizingMaskIntoConstraints="NO" id="4UF-xJ-ddu">
-                                <rect key="frame" x="107" y="72" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4UF-xJ-ddu">
+                                <rect key="frame" x="117" y="64" width="180" height="180"/>
                                 <color key="backgroundColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlp-Cw-QEd">
-                                <rect key="frame" x="115" y="649" width="192" height="30"/>
+                                <rect key="frame" x="115" y="657" width="192" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Broadcast Now"/>
                                 <connections>
                                     <action selector="broadCastAction:" destination="QXJ-hn-VEB" eventType="touchUpInside" id="qCI-8U-NP9"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JF0-bh-aOx">
+                                <rect key="frame" x="0.0" y="305" width="414" height="154"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Please Follow the instructions below:">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="AvenirNext-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="AvenirNext-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="1- Please click on the upload button in the upper right hand  corner of the screen">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=".">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="2">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="- ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Please Click on the camera button to capture your missing child’s photo">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=".">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="3">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="- Please click on the capture image button in order to broadcast your missing child.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OT-7Y-pcZ">
+                                <rect key="frame" x="0.0" y="270" width="414" height="35"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hml-A4-sCM" firstAttribute="top" secondItem="JF0-bh-aOx" secondAttribute="bottom" constant="228" id="9MA-3n-6Fb"/>
+                            <constraint firstItem="4UF-xJ-ddu" firstAttribute="centerX" secondItem="NZf-mT-DnX" secondAttribute="centerX" id="9OY-2C-xs8"/>
+                            <constraint firstItem="4UF-xJ-ddu" firstAttribute="top" secondItem="L52-Hy-K2p" secondAttribute="bottom" id="GAZ-98-Tye"/>
+                            <constraint firstItem="JF0-bh-aOx" firstAttribute="centerX" secondItem="NZf-mT-DnX" secondAttribute="centerX" id="HLX-qq-FPZ"/>
+                            <constraint firstItem="JF0-bh-aOx" firstAttribute="width" secondItem="NZf-mT-DnX" secondAttribute="width" id="amW-SM-Jnr"/>
+                            <constraint firstItem="4UF-xJ-ddu" firstAttribute="width" secondItem="NZf-mT-DnX" secondAttribute="width" constant="-234" id="fYl-VZ-Bc6"/>
+                            <constraint firstItem="JF0-bh-aOx" firstAttribute="top" secondItem="L52-Hy-K2p" secondAttribute="bottom" constant="241" id="lhW-rs-zcT"/>
+                            <constraint firstItem="4UF-xJ-ddu" firstAttribute="height" secondItem="NZf-mT-DnX" secondAttribute="height" id="r7h-Gc-QMG"/>
+                            <constraint firstItem="Hml-A4-sCM" firstAttribute="top" secondItem="4UF-xJ-ddu" secondAttribute="bottom" constant="443" id="yI8-ZV-vKc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="r7h-Gc-QMG"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="jVW-Ta-UhQ">
+                    <navigationItem key="navigationItem" title="Missing Child Alert" id="jVW-Ta-UhQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Ycn-xQ-swh">
                             <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <connections>
@@ -3250,6 +3368,7 @@ Telephone:  1-888-384-6958</string>
                         <outlet property="collectionView" destination="dH8-jk-qjQ" id="WY3-MN-Pfa"/>
                         <outlet property="imageView" destination="4UF-xJ-ddu" id="Dev-uQ-odm"/>
                         <outlet property="numberOfFacesDetectedLabel" destination="6OT-7Y-pcZ" id="OiS-y2-arS"/>
+                        <outlet property="txtInstructions" destination="JF0-bh-aOx" id="M4Z-2K-5QL"/>
                         <segue destination="QaZ-2w-nkb" kind="unwind" identifier="segUnload" unwindAction="prepareForUnwind:" id="t67-20-3KV"/>
                     </connections>
                 </viewController>
@@ -3307,7 +3426,6 @@ Telephone:  1-888-384-6958</string>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="currency_exchange-256.png" width="256" height="256"/>
         <image name="facial_recognition_scan_default.png" width="700" height="500"/>
-        <image name="facial_recognition_scan_filled.png" width="100" height="100"/>
         <image name="home-32.png" width="32" height="32"/>
         <image name="news-256.png" width="256" height="256"/>
         <image name="news-32.png" width="32" height="32"/>

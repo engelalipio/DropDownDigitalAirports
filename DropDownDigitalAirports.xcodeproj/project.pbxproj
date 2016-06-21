@@ -3369,6 +3369,7 @@
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
@@ -3392,6 +3393,7 @@
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";

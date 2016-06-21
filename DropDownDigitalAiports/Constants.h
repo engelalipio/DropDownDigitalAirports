@@ -9,6 +9,11 @@
 #define ComputerVisionSubscriptionKey @"fc0a1a92167d4769a7842721df0d776b"
 
 
+#define kSendGridUser @"azure_853495f191b38dd1b7ed0bac2b52e94c@azure.com"
+#define kSendGridPass @"A5c9j3yFBqNmA66"
+#define kSendGridServer @"smtp.sendgrid.net"
+#define kSendGridPort @"587"
+
 #define kOMTNApp @"OMTN://"
 #define kOMPN @"http://www.ordermyproductnow.com"
 #define kOMSN @"http://www.ordermyservicenow.com"

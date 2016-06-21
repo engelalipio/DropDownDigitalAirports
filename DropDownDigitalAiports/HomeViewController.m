@@ -604,7 +604,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [appDelegate setIsMissingPerson:NO];
         
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Person Information"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Child Information"
                                                         message:@"Airport Security Has Been Contacted And Will Be Here Shortly.\nThank You!" delegate:self
                                               cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
@@ -629,8 +629,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
 - (IBAction)actionLight:(UIButton *)sender {
     
-   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Person Information"
-                                       message:@"Click 'Ok' To Report Information About This Missing Person" delegate:self
+   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Child Information"
+                                       message:@"Click 'Ok' To Report Information About This Missing Child" delegate:self
                              cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
     
     if (alert){
@@ -778,7 +778,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
             [self.btnLight setHidden:NO];
             [self.addressLabel setNumberOfLines:0];
-            [self.addressLabel setText:@"Missing Person Alert,\nClick On The Informational Button To Provide Any Details!"];
+            [self.addressLabel setText:@"Missing Child Alert,\nClick On The Informational Button To Provide Any Details!"];
             [self.addressLabel setTextColor:[UIColor redColor]];
             [self.imageView setBackgroundColor:[UIColor blackColor]];
             [self.imageView setImage:image];
