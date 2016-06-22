@@ -123,15 +123,13 @@
         [self presentViewController:picker animated:YES completion:nil];
 
     }]];
-    /*
+    
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Use Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self dismissViewControllerAnimated:YES completion:nil];
         [self presentViewController:picker animated:YES completion:nil];
 
-    }]];*/
-    
-
+    }]];
     
     if (appDelegate.isiPhone){
     // Present action sheet.
@@ -139,7 +137,6 @@
     }else{
         
         UIPopoverPresentationController *alertPopoverPresentationController = actionSheet.popoverPresentationController;
- 
  
         alertPopoverPresentationController.sourceRect = self.imageView.frame ;
         alertPopoverPresentationController.sourceView = self.imageView;
@@ -340,7 +337,7 @@
     }
   
 
-    [self.imageView setImage:[UIImage imageNamed:@"facial_recognition_scan_filled.png"]];
+    [self.imageView setImage:nil];
     [self.numberOfFacesDetectedLabel setText:@""];
     hasImage  = false;
     [self.txtInstructions setHidden:NO];
