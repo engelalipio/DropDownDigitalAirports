@@ -43,6 +43,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnBroadCast;
 - (IBAction)resetDetectionAction:(UIButton *)sender;
 - (IBAction)broadCastAction:(UIButton *)sender;
-@property (strong, nonatomic) IBOutlet UITextView *txtInstructions;
+@property (strong, nonatomic) IBOutlet UILabel *txtInstructions;
 
 @end

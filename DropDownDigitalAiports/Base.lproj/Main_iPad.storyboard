@@ -575,7 +575,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="152" y="0.0" width="530" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportFlight_1.jpg" id="177-dw-3kX">
@@ -600,7 +600,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportDining_0.jpg" id="g4o-vo-0Ri">
@@ -625,7 +625,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportShops_0.jpg" id="u7A-CN-wzd">
@@ -650,7 +650,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportLounge_1.jpg" id="jgh-gQ-Pkx">
@@ -675,7 +675,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportHotels_0.jpg" id="cWz-IQ-b9a">
@@ -700,7 +700,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                                     <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportBack_0.jpg" id="2k8-5i-7iA">
@@ -3135,10 +3135,10 @@ Telephone:  1-888-384-6958</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvq-kc-sfZ">
-                                <rect key="frame" x="339" y="380" width="90" height="30"/>
+                                <rect key="frame" x="325" y="448" width="118" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <state key="normal" title="Capture">
+                                <state key="normal" title="Capture Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -3146,16 +3146,16 @@ Telephone:  1-888-384-6958</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZF-b3-DMD">
-                                <rect key="frame" x="20" y="412" width="748" height="47"/>
+                                <rect key="frame" x="0.0" y="480" width="768" height="47"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRs-qM-sLt">
-                                <rect key="frame" x="339" y="380" width="90" height="30"/>
+                                <rect key="frame" x="325" y="448" width="118" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <state key="normal" title="Reset">
+                                <state key="normal" title="Reset Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -3163,19 +3163,11 @@ Telephone:  1-888-384-6958</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-nC-ksB">
-                                <rect key="frame" x="0.0" y="64" width="768" height="308"/>
-                                <color key="backgroundColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="121" width="768" height="308"/>
+                                <color key="backgroundColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="777-hA-md6">
-                                <rect key="frame" x="288" y="937" width="192" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Broadcast Now"/>
-                                <connections>
-                                    <action selector="broadCastAction:" destination="9I8-6K-3BE" eventType="touchUpInside" id="pKl-bl-FKC"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l30-2B-X5n">
-                                <rect key="frame" x="20" y="627" width="728" height="280"/>
+                                <rect key="frame" x="20" y="556" width="728" height="280"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="2" id="MTi-UM-kiM">
@@ -3269,133 +3261,28 @@ Telephone:  1-888-384-6958</string>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auz-qW-2id">
-                                <rect key="frame" x="72" y="467" width="624" height="144"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Please Follow the instructions below:
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="18" name="AvenirNext-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="20" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="1- Please click on the upload button in the upper right hand corner of the screen">
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">.
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="2">
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="- ">
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Please ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="c">
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="lick on the camera button to capture your missing child’s photo">
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">.
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="3">
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="- Please click on the capture image button in order to broadcast your missing child.">
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <font key="NSOriginalFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="777-hA-md6">
+                                <rect key="frame" x="325" y="448" width="118" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Broadcast Now"/>
+                                <connections>
+                                    <action selector="broadCastAction:" destination="9I8-6K-3BE" eventType="touchUpInside" id="pKl-bl-FKC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-Ww-qdj">
+                                <rect key="frame" x="0.0" y="64" width="768" height="59"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="auz-qW-2id" firstAttribute="top" secondItem="oZZ-Oq-AdS" secondAttribute="bottom" constant="403" id="7QN-EN-Jku"/>
-                            <constraint firstItem="auz-qW-2id" firstAttribute="centerX" secondItem="wk9-SQ-84C" secondAttribute="centerX" id="bjh-96-Vlp"/>
-                            <constraint firstItem="auz-qW-2id" firstAttribute="width" secondItem="wk9-SQ-84C" secondAttribute="width" constant="-144" id="pDX-6v-DXh"/>
-                            <constraint firstItem="nNw-uZ-ODo" firstAttribute="top" secondItem="auz-qW-2id" secondAttribute="bottom" constant="364" id="znh-Kb-dhT"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AfH-3p-Gw1">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="NDb-q8-cb3">
-                            <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="selectImageButtonPressed:" destination="9I8-6K-3BE" id="xkt-Pm-NUv"/>
                             </connections>
@@ -3409,7 +3296,7 @@ Cg
                         <outlet property="collectionView" destination="l30-2B-X5n" id="uQt-Pa-iq6"/>
                         <outlet property="imageView" destination="iaH-nC-ksB" id="wiz-EI-s4v"/>
                         <outlet property="numberOfFacesDetectedLabel" destination="RZF-b3-DMD" id="LSO-xg-S7A"/>
-                        <outlet property="txtInstructions" destination="auz-qW-2id" id="OKr-O7-pYV"/>
+                        <outlet property="txtInstructions" destination="hyQ-Ww-qdj" id="VZq-CQ-8hA"/>
                         <segue destination="cp4-Wo-frq" kind="unwind" identifier="segUnload" unwindAction="prepareForUnwind:" id="B8j-BW-zQM"/>
                     </connections>
                 </viewController>
@@ -3479,17 +3366,17 @@ Cg
         <image name="your_ad_here_banner.jpg" width="768" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0iv-O6-VKS"/>
-        <segue reference="tJP-0D-Tol"/>
-        <segue reference="KMJ-xx-IwF"/>
-        <segue reference="74s-xb-a1G"/>
-        <segue reference="zEC-4U-h7j"/>
-        <segue reference="vKe-fs-S7W"/>
         <segue reference="aze-Na-iDU"/>
+        <segue reference="zEC-4U-h7j"/>
+        <segue reference="0iv-O6-VKS"/>
+        <segue reference="KMJ-xx-IwF"/>
+        <segue reference="vKe-fs-S7W"/>
+        <segue reference="74s-xb-a1G"/>
+        <segue reference="tJP-0D-Tol"/>
         <segue reference="zRY-xX-kr3"/>
         <segue reference="Jae-ms-EYb"/>
-        <segue reference="V3P-2b-HFN"/>
         <segue reference="Gfh-Ot-UgZ"/>
+        <segue reference="ExS-mc-0gQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -52,7 +52,9 @@
 @interface MPODetectionViewController (){
     bool hasImage;
     NSInteger selectedIndex;
+    NSArray *steps;
     AppDelegate *appDelegate;
+    NSString *TITLE ;
 }
 @property (nonatomic, strong) NSMutableArray *faceCellObjects;
 
@@ -63,11 +65,68 @@
 
 @synthesize detailItem = _detailItem;
 
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    
+    if (appDelegate.isMissingPerson){
+        TITLE = @"Click The 'Report Now' Button Below To Contact Airport Security";
+        [self.imageView setImage:appDelegate.missingPersonImage];
+        [self.btnBroadCast setBackgroundColor:[UIColor darkGrayColor]];
+        [self.navigationItem setTitleView:[self getSpecialTitleView:TITLE]];
+        [self.btnBroadCast setTitle:@"Report Now" forState:UIControlStateNormal];
+        [self.btnBroadCast setHidden:NO];
+        [self.txtInstructions setHidden:YES];
+    }
+}
+
+-(UIView*) getSpecialTitleView: (NSString*) anyTitle{
+    UILabel *titleView = nil;
+    NSString *message = @"";
+    
+    CGFloat size = (appDelegate.isiPhone ? kTitleIPhoneSize : kTitleSize);
+    
+    @try {
+        titleView = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 50.0f)];
+        [titleView setBackgroundColor:[UIColor clearColor]];
+        [titleView setNumberOfLines:0];
+        [titleView setTextColor:kTitleColor];
+        [titleView setTextAlignment:NSTextAlignmentCenter];
+        [titleView setFont:[UIFont fontWithName:kTitleFont size:size]];
+        [titleView setText:anyTitle];
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if (message.length > 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+    }
+    return titleView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    appDelegate = [AppDelegate currentDelegate] ;
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    TITLE = @"Missing Child Instructions Indicated Below";
+    
+    steps = [[NSArray alloc] initWithObjects:@"1- Please click on the 'Upload' button in the upper right hand corner of the screen.",
+                                                                      @"2- Please click on the 'Use Camera/Gallery' button to upload your missing child’s photo.",
+                                                                      @"3- Please click on the 'Capture Image' button to capture your missing child’s headshot.",
+                                                                      @"4- Please choose the desired headshot in the grid below to validate your selection.",
+                                                                      @"5- Please click on the 'Broadcast Now' button in order to broadcast your missing child.", nil];
+    
+ 
+    [self.navigationItem setTitleView:[self getSpecialTitleView:TITLE]];
+    [self.txtInstructions setText:[NSString stringWithFormat:@"%@",steps.firstObject]];
     [self.imageView.layer setMasksToBounds:YES];
     [self.imageView.layer setCornerRadius:3.0f];
     
@@ -75,17 +134,7 @@
     hasImage = false;
     self.faceCellObjects = [[NSMutableArray alloc] init];
     
-    appDelegate = [AppDelegate currentDelegate] ;
- 
-    if (appDelegate.isMissingPerson){
-        [self.imageView setImage:appDelegate.missingPersonImage];
-        [self.btnBroadCast setBackgroundColor:[UIColor darkGrayColor]];
-        [self.numberOfFacesDetectedLabel setText:@"Click The 'Report' Button Below To Contact Airport Security"];
-        [self.btnBroadCast setTitle:@"Report Information" forState:UIControlStateNormal];
-        [self.btnBroadCast setHidden:NO];
-    }else{
-        
-    }
+
     // Do any additional setup after loading the view.
 }
 
@@ -104,7 +153,7 @@
 */
 
 - (IBAction)selectImageButtonPressed:(id)sender {
-    
+    [self.txtInstructions setText:[NSString stringWithFormat:@"%@",[steps objectAtIndex:1]]];
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Select a photo" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -187,6 +236,7 @@
                     break;
             }
             
+                [self.txtInstructions setText:[NSString stringWithFormat:@"%@",[steps objectAtIndex:3]]];
  
             for (MPOFace *face in collection) {
   
@@ -208,7 +258,7 @@
                 
             }
             [self.collectionView reloadData];
-       
+
         }
         
         //hide loading indicator
@@ -227,7 +277,7 @@
         self.imageView.image = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:^(void){
         hasImage = true;
-        //[self.txtInstructions setHidden:YES];
+        [self.txtInstructions setText:[NSString stringWithFormat:@"%@",[steps objectAtIndex:2]]];
         [self.btnReset setHidden:YES];
         [self.btnDetect setHidden:NO];
     }];
@@ -253,7 +303,7 @@
             
             [alert addAction:okAction];
             [self presentViewController:alert animated:YES completion:^(void){
- 
+
             }];
         }
 
@@ -272,6 +322,7 @@
     
     if (self.faceCellObjects){
         count =[self.faceCellObjects count];
+
     }
     
     if (count > 0){
@@ -322,6 +373,7 @@
     selectedIndex = indexPath.row;
     [self.collectionView reloadData];
     [self.btnBroadCast setHidden:NO];
+    [self.txtInstructions setText:[NSString stringWithFormat:@"%@",steps.lastObject]];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -359,7 +411,7 @@
     @try {
         
         
-        if ([self.btnBroadCast.titleLabel.text isEqualToString:@"Report Information"]){
+        if ([self.btnBroadCast.titleLabel.text isEqualToString:@"Report Now"]){
             
  
             alert = [UIAlertController alertControllerWithTitle:@"Missing Child Information"
@@ -370,9 +422,11 @@
             okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *anyAction){
                 [appDelegate setMissingPersonImage:nil];
                 [appDelegate setIsMissingPerson:NO];
-                [self.navigationItem setTitle:@"Security Will Be Here Shortly."];
+                [self.navigationItem setTitleView:[self getSpecialTitleView:@"Security Will Be Here Shortly."]];
                 [self setTitle:@"Security Will Be Here Shortly."];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self dismissViewControllerAnimated:YES completion:^(void){
+ 
+                }];
                 
             }];
             
