@@ -174,17 +174,13 @@
     [appDelegate setInterval:[self.txtSeconds.text integerValue]];
     
     if (self.switchOrderReset.isOn){
-        [appDelegate setIsSent:NO];
-        [appDelegate setIsPaid:NO];
-        [appDelegate setCurrentOrderItems:0];
-        [appDelegate setDrinkItems:nil];
-        [appDelegate setAppItems:nil];
-        [appDelegate setSoupItems:nil];
-        [appDelegate setSaladItems:nil];
-        [appDelegate setEntreeItems:nil];
-        [appDelegate setDessertItems:nil];
-        [[[[self.tabBarController tabBar] items] objectAtIndex:kOrderTabItemIndex] setBadgeValue:@"0"];
-      
+        [appDelegate setMissingPersonImage:nil];
+        [appDelegate setIsMissingPerson:NO];
+        
+ 
+    
+        [self deleteAllMissingPeople];
+
     }
     
     [self.savedLabel setHidden:NO];
@@ -192,7 +188,28 @@
         [self.imgDWI setHidden:YES];
     }
    
-    [self performSegueWithIdentifier:@"segUnload" sender:self];
+ //   [self performSegueWithIdentifier:@"segUnload" sender:self];
+}
+
+-(void) deleteAllMissingPeople{
+    PFQuery *query = [PFQuery queryWithClassName:@"MissingPerson"];
+    
+    if (query){
+        
+        query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+        
+        NSArray *missingPeople =  (NSArray*) [query findObjects];
+        
+        if (missingPeople){
+            
+ 
+                [PFObject deleteAll:missingPeople];
+ 
+    
+        }
+    }
+ 
+
 }
 
 - (IBAction)actionChangeInterval:(UIStepper *)sender {

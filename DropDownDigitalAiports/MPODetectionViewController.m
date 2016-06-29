@@ -93,8 +93,9 @@
         [titleView setNumberOfLines:0];
         [titleView setTextColor:kTitleColor];
         [titleView setTextAlignment:NSTextAlignmentCenter];
-        [titleView setFont:[UIFont fontWithName:kTitleFont size:size]];
-        [titleView setText:anyTitle];
+        [titleView setFont:[UIFont systemFontOfSize:size]];
+      //  [titleView setFont:[UIFont fontWithName:kTitleFont size:size]];
+        [titleView setText:anyTitle.uppercaseString];
     }
     @catch (NSException *exception) {
         message = [exception description];
@@ -116,15 +117,16 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    TITLE = @"Missing Child Instructions Indicated Below";
+    TITLE = @"Missing Child Instructions Indicated Below            ";
     
-    steps = [[NSArray alloc] initWithObjects:@"1- Please click on the 'Upload' button in the upper right hand corner of the screen.",
+    steps = [[NSArray alloc] initWithObjects:@"1- Please click on the 'Icon' button on the upper right hand corner of the screen.",
                                                                       @"2- Please click on the 'Use Camera/Gallery' button to upload your missing child’s photo.",
                                                                       @"3- Please click on the 'Capture Image' button to capture your missing child’s headshot.",
-                                                                      @"4- Please choose the desired headshot in the grid below to validate your selection.",
+                                                                      @"4- Please touch the desired headshot in the gray box below to validate your selection.",
                                                                       @"5- Please click on the 'Broadcast Now' button in order to broadcast your missing child.", nil];
     
  
+    [self.btnDetect setHidden:YES];
     [self.navigationItem setTitleView:[self getSpecialTitleView:TITLE]];
     [self.txtInstructions setText:[NSString stringWithFormat:@"%@",steps.firstObject]];
     [self.imageView.layer setMasksToBounds:YES];
@@ -413,17 +415,16 @@
         
         if ([self.btnBroadCast.titleLabel.text isEqualToString:@"Report Now"]){
             
+            
  
-            alert = [UIAlertController alertControllerWithTitle:@"Missing Child Information"
-                                                        message:@"Would You Like to Report Information About This Missing Child?"
+            alert = [UIAlertController alertControllerWithTitle:@"Click ‘OK’ To Report Your Missing Child To Security"
+                                                        message:@""
                                                  preferredStyle:UIAlertControllerStyleAlert];
             
             
             okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *anyAction){
-                [appDelegate setMissingPersonImage:nil];
-                [appDelegate setIsMissingPerson:NO];
-                [self.navigationItem setTitleView:[self getSpecialTitleView:@"Security Will Be Here Shortly."]];
-                [self setTitle:@"Security Will Be Here Shortly."];
+                [self.navigationItem setTitleView:[self getSpecialTitleView:@"Missing Child Reported!"]];
+                [self setTitle:@"Missing Child Reported!"];
                 [self dismissViewControllerAnimated:YES completion:^(void){
  
                 }];
@@ -438,8 +439,8 @@
  
         }else{
         
-        alert = [UIAlertController alertControllerWithTitle:@"Broadcast Confirmation"
-                                                    message:@"Would You Like to Broadcast this Child Missing?"
+        alert = [UIAlertController alertControllerWithTitle:@"Please Click ‘OK’ To Broadcast Your Missing Child Now!"
+                                                    message:@""
                                              preferredStyle:UIAlertControllerStyleAlert];
         
 
@@ -450,6 +451,33 @@
             MPODetectionFaceCellObject *obj  = [self.faceCellObjects objectAtIndex:selectedIndex];
             
             if (obj){
+                
+                
+                PFObject *missingPerson = [PFObject objectWithClassName:@"MissingPerson"];
+                
+                PFFile *file = [missingPerson objectForKey:@"Image"];
+                
+                NSData *imageData  = UIImagePNGRepresentation(obj.croppedFaceImage);
+
+                
+                if (! file){
+                    
+                    
+                    file =  [PFFile fileWithData:imageData];
+          
+                }
+
+                NSUUID *uniqueId =  [[UIDevice currentDevice] identifierForVendor ];
+                
+                NSString *UUID = [NSString stringWithFormat:@"%@",uniqueId.UUIDString];
+                
+                [missingPerson setObject:UUID forKey:@"Description"];
+            
+                [missingPerson setObject:file forKey:@"Image"];
+                
+                [missingPerson save];
+
+
                 [appDelegate setMissingPersonImage:obj.croppedFaceImage];
                 [appDelegate setIsMissingPerson:YES];
                 [self.btnBroadCast setHidden:YES];
@@ -461,6 +489,8 @@
                 [self performSegueWithIdentifier:@"segUnload" sender:self];
                 [self dismissViewControllerAnimated:YES completion:^(void){
                 
+
+                    
                 }];
 
             }

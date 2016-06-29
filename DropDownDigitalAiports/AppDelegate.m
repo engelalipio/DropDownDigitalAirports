@@ -318,6 +318,8 @@
     PFQuery *query = nil;
     @try {
         
+    
+        
         query = [PFQuery queryWithClassName:@"Airportbackgrounds"];
         
         if (query){

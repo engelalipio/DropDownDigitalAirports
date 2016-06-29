@@ -591,21 +591,12 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
-        [self ResetMissingPerson];
-    }
-}
-
--(void) ResetMissingPerson{
-    if (appDelegate.missingPersonImage){
-        [appDelegate setMissingPersonImage:nil];
-    }
-    if (appDelegate.isMissingPerson){
-        [appDelegate setIsMissingPerson:NO];
+    if (buttonIndex == 0 && self.timer){
+        [self stopTimer];
         
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Child Information"
-                                                        message:@"Airport Security Has Been Contacted And Will Be Here Shortly.\nThank You!" delegate:self
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Child Reported!"
+                                                        message:@"" delegate:self
                                               cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         if (alert){
@@ -613,6 +604,17 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         }
         
     }
+}
+
+-(void) ResetMissingPerson{
+    
+    if (appDelegate.missingPersonImage){
+      //  [appDelegate setMissingPersonImage:nil];
+    }
+    if (appDelegate.isMissingPerson){
+      //  [appDelegate setIsMissingPerson:NO];
+    }
+    
     [self.imageView setContentMode:UIViewContentModeScaleToFill];
     
     if(!self.btnLight.isHidden){
@@ -625,12 +627,14 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     [self.imageView setBackgroundColor:[UIColor clearColor]];
     [self.imageView setImage:[UIImage imageNamed:@"AirportBack_0.jpg"]];
+    
+    [self startTimer];
 }
 
 - (IBAction)actionLight:(UIButton *)sender {
     
-   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Missing Child Information"
-                                       message:@"Click 'Ok' To Report Information About This Missing Child" delegate:self
+   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Click ‘OK’ To Report Your Missing Child To Security"
+                                       message:@"" delegate:self
                              cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
     
     if (alert){
@@ -761,12 +765,57 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                      pagesCount = 0;
     
     BOOL isMissingPerson = NO;
+    
+    PFObject *missingPerson = nil;
+    
+    PFFile *file  = nil;
+    
+    NSData *missingChildData = nil;
+    
+    UIImage *missingChildImage = nil;
+    
     @try {
         
       
         isMissingPerson = [appDelegate isMissingPerson];
+        //Check on the server first
         
         if (! isMissingPerson){
+        PFQuery *query = [PFQuery queryWithClassName:@"MissingPerson"];
+        
+        if (query){
+            
+            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            
+            NSArray *missingPeople =  (NSArray*) [query findObjects];
+            
+            if (missingPeople.count){
+                
+                missingPerson = (PFObject*) [missingPeople objectAtIndex:0];
+                
+                file = [missingPerson objectForKey:@"Image"];
+                
+                if (file){
+                    
+                    missingChildData =  [file getData];
+                    
+                    if (missingChildData){
+                        missingChildImage = [UIImage imageWithData:missingChildData];
+                        if (missingChildImage){
+                            [appDelegate setMissingPersonImage:missingChildImage];
+                            [appDelegate setIsMissingPerson:YES];
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+            }
+        }
+        
+        if (! isMissingPerson){
+            
             if (! [self.btnLight isHidden]){
                 [self  ResetMissingPerson];
             }
@@ -778,7 +827,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
             [self.btnLight setHidden:NO];
             [self.addressLabel setNumberOfLines:0];
-            [self.addressLabel setText:@"Missing Child Alert,\nClick On The Informational Button To Provide Any Details!"];
+            [self.addressLabel setText:@"Missing Child Alert!\nClick On The Informational Button On The Right To Notify Security!"];
             [self.addressLabel setTextColor:[UIColor redColor]];
             [self.imageView setBackgroundColor:[UIColor blackColor]];
             [self.imageView setImage:image];
@@ -810,6 +859,11 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         if ([message length] > 0){
             NSLog(@"%@",message);
         }
+        
+        missingChildData = nil;
+        missingChildImage = nil;
+        missingPerson = nil;
+        
     }
     
 }
