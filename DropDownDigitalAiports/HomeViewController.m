@@ -596,7 +596,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Child Reported!"
-                                                        message:@"" delegate:self
+                                                        message:@"Security Will Be Here Shortly." delegate:self
                                               cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         if (alert){

@@ -2578,7 +2578,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l5G-eR-C4z">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal N" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l5G-eR-C4z">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2614,7 +2614,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dd-Xq-lwB">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal N" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dd-Xq-lwB">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2649,8 +2649,8 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal B" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lMX-xJ-JbT">
-                                                    <rect key="frame" x="241" y="16" width="150" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal N" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lMX-xJ-JbT">
+                                                    <rect key="frame" x="241" y="16" width="151.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2684,7 +2684,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal H" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n6u-F5-jdu">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n6u-F5-jdu">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2719,7 +2719,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QYN-GE-4Cd">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QYN-GE-4Cd">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2754,7 +2754,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OBu-p7-xbh">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OBu-p7-xbh">
                                                     <rect key="frame" x="262" y="16" width="137" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2789,7 +2789,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZW-3M-BGw">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WZW-3M-BGw">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2824,7 +2824,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BLb-6j-wyB">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BLb-6j-wyB">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -2859,7 +2859,7 @@ Telephone:  1-888-384-6958</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal O" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OC2-HN-aXM">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open 24/7 - Terminal C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OC2-HN-aXM">
                                                     <rect key="frame" x="270" y="16" width="129" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -3314,7 +3314,7 @@ Telephone:  1-888-384-6958</string>
         <image name="card_in_use-50.png" width="50" height="50"/>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="currency_exchange-256.png" width="256" height="256"/>
-        <image name="facial_recognition_scan_default.png" width="700" height="500"/>
+        <image name="facial_recognition_scan_default.png" width="1022" height="628"/>
         <image name="home-32.png" width="32" height="32"/>
         <image name="news-256.png" width="256" height="256"/>
         <image name="news-32.png" width="32" height="32"/>

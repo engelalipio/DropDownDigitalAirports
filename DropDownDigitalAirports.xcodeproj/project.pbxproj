@@ -1230,7 +1230,7 @@
 		AAD93E291B4883EF009B354B /* hotel_information-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hotel_information-100.png"; sourceTree = "<group>"; };
 		AAD93E2B1B4888D1009B354B /* ground_transportation-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ground_transportation-100.png"; sourceTree = "<group>"; };
 		AAD93E2D1B4888F4009B354B /* ground_transportation-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ground_transportation-32.png"; sourceTree = "<group>"; };
-		AAE1FE581BD82B5D0006410F /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
+		AAE1FE581BD82B5D0006410F /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AAE1FE5B1BD93E830006410F /* AirportFlight_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AirportFlight_1.jpg; sourceTree = "<group>"; };
 		AAE1FE5E1BD96F570006410F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		AAE1FE5F1BD96F570006410F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };

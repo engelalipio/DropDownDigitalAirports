@@ -831,8 +831,8 @@
                 }
                 
                 [item.FlightValue setText:fligthDetail];
-        
-                [item.AircraftLabel setText:@"Destination's\nWeather: "];
+      //  Destination’s Forecasted Weather
+                [item.AircraftLabel setText:@"Destination's\nForecasted Weather: "];
                 
                 if (appDelegate.isiPhone){
  

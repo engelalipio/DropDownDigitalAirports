@@ -176,7 +176,7 @@
     
     UITableViewCell *cell = nil;
     
-    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"H", @"T", nil];
+    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"N", @"C",  @"S", nil];
     
     NSInteger terminalId = arc4random_uniform(Terminals.count - 1),
                      terminalIdToo = terminalId + 1,

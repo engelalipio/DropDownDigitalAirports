@@ -429,7 +429,7 @@
                     *cuisine = @"",
                     *finalLocation = @"";
     
-    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"H", @"T", nil],
+    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"N", @"C",  @"S", nil],
     
                     *cuisines = [[NSArray alloc] initWithObjects: @"Mexican", @"American", @"Thai",
                                                                                             @"Italian",@"French", @"Sushi",@"Irish",

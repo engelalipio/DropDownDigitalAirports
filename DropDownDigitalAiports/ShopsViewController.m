@@ -376,7 +376,7 @@
     *terminal = @"",
     *finalLocation = @"";
     
-    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"H", @"T", nil];
+    NSArray *Terminals = [[NSArray alloc] initWithObjects:@"N", @"C",  @"S", nil];
     
     NSInteger terminalId = arc4random_uniform(Terminals.count),
                      gateId = arc4random_uniform(50),
