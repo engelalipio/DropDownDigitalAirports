@@ -64,6 +64,8 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSArray  *clubsbackgrounds;
 @property (strong, nonatomic) NSArray  *hotelbackgrounds;
 @property (strong, nonatomic) NSArray  *groundbackgrounds;
+@property (strong, nonatomic) NSArray  *sightseeingbackgrounds;
+
 @property (strong, nonatomic)  UIImage *missingPersonImage;
 
 +(AppDelegate *) currentDelegate;

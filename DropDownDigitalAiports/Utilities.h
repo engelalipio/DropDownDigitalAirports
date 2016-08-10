@@ -10,7 +10,7 @@
 
 @interface Utilities : NSObject
 
-
++(NSString*) getParseColumnValue:(NSArray *) imageSourceArray  anyIndex:(NSInteger) imageIndex anyColumn:(NSString *) columnName;
 
 +(UIView*)    getSpecialTitleView: (UIView*) existingTitleView andNewTitle: (NSString*) anyTitle;
 

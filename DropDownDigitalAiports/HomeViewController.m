@@ -258,8 +258,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 if (lounges){
                     
                     if (lounges.count ==1){
-                        if (appDelegate.loungesbackgrounds){
-                            lounges = appDelegate.loungesbackgrounds;
+                        if (appDelegate.sightseeingbackgrounds){
+                            lounges = appDelegate.sightseeingbackgrounds;
                             isParse = YES;
                         }
                     }else{
@@ -961,7 +961,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Fine Dining/Meals To Go/The Food Court",
                                                                                                  @"Shopping/Concessions & Gift Stores",
-                                                                                                 @"Airline Club Rooms",@"Nearby Hotels",@"Ground Transportation", nil];
+                                                                                                 @"SightSeeing Attractions",@"Nearby Hotels",@"Ground Transportation", nil];
         
         if (appDelegate.isDynamic){
             
@@ -987,9 +987,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             
             [self setImageNames:appDelegate.shopsbackgrounds destData:shops];
             
-            lounges  = [[NSArray alloc] initWithObjects:@"AirportLounge_1.jpg", nil];
+            lounges  = [[NSArray alloc] initWithObjects:@"Location_0.jpg", nil];
             
-            [self setImageNames:appDelegate.loungesbackgrounds destData:lounges];
+            [self setImageNames:appDelegate.sightseeingbackgrounds destData:lounges];
             
             hotels = [[NSArray alloc] initWithObjects:@"AirportHotels_0.jpg",nil];
             

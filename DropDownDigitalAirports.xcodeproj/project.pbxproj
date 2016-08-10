@@ -449,6 +449,16 @@
 		AA8FA9451B2A70BD003E79B4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8FA9341B2A70BD003E79B4 /* Icon@2x.png */; };
 		AA8FA9461B2A70BD003E79B4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = AA8FA9351B2A70BD003E79B4 /* iTunesArtwork */; };
 		AA8FA9471B2A70BD003E79B4 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = AA8FA9361B2A70BD003E79B4 /* iTunesArtwork@2x */; };
+		AA9238251D5B75E400F21B54 /* train_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238241D5B75E400F21B54 /* train_filled.png */; };
+		AA9238271D5B75FE00F21B54 /* ferry_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238261D5B75FE00F21B54 /* ferry_filled.png */; };
+		AA9238291D5B760D00F21B54 /* elephant_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238281D5B760D00F21B54 /* elephant_filled.png */; };
+		AA92382B1D5B762300F21B54 /* palace_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA92382A1D5B762300F21B54 /* palace_filled.png */; };
+		AA92382D1D5B763D00F21B54 /* cross_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA92382C1D5B763D00F21B54 /* cross_filled.png */; };
+		AA92382F1D5B764E00F21B54 /* statue_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA92382E1D5B764E00F21B54 /* statue_filled.png */; };
+		AA9238311D5B765D00F21B54 /* bus_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238301D5B765D00F21B54 /* bus_filled.png */; };
+		AA9238331D5B768200F21B54 /* paddling_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238321D5B768200F21B54 /* paddling_filled.png */; };
+		AA9238351D5B76A700F21B54 /* hot_air_balloon_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238341D5B76A700F21B54 /* hot_air_balloon_filled.png */; };
+		AA9238371D5B76C600F21B54 /* earth_element_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AA9238361D5B76C600F21B54 /* earth_element_filled.png */; };
 		AAA600FB1BC57BA000F7B4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA600F91BC57BA000F7B4E4 /* Main.storyboard */; };
 		AAA600FD1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */; };
 		AAAF19AC1CFE538900BED8EE /* AirlinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAF19AB1CFE538900BED8EE /* AirlinesViewController.m */; };
@@ -463,6 +473,9 @@
 		AAB6A88A1CE4F26D008F767B /* Varig_Arline.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB6A8891CE4F26D008F767B /* Varig_Arline.png */; };
 		AAC6EEEF1D087A1A0037A6C3 /* Directions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */; };
 		AAC6EF0B1D08BB6C0037A6C3 /* ItemFlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC6EF0A1D08BB6C0037A6C3 /* ItemFlightViewController.xib */; };
+		AAD71FCD1D5A7DF300CF4FC7 /* SightseeingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD71FCC1D5A7DF300CF4FC7 /* SightseeingViewController.m */; };
+		AAD71FD21D5A8B0800CF4FC7 /* Location_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAD71FD11D5A8B0800CF4FC7 /* Location_0.jpg */; };
+		AAD71FEA1D5ACFD500CF4FC7 /* living_room_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD71FE91D5ACFD500CF4FC7 /* living_room_filled.png */; };
 		AAD93DAD1B471868009B354B /* snow-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DAC1B471868009B354B /* snow-100.png */; };
 		AAD93DAF1B471879009B354B /* rain-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DAE1B471879009B354B /* rain-100.png */; };
 		AAD93DB11B47196C009B354B /* fog_day-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AAD93DB01B47196C009B354B /* fog_day-100.png */; };
@@ -1147,6 +1160,16 @@
 		AA8FA9341B2A70BD003E79B4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		AA8FA9351B2A70BD003E79B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		AA8FA9361B2A70BD003E79B4 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		AA9238241D5B75E400F21B54 /* train_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = train_filled.png; sourceTree = "<group>"; };
+		AA9238261D5B75FE00F21B54 /* ferry_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ferry_filled.png; sourceTree = "<group>"; };
+		AA9238281D5B760D00F21B54 /* elephant_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elephant_filled.png; sourceTree = "<group>"; };
+		AA92382A1D5B762300F21B54 /* palace_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palace_filled.png; sourceTree = "<group>"; };
+		AA92382C1D5B763D00F21B54 /* cross_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross_filled.png; sourceTree = "<group>"; };
+		AA92382E1D5B764E00F21B54 /* statue_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statue_filled.png; sourceTree = "<group>"; };
+		AA9238301D5B765D00F21B54 /* bus_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus_filled.png; sourceTree = "<group>"; };
+		AA9238321D5B768200F21B54 /* paddling_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddling_filled.png; sourceTree = "<group>"; };
+		AA9238341D5B76A700F21B54 /* hot_air_balloon_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot_air_balloon_filled.png; sourceTree = "<group>"; };
+		AA9238361D5B76C600F21B54 /* earth_element_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth_element_filled.png; sourceTree = "<group>"; };
 		AAA600FA1BC57BA000F7B4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DropDownDigitalAiports/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAA600FC1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewiPhoneController.xib; sourceTree = "<group>"; };
 		AAAF19AA1CFE537C00BED8EE /* AirlinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesViewController.h; sourceTree = "<group>"; };
@@ -1169,6 +1192,10 @@
 		AAB6A88C1CE4FBFB008F767B /* DropDownDigitalAirports.profdata */ = {isa = PBXFileReference; lastKnownFileType = file; path = DropDownDigitalAirports.profdata; sourceTree = "<group>"; };
 		AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Directions.jpg; sourceTree = "<group>"; };
 		AAC6EF0A1D08BB6C0037A6C3 /* ItemFlightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemFlightViewController.xib; sourceTree = "<group>"; };
+		AAD71FCB1D5A7DE600CF4FC7 /* SightseeingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SightseeingViewController.h; sourceTree = "<group>"; };
+		AAD71FCC1D5A7DF300CF4FC7 /* SightseeingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SightseeingViewController.m; sourceTree = "<group>"; };
+		AAD71FD11D5A8B0800CF4FC7 /* Location_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Location_0.jpg; sourceTree = "<group>"; };
+		AAD71FE91D5ACFD500CF4FC7 /* living_room_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = living_room_filled.png; sourceTree = "<group>"; };
 		AAD93DAC1B471868009B354B /* snow-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow-100.png"; sourceTree = "<group>"; };
 		AAD93DAE1B471879009B354B /* rain-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain-100.png"; sourceTree = "<group>"; };
 		AAD93DB01B47196C009B354B /* fog_day-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fog_day-100.png"; sourceTree = "<group>"; };
@@ -1360,6 +1387,7 @@
 		0F2ACC4519FA0EAA0028B6E2 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				AAD71FD01D5A8AEE00CF4FC7 /* SightSeeing */,
 				AAE1FE5A1BD93E730006410F /* Flights */,
 				AA51985E1B51FA9B00398A4F /* Clubs */,
 				AA86649C1B40B0AF00CFC7D5 /* Cities */,
@@ -1578,6 +1606,16 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AAD71FE91D5ACFD500CF4FC7 /* living_room_filled.png */,
+				AA9238261D5B75FE00F21B54 /* ferry_filled.png */,
+				AA92382A1D5B762300F21B54 /* palace_filled.png */,
+				AA9238281D5B760D00F21B54 /* elephant_filled.png */,
+				AA9238241D5B75E400F21B54 /* train_filled.png */,
+				AA9238361D5B76C600F21B54 /* earth_element_filled.png */,
+				AA9238321D5B768200F21B54 /* paddling_filled.png */,
+				AA9238301D5B765D00F21B54 /* bus_filled.png */,
+				AA92382E1D5B764E00F21B54 /* statue_filled.png */,
+				AA92382C1D5B763D00F21B54 /* cross_filled.png */,
 				AA8542301C83C085009E1441 /* Icon-167.png */,
 				AA4CAC3E1BC0265D003C1948 /* Icon-152.png */,
 				AA150BDD1B7A659B00F5526F /* shopping_bag_filled-100.png */,
@@ -1752,6 +1790,7 @@
 				0FCAD8B11A3AAE8E00BE42E5 /* delete_sign-32.png */,
 				0F153D381A3AA66A0073DED2 /* put_in_motion-256.png */,
 				0F153D361A3A9EA40073DED2 /* weather-256.png */,
+				AA9238341D5B76A700F21B54 /* hot_air_balloon_filled.png */,
 				0F153D341A3A99850073DED2 /* news-256.png */,
 				0FB6E1911A38C387006DE76C /* paynow-32.png */,
 				0FB6E18F1A38C33B006DE76C /* news-32.png */,
@@ -1907,6 +1946,8 @@
 				AA6D149B1B67171200F71348 /* LostLuggageViewController.m */,
 				0FD438B41A0B376B00A2436F /* LoungesViewController.h */,
 				0FD438B51A0B376B00A2436F /* LoungesViewController.m */,
+				AAD71FCB1D5A7DE600CF4FC7 /* SightseeingViewController.h */,
+				AAD71FCC1D5A7DF300CF4FC7 /* SightseeingViewController.m */,
 				0FE60AD81A116F9900435F32 /* GroundTransportationViewController.h */,
 				0FE60AD91A116F9900435F32 /* GroundTransportationViewController.m */,
 				0FE60ADB1A116FB100435F32 /* HotelsViewController.h */,
@@ -2115,6 +2156,14 @@
 				AAB6A88C1CE4FBFB008F767B /* DropDownDigitalAirports.profdata */,
 			);
 			path = OptimizationProfiles;
+			sourceTree = "<group>";
+		};
+		AAD71FD01D5A8AEE00CF4FC7 /* SightSeeing */ = {
+			isa = PBXGroup;
+			children = (
+				AAD71FD11D5A8B0800CF4FC7 /* Location_0.jpg */,
+			);
+			name = SightSeeing;
 			sourceTree = "<group>";
 		};
 		AAD93DBD1B473BD2009B354B /* Payloads */ = {
@@ -2579,6 +2628,7 @@
 				AA51993E1B559EBA00398A4F /* blu_ray_disc_player-100.png in Resources */,
 				0F4D5D471A8AA80E0040DC12 /* card_in_use-50.png in Resources */,
 				AAD93E0E1B48617E009B354B /* Lounge_3.jpeg in Resources */,
+				AA9238351D5B76A700F21B54 /* hot_air_balloon_filled.png in Resources */,
 				AAD93DCD1B473C26009B354B /* Amenities.json in Resources */,
 				0FB6E1881A38C264006DE76C /* weather-32.png in Resources */,
 				AA51985D1B51F79600398A4F /* multiple_devices_filled-100.png in Resources */,
@@ -2618,6 +2668,7 @@
 				AA6D14301B6569A600F71348 /* Donuts_2.png in Resources */,
 				AA6D143E1B65814600F71348 /* Coffee&Tea_2.png in Resources */,
 				AA8664AE1B40B0E300CFC7D5 /* City_9.jpg in Resources */,
+				AA9238371D5B76C600F21B54 /* earth_element_filled.png in Resources */,
 				AA5198821B51FD7100398A4F /* Airline_7.gif in Resources */,
 				AAE68BAF1B5C329300DA7A53 /* Services_4.jpg in Resources */,
 				0FCAD8E11A3E1A2300BE42E5 /* ROMANSH.png in Resources */,
@@ -2632,6 +2683,8 @@
 				AA5198981B5212E500398A4F /* AirportShops_0_0.jpg in Resources */,
 				AA6D13A61B63F3FF00F71348 /* AirportShops_0_5.jpg in Resources */,
 				AA5199421B559EE200398A4F /* news-100.png in Resources */,
+				AA9238251D5B75E400F21B54 /* train_filled.png in Resources */,
+				AA92382F1D5B764E00F21B54 /* statue_filled.png in Resources */,
 				AAD93E281B4883C1009B354B /* 5_star_hotel-100.png in Resources */,
 				AA5199701B55FC4200398A4F /* online_filled-100.png in Resources */,
 				AA6D13F21B641CD300F71348 /* perfume_bottle_filled-100.png in Resources */,
@@ -2693,6 +2746,7 @@
 				AAE68B8E1B5BFB8000DA7A53 /* Limo_4.png in Resources */,
 				AA4CAC3D1BC023D9003C1948 /* Icon-180.png in Resources */,
 				AA8FA8B91B27E26B003E79B4 /* AirportShops_0.jpg in Resources */,
+				AA9238311D5B765D00F21B54 /* bus_filled.png in Resources */,
 				AA8FA93E1B2A70BD003E79B4 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				AA297D1F1D0C5D7E0019B185 /* MPOActivityIndicatorViewController.xib in Resources */,
 				AA5199671B55F70300398A4F /* RentalCar_4.jpg in Resources */,
@@ -2723,6 +2777,7 @@
 				AA20FB3D1B6D419600DEE957 /* walkie_talkie_radio-25.png in Resources */,
 				AA6D13B81B63F7B600F71348 /* AirportShops_3_8.jpg in Resources */,
 				AAE68AEA1B59F1C900DA7A53 /* taco-100.png in Resources */,
+				AA9238271D5B75FE00F21B54 /* ferry_filled.png in Resources */,
 				AA51985B1B51F68000398A4F /* perfume_bottle-100.png in Resources */,
 				AAD93E161B486869009B354B /* massage-100.png in Resources */,
 				AAE68B101B5A13A200DA7A53 /* Mexican_3.png in Resources */,
@@ -2740,6 +2795,7 @@
 				AA8FA8CF1B27F4D7003E79B4 /* AirportGarage_2.jpg in Resources */,
 				AA88FCB21B50678A0054A65C /* handle_with_care-50.png in Resources */,
 				AA6D146B1B658E7E00F71348 /* ChineseFood_3.png in Resources */,
+				AA9238331D5B768200F21B54 /* paddling_filled.png in Resources */,
 				AA880D5D1B75157C0064CED7 /* glasses_filled-50.png in Resources */,
 				AA6D140A1B6555C400F71348 /* Wendy_0.png in Resources */,
 				AA89A2011B6C49C100874971 /* teams-100.png in Resources */,
@@ -2820,6 +2876,7 @@
 				AA20FB491B71768100DEE957 /* pin_cushion-50.png in Resources */,
 				AAE68B181B5A157100DA7A53 /* Irish_2.png in Resources */,
 				0FCAD8E81A3E1A2300BE42E5 /* ENGLISH.png in Resources */,
+				AA92382B1D5B762300F21B54 /* palace_filled.png in Resources */,
 				AA880D521B72619C0064CED7 /* AirportShops_5_2.jpg in Resources */,
 				0FCAD8E21A3E1A2300BE42E5 /* ITALIAN.png in Resources */,
 				AA20FB3F1B6D437F00DEE957 /* walkie_talkie_radio_filled-25.png in Resources */,
@@ -2846,6 +2903,8 @@
 				AAD93DEB1B476A94009B354B /* Italian_3.png in Resources */,
 				AA8664A81B40B0E300CFC7D5 /* City_3.jpg in Resources */,
 				0FCAD8F01A3E305A00BE42E5 /* content-32.png in Resources */,
+				AA92382D1D5B763D00F21B54 /* cross_filled.png in Resources */,
+				AAD71FEA1D5ACFD500CF4FC7 /* living_room_filled.png in Resources */,
 				AA6D14241B655FE800F71348 /* Tacos_0.png in Resources */,
 				0FF46D9E19F890CF00E51218 /* street_view-50.png in Resources */,
 				AAD93DD61B4769DD009B354B /* Italian_1.png in Resources */,
@@ -2988,6 +3047,7 @@
 				AA89A2071B6C4A6300874971 /* portrait_mode_filled-100.png in Resources */,
 				AA6D142C1B65693C00F71348 /* Donuts_4.png in Resources */,
 				AAD93DBB1B471C4C009B354B /* temperature_filled-100.png in Resources */,
+				AA9238291D5B760D00F21B54 /* elephant_filled.png in Resources */,
 				AA6D13B31B63F7B600F71348 /* AirportShops_3_3.jpg in Resources */,
 				0FB6E18E1A38C2DF006DE76C /* www-32.png in Resources */,
 				AA51994A1B55A3DC00398A4F /* HDMI_cable_filled-100.png in Resources */,
@@ -3062,6 +3122,7 @@
 				AA6D141F1B655EB600F71348 /* Burritos_2.png in Resources */,
 				AA6D147F1B669EA200F71348 /* Magazines_1.jpg in Resources */,
 				0F2ACCF519FA14F10028B6E2 /* waiter-25.png in Resources */,
+				AAD71FD21D5A8B0800CF4FC7 /* Location_0.jpg in Resources */,
 				AAE68B071B5A118F00DA7A53 /* Spanish_4.png in Resources */,
 				AAE68B041B5A0FB200DA7A53 /* French_4.png in Resources */,
 				0FCAD8EB1A3E1A2300BE42E5 /* GREEK.png in Resources */,
@@ -3187,6 +3248,7 @@
 				0FF46E2219F9979200E51218 /* UIView+Additions.m in Sources */,
 				0FD438B61A0B376B00A2436F /* LoungesViewController.m in Sources */,
 				0FF46E0819F9953500E51218 /* JTDataMappings.m in Sources */,
+				AAD71FCD1D5A7DF300CF4FC7 /* SightseeingViewController.m in Sources */,
 				0FD438AF1A0B151100A2436F /* FlightsViewController.m in Sources */,
 				0F4D5D451A8AA2140040DC12 /* PaymentMethodViewController.m in Sources */,
 				0F2ACD4519FC2BD70028B6E2 /* PageContentViewController.m in Sources */,

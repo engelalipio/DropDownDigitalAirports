@@ -46,6 +46,7 @@
 @synthesize clubsbackgrounds = _clubsbackgrounds;
 @synthesize hotelbackgrounds = _hotelbackgrounds;
 @synthesize groundbackgrounds = _groundbackgrounds;
+@synthesize sightseeingbackgrounds = _sightseeingbackgrounds;
 @synthesize screenHeight = _screenHeight;
 @synthesize arrivals = _arrivals;
 @synthesize departures = _departures;
@@ -545,6 +546,31 @@
             }];
             
         }
+        
+        query = [PFQuery queryWithClassName:@"Sightseeing"];
+        
+        if (query){
+            
+            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                NSString *message= @"";
+                
+                if (error){
+                    message = [NSString stringWithFormat: @"Sightseeing:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                }else{
+                    message = [NSString stringWithFormat: @"Sightseeing:findObjectsInBackgroundWithBlock:Sightseeing Image Count->%lu",(unsigned long)objects.count ];
+                    if (objects){
+                        _sightseeingbackgrounds = objects;
+                    }
+                    
+                }
+                NSLog(@"%@",message);
+            }];
+            
+        }
+        
+        
         
     }
     @catch (NSException *exception) {

@@ -17,6 +17,7 @@
 #define kOMTNApp @"OMTN://"
 #define kOMPN @"http://www.ordermyproductnow.com"
 #define kOMSN @"http://www.ordermyservicenow.com"
+#define kOMSS @"http://ordermysightseeingeventnow.com"
 #define kOMTN @"http://www.ordermytablenow.com"
 #define kDDDM @"http://dropdowndigitalmenus.com"
 

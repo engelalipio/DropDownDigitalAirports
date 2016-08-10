@@ -832,7 +832,7 @@
                 
                 [item.FlightValue setText:fligthDetail];
       //  Destination’s Forecasted Weather
-                [item.AircraftLabel setText:@"Destination's\nForecasted Weather: "];
+                [item.AircraftLabel setText:@"Destination's\nForecasted\nWeather: "];
                 
                 if (appDelegate.isiPhone){
  
@@ -840,7 +840,7 @@
  
                 }else{
                     if ( [weather length] <= 59){
-                        weather = [NSString stringWithFormat:@"%@\n",weather];
+                        weather = [NSString stringWithFormat:@"\n%@",weather];
                     }
                 }
                 

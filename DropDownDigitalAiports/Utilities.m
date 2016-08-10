@@ -52,6 +52,33 @@
 }
 
 
++(NSString*) getParseColumnValue:(NSArray *) imageSourceArray  anyIndex:(NSInteger) imageIndex anyColumn:(NSString *) columnName{
+    PFObject *imageObject = nil;
+    NSString  *message       = @"";
+    
+    @try {
+        
+        imageObject = [imageSourceArray objectAtIndex:imageIndex];
+        
+        if (imageObject){
+            
+            message = [imageObject objectForKey:columnName];
+            NSLog(@"Getting ColumnValue -> %@  ", columnName);
+        }
+    }
+    @catch (NSException *exception) {
+        message = exception.description;
+    }
+    @finally {
+        if (message.length > 0){
+            NSLog(@"%@",message);
+        }
+        
+        imageObject = nil;
+    }
+    return message;
+}
+
 
 +(void) setParseImageCell:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UITableViewCell *) anyRow{
     
