@@ -631,33 +631,8 @@ Please click on the 'Menu' button to  view new settings.</string>
                                             <segue destination="e4f-Gy-dRM" kind="show" identifier="segSoups" id="KMJ-xx-IwF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbLoungesCell" textLabel="zQP-1a-FPP" imageView="79F-Xq-h22" rowHeight="50" style="IBUITableViewCellStyleDefault" id="MPv-fl-I41" userLabel="cbLoungesCell">
-                                        <rect key="frame" x="0.0" y="199.5" width="414" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MPv-fl-I41" id="Aga-eJ-i89">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zQP-1a-FPP">
-                                                    <rect key="frame" x="99" y="0.0" width="280" height="49.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportLounge_1.jpg" id="79F-Xq-h22">
-                                                    <rect key="frame" x="15" y="0.0" width="69" height="49.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="T2g-Zu-2zm" kind="show" identifier="segSight" id="Aw9-7V-nma"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbHotelsCells" textLabel="9Ol-Rz-9QY" imageView="ngl-6a-j7v" rowHeight="50" style="IBUITableViewCellStyleDefault" id="Gcl-bO-hUL" userLabel="cbHotelsCells">
-                                        <rect key="frame" x="0.0" y="249.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gcl-bO-hUL" id="rmq-jC-uIz">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="49.5"/>
@@ -682,7 +657,7 @@ Please click on the 'Menu' button to  view new settings.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbTerminalsCell" textLabel="wMM-cf-E56" imageView="S9Q-ef-nXn" rowHeight="50" style="IBUITableViewCellStyleDefault" id="PgG-c5-3rD" userLabel="cbTerminalsCell">
-                                        <rect key="frame" x="0.0" y="299.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="249.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PgG-c5-3rD" id="c0c-3p-RTe">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="49.5"/>
@@ -704,6 +679,31 @@ Please click on the 'Menu' button to  view new settings.</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="Euz-Ej-Iy4" kind="show" identifier="segEntrees" id="zEC-4U-h7j"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbLoungesCell" textLabel="zQP-1a-FPP" imageView="79F-Xq-h22" rowHeight="50" style="IBUITableViewCellStyleDefault" id="MPv-fl-I41" userLabel="cbLoungesCell">
+                                        <rect key="frame" x="0.0" y="299.5" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MPv-fl-I41" id="Aga-eJ-i89">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zQP-1a-FPP">
+                                                    <rect key="frame" x="99" y="0.0" width="280" height="49.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="AirportLounge_1.jpg" id="79F-Xq-h22">
+                                                    <rect key="frame" x="15" y="0.0" width="69" height="49.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="T2g-Zu-2zm" kind="show" identifier="segSight" id="Aw9-7V-nma"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -941,11 +941,11 @@ Please click on the 'Menu' button to  view new settings.</string>
             </objects>
             <point key="canvasLocation" x="6302" y="-2237"/>
         </scene>
-        <!--Lounges-->
+        <!--Airline Clubs-->
         <scene sceneID="Nt7-dz-g6q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="snC-Zv-nX0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lounges" image="living_room_filled.png" id="qnQ-CN-eej"/>
+                    <tabBarItem key="tabBarItem" title="Airline Clubs" image="living_room_filled.png" id="qnQ-CN-eej"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P76-yM-FMz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3389,7 +3389,7 @@ Telephone:  1-888-384-6958</string>
         <image name="card_in_use-50.png" width="50" height="50"/>
         <image name="control_panel-32.png" width="32" height="32"/>
         <image name="currency_exchange-256.png" width="256" height="256"/>
-        <image name="facial_recognition_scan_default.png" width="1022" height="628"/>
+        <image name="facial_recognition_scan_default.png" width="700" height="500"/>
         <image name="home-32.png" width="32" height="32"/>
         <image name="living_room_filled.png" width="32" height="32"/>
         <image name="news-256.png" width="256" height="256"/>

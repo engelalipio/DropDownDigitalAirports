@@ -254,23 +254,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 }
                 break;
             case 3:
-                cellId = @"cbLoungesCell";
-                if (lounges){
-                    
-                    if (lounges.count ==1){
-                        if (appDelegate.sightseeingbackgrounds){
-                            lounges = appDelegate.sightseeingbackgrounds;
-                            isParse = YES;
-                        }
-                    }else{
-                        isParse = YES;
-                    }
-                    
-                    images = lounges;
-                }
-     
-                break;
-            case 4:
+                
                 cellId = @"cbHotelsCells";
                 if (hotels){
                     
@@ -285,8 +269,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     
                     images = hotels;
                 }
-                break;
-            case 5:
+                
+            break;
+            case 4:
 
                 
                 cellId = @"cbTerminalsCell";
@@ -302,6 +287,26 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     }
                     images = terminals;
                 }
+                break;
+            case 5:
+
+                
+                cellId = @"cbLoungesCell";
+                if (lounges){
+                    
+                    if (lounges.count ==1){
+                        if (appDelegate.sightseeingbackgrounds){
+                            lounges = appDelegate.sightseeingbackgrounds;
+                            isParse = YES;
+                        }
+                    }else{
+                        isParse = YES;
+                    }
+                    
+                    images = lounges;
+                }
+                
+
                 break;
         }
         
@@ -960,8 +965,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [self.addressLabel setText:appDelegate.restaurantName];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Fine Dining/Meals To Go/The Food Court",
-                                                                                                 @"Shopping/Concessions & Gift Stores",
-                                                                                                 @"SightSeeing Attractions",@"Nearby Hotels",@"Ground Transportation", nil];
+                                                                                                 @"Shopping/Concessions & Gift Stores",@"Nearby Hotels",
+                                                                                                 @"Ground Transportation",@"SightSeeing Attractions", nil];
         
         if (appDelegate.isDynamic){
             

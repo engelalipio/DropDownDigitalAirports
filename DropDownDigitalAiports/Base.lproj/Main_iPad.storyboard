@@ -640,33 +640,8 @@ Please click on the 'Menu' button to view new settings.</string>
                                             <segue destination="e4f-Gy-dRM" kind="show" identifier="segSoups" id="KMJ-xx-IwF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbLoungesCell" textLabel="8Rj-hp-a9o" imageView="jgh-gQ-Pkx" rowHeight="60" style="IBUITableViewCellStyleDefault" id="MPv-fl-I41" userLabel="cbLoungesCell">
-                                        <rect key="frame" x="0.0" y="219.5" width="768" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MPv-fl-I41" id="Aga-eJ-i89">
-                                            <rect key="frame" x="0.0" y="0.0" width="682" height="59.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Rj-hp-a9o">
-                                                    <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Location_0.jpg" id="jgh-gQ-Pkx">
-                                                    <rect key="frame" x="68" y="0.0" width="83" height="59.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="qlB-hM-hFu" kind="show" identifier="segSightSeeing" id="FQL-mS-SE8"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbHotelsCells" textLabel="Fb3-IB-RFM" imageView="cWz-IQ-b9a" rowHeight="60" style="IBUITableViewCellStyleDefault" id="Gcl-bO-hUL" userLabel="cbHotelsCells">
-                                        <rect key="frame" x="0.0" y="279.5" width="768" height="60"/>
+                                        <rect key="frame" x="0.0" y="219.5" width="768" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gcl-bO-hUL" id="rmq-jC-uIz">
                                             <rect key="frame" x="0.0" y="0.0" width="682" height="59.5"/>
@@ -691,7 +666,7 @@ Please click on the 'Menu' button to view new settings.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbTerminalsCell" textLabel="Xbc-Rm-gYa" imageView="2k8-5i-7iA" rowHeight="60" style="IBUITableViewCellStyleDefault" id="PgG-c5-3rD" userLabel="cbTerminalsCell">
-                                        <rect key="frame" x="0.0" y="339.5" width="768" height="60"/>
+                                        <rect key="frame" x="0.0" y="279.5" width="768" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PgG-c5-3rD" id="c0c-3p-RTe">
                                             <rect key="frame" x="0.0" y="0.0" width="682" height="59.5"/>
@@ -713,6 +688,31 @@ Please click on the 'Menu' button to view new settings.</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="Euz-Ej-Iy4" kind="show" identifier="segEntrees" id="zEC-4U-h7j"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="768" placeholderIntrinsicHeight="infinite" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cbLoungesCell" textLabel="8Rj-hp-a9o" imageView="jgh-gQ-Pkx" rowHeight="60" style="IBUITableViewCellStyleDefault" id="MPv-fl-I41" userLabel="cbLoungesCell">
+                                        <rect key="frame" x="0.0" y="339.5" width="768" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MPv-fl-I41" id="Aga-eJ-i89">
+                                            <rect key="frame" x="0.0" y="0.0" width="682" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Rj-hp-a9o">
+                                                    <rect key="frame" x="166" y="0.0" width="516" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Location_0.jpg" id="jgh-gQ-Pkx">
+                                                    <rect key="frame" x="68" y="0.0" width="83" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="qlB-hM-hFu" kind="show" identifier="segSightSeeing" id="FQL-mS-SE8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1676,17 +1676,17 @@ Telephone:  1-888-384-6958</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Parking Services" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GUf-hv-uQK">
-                                                    <rect key="frame" x="250" y="-7" width="164.5" height="30.5"/>
+                                                    <rect key="frame" x="250" y="0.0" width="149.5" height="27.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="161-gm-C65">
-                                                    <rect key="frame" x="250" y="23.5" width="450" height="104"/>
+                                                    <rect key="frame" x="250" y="27.5" width="450" height="93"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">Indoor and Outdoor parking garages are available 24/7 for your convenience; located throughout the airport. For pricing details, please call 619-459-5005. For Valet Parking, please contact 607-345-8978.</string>
-                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.1333333333" green="0.53333333329999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -3362,11 +3362,11 @@ Telephone:  1-888-384-6958</string>
             </objects>
             <point key="canvasLocation" x="5893" y="308"/>
         </scene>
-        <!--Lounges-->
+        <!--Airline Clubs-->
         <scene sceneID="E4o-dM-42K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HaS-6m-eDS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lounges" image="living_room_filled.png" id="bzZ-6C-rah"/>
+                    <tabBarItem key="tabBarItem" title="Airline Clubs" image="living_room_filled.png" id="bzZ-6C-rah"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRI-2N-2OZ">
@@ -3406,7 +3406,7 @@ Telephone:  1-888-384-6958</string>
         <image name="Limos.jpg" width="700" height="500"/>
         <image name="Location_0.jpg" width="700" height="500"/>
         <image name="MIA_Gates.jpg" width="700" height="942"/>
-        <image name="Map.gif" width="1022" height="628"/>
+        <image name="Map.gif" width="700" height="500"/>
         <image name="MissingPerson.jpg" width="700" height="500"/>
         <image name="New_Swiss_International_Airlines.png" width="240" height="56"/>
         <image name="PlaceHolder.png" width="700" height="500"/>
@@ -3445,18 +3445,18 @@ Telephone:  1-888-384-6958</string>
         <image name="your_ad_here_banner.jpg" width="768" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uSA-hZ-hEL"/>
-        <segue reference="zRY-xX-kr3"/>
-        <segue reference="Jae-ms-EYb"/>
         <segue reference="4ne-mf-vsD"/>
         <segue reference="VUB-hd-5ET"/>
-        <segue reference="KMJ-xx-IwF"/>
+        <segue reference="0iv-O6-VKS"/>
         <segue reference="vKe-fs-S7W"/>
         <segue reference="74s-xb-a1G"/>
+        <segue reference="KMJ-xx-IwF"/>
         <segue reference="V3P-2b-HFN"/>
-        <segue reference="S76-n6-MOA"/>
-        <segue reference="pzh-eN-bXJ"/>
         <segue reference="dBQ-gq-SS1"/>
+        <segue reference="pzh-eN-bXJ"/>
+        <segue reference="zRY-xX-kr3"/>
+        <segue reference="uSA-hZ-hEL"/>
+        <segue reference="Jae-ms-EYb"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
 </document>
