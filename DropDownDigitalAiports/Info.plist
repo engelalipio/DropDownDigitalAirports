@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Granting location Camera Usage to MIA Digital Directory Menu applications, will allow for better User Experience</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Granting location Photo Library to MIA Digital Directory Menu applications, will allow for better User Experience</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -41,11 +45,12 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.43</string>
+	<string>1.44</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>OMPN</string>
 		<string>OMTN</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>

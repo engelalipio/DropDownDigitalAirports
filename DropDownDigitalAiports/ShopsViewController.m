@@ -13,6 +13,9 @@
 
 @interface ShopsViewController() {
     AppDelegate *appDelegate;
+    
+    NSString *selectedStore;
+    
     UIImageView *selectedImageView;
         NSArray *shops,
                         *gifts;
@@ -533,6 +536,7 @@
                         
                         if ([title length] == 0){
                             title  = data;
+                            selectedStore = title;
                         }else{
                             if (data.length > 0){
                                 desc = data;
@@ -657,6 +661,7 @@
         NSString *newTitle =  title;
         if (titleData){
             newTitle = [titleData firstObject];
+
             site  = [NSString stringWithFormat:@"www.%@.com", [newTitle stringByReplacingOccurrencesOfString:@"'" withString:@""]];
         }
         
@@ -814,20 +819,26 @@
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     NSURL  *url= nil;
     
-    NSString *message= @"",
+    NSString *currentName = @"",
+                    *message= @"",
                     *launchURL = @"";
     
     @try {
         
+        currentName = selectedStore;
+        if ([currentName length] > 0){
+         //   currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMPN for %@",currentName);
+        }
         
-        launchURL =kOMPN;
+        launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMPNApp,currentName];
         
         url=  [[NSURL alloc] initWithString:launchURL];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]){
             message = [NSString stringWithFormat:@"Launching OMPN App-> %@",url];
         }else{
-            url=  [[NSURL alloc] initWithString:kOMTN];
+            url=  [[NSURL alloc] initWithString:kOMPN];
             message = [NSString stringWithFormat:@"Launching OMPN Web-> %@",url];
         }
         [[UIApplication sharedApplication] openURL:url];
@@ -838,6 +849,7 @@
     @finally {
         url = nil;
     }
+
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{

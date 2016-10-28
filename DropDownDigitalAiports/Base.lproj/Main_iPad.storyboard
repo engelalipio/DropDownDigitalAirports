@@ -3406,7 +3406,7 @@ Telephone:  1-888-384-6958</string>
         <image name="Limos.jpg" width="700" height="500"/>
         <image name="Location_0.jpg" width="700" height="500"/>
         <image name="MIA_Gates.jpg" width="700" height="942"/>
-        <image name="Map.gif" width="700" height="500"/>
+        <image name="Map.gif" width="240" height="68"/>
         <image name="MissingPerson.jpg" width="700" height="500"/>
         <image name="New_Swiss_International_Airlines.png" width="240" height="56"/>
         <image name="PlaceHolder.png" width="700" height="500"/>

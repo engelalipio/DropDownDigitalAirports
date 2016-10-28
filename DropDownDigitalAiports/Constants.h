@@ -15,8 +15,10 @@
 #define kSendGridPort @"587"
 
 #define kOMTNApp @"OMTN://"
+#define kOMPNApp @"OMPN://"
+
 #define kOMPN @"http://www.ordermyproductnow.com"
-#define kOMSN @"http://www.ordermyservicenow.com"
+#define kOMSN @"http://ordermyguestservicesnow.com"
 #define kOMSS @"http://ordermysightseeingeventnow.com"
 #define kOMTN @"http://www.ordermytablenow.com"
 #define kDDDM @"http://dropdowndigitalmenus.com"
