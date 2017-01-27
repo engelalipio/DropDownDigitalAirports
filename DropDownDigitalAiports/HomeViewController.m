@@ -626,6 +626,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         [self.btnLight setHidden:YES];
     }
     if (self.addressLabel.textColor == [UIColor redColor]){
+        
         [self.addressLabel setText:appDelegate.restaurantName];
         [self.addressLabel setTextColor:[UIColor whiteColor]];
     }
@@ -781,6 +782,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     @try {
         
+        
+        if (appDelegate.connectionImageName){
+            [self.imgConnection setImage:[UIImage imageNamed:appDelegate.connectionImageName]];
+        }
       
         isMissingPerson = [appDelegate isMissingPerson];
         //Check on the server first
@@ -962,7 +967,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     @try{
         
         [self.navigationItem setTitleView:[self getSpecialTitleView:appDelegate.restaurantTable]];
-        [self.addressLabel setText:appDelegate.restaurantName];
+        [self.addressLabel setText: appDelegate.restaurantName ];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Fine Dining/Meals To Go/The Food Court",
                                                                                                  @"Shopping/Concessions & Gift Stores",@"Nearby Hotels",
@@ -1237,7 +1242,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) initMenuSettings{
     
     BOOL isDynamic = NO;
-    NSString *welcomeMessage = @"%@ \n %@, %@, %@ %@";
+    NSString *welcomeMessage = @"%@ \n %@";
     
     isDynamic = [appDelegate isDynamic];
  
@@ -1252,9 +1257,11 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                       appDelegate.restaurantAddress, appDelegate.restaurantCity,appDelegate.restaurantState,
                       appDelegate.restaurantZip];*/
     
-    welcomeMessage = appDelegate.restaurantName;
+   // welcomeMessage = appDelegate.restaurantName;
     
-    [self.addressLabel setNumberOfLines:1];
+    welcomeMessage = [NSString stringWithFormat:welcomeMessage,appDelegate.restaurantName, appDelegate.currentBuildInfo];
+    
+    [self.addressLabel setNumberOfLines:0];
     [self.addressLabel setText:welcomeMessage];
     
 }

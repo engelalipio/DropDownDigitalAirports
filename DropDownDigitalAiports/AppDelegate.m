@@ -57,7 +57,10 @@
 @synthesize useAPI = _useAPI;
 @synthesize  isMissingPerson = _isMissingPerson;
 @synthesize  missingPersonImage = _missingPersonImage;
-
+@synthesize currentBuildInfo = _currentBuildInfo;
+@synthesize hostReachability = _hostReachability;
+@synthesize internetReachability = _internetReachability;
+@synthesize connectionImageName = _connectionImageName;
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
@@ -234,6 +237,138 @@
     
 }
 
+-(void) initReachabilityCheck{
+    
+    NSString *remoteHostName =  @"";
+    
+    @try {
+        
+        /*
+         Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method reachabilityChanged will be called.
+         */
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reachabilityChanged:)
+                                                     name:kReachabilityChangedNotification
+                                                   object:nil];
+        
+        //Change the host name here to change the server you want to monitor.
+         remoteHostName = kDDDM;
+ 
+        
+        self.hostReachability = [Reachability reachabilityWithHostName:remoteHostName];
+        [self.hostReachability startNotifier];
+        [self updateInterfaceWithReachability:self.hostReachability];
+        
+        self.internetReachability = [Reachability reachabilityForInternetConnection];
+        [self.internetReachability startNotifier];
+        [self updateInterfaceWithReachability:self.internetReachability];
+        
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Error ->%@",exception.description);
+    } @finally {
+        remoteHostName = @"";
+    }
+
+
+    
+}
+
+/*!
+ * Called by Reachability whenever status changes.
+ */
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInterfaceWithReachability:curReach];
+}
+
+
+- (void)updateInterfaceWithReachability:(Reachability *)reachability
+{
+ 
+    
+    if (reachability == self.internetReachability)
+    {
+        [self reachableTest:reachability];
+    }
+    
+}
+
+
+- (void)reachableTest:(Reachability *) reachObject{
+    
+    UIAlertController *alert = nil;
+    UIAlertAction *okAction = nil;
+      NSString *statusString = @"",
+               *imageName = @"";
+    
+    @try {
+        
+        
+        NetworkStatus netStatus = [reachObject currentReachabilityStatus];
+        BOOL connectionRequired = [reachObject connectionRequired];
+        
+      
+        
+        switch (netStatus)
+        {
+            case NotReachable:
+            {
+                statusString = NSLocalizedString(@"Internet Access Not Available",@"");
+                
+                /*
+                 Minor interface detail- connectionRequired may return YES even when the host is unreachable. We cover that up here...
+                 */
+                connectionRequired = NO;
+                imageName = @"stop-32.png";
+
+                break;
+            }
+                
+            case ReachableViaWWAN:        {
+                statusString = NSLocalizedString(@"Reachable via WWAN", @"");
+                imageName = @"WWAN5.png";
+                
+                break;
+            }
+            case ReachableViaWiFi:        {
+                statusString= NSLocalizedString(@"Reachable via WiFi", @"");
+                imageName = @"Airport.png";
+                break;
+            }
+        }
+        
+       
+            alert = [UIAlertController alertControllerWithTitle:@"Internet Connectivity Status"
+                                                        message:statusString
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+            
+            okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                style:UIAlertActionStyleDefault
+                                              handler:nil];
+            
+            [alert addAction:okAction];
+                    _connectionImageName = imageName;
+       /* if (! _connectionImageName){
+
+            [self.window.rootViewController presentViewController:alert animated:YES completion:^(void){
+                
+            }];
+        }*/
+       
+        
+        
+    } @catch (NSException *exception) {
+        NSLog(@"notReachableAction:Error->%@",exception.description);
+    } @finally {
+        alert = nil;
+        okAction = nil;
+    }
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _language = @"English";
@@ -242,12 +377,16 @@
     _isiPhone = NO;
     _useAPI = NO;
     _restaurantTable     = @"Welcome To DropDownDigitalMenus.Com\n Proudly Serving All Airports";
-    _restaurantName    = @"Sample International Airport ®";
-    _restaurantAddress = @"2100 North West 42nd Avenue";
-    _restaurantCity       = @"Miami";
-    _restaurantState     = @"FL";
-    _restaurantZip         = @"33142";
-    _interval                   = 4;
+    _restaurantName    = @"Baltimore Washington Airport";
+    _restaurantAddress = @"7050 Friendship Road BWI Airport";
+    _restaurantCity       = @"Maryland";
+    _restaurantState     = @"MD";
+    _restaurantZip         = @"21240-0766";
+    _interval                   = 5;
+    
+
+    [self initReachabilityCheck];
+    [self extractCurrentBuildInformation];
     [self initLocationServices];
     [self initParseFramework];
     [self prepareAirportbackgrounds];
@@ -273,6 +412,34 @@
     return YES;
 }
 
+-(void) extractCurrentBuildInformation{
+    
+    NSString *appVersionString = @"",
+             *appBuildString = @"",
+             *versionBuildString = @"";
+    
+    @try {
+        
+         appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+        
+         appBuildString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+        
+         versionBuildString = [NSString stringWithFormat:@"Version: %@ (%@)", appVersionString, appBuildString];
+        
+        if (versionBuildString){
+            _currentBuildInfo = versionBuildString;
+        }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception.description);
+        
+    } @finally {
+         appVersionString = @"";
+         appBuildString = @"";
+         versionBuildString = @"";
+    }
+}
+
 -(void) initLocationServices{
     
     _locationManager = [[CLLocationManager alloc] init];
@@ -292,6 +459,9 @@
     @try {
         
         infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        
+
+ 
         
         [Parse setApplicationId:appKey clientKey:clientKey];
         
@@ -603,6 +773,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+   [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
 
 

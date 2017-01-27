@@ -131,6 +131,7 @@
 		0FF46E2019F9979200E51218 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46E1B19F9979100E51218 /* UIImage+ImageEffects.m */; };
 		0FF46E2119F9979200E51218 /* UIColor+ColorWithHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46E1D19F9979100E51218 /* UIColor+ColorWithHexString.m */; };
 		0FF46E2219F9979200E51218 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF46E1F19F9979100E51218 /* UIView+Additions.m */; };
+		2B40758406134508D87E2349 /* Pods_DropDownDigitalAirports.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1415072E817E2B6C11671411 /* Pods_DropDownDigitalAirports.framework */; };
 		AA150BDE1B7A659B00F5526F /* shopping_bag_filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AA150BDD1B7A659B00F5526F /* shopping_bag_filled-100.png */; };
 		AA1956351BB7694A002FDEB3 /* ItemViewLandscapeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */; };
 		AA1AE11B1CC075D100FDAC2F /* Main_6Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1AE1191CC075D100FDAC2F /* Main_6Plus.storyboard */; };
@@ -645,7 +646,12 @@
 		AAE68BB41B5C33AF00DA7A53 /* Services_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB21B5C33AF00DA7A53 /* Services_8.jpg */; };
 		AAE68BB51B5C33AF00DA7A53 /* Services_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB31B5C33AF00DA7A53 /* Services_7.jpg */; };
 		AAE68BB71B5C342700DA7A53 /* Services_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB61B5C342700DA7A53 /* Services_9.jpg */; };
-		B28E194FED68544C3C3196E2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3145A71BE98534E5EC1C600 /* libPods.a */; };
+		AC2973EB1E32E98200983F06 /* BWI.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2973EA1E32E98200983F06 /* BWI.png */; };
+		AC6189141E3AC2770058E621 /* Airport.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189111E3AC2770058E621 /* Airport.png */; };
+		AC6189151E3AC2770058E621 /* stop-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189121E3AC2770058E621 /* stop-32.png */; };
+		AC6189161E3AC2770058E621 /* WWAN5.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189131E3AC2770058E621 /* WWAN5.png */; };
+		AC6189181E3AD8060058E621 /* Online.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189171E3AD8060058E621 /* Online.png */; };
+		AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -831,7 +837,9 @@
 		0FF46E1D19F9979100E51218 /* UIColor+ColorWithHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorWithHexString.m"; sourceTree = "<group>"; };
 		0FF46E1E19F9979100E51218 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		0FF46E1F19F9979100E51218 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
-		5145443E6104C440370A6A2C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1415072E817E2B6C11671411 /* Pods_DropDownDigitalAirports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropDownDigitalAirports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2701E2BCF90A3B895671C0C8 /* Pods-DropDownDigitalAirports.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropDownDigitalAirports.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropDownDigitalAirports/Pods-DropDownDigitalAirports.debug.xcconfig"; sourceTree = "<group>"; };
+		7C784BDA485AD73219939D6C /* Pods-DropDownDigitalAirports.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropDownDigitalAirports.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropDownDigitalAirports/Pods-DropDownDigitalAirports.release.xcconfig"; sourceTree = "<group>"; };
 		AA150BDD1B7A659B00F5526F /* shopping_bag_filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping_bag_filled-100.png"; sourceTree = "<group>"; };
 		AA1956341BB7694A002FDEB3 /* ItemViewLandscapeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewLandscapeController.xib; sourceTree = "<group>"; };
 		AA1AE11A1CC075D100FDAC2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_6Plus.storyboard; sourceTree = "<group>"; };
@@ -1367,8 +1375,13 @@
 		AAE68BB21B5C33AF00DA7A53 /* Services_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_8.jpg; sourceTree = "<group>"; };
 		AAE68BB31B5C33AF00DA7A53 /* Services_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_7.jpg; sourceTree = "<group>"; };
 		AAE68BB61B5C342700DA7A53 /* Services_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_9.jpg; sourceTree = "<group>"; };
-		AF88914F6A5BD895152AB1DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F3145A71BE98534E5EC1C600 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2973EA1E32E98200983F06 /* BWI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWI.png; sourceTree = "<group>"; };
+		AC6189111E3AC2770058E621 /* Airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airport.png; sourceTree = "<group>"; };
+		AC6189121E3AC2770058E621 /* stop-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-32.png"; sourceTree = "<group>"; };
+		AC6189131E3AC2770058E621 /* WWAN5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WWAN5.png; sourceTree = "<group>"; };
+		AC6189171E3AD8060058E621 /* Online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Online.png; sourceTree = "<group>"; };
+		AC8CADFD1E3A8B1D00B21C8C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1377,7 +1390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8664721B37AEE600CFC7D5 /* MapKit.framework in Frameworks */,
-				B28E194FED68544C3C3196E2 /* libPods.a in Frameworks */,
+				2B40758406134508D87E2349 /* Pods_DropDownDigitalAirports.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1521,9 +1534,9 @@
 				0FF46D2C19F881FC00E51218 /* DropDownDigitalAiports */,
 				0FF46D4919F881FD00E51218 /* DropDownDigitalMenusTests */,
 				0FF46D2B19F881FC00E51218 /* Products */,
-				8B9BA8F9CEA44B0148CB03D5 /* Pods */,
-				3ACAA107E0B6705E97FD6BD9 /* Frameworks */,
 				AAB6A88B1CE4FBFB008F767B /* OptimizationProfiles */,
+				28B8350084C3CE8286B2E662 /* Pods */,
+				8C9289EAA68D56043440DA01 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1543,7 +1556,6 @@
 				0FF46E1619F995A600E51218 /* ViewControllers */,
 				0FF46DDD19F994FC00E51218 /* Libraries */,
 				0FF46DDC19F994DA00E51218 /* Common */,
-				0FF46DDB19F994A500E51218 /* Frameworks */,
 				0FF46D5619F88B0200E51218 /* Images */,
 				0FF46D3119F881FC00E51218 /* AppDelegate.h */,
 				0FF46D3219F881FC00E51218 /* AppDelegate.m */,
@@ -1606,6 +1618,11 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AC6189171E3AD8060058E621 /* Online.png */,
+				AC6189111E3AC2770058E621 /* Airport.png */,
+				AC6189121E3AC2770058E621 /* stop-32.png */,
+				AC6189131E3AC2770058E621 /* WWAN5.png */,
+				AC2973EA1E32E98200983F06 /* BWI.png */,
 				AAD71FE91D5ACFD500CF4FC7 /* living_room_filled.png */,
 				AA9238261D5B75FE00F21B54 /* ferry_filled.png */,
 				AA92382A1D5B762300F21B54 /* palace_filled.png */,
@@ -1830,13 +1847,6 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
-		0FF46DDB19F994A500E51218 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		0FF46DDC19F994DA00E51218 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1854,6 +1864,7 @@
 		0FF46DDD19F994FC00E51218 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				AC8CADFC1E3A8B0B00B21C8C /* Reachability */,
 				AA297D0D1D0C5D1F0019B185 /* Cognitive */,
 				AAB41B0B1CF54BF30078CB75 /* Networking */,
 				0FF46E0E19F9956B00E51218 /* RevealController */,
@@ -1987,21 +1998,21 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		3ACAA107E0B6705E97FD6BD9 /* Frameworks */ = {
+		28B8350084C3CE8286B2E662 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F3145A71BE98534E5EC1C600 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8B9BA8F9CEA44B0148CB03D5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5145443E6104C440370A6A2C /* Pods.debug.xcconfig */,
-				AF88914F6A5BD895152AB1DB /* Pods.release.xcconfig */,
+				2701E2BCF90A3B895671C0C8 /* Pods-DropDownDigitalAirports.debug.xcconfig */,
+				7C784BDA485AD73219939D6C /* Pods-DropDownDigitalAirports.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C9289EAA68D56043440DA01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1415072E817E2B6C11671411 /* Pods_DropDownDigitalAirports.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AA297D081D0B9B980019B185 /* FIDS */ = {
@@ -2511,6 +2522,15 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		AC8CADFC1E3A8B0B00B21C8C /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				AC8CADFD1E3A8B1D00B21C8C /* Reachability.h */,
+				AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2518,12 +2538,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FF46D5019F881FD00E51218 /* Build configuration list for PBXNativeTarget "DropDownDigitalAirports" */;
 			buildPhases = (
-				1CDCBF2B3EEF6EB04E860EA7 /* Check Pods Manifest.lock */,
+				219C68BF7D032C2F35668254 /* [CP] Check Pods Manifest.lock */,
 				0FF46D2619F881FC00E51218 /* Sources */,
 				0FF46D2719F881FC00E51218 /* Frameworks */,
 				0FF46D2819F881FC00E51218 /* Resources */,
-				0F34B0930A2ADC9CB76446B7 /* Copy Pods Resources */,
-				235A0E896B0C711E8FC355D6 /* Embed Pods Frameworks */,
+				0ADBDA9BDCE892B0018B6760 /* [CP] Embed Pods Frameworks */,
+				5851A9B6A4B0A923C27EF461 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2540,7 +2560,7 @@
 		0FF46D2219F881FB00E51218 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Digital World International";
 				TargetAttributes = {
 					0FF46D2919F881FC00E51218 = {
@@ -2911,6 +2931,7 @@
 				AA6D147E1B669EA200F71348 /* Magazines_3.jpg in Resources */,
 				AAD93DE31B476A84009B354B /* French_1.png in Resources */,
 				AAE68B941B5C261100DA7A53 /* LimoCar_2.jpg in Resources */,
+				AC6189181E3AD8060058E621 /* Online.png in Resources */,
 				0F2ACD2C19FAA93E0028B6E2 /* control_panel-32.png in Resources */,
 				AAE68AF81B59F51000DA7A53 /* hot_dog-100.png in Resources */,
 				AA5199681B55F70300398A4F /* RentalCar_3.jpg in Resources */,
@@ -2918,8 +2939,11 @@
 				AAE68B9C1B5C27D100DA7A53 /* LimoCar_5.jpg in Resources */,
 				AAE68B411B5AC9F100DA7A53 /* Donuts_1.png in Resources */,
 				AAE68B5E1B5AD34B00DA7A53 /* GiftStore_5.jpg in Resources */,
+				AC6189141E3AC2770058E621 /* Airport.png in Resources */,
 				0FD438EB1A0DB11C00A2436F /* Images-2.xcassets in Resources */,
+				AC2973EB1E32E98200983F06 /* BWI.png in Resources */,
 				AA6D14691B658E7E00F71348 /* ChineseFood_0.png in Resources */,
+				AC6189151E3AC2770058E621 /* stop-32.png in Resources */,
 				AA1AE11B1CC075D100FDAC2F /* Main_6Plus.storyboard in Resources */,
 				AA8664581B34573100CFC7D5 /* Korean_Air.png in Resources */,
 				AA86645B1B34573100CFC7D5 /* Northwest_Airlines.png in Resources */,
@@ -3144,6 +3168,7 @@
 				AA5198871B51FD7100398A4F /* Airline_3.gif in Resources */,
 				AAE1FE5C1BD93E830006410F /* AirportFlight_1.jpg in Resources */,
 				AAD93DC71B473C26009B354B /* Stores.json in Resources */,
+				AC6189161E3AC2770058E621 /* WWAN5.png in Resources */,
 				AA6D14181B655B6600F71348 /* FrenchBakery_3.png in Resources */,
 				AAD93DAD1B471868009B354B /* snow-100.png in Resources */,
 				AA6D14951B66A52E00F71348 /* SmartShop_3.jpg in Resources */,
@@ -3167,49 +3192,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F34B0930A2ADC9CB76446B7 /* Copy Pods Resources */ = {
+		0ADBDA9BDCE892B0018B6760 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropDownDigitalAirports/Pods-DropDownDigitalAirports-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1CDCBF2B3EEF6EB04E860EA7 /* Check Pods Manifest.lock */ = {
+		219C68BF7D032C2F35668254 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		235A0E896B0C711E8FC355D6 /* Embed Pods Frameworks */ = {
+		5851A9B6A4B0A923C27EF461 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropDownDigitalAirports/Pods-DropDownDigitalAirports-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3277,6 +3302,7 @@
 				0FF46D3319F881FC00E51218 /* AppDelegate.m in Sources */,
 				0FF46D3619F881FC00E51218 /* CurrencyExchangeViewController.m in Sources */,
 				AAB41B0E1CF54C480078CB75 /* NetworkAPISingleClient.m in Sources */,
+				AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */,
 				0FF46DF519F9952A00E51218 /* AFJSONRequestOperation.m in Sources */,
 				0FD438FE1A110CFF00A2436F /* Formatter.m in Sources */,
 				0FF46E0D19F9953500E51218 /* NSObject+JTObjectMapping.m in Sources */,
@@ -3339,8 +3365,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = DropDownDigitalAirports.entitlements;
@@ -3351,6 +3379,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropDownDigitalAiports/DropDownMenus-Prefix.pch";
@@ -3365,7 +3394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
@@ -3387,8 +3416,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = DropDownDigitalAirports.entitlements;
@@ -3398,6 +3429,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DropDownDigitalAiports/DropDownMenus-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3406,7 +3438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -3417,7 +3449,7 @@
 		};
 		0FF46D5119F881FD00E51218 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5145443E6104C440370A6A2C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2701E2BCF90A3B895671C0C8 /* Pods-DropDownDigitalAirports.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
@@ -3441,7 +3473,7 @@
 		};
 		0FF46D5219F881FD00E51218 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF88914F6A5BD895152AB1DB /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7C784BDA485AD73219939D6C /* Pods-DropDownDigitalAirports.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;

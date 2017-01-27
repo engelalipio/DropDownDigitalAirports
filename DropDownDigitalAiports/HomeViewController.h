@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnLight;
 @property (strong, nonatomic) IBOutlet UIButton *btnAds;
 @property (weak, nonatomic) IBOutlet UILabel *imageBorderLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *imgConnection;
 
 @property (strong,nonatomic)  NSArray *pageTitles;
 @property (strong,nonatomic)  NSArray *pageImages;

@@ -13,10 +13,9 @@
 #import "PFCachedQueryController.h"
 #import "PFCloudCodeController.h"
 #import "PFConfigController.h"
-#import "PFCurrentInstallationController.h"
 #import "PFCurrentUserController.h"
+#import "PFDefaultACLController.h"
 #import "PFFileController.h"
-#import "PFInstallationController.h"
 #import "PFLocationManager.h"
 #import "PFMacros.h"
 #import "PFObjectBatchController.h"
@@ -31,6 +30,11 @@
 #import "PFUserAuthenticationController.h"
 #import "PFUserController.h"
 
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
+#import "PFCurrentInstallationController.h"
+#import "PFInstallationController.h"
+#endif
+
 @interface PFCoreManager () {
     dispatch_queue_t _locationManagerAccessQueue;
     dispatch_queue_t _controllerAccessQueue;
@@ -42,30 +46,32 @@
 @implementation PFCoreManager
 
 @synthesize locationManager = _locationManager;
+@synthesize defaultACLController = _defaultACLController;
 
 @synthesize queryController = _queryController;
 @synthesize fileController = _fileController;
 @synthesize cloudCodeController = _cloudCodeController;
 @synthesize configController = _configController;
 @synthesize objectController = _objectController;
+@synthesize objectSubclassingController = _objectSubclassingController;
 @synthesize objectBatchController = _objectBatchController;
 @synthesize objectFilePersistenceController = _objectFilePersistenceController;
 @synthesize objectLocalIdStore = _objectLocalIdStore;
 @synthesize pinningObjectStore = _pinningObjectStore;
 @synthesize userAuthenticationController = _userAuthenticationController;
 @synthesize sessionController = _sessionController;
-@synthesize currentInstallationController = _currentInstallationController;
 @synthesize currentUserController = _currentUserController;
 @synthesize userController = _userController;
+
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
+@synthesize currentInstallationController = _currentInstallationController;
 @synthesize installationController = _installationController;
+#endif
+
 
 ///--------------------------------------
 #pragma mark - Init
 ///--------------------------------------
-
-- (instancetype)init {
-    PFNotDesignatedInitializer();
-}
 
 - (instancetype)initWithDataSource:(id<PFCoreManagerDataSource>)dataSource {
     self = [super init];
@@ -97,6 +103,21 @@
         manager = _locationManager;
     });
     return manager;
+}
+
+///--------------------------------------
+#pragma mark - DefaultACLController
+///--------------------------------------
+
+- (PFDefaultACLController *)defaultACLController {
+    __block PFDefaultACLController *controller = nil;
+    dispatch_sync(_controllerAccessQueue, ^{
+        if (!_defaultACLController) {
+            _defaultACLController = [PFDefaultACLController controllerWithDataSource:self];
+        }
+        controller = _defaultACLController;
+    });
+    return controller;
 }
 
 ///--------------------------------------
@@ -155,7 +176,7 @@
     __block PFCloudCodeController *controller = nil;
     dispatch_sync(_controllerAccessQueue, ^{
         if (!_cloudCodeController) {
-            _cloudCodeController = [[PFCloudCodeController alloc] initWithCommandRunner:self.dataSource.commandRunner];
+            _cloudCodeController = [[PFCloudCodeController alloc] initWithDataSource:self.dataSource];
         }
         controller = _cloudCodeController;
     });
@@ -176,9 +197,7 @@
     __block PFConfigController *controller = nil;
     dispatch_sync(_controllerAccessQueue, ^{
         if (!_configController) {
-            id<PFCoreManagerDataSource> dataSource = self.dataSource;
-            _configController = [[PFConfigController alloc] initWithFileManager:dataSource.fileManager
-                                                                  commandRunner:dataSource.commandRunner];
+            _configController = [[PFConfigController alloc] initWithDataSource:self.dataSource];
         }
         controller = _configController;
     });
@@ -214,6 +233,28 @@
 - (void)setObjectController:(PFObjectController *)controller {
     dispatch_sync(_controllerAccessQueue, ^{
         _objectController = controller;
+    });
+}
+
+///--------------------------------------
+#pragma mark - ObjectSubclassingController
+///--------------------------------------
+
+- (PFObjectSubclassingController *)objectSubclassingController {
+    __block PFObjectSubclassingController *controller = nil;
+    dispatch_sync(_controllerAccessQueue, ^{
+        if (!_objectSubclassingController) {
+            _objectSubclassingController = [[PFObjectSubclassingController alloc] init];
+            [_objectSubclassingController scanForUnregisteredSubclasses:YES];
+        }
+        controller = _objectSubclassingController;
+    });
+    return controller;
+}
+
+- (void)setObjectSubclassingController:(PFObjectSubclassingController *)objectSubclassingController {
+    dispatch_sync(_controllerAccessQueue, ^{
+        _objectSubclassingController = objectSubclassingController;
     });
 }
 
@@ -339,7 +380,7 @@
     });
 }
 
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
 
 ///--------------------------------------
 #pragma mark - Current Installation Controller
@@ -397,7 +438,7 @@
     });
 }
 
-#if !TARGET_OS_WATCH
+#if !TARGET_OS_WATCH && !TARGET_OS_TV
 
 ///--------------------------------------
 #pragma mark - Installation Controller

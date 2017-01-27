@@ -43,12 +43,12 @@
 
 
 #define kBingSearchKey @"a6ca68495f7a492e8883264a6698f002i"
-#define kFligthStatsApp @"84301912"
-#define kFligthStatsKey  @"2edee356478b49815bf14ec11dc6e625"
+#define kFligthStatsApp @"54300528"
+#define kFligthStatsKey  @"e50dbe6db2232de0919f0c4810eefb3e"
 #define kFlightStatsBaseURL @"https://api.flightstats.com/flex/fids/rest/v1/json/"
 #define kFlightStatsArrivalURI @"{airport}/arrivals"
 #define kFlightStatsDepartureURI @"{airport}/departures"
-#define kFlightStatsAirport @"MIA"
+#define kFlightStatsAirport @"BWI"
 #define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,temperatureF,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"

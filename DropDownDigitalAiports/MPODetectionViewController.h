@@ -31,6 +31,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <ProjectOxfordFace/MPOFaceServiceClient.h>
+
 @interface MPODetectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

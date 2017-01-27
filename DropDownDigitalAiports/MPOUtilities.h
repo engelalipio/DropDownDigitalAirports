@@ -32,4 +32,5 @@
 #import <ProjectOxfordFace/MPOFaceServiceClient.h>
 @interface MPOUtilities : NSObject
 + (UIImage *)cropImageToFaceRectangle:(UIImage *)image faceRectangle:(MPOFaceRectangle *)faceRectangle;
+
 @end

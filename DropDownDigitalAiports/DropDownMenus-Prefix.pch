@@ -7,6 +7,7 @@
 //
 
 
+
 #import <Availability.h>
 #import <ProjectOxfordFace/MPOFaceSDK.h>
 #ifndef __IPHONE_5_0
@@ -14,11 +15,16 @@
 #endif
 
 #ifdef __OBJC__
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+
+
+@import UIKit;
+@import Foundation;
+
+
 #import "Constants.h"
 #import "SWRevealViewController.h"
 #import <Parse/Parse.h>
 #import "UIColor+ColorWithHexString.h"
 #import "Utilities.h"
+
 #endif

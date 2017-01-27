@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Reachability.h"
 
 enum OrderType {
      OrderTypeDrinks	= 1,
@@ -31,7 +32,7 @@ typedef int OrderTypeSelection;
 @property (assign,nonatomic) NSInteger interval;
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) NSString *connectionImageName;
 @property (strong, nonatomic) NSString *language;
 @property (strong, nonatomic) NSString *selectedAirlineName;
 @property (strong, nonatomic) NSString *selectedAirlineLogo;
@@ -42,6 +43,7 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSString *restaurantCity;
 @property (strong, nonatomic) NSString *restaurantState;
 @property (strong, nonatomic) NSString *restaurantZip;
+@property (strong, nonatomic) NSString *currentBuildInfo;
 
 @property (nonatomic, assign) NSInteger currentOrderItems;
 @property (strong, nonatomic) NSMutableDictionary *arrivals;
@@ -67,6 +69,9 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSArray  *sightseeingbackgrounds;
 
 @property (strong, nonatomic)  UIImage *missingPersonImage;
+
+@property (nonatomic) Reachability *hostReachability;
+@property (nonatomic) Reachability *internetReachability;
 
 +(AppDelegate *) currentDelegate;
 

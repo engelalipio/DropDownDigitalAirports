@@ -827,7 +827,7 @@
         
         currentName = selectedStore;
         if ([currentName length] > 0){
-         //   currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             NSLog(@"Invoking OMPN for %@",currentName);
         }
         

@@ -34,6 +34,7 @@
 + (UIImage *)cropImageToFaceRectangle:(UIImage *)image faceRectangle:(MPOFaceRectangle *)faceRectangle {
     
     CGRect rect = CGRectMake(0, 0, 0, 0);
+
     rect.size.width = [faceRectangle.width integerValue];
     rect.size.height = [faceRectangle.height integerValue];
     rect.origin.y = [faceRectangle.top integerValue];

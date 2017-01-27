@@ -31,7 +31,6 @@
 #import "MPOImageCollectionViewCell.h"
 #import "MPODetectionViewController.h"
 #import "MPODetectionCollectionViewCell.h"
-#import <ProjectOxfordFace/MPOFaceServiceClient.h>
 #import "MPOUtilities.h"
 #import "Constants.h"
 #import "MPOActivityIndicatorViewController.h"
@@ -202,7 +201,7 @@
     
     [self.faceCellObjects removeAllObjects];
     
-    MPOFaceServiceClient *client = [[MPOFaceServiceClient alloc] initWithSubscriptionKey:ProjectOxfordFaceSubscriptionKey];
+ MPOFaceServiceClient *client = [[MPOFaceServiceClient alloc] initWithSubscriptionKey:ProjectOxfordFaceSubscriptionKey];
     
     NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.8);
 
@@ -213,7 +212,7 @@
     [client detectWithData:data
               returnFaceId:YES
        returnFaceLandmarks:YES
-      returnFaceAttributes:@[@(MPOFaceAttributeTypeAge), @(MPOFaceAttributeTypeFacialHair), @(MPOFaceAttributeTypeGlasses), @(MPOFaceAttributeTypeSmile), @(MPOFaceAttributeTypeGender),@(MPOFaceAttributeTypeHeadPose)]
+      returnFaceAttributes:@[@(MPOFaceAttributeTypeAge), @(MPOFaceAttributeTypeFacialHair), @(MPOFaceAttributeTypeGender), @(MPOFaceAttributeTypeSmile), @(MPOFaceAttributeTypeGender),@(MPOFaceAttributeTypeHeadPose)]
            completionBlock:^(NSArray<MPOFace *> *collection, NSError *error) {
         
         if (error) {
@@ -252,7 +251,9 @@
                 obj.genderText = [NSString stringWithFormat:@" Gender: %@", face.attributes.gender.capitalizedString];
                 obj.headPoseText = [NSString stringWithFormat:@" Head Pose: Roll(%@º), Yaw(%@º)", face.attributes.headPose.roll.stringValue, face.attributes.headPose.yaw.stringValue];
                 
-                obj.glassesText =  [NSString stringWithFormat:@" Glasses: %@", face.attributes.glasses];
+             //   obj.glassesText =  [NSString stringWithFormat:@" Glasses: %@", face.attributes.glasses];
+                obj.glassesText =  [NSString stringWithFormat:@" Glasses: %@", @"N/A"];
+
                 obj.moustacheText = [NSString stringWithFormat:@" Moustache: %@, Beard %@", face.attributes.facialHair.mustache.stringValue, face.attributes.facialHair.beard.stringValue];
                 obj.smileText = [NSString stringWithFormat:@" Smile: %@", face.attributes.smile];
 
@@ -268,6 +269,7 @@
 
         }];
     }];
+     
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
  
