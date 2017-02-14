@@ -8,10 +8,12 @@
 #import <Foundation/Foundation.h>
 #import "AbstractModel.h"
 
+@class Airport;
 
 @interface BaseClass : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSArray *fidsData;
+@property (nonatomic, strong) Airport *airport;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

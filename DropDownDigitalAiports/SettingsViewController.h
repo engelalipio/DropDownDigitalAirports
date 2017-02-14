@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtCity;
 @property (strong, nonatomic) IBOutlet UITextField *txtState;
 @property (strong, nonatomic) IBOutlet UITextField *txtZip;
+@property (strong, nonatomic) IBOutlet UITextField *txtCode;
+
 @property (strong, nonatomic) IBOutlet UISwitch *switchOrderReset;
 
 @property (strong, nonatomic) IBOutlet UISwitch *switchDynamic;

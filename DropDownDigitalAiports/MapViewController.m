@@ -8,9 +8,11 @@
 
 #import "MapViewController.h"
 #import "UIView+Additions.h"
-
+#import "AppDelegate.h"
 @interface MapViewController (){
-double imageScale;
+ double imageScale;
+    AppDelegate *appDelegate;
+    
 }
 @end
 
@@ -23,6 +25,20 @@ double imageScale;
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if (! appDelegate){
+        appDelegate = [AppDelegate currentDelegate];
+    }
+    
+    if ([appDelegate airportCode]){
+        if ([appDelegate.airportCode isEqualToString:@"LAS"]){
+            [self.imageMap setImage:[UIImage imageNamed:@"MIA_Parking.jpg"]];
+        }
+    }
+}
 
 - (void)viewDidLoad
 {

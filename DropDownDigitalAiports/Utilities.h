@@ -18,10 +18,10 @@
 
 +(UIImage *) imageResize :(UIImage*)img andResizeTo:(CGSize)newSize;
 
-+(UIImage*)  getParseImage:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex;
++(UIImage*)  getAzureStorageImage:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex;
 
 +(void) setParseImageCell:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UITableViewCell *) anyRow;
 
-+(void) setParseImageViewl:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UIImageView *) anyView;
++(void) setParseImageView:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UIImageView *) anyView;
 @end
 

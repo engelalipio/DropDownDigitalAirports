@@ -409,7 +409,7 @@
             
             if (isParse) {
                 
-                UIImage *cellImage = [Utilities getParseImage:appDelegate.shopsbackgrounds anyIndex:indexPath.row];
+                UIImage *cellImage = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:indexPath.row];
                 
                 [cell.imageView setImage:cellImage];
             }

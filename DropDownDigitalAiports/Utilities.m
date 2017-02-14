@@ -8,31 +8,63 @@
 
 
 #import "Utilities.h"
+#import "AppDelegate.h"
 
 @implementation Utilities
 
-+(void) setParseImageViewl:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UIImageView *) anyView{
-    PFObject *imageObject = nil;
-    NSString  *message       = @"";
++(void) setParseImageView:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UIImageView *) anyView{
+    
+    NSDictionary *imageObject = nil;
+    NSString     *message     = @"",
+    *rootPath    = @"",
+    *imageName   = @"";
+    
+    AZSCloudBlobContainer *container = nil;
+    
+    AZSCloudBlob *menuBlob = nil;
+    
+    AppDelegate *appDelegate = nil;
+    
+    
     
     @try {
         
         imageObject = [imageSourceArray objectAtIndex:imageIndex];
         
         if (imageObject){
-            PFFile *file = [imageObject objectForKey:@"Image"];
-            NSString *imageName = [imageObject objectForKey:@"ImageName"];
-            NSLog(@"Setting getParseImage -> %@ to ImageView", imageName);
-            if (file){
+            
+            appDelegate = [AppDelegate currentDelegate];
+            
+            container = [appDelegate.storageClient containerReferenceFromName:kAzureStorageURL];
+            
+            menuBlob = [container blockBlobReferenceFromName:kAzureStorageAirport];
+            
+            rootPath = [imageObject objectForKey:@"RootPath"];
+            
+            imageName = [imageObject objectForKey:@"ImageURL"];
+            
+            
+            message = [NSString stringWithFormat:@"%@%@%@",kAzureStorageURL,rootPath,imageName];
+            
+            
+            NSLog(@"setParseImageView->setting Azure Storage Image -> %@ to UIImageView", imageName);
+            if (message){
                 
-                [file getDataInBackgroundWithBlock:^(NSData*data, NSError* error){
-                    if (data){
-                        UIImage *cellImage  = [UIImage imageWithData:data];
-                        if (cellImage){
-                            [anyView setImage:cellImage];
-                        }
+                NSURL *imageURL = [[NSURL alloc] initWithString:message];
+                
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                
+                UIImage *image = [UIImage imageWithData:imageData];
+                
+                if (image){
+                    
+                    
+                    if (anyView){
+                        
+                        [anyView setImage:image];
+                        
                     }
-                }];
+                }
                 
             }
         }
@@ -48,7 +80,7 @@
         imageObject = nil;
     }
     
-
+    
 }
 
 
@@ -83,42 +115,76 @@
 +(void) setParseImageCell:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UITableViewCell *) anyRow{
     
     
-    PFObject *imageObject = nil;
-    NSString  *message       = @"";
+    NSDictionary *imageObject = nil;
+    
+    NSString     *message     = @"",
+    *rootPath    = @"",
+    *imageName   = @"";
+    
+    AZSCloudBlobContainer *container = nil;
+    
+    AZSCloudBlob *menuBlob = nil;
+    
+    AppDelegate *appDelegate = nil;
+    
     
     @try {
         
         imageObject = [imageSourceArray objectAtIndex:imageIndex];
         
         if (imageObject){
-            PFFile *file = [imageObject objectForKey:@"Image"];
-            NSString *imageName = [imageObject objectForKey:@"ImageName"];
-            NSLog(@"Setting getParseImage -> %@ to TableViewCell", imageName);
-            if (file){
+            
+            appDelegate = [AppDelegate currentDelegate];
+            
+            container = [appDelegate.storageClient containerReferenceFromName:kAzureStorageURL];
+            
+            menuBlob = [container blockBlobReferenceFromName:kAzureStorageAirport];
+            
+            
+            rootPath = [imageObject objectForKey:@"RootPath"];
+            
+            imageName = [imageObject objectForKey:@"ImageURL"];
+            
+            message = [NSString stringWithFormat:@"%@%@%@",kAzureStorageURL,rootPath,imageName];
+            
+            
+            NSLog(@"setParseImageCell->setting Azure Storage Image -> %@ to UITableViewCell", imageName);
+            if (message){
                 
-                [file getDataInBackgroundWithBlock:^(NSData*data, NSError* error){
-                    if (data){
-                        UIImage *cellImage  = [UIImage imageWithData:data];
-                        if (cellImage){
-                            //cellImage = [Utilities imageResize:cellImage andResizeTo:CGSizeMake(120,anyRow.frame.size.height)];
-                            if (anyRow.imageView.image){
-                                [anyRow.imageView setImage:cellImage];
-                            }else{
-                                
-                                UIImageView* imgView = nil;
-                                for (int idx = 0; idx < anyRow.contentView.subviews.count ; idx++){
-                                    UIView *subView =   [anyRow.contentView.subviews objectAtIndex:idx];
-                                    if ([subView isKindOfClass:[UIImageView class]]){
-                                        imgView = (UIImageView*) subView;
-                                        if (imgView){
-                                            [imgView setImage:cellImage];
-                                        }
+                NSURL *imageURL = [[NSURL alloc] initWithString:message];
+                
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                
+                UIImage *image = [UIImage imageWithData:imageData];
+                
+                if (image){
+                    
+                    if (image){
+                        //image = [Utilities imageResize:image andResizeTo:CGSizeMake(120,anyRow.frame.size.height)];
+                        
+                        if (anyRow.imageView.image){
+                            [anyRow.imageView setImage:image];
+                        }else{
+                            
+                            UIImageView* imgView = nil;
+                            
+                            for (int idx = 0; idx < anyRow.contentView.subviews.count ; idx++){
+                                UIView *subView =   [anyRow.contentView.subviews objectAtIndex:idx];
+                                //For Image
+                                if ([subView isKindOfClass:[UIImageView class]]){
+                                    imgView = (UIImageView*) subView;
+                                    if (imgView){
+                                        [imgView setImage:image];
+                                        break;
                                     }
                                 }
+                                
                             }
                         }
+                        
                     }
-                }];
+                    
+                }
                 
             }
         }
@@ -132,36 +198,64 @@
         }
         message = @"";
         imageObject = nil;
+        container = nil;
+        menuBlob = nil;
     }
-    
     
 }
 
-+(UIImage*) getParseImage:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex{
++(UIImage*) getAzureStorageImage:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex{
     
-
-    PFObject *imageObject = nil;
-    NSString  *message       = @"";
-    UIImage *cellImage  = nil;
+    NSDictionary *imageObject = nil;
+    NSString     *message     = @"",
+                 *rootPath    = @"",
+                 *imageName   = @"";
+    
+    AZSCloudBlobContainer *container = nil;
+    
+    AZSCloudBlob *menuBlob = nil;
+    
+    AppDelegate *appDelegate = nil;
+    
+    
+    UIImage *cellImage = nil;
+    
     @try {
         
         imageObject = [imageSourceArray objectAtIndex:imageIndex];
         
         if (imageObject){
-            PFFile *file = [imageObject objectForKey:@"Image"];
-            NSString *imageName = [imageObject objectForKey:@"ImageName"];
-            NSLog(@"Retrieving getParseImage %@ ...", imageName);
-            if (file){
+            
+            appDelegate = [AppDelegate currentDelegate];
+            
+            container = [appDelegate.storageClient containerReferenceFromName:kAzureStorageURL];
+            
+            menuBlob = [container blockBlobReferenceFromName:kAzureStorageAirport];
+            
+            rootPath = [imageObject objectForKey:@"RootPath"];
+            
+            imageName = [imageObject objectForKey:@"ImageURL"];
+            
+            
+            message = [NSString stringWithFormat:@"%@%@%@",kAzureStorageURL,rootPath,imageName];
+            
+            
+            NSLog(@"getAzureStorageImage-> %@", imageName);
+            if (message){
                 
-                NSData *imageData = [file getData ];
-                     
-                     if (imageData){
-                         
-                          cellImage = [UIImage imageWithData:imageData ];
-
-                     }
+                NSURL *imageURL = [[NSURL alloc] initWithString:message];
+                
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                
+                UIImage *image = [UIImage imageWithData:imageData];
+                
+                if (image){
+                    
+                    cellImage = image;
+                }
+                
             }
-       }
+        }
     }
     @catch (NSException *exception) {
         message = exception.description;
@@ -174,8 +268,9 @@
         imageObject = nil;
     }
     return  cellImage;
- 
 }
+
+
 
 +(UIView*) getSpecialTitleViewImage: (UIView*) existingTitleView andNewImage: (UIImage *) anyImage{
     UIImageView *imageView = nil;

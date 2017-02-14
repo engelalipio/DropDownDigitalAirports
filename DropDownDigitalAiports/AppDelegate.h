@@ -44,6 +44,7 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSString *restaurantState;
 @property (strong, nonatomic) NSString *restaurantZip;
 @property (strong, nonatomic) NSString *currentBuildInfo;
+@property (strong, nonatomic) NSString *airportCode;
 
 @property (nonatomic, assign) NSInteger currentOrderItems;
 @property (strong, nonatomic) NSMutableDictionary *arrivals;
@@ -73,7 +74,14 @@ typedef int OrderTypeSelection;
 @property (nonatomic) Reachability *hostReachability;
 @property (nonatomic) Reachability *internetReachability;
 
+@property (strong, nonatomic) AZSCloudBlobClient *storageClient;
+@property (strong, nonatomic) MSClient *azureClient;
+
 +(AppDelegate *) currentDelegate;
+
+-(void) retrieveAirportInfo;
+-(void) retrieveAirportFIDSArrivals;
+-(void) retrieveAirportFIDSDepartures;
 
 @end
 

@@ -367,7 +367,7 @@
     
     NSString *cellID = @"cbHotels",
                    *restaurantName = @"",
-                    *locationFormat = @"%d %@, Atlanta, GA, 30320" ,
+                    *locationFormat = @"%d %@, %@, %@, %@" ,
                     *restaurantImageNameFormat = @"AirportHotels_%d.jpg",
                     *restaurantImageName = @"",
                     *terminal = @"",
@@ -399,7 +399,7 @@
     }
     restaurantImageName = [NSString stringWithFormat:restaurantImageNameFormat,imageId];
     restaurantName = [hotels objectAtIndex:indexPath.row];
-    finalLocation = [NSString stringWithFormat:locationFormat, gateId,terminal];
+    finalLocation = [NSString stringWithFormat:locationFormat, gateId,terminal,appDelegate.restaurantCity,appDelegate.restaurantState,appDelegate.restaurantZip];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ - %d %@",restaurantName,distanceId, (distanceId > 1 ? @"Miles" : @"Mile")]];
     [cell.detailTextLabel setText:finalLocation];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];

@@ -367,7 +367,7 @@ AppDelegate *appDelegate;
         
         
         NSString *rndFoodImgFormat    = @"LimoCar_%d.jpg",
-                        *locationFormat = @"%d %@, Atlanta, GA, 30320" ,
+                        *locationFormat = @"%d %@, %@, %@, %@" ,
                         *rndFoodImgName      = @"",
                         *shopTypeImageName = @"";
         
@@ -420,7 +420,8 @@ AppDelegate *appDelegate;
         *price = [prices objectAtIndex:priceId],
         *rating = [ratings objectAtIndex:rateId],
         *phone    = [ItemViewController generateRandomPhone],
-        *add    = [NSString stringWithFormat:locationFormat, aid,[Terminals objectAtIndex:tid]],
+        *add    = [NSString stringWithFormat:locationFormat, aid,[Terminals objectAtIndex:tid],
+                   appDelegate.restaurantCity, appDelegate.restaurantState,appDelegate.restaurantZip],
         *hours  = @"Monday to Sunday 8 AM - 10 PM",
         *site    = [NSString stringWithFormat:@"www.%@.com",
                     [title stringByReplacingOccurrencesOfString:@"'" withString:@""]];

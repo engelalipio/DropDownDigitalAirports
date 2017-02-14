@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "NetworkAPISingleClient+FIDS.h"
+#import "NetworkAPISingleClient+Airport.h"
 #import "DataModels.h"
 
 @interface AppDelegate ()
@@ -61,6 +62,10 @@
 @synthesize hostReachability = _hostReachability;
 @synthesize internetReachability = _internetReachability;
 @synthesize connectionImageName = _connectionImageName;
+@synthesize storageClient = _storageClient;
+@synthesize azureClient = _azureClient;
+@synthesize airportCode = _airportCode;
+
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
@@ -119,6 +124,59 @@
     }
     
     return storyboard;
+}
+
+-(void) retrieveAirportInfo{
+    
+ 
+    [NetworkAPISingleClient retrieveAirportInfo:kFlightStatsMaxCount completionBlock:^(NSArray *arrData) {
+        
+        if (arrData){
+            
+            BaseClass *baseFids =  (BaseClass*) [arrData firstObject];
+            
+            if (baseFids){
+                
+                NSDictionary *currentAirport = (NSDictionary*) [baseFids airport];
+                
+                
+                if (currentAirport){
+                    
+                    
+                    Airport *airport = [[Airport alloc] initWithDictionary:currentAirport];
+                    
+                    _restaurantName      = [airport name];;
+                    
+                    
+                    if (airport.street1){
+                        _restaurantAddress   = [airport street1];
+                    }
+                    
+                    if (airport.city){
+                        _restaurantCity      = [airport city];
+                    }
+                    
+                    if (airport.stateCode){
+                        _restaurantState      =  [airport stateCode];
+                    }
+                    
+                    if (airport.postalCode){
+                        _restaurantZip       =  [airport postalCode];
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+        
+    }andErrorBlock:^(NSError *arrError){
+        
+        if (arrError){
+            NSLog(@"%@",arrError.description);
+        }
+        
+    }];
 }
 
 -(void) retrieveAirportFIDSArrivals{
@@ -377,19 +435,24 @@
     _isiPhone = NO;
     _useAPI = NO;
     _restaurantTable     = @"Welcome To DropDownDigitalMenus.Com\n Proudly Serving All Airports";
-    _restaurantName    = @"Baltimore Washington Airport";
-    _restaurantAddress = @"7050 Friendship Road BWI Airport";
-    _restaurantCity       = @"Maryland";
+    _restaurantName      = @"Baltimore/Washington International Thurgood Marshall Airport";
+    _restaurantAddress   = @"7050 Friendship Road BWI Airport";
+    _restaurantCity      = @"Maryland";
     _restaurantState     = @"MD";
-    _restaurantZip         = @"21240-0766";
-    _interval                   = 5;
+    _restaurantZip       = @"21240-0766";
+    _interval            = 5;
     
+    
+    if (! self.airportCode){
+        _airportCode = kFlightStatsAirport;
+    }
 
     [self initReachabilityCheck];
     [self extractCurrentBuildInformation];
     [self initLocationServices];
-    [self initParseFramework];
+    [self initAzureStorage];
     [self prepareAirportbackgrounds];
+    [self retrieveAirportInfo];
     [self retrieveAirportFIDSArrivals];
     [self retrieveAirportFIDSDepartures];
     
@@ -449,27 +512,58 @@
     
 }
 
--(void) initParseFramework{
+-(void) initAzureStorage{
     
-    NSDictionary *infoDictionary = nil;
-    NSString *message = @"",
-                    *appKey   = kParseAppId,
-                    *clientKey = kParseKey;
+    
+    NSString *message  = @"",
+             *appKey   = kParseAppId,
+             *clientKey = kParseKey;
+    
+    AZSCloudStorageAccount *account = nil;
+    
+    AZSStorageCredentials *credentials = nil;
+    
+    NSError *err = nil;
     
     @try {
         
-        infoDictionary = [[NSBundle mainBundle] infoDictionary];
         
-
- 
+        message =  [NSString stringWithFormat:@"DefaultEndpointsProtocol=https;AccountName=%@;AccountKey=%@",kAzureStorageName,kAzureStorageKey1];
+    
         
-        [Parse setApplicationId:appKey clientKey:clientKey];
+        /** AZSStorageCredentials is used to store credentials used to authenticate Storage Requests.
+         
+         AZSStorageCredentials can be created with a Storage account name and account key for Shared Key access,
+         or with a SAS token (forthcoming.)  Sample usage with SharedKey authentication:
+         
+         AZSStorageCredentials *storageCredentials = [[AZSStorageCredentials alloc] initWithAccountName:<name> accountKey:<key>];
+         AZSCloudStorageAccount *storageAccount = [[AZSCloudStorageAccount alloc] initWithCredentials:storageCredentials useHttps:YES];
+         AZSCloudBlobClient *blobClient = [storageAccount getBlobClient];
+         
+         */
         
-        message = [NSString  stringWithFormat:@"Successfully initialized Parse for %@ - %@",appKey,clientKey];
+        credentials = [[AZSStorageCredentials alloc] initWithAccountName:kAzureSharedKey accountKey:kAzureStorageKey1];
+        
+        
+        account =  [[AZSCloudStorageAccount alloc] initWithCredentials:credentials useHttps:YES error:&err];
+        
+        
+        if (account){
+            _storageClient = [account getBlobClient];
+            message = [NSString  stringWithFormat:@"Successfully connected Azure Storage for %@",message];
+            NSLog(@"initAzureStorage:Message->%@",message);
+            
+        }
+        
+        message = [NSString stringWithFormat:@"%@%@",kAzureTableRootURL,kAzureSharedKey];
+        
+        
+        
+        
         
     }
     @catch (NSException *exception) {
-        message = exception.description;
+        message = [NSString stringWithFormat:@"initAzureStorage:Error->%@", exception.debugDescription];
     }
     @finally {
         if (message.length > 0){
@@ -478,7 +572,6 @@
         message = @"";
         appKey = @"";
         clientKey = @"";
-        infoDictionary = nil;
     }
     
 }
@@ -486,214 +579,402 @@
 -(void) prepareAirportbackgrounds{
     
     
-    PFQuery *query = nil;
+    NSString *message = @"";
+    
+    NSPredicate *tableFilter = nil;
+    
+    MSTable *menuTable = nil;
+    MSQuery *query = nil;
+    
+    NSString *filterFormat = @"PartitionKey == '%@'";
+    
     @try {
         
-    
         
-        query = [PFQuery queryWithClassName:@"Airportbackgrounds"];
+        message = kAzureMenuTable;
         
-        if (query){
+        _azureClient = [MSClient clientWithApplicationURLString:message];
+        
+        /* NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:message]];
+         
+         NSMutableURLRequest *mRequest = [request mutableCopy];
+         
+         NSLocale *currentLocale = [NSLocale currentLocale];
+         NSString *strDate = [[NSDate date] descriptionWithLocale:currentLocale];
+         
+         [mRequest addValue:@"2015-12-11" forHTTPHeaderField:@"x-ms-version"];
+         [mRequest addValue:strDate forHTTPHeaderField:@"x-ms-date"];
+         [mRequest addValue:@"SharedKey" forHTTPHeaderField:@"Authorization"];
+         [mRequest addValue:@"eksh%2F9Q6GMUbWAlQIfcw%2BgYNlKdRcfxQ3TPgMPrhOUA%3D" forHTTPHeaderField:@"dwistore"];
+         
+         request = [mRequest copy];
+         
+         NSLog(@"%@",request.allHTTPHeaderFields);
+         
+         _azureClient = [MSClient clientWithApplicationURL:request.URL];*/
+        
+        if (_azureClient){
+            message = [NSString  stringWithFormat:@"Successfully connected Azure Table for %@",message];
+            NSLog(@"loadAzureStorageData:Message->%@",message);
+        }
+        
+        
+        if (_azureClient){
+            menuTable =    [_azureClient tableWithName:kAzureAirportBackgroundsTableName];
             
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            query = [menuTable query];
             
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                if (error){
-                    message = [NSString stringWithFormat: @"Airportbackgrounds:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"Airportbackgrounds:findObjectsInBackgroundWithBlock:Airport Background Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _backgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
             
         }
         
-        query = [PFQuery queryWithClassName:@"AirportFlights"];
+        
+        
+        
+        //BEGIN Backgrounds
+        
         
         if (query){
             
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportBackgrounds"]];
             
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
                 if (error){
-                    message = [NSString stringWithFormat: @"AirportFlights:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
                 }else{
-                    message = [NSString stringWithFormat: @"AirportFlights:findObjectsInBackgroundWithBlock:Flights Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _flightbackgrounds = objects;
-                    }
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportBackgrounds->%d",backgroundsCount];
+                    _backgrounds =  result.items;
+                    
                     
                 }
-                NSLog(@"%@",message);
+                NSLog(@"%@",queryMessage);
             }];
             
-        }
-        
-        query = [PFQuery queryWithClassName:@"AirportDining"];
-        
-        if (query){
-            
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                if (error){
-                    message = [NSString stringWithFormat: @"AirportDining:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"AirportDining:findObjectsInBackgroundWithBlock:Restaurant Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _diningbackgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
             
         }
-        
-        query = [PFQuery queryWithClassName:@"AirportFoodCourts"];
-        
-        if (query){
-            
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                if (error){
-                    message = [NSString stringWithFormat: @"AirportFoodCourts:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"AirportFoodCourts:findObjectsInBackgroundWithBlock:Food Court Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _foodcourtbackgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
-            
-        }
-        
-        query = [PFQuery queryWithClassName:@"AirportFoodToGo"];
-        
-        if (query){
-        
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                if (error){
-                    message = [NSString stringWithFormat: @"AirportFoodToGo:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"AirportFoodToGo:findObjectsInBackgroundWithBlock:Food ToGo Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _foodtogobackgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
-            
-        }
-        
-        query = [PFQuery queryWithClassName:@"AirportShops"];
-        
-        if (query){
-            
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
+        //END Backgrounds
 
+        //BEGIN FlightBackgrounds
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportFlightBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"FlightBackgrounds"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
                 if (error){
-                    message = [NSString stringWithFormat: @"AirportShops:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
                 }else{
-                    message = [NSString stringWithFormat: @"AirportShops:findObjectsInBackgroundWithBlock:Shops Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _shopsbackgrounds = objects;
-                    }
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:FlightBackgrounds->%d",backgroundsCount];
+                    _flightbackgrounds =  result.items;
+                    
                     
                 }
-                NSLog(@"%@",message);
+                NSLog(@"%@",queryMessage);
             }];
-            
-        }
 
-        query = [PFQuery queryWithClassName:@"AirportLounges"];
+            
+        }
+        
+        //END FlightBackgrounds
+        
+        //BEGIN AirportDining
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportDiningBackgroundsTableName];
+        query =  [menuTable query];
         
         if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportDining"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:DiningBackgrounds->%d",backgroundsCount];
+                    _diningbackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+         //END AirportDining
+        
+        
+        
+        //BEGIN Food Courts
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportFoodCourtBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportFoodCourt"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportFoodCourt->%d",backgroundsCount];
+                    _foodcourtbackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        //END Food Courts
+        
+        //BEGIN Food ToGo
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportFoodToGoBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportFoodToGo"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportFoodToGo->%d",backgroundsCount];
+                    _foodtogobackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        //END Food ToGo
+        
 
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                
-                if (error){
-                    message = [NSString stringWithFormat: @"AirportLounges:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"AirportLounges:findObjectsInBackgroundWithBlock:Lounges Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _loungesbackgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
-            
-        }
+        //BEGIN Airport Shops
         
-        query = [PFQuery queryWithClassName:@"AirportClub"];
+        menuTable = [self.azureClient tableWithName:kAzureAirportShopsBackgroundsTableName];
+        query =  [menuTable query];
         
         if (query){
             
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportShops"]];
             
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
                 if (error){
-                    message = [NSString stringWithFormat: @"AirportClubs:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
                 }else{
-                    message = [NSString stringWithFormat: @"AirportClubs:findObjectsInBackgroundWithBlock:Clubs Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _clubsbackgrounds = objects;
-                    }
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportShops->%d",backgroundsCount];
+                    _shopsbackgrounds =  result.items;
+                    
                     
                 }
-                NSLog(@"%@",message);
+                NSLog(@"%@",queryMessage);
             }];
+            
             
         }
         
-        query = [PFQuery queryWithClassName:@"AirportHotels"];
+        
+        //End Airport Shops
+        
+        
+        //BEGIN Airport Lounges
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportLoungesBackgroundsTableName];
+        query =  [menuTable query];
         
         if (query){
             
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportLounges"]];
             
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
                 if (error){
-                    message = [NSString stringWithFormat: @"AirportHotels:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
                 }else{
-                    message = [NSString stringWithFormat: @"AirportHotels:findObjectsInBackgroundWithBlock:Hotels Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _hotelbackgrounds = objects;
-                    }
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportLounges->%d",backgroundsCount];
+                    _loungesbackgrounds =  result.items;
+                    
                     
                 }
-                NSLog(@"%@",message);
+                NSLog(@"%@",queryMessage);
             }];
+            
             
         }
         
         
+        //End Airport Lounges
+        
+        
+        //BEGIN Airport Hotels
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportHotelsBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportHotels"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportHotels->%d",backgroundsCount];
+                    _hotelbackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        
+        //End Airport Hotels
+        
+        
+        
+        
+        
+        //BEGIN Sightseeing
+        
+        menuTable = [self.azureClient tableWithName:kAzureSightSeeingBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"SightSeeing"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:SightSeeing->%d",backgroundsCount];
+                    _sightseeingbackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        
+        //End Sightseeing
+        
+        
+        /*
         query = [PFQuery queryWithClassName:@"AirportLuggage"];
         
         if (query){
@@ -717,28 +998,8 @@
             
         }
         
-        query = [PFQuery queryWithClassName:@"Sightseeing"];
-        
-        if (query){
-            
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                
-                if (error){
-                    message = [NSString stringWithFormat: @"Sightseeing:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
-                }else{
-                    message = [NSString stringWithFormat: @"Sightseeing:findObjectsInBackgroundWithBlock:Sightseeing Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _sightseeingbackgrounds = objects;
-                    }
-                    
-                }
-                NSLog(@"%@",message);
-            }];
-            
-        }
+ 
+        */
         
         
         

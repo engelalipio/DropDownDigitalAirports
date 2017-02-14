@@ -26,5 +26,6 @@
 #import <Parse/Parse.h>
 #import "UIColor+ColorWithHexString.h"
 #import "Utilities.h"
-
+#import "AZSClient/AZSClient.h"
+#import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
 #endif

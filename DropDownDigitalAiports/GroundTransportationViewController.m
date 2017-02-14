@@ -409,7 +409,7 @@
                     locationFormat = @"Located outside each terminal.\nShuttles leave every 15 minutes.";
                     break;
                 case 5:
-                    locationFormat = @"Located outside each terminal.\nFor all Metropolitan Atlanta Rapid Transit Authority (MARTA) schedules, please refer to www.MARTA.com.";
+                    locationFormat = [NSString stringWithFormat:@"Located outside each terminal.\nFor all Metropolitan %@ Rapid Transit Authority schedules, please check our website.",appDelegate.restaurantCity];
                     break;
                 case 3:
                    locationFormat = @"Conveniently located outside of most terminals.\nShuttles leave every 15 minutes.\nWe can be reached at (619) 393-2930.";

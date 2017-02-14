@@ -22,21 +22,36 @@
                              completionBlock:(void(^) (NSArray * values))
 completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     
-    NSString    *message          = @"",
-                       *servicePath     = @"";
+    NSString    *message         = @"",
+                *servicePath     = @"",
+                *code            = @"";
     
-    NSURL        *url  = nil;
+    NSURL       *url  = nil;
     
     AFJSONRequestOperation *request = nil;
     
     NetworkAPISingleClient *api = nil;
     
+    AppDelegate *appDelegate = nil;
+    
     @try {
 
+        
+        code = kFlightStatsAirport;
+        
+        appDelegate = [AppDelegate currentDelegate];
+        
+        if (appDelegate){
+            if (appDelegate.airportCode){
+                code = [appDelegate airportCode];
+            }
+        }
+        
     
+        
         servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",kFlightStatsBaseURL,kFlightStatsArrivalURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
         
-        servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:kFlightStatsAirport];
+        servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:code];
         
         NSLog(@"Invoking::retrieveArrivals::%@",servicePath);
         
@@ -72,7 +87,8 @@ completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
 completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     
     NSString    *message          = @"",
-                       *servicePath     = @"";
+                *servicePath      = @"",
+                *code             = @"";
     
     NSURL        *url  = nil;
     
@@ -80,13 +96,26 @@ completionBlock andErrorBlock:(void(^) (NSError *))errorBlock{
     
     NetworkAPISingleClient *api = nil;
     
+    AppDelegate *appDelegate = nil;
+    
     @try {
         
+        
+        
+        code = kFlightStatsAirport;
+        
+        appDelegate = [AppDelegate currentDelegate];
+        
+        if (appDelegate){
+            if (appDelegate.airportCode){
+                code = [appDelegate airportCode];
+            }
+        }
         
         servicePath =  [NSString stringWithFormat:@"%@%@?appId=%@&appKey=%@&requestedFields=%@&excludeCargoOnlyFlights=true&sortFields=airlineName,currentTime",
                         kFlightStatsBaseURL,kFlightStatsDepartureURI,kFligthStatsApp,kFligthStatsKey,kFlightStatsFIDSFields];
         
-        servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:kFlightStatsAirport];
+        servicePath = [servicePath stringByReplacingOccurrencesOfString:@"{airport}" withString:code];
         
         NSLog(@"Invoking::Departures::%@",servicePath);
         

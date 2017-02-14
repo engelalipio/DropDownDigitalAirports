@@ -420,7 +420,7 @@
     cell.accessoryView.tintColor = [UIColor whiteColor];
 
         
-        UIImage *cellImage = [Utilities getParseImage:appDelegate.sightseeingbackgrounds anyIndex:indexPath.row];
+        UIImage *cellImage = [Utilities getAzureStorageImage:appDelegate.sightseeingbackgrounds anyIndex:indexPath.row];
         
         [cell.imageView setImage:cellImage];
   

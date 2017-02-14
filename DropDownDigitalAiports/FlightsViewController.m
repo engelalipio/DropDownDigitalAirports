@@ -557,7 +557,7 @@
     
     int imgIdx =  arc4random_uniform(appDelegate.flightbackgrounds.count);
  
-    UIImage *image = [Utilities getParseImage:appDelegate.flightbackgrounds anyIndex:imgIdx];
+    UIImage *image = [Utilities getAzureStorageImage:appDelegate.flightbackgrounds anyIndex:imgIdx];
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     

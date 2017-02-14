@@ -6,6 +6,7 @@
 //
 
 #import "FidsData.h"
+#import "Airport.h"
 #import "BaseClass.h"
 #import "NSObject+JTObjectMapping.h"
 #import "AbstractModel.h"

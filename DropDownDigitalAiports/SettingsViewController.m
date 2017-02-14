@@ -54,6 +54,8 @@
     [self.txtState setDelegate:self];
     [self.txtZip setText:[appDelegate restaurantZip]];
     [self.txtZip setDelegate:self];
+    [self.txtCode setText:[appDelegate airportCode]];
+    [self.txtCode setDelegate:self];
     
     if (! self.pickerLanguage){
         self.pickerLanguage  = [[UIPickerView alloc] init];
@@ -160,6 +162,20 @@
     [appDelegate setRestaurantState:self.txtState.text];
     [appDelegate setRestaurantZip:self.txtZip.text];
  
+    BOOL refreshFIDS = NO;
+    
+    if (! [appDelegate.airportCode isEqualToString:self.txtCode.text]){
+        refreshFIDS = YES;
+    }
+    
+    [appDelegate setAirportCode:self.txtCode.text];
+    
+    if (refreshFIDS) {
+        [appDelegate retrieveAirportInfo];
+        [appDelegate retrieveAirportFIDSArrivals];
+        [appDelegate retrieveAirportFIDSDepartures];
+    }
+    
     NSInteger selectedLanguageIndex = [self.pickerLanguage selectedRowInComponent:0];
     
     if (selectedLanguageIndex > -1){

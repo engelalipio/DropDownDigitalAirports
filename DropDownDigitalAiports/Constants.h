@@ -45,14 +45,60 @@
 #define kBingSearchKey @"a6ca68495f7a492e8883264a6698f002i"
 #define kFligthStatsApp @"54300528"
 #define kFligthStatsKey  @"e50dbe6db2232de0919f0c4810eefb3e"
+
+
+#define kFlightStatsAirportBaseURL @"https://api.flightstats.com/flex/airports/rest/v1/json/"
 #define kFlightStatsBaseURL @"https://api.flightstats.com/flex/fids/rest/v1/json/"
 #define kFlightStatsArrivalURI @"{airport}/arrivals"
 #define kFlightStatsDepartureURI @"{airport}/departures"
+#define kFlightStatsAirportInfoURI @"{airport}/today"
+
 #define kFlightStatsAirport @"BWI"
 #define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,temperatureF,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"
 
+
+
+#define kAzureStorageKey1   @"YibRuhr/WTmTYxky25fvqbfdk3+kluwqJZRo3TuFquy8bP04y0bGJsyPpp8tHm5ITUphf2NJ2q2ErlbSqdzoDg=="
+#define kAzureStorageKey2   @"aLTmf973dD0qCZQPYzmAWyRTT0vjAR9a/jH/3ylTaUYBb6GtrM+X797eWYHrqvUElXU+anVo3o9wNu0dymevzQ=="
+
+#define kAzureStorageName    @"dwistore"
+#define kAzureContainerName  @"dwicontainer"
+
+#define kAzureBlobRootURL    @"https://dwistore.blob.core.windows.net/"
+#define kAzureFileRootURL    @"https://dwistore.file.core.windows.net/"
+#define kAzureBlobRootURL    @"https://dwistore.blob.core.windows.net/"
+#define kAzureTableRootURL   @"https://dwistore.table.core.windows.net/"
+#define kAzureStorageURL     @"https://dwistore.blob.core.windows.net/dwicontainer"
+
+#define kAzureSharedKey @"?sv=2015-12-11&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-02-02T23:59:46Z&st=2017-02-02T15:59:46Z&spr=https,http&sig=eksh%2F9Q6GMUbWAlQIfcw%2BgYNlKdRcfxQ3TPgMPrhOUA%3D"
+
+#define kAzureStorageAirport               @"Airport/"
+#define kAzureStorageAirportBackgrounds    @"Airport/AirportBackgrounds/"
+#define kAzureStorageAirportRestaurants    @"Airport/Restaurants/"
+#define kAzureStorageAirportFoodCourts     @"Airport/FoodCourts/"
+#define kAzureStorageAirportStores         @"Airport/Stores/"
+#define kAzureStorageAirportLounges        @"Airport/Lounges/"
+#define kAzureStorageAirportHotels         @"Airport/Hotels/"
+#define kAzureStorageAirportSightSeeing    @"Airport/SightSeeing/"
+
+#define kAzureMenuPayLoad    @"https://dwistore.file.core.windows.net/dwifiles/OMTN/MenuPayload.json"
+
+
+#define kAzureAirportBackgroundsTableName           @"AirportBackgrounds"
+#define kAzureAirportFlightBackgroundsTableName     @"FlightBackgrounds"
+#define kAzureAirportDiningBackgroundsTableName     @"AirportDining"
+#define kAzureAirportFoodCourtBackgroundsTableName  @"AirportFoodCourt"
+#define kAzureAirportFoodToGoBackgroundsTableName   @"AirportFoodToGo"
+#define kAzureAirportShopsBackgroundsTableName      @"AirportShops"
+#define kAzureAirportLoungesBackgroundsTableName    @"AirportLounges"
+#define kAzureAirportHotelsBackgroundsTableName     @"AirportHotels"
+#define kAzureSightSeeingBackgroundsTableName       @"Sightseeing"
+
+
+
+#define kAzureMenuTable      @"http://ordermytablenow.azure-mobile.net"
 
 
 /*

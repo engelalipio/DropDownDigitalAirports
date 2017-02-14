@@ -329,7 +329,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             if (isParse) {
               
                // [Utilities setParseImageCell:images anyIndex:rndIndex tableCell:cell];
-                cellImage =  [Utilities getParseImage:images anyIndex:rndIndex];
+                cellImage =  [Utilities getAzureStorageImage:images anyIndex:rndIndex];
                 cellImage = cell.imageView.image;
             }else{
                 imageName = [images objectAtIndex:rndIndex];
@@ -482,8 +482,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     if (appDelegate.backgrounds){
                      restaurantImages = [[NSArray alloc] initWithArray:appDelegate.backgrounds];
                     }else{
-                    restaurantImages = [[NSArray alloc] initWithObjects:@"AirportBack_0.jpg",@"AirportBack_2.jpg",@"AirportBack_3.jpg",@"AirportBack_4.jpg",
-                                        @"AirportBack_5.jpg", @"AirportBack_7.jpg",@"AirportBack_8.jpg",@"AirportBack_9.jpg" ,@"AirportBack_0.jpg" ,@"AirportBack_10.jpg",nil];
+                    restaurantImages = [[NSArray alloc]
+                                        initWithObjects:@"AirportBack_0.jpg",@"AirportBack_2.jpg",@"AirportBack_3.jpg",
+                                                        @"AirportBack_4.jpg", @"AirportBack_5.jpg", @"AirportBack_7.jpg",@"AirportBack_8.jpg",@"AirportBack_9.jpg",
+                                                        @"AirportBack_0.jpg" ,@"AirportBack_10.jpg",nil];
                     }
                 }
                 else{
@@ -790,12 +792,12 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         isMissingPerson = [appDelegate isMissingPerson];
         //Check on the server first
         
-        if (! isMissingPerson){
-        PFQuery *query = [PFQuery queryWithClassName:@"MissingPerson"];
+       /* if (! isMissingPerson){
+            MSQuery *query = nil;//TODO-> Missing Person[PFQuery queryWithClassName:@"MissingPerson"];
         
         if (query){
             
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
+           query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
             
             NSArray *missingPeople =  (NSArray*) [query findObjects];
             
@@ -821,8 +823,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 
             }
             
-            }
         }
+       }*/
         
         if (! isMissingPerson){
             
@@ -830,7 +832,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 [self  ResetMissingPerson];
             }
             pagesCount = arc4random_uniform(appDelegate.backgrounds.count);
-            [Utilities setParseImageViewl:appDelegate.backgrounds anyIndex:pagesCount tableCell:self.imageView];
+            [Utilities setParseImageView:appDelegate.backgrounds anyIndex:pagesCount tableCell:self.imageView];
         }else{
             
             image = appDelegate.missingPersonImage;
@@ -876,6 +878,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
     }
     
+    
 }
 
 -(UIView*) getSpecialTitleView: (NSString*) anyTitle{
@@ -920,11 +923,11 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) setImageNames:(NSArray *) sourceArray destData:(NSArray *) targetArray {
     
     NSString *message       = @"",
-                    *imageName = @"";
+             *imageName = @"";
     
     NSMutableArray *imgNames  = nil;
     
-    PFObject *background = nil;
+    NSDictionary *background = nil;
     @try {
     
         if (sourceArray){
@@ -934,7 +937,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             for(int idx = 0; idx < sourceArray.count ; idx++){
                 background = [sourceArray objectAtIndex:idx];
                 if (background){
-                    imageName = [background objectForKey:@"ImageName"];
+                    imageName = [background objectForKey:@"Name"];
                     if (imageName){
                         [imgNames addObject:imageName];
                     }

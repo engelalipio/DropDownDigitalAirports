@@ -11,5 +11,7 @@ target 'DropDownDigitalAirports' do
 pod 'Parse'
 pod 'ParseUI'
 pod 'ProjectOxfordFace'
+pod 'AZSClient'
+pod 'MicrosoftAzureMobile'
 end
 

@@ -652,6 +652,10 @@
 		AC6189161E3AC2770058E621 /* WWAN5.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189131E3AC2770058E621 /* WWAN5.png */; };
 		AC6189181E3AD8060058E621 /* Online.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189171E3AD8060058E621 /* Online.png */; };
 		AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */; };
+		ACB3A44A1E5361D8007ADD95 /* TaxiService.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */; };
+		ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */; };
+		ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A44E1E536D65007ADD95 /* Airport.m */; };
+		ACB3A4521E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A4511E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1382,6 +1386,12 @@
 		AC6189171E3AD8060058E621 /* Online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Online.png; sourceTree = "<group>"; };
 		AC8CADFD1E3A8B1D00B21C8C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TaxiService.jpeg; sourceTree = "<group>"; };
+		ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PublicTransportation.jpeg; sourceTree = "<group>"; };
+		ACB3A44D1E536D65007ADD95 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		ACB3A44E1E536D65007ADD95 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		ACB3A4501E536E11007ADD95 /* NetworkAPISingleClient+Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkAPISingleClient+Airport.h"; sourceTree = "<group>"; };
+		ACB3A4511E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkAPISingleClient+Airport.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1501,6 +1511,8 @@
 		0FCAD8F91A3F960E00BE42E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ACB3A44D1E536D65007ADD95 /* Airport.h */,
+				ACB3A44E1E536D65007ADD95 /* Airport.m */,
 				AA256FEC1CF63067005C974C /* AbstractModel.h */,
 				AAB41B071CF54B7F0078CB75 /* BaseClass.h */,
 				AAB41B081CF54B7F0078CB75 /* BaseClass.m */,
@@ -2157,6 +2169,8 @@
 				AAB41B0D1CF54C480078CB75 /* NetworkAPISingleClient.m */,
 				AAB41B0F1CF559740078CB75 /* NetworkAPISingleClient+FIDS.h */,
 				AAB41B101CF559850078CB75 /* NetworkAPISingleClient+FIDS.m */,
+				ACB3A4501E536E11007ADD95 /* NetworkAPISingleClient+Airport.h */,
+				ACB3A4511E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -2325,6 +2339,7 @@
 		AAE0E9A61B2BAE7D0076D267 /* Lounges */ = {
 			isa = PBXGroup;
 			children = (
+				ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */,
 				AAD93E0D1B48617E009B354B /* Lounge_3.jpeg */,
 				AAD93E0B1B48614D009B354B /* Lounge_2.jpeg */,
 				AAD93E091B48611F009B354B /* Lounge_1.jpeg */,
@@ -2336,6 +2351,7 @@
 		AAE0E9A71B2BAE9E0076D267 /* Terminals */ = {
 			isa = PBXGroup;
 			children = (
+				ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */,
 				AA20FB3A1B6D3BFC00DEE957 /* AirportShuttle.jpg */,
 				AAC6EEEE1D087A1A0037A6C3 /* Directions.jpg */,
 				AA8FA8D61B27F622003E79B4 /* AirportLuggage_1.jpg */,
@@ -3026,6 +3042,7 @@
 				0F153D391A3AA66A0073DED2 /* put_in_motion-256.png in Resources */,
 				0F2ACCF719FA15570028B6E2 /* wine-32.png in Resources */,
 				AA8FA9131B2A27A6003E79B4 /* Screenshots in Resources */,
+				ACB3A44A1E5361D8007ADD95 /* TaxiService.jpeg in Resources */,
 				AA8FA8D01B27F4D7003E79B4 /* AirportGarage_1.jpg in Resources */,
 				AAE68B891B5B0F1100DA7A53 /* Limo_2.png in Resources */,
 				AA5198531B51E97D00398A4F /* Rental_5.png in Resources */,
@@ -3103,6 +3120,7 @@
 				AAD93DE41B476A84009B354B /* Italian_4.png in Resources */,
 				0FCAD8E41A3E1A2300BE42E5 /* FRENCH.png in Resources */,
 				AAE68B3D1B5AC9F100DA7A53 /* AmericanFood_1.png in Resources */,
+				ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */,
 				AA6D13F01B641CC700F71348 /* cream_tube-100.png in Resources */,
 				AA6D13E61B64196300F71348 /* t_shirt-100.png in Resources */,
 				AA6D13A01B63F37300F71348 /* AirportShops_0_2.jpg in Resources */,
@@ -3260,6 +3278,7 @@
 				AAB41B111CF559850078CB75 /* NetworkAPISingleClient+FIDS.m in Sources */,
 				0F2ACD821A01E7AC0028B6E2 /* MenuViewController.m in Sources */,
 				0FE60AE01A117BBB00435F32 /* ServicesViewController.m in Sources */,
+				ACB3A4521E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m in Sources */,
 				AAB41B061CF54B050078CB75 /* FidsData.m in Sources */,
 				AA88FCE01B5179CF0054A65C /* ProvidedByViewController.m in Sources */,
 				0F2ACD2A19FAA7270028B6E2 /* HomeViewController.m in Sources */,
@@ -3280,6 +3299,7 @@
 				0FF46DF419F9952A00E51218 /* AFImageRequestOperation.m in Sources */,
 				0FF46E0C19F9953500E51218 /* JTValidMappingKey.m in Sources */,
 				0F2ACD3B19FAE1B20028B6E2 /* ContainerCellViewCell.m in Sources */,
+				ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */,
 				AA6D14991B66D9FA00F71348 /* HotelsShuttleViewController.m in Sources */,
 				0FF46E0A19F9953500E51218 /* JTMappings.m in Sources */,
 				0FF46E1519F9958300E51218 /* SWRevealViewController.m in Sources */,
