@@ -41,13 +41,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.47</string>
+	<string>1.48</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>OMTN</string>
 		<string>OMPN</string>
+		<string>OMSN</string>
+		<string>OMSEN</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

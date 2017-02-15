@@ -13,9 +13,9 @@
 
 @interface LimosViewController (){
     NSArray *games;
-
-UIImageView *selectedImageView;
-AppDelegate *appDelegate;
+    NSString *selectedStore;
+    UIImageView *selectedImageView;
+    AppDelegate *appDelegate;
     UIInterfaceOrientation currentOrientation;
 }
 @end
@@ -321,6 +321,7 @@ AppDelegate *appDelegate;
                         
                         if ([title length] == 0){
                             title  = data;
+                            selectedStore = title;
                         }else{
                             if (data.length > 0){
                                 desc = data;
@@ -496,13 +497,21 @@ AppDelegate *appDelegate;
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     NSURL  *url= nil;
     
-    NSString *message= @"",
-                    *launchURL = @"";
+    NSString *currentName = @"",
+             *message     = @"",
+             *launchURL   = @"";
     
     @try {
         
+       // currentName = selectedStore;
+        currentName = @"Limousines";
         
-        launchURL =kOMSN;
+        if ([currentName length] > 0){
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMSN for %@",currentName);
+        }
+        
+        launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];
         
         url=  [[NSURL alloc] initWithString:launchURL];
         

@@ -15,6 +15,7 @@
 @interface CarRentalsViewController ()
 {
     NSArray *games;
+    NSString *selectedStore ;
     UIImageView *selectedImageView;
     AppDelegate *appDelegate;
     UIInterfaceOrientation currentOrientation;
@@ -316,6 +317,7 @@
                         
                         if ([title length] == 0){
                             title  = data;
+                            selectedStore = title;
                         }else{
                             if (data.length > 0){
                                 desc = data;
@@ -491,13 +493,28 @@
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     NSURL  *url= nil;
     
-    NSString *message= @"",
-                    *launchURL = @"";
+    NSString *currentName = @"",
+             *message     = @"",
+             *launchURL   = @"";
     
+    NSArray<NSString *> *searchCrit = nil;
     @try {
         
+         currentName = selectedStore;
         
-        launchURL =kOMSN;
+        
+         searchCrit = [currentName componentsSeparatedByString:@" "];
+        
+        if (searchCrit.count > 0){
+            currentName = [searchCrit firstObject];
+        }
+        
+        if ([currentName length] > 0){
+            //currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMSN for %@",currentName);
+        }
+        
+        launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];
         
         url=  [[NSURL alloc] initWithString:launchURL];
         

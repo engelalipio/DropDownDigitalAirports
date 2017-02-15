@@ -717,7 +717,7 @@
     @try {
         
         
-        launchURL = kOMSS;
+        launchURL = kOMSENApp;
         
         url=  [[NSURL alloc] initWithString:launchURL];
         

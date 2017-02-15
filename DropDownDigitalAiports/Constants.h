@@ -14,8 +14,10 @@
 #define kSendGridServer @"smtp.sendgrid.net"
 #define kSendGridPort @"587"
 
-#define kOMTNApp @"OMTN://"
-#define kOMPNApp @"OMPN://"
+#define kOMTNApp  @"OMTN://"
+#define kOMPNApp  @"OMPN://"
+#define kOMSNApp  @"OMSN://"
+#define kOMSENApp @"OMSEN://"
 
 #define kOMPN @"http://www.ordermyproductnow.com"
 #define kOMSN @"http://ordermyguestservicesnow.com"
