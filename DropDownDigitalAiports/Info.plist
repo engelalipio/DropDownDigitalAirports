@@ -41,7 +41,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.48</string>
+	<string>1.49</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -71,11 +71,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Granting location Camera Usage to MIA Digital Directory Menu applications, will allow for better User Experience</string>
+	<string>Granting location Camera Usage to Digital Directory Menu applications, will allow for better User Experience</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Granting location permission to MIA Digital Directory Menu applications, will allow for more accurate information in your surrounding area.</string>
+	<string>Granting location permission to Digital Directory Menu applications, will allow for more accurate information in your surrounding area.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Granting location Photo Library to MIA Digital Directory Menu applications, will allow for better User Experience</string>
+	<string>Granting location Photo Library to Digital Directory Menu applications, will allow for better User Experience</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -2,6 +2,14 @@ PODS:
   - AZSClient (0.2.2)
   - Bolts/Tasks (1.8.4)
   - MicrosoftAzureMobile (3.3.0)
+  - MobileCenter (0.3.7):
+    - MobileCenter/MobileCenterAnalytics (= 0.3.7)
+    - MobileCenter/MobileCenterCrashes (= 0.3.7)
+  - MobileCenter/MobileCenter (0.3.7)
+  - MobileCenter/MobileCenterAnalytics (0.3.7):
+    - MobileCenter/MobileCenter
+  - MobileCenter/MobileCenterCrashes (0.3.7):
+    - MobileCenter/MobileCenter
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseUI (1.2.0):
@@ -12,6 +20,7 @@ PODS:
 DEPENDENCIES:
   - AZSClient
   - MicrosoftAzureMobile
+  - MobileCenter
   - Parse
   - ParseUI
   - ProjectOxfordFace
@@ -20,10 +29,11 @@ SPEC CHECKSUMS:
   AZSClient: 469db5162a0e59cc764715b233794e26ade29736
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   MicrosoftAzureMobile: 08e10f8277b8ce7b55a54f3c96872e075d5041d5
+  MobileCenter: cb53869e883407fe59f9ba05c9a4f9c9695e1411
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   ProjectOxfordFace: eeb628b3d91ffe4f8fcec151abf26941975479d3
 
-PODFILE CHECKSUM: 0728b649f5b3fe3d12ff7925f0095074ac00009f
+PODFILE CHECKSUM: 56772268984e1c73a422969f086d6936a8741258
 
 COCOAPODS: 1.1.1

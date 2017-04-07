@@ -704,7 +704,7 @@
             tempIMG =   [UIImage imageNamed:@"temperature_filled-100.png"];
         }
         NSString *fligthDetail = @"",
-                        *flightNumber = @"";
+                 *flightNumber = @"";
         BOOL isDeparture = NO;
         
         FidsData *fidsData = [[FidsData alloc] init];
@@ -751,6 +751,8 @@
             
                 
                  fligthDetail = [NSString stringWithFormat:@"Flight %@ is %@",flightNumber, flight];
+                
+                [MSAnalytics trackEvent:fligthDetail];
                 
                 if (! appDelegate.isiPhone){
               //      [item.FlightLabel setText:@"Arrival Details:"];
@@ -809,6 +811,8 @@
                 fligthDetail = flight;
                 
                 fligthDetail = [NSString stringWithFormat:@"Flight %@ Is %@",flightNumber, flight];
+                
+                [MSAnalytics trackEvent:fligthDetail];
                 
                 if (! appDelegate.isiPhone){
              //       [item.FlightLabel setText:@"Departure Details:"];

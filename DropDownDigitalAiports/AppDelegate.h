@@ -10,6 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
 
+@import MobileCenter;
+@import MobileCenterAnalytics;
+@import MobileCenterCrashes;
+//@import MobileCenterDistribute;
+
 enum OrderType {
      OrderTypeDrinks	= 1,
      OrderTypeSalads	= 2,

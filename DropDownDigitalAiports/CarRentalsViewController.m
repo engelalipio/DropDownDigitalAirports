@@ -516,6 +516,10 @@
         
         launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];
         
+        message = [NSString stringWithFormat:@"Airport:Rentals:ROP->%@",launchURL];
+        
+        [MSAnalytics trackEvent:message];
+        
         url=  [[NSURL alloc] initWithString:launchURL];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]){
@@ -524,6 +528,7 @@
             url=  [[NSURL alloc] initWithString:kOMSN];
             message = [NSString stringWithFormat:@"Launching OMSN Web-> %@",url];
         }
+        [MSAnalytics trackEvent:message];
         [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {

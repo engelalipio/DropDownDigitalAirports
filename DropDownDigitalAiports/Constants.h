@@ -61,6 +61,7 @@
 #define kFlightStatsMaxCount @"10"
 
 
+#define kMobileCenterKey @"b9f034bb-c207-408c-b7ce-661e1251dfed"
 
 #define kAzureStorageKey1   @"YibRuhr/WTmTYxky25fvqbfdk3+kluwqJZRo3TuFquy8bP04y0bGJsyPpp8tHm5ITUphf2NJ2q2ErlbSqdzoDg=="
 #define kAzureStorageKey2   @"aLTmf973dD0qCZQPYzmAWyRTT0vjAR9a/jH/3ylTaUYBb6GtrM+X797eWYHrqvUElXU+anVo3o9wNu0dymevzQ=="

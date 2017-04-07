@@ -184,7 +184,7 @@
     [NetworkAPISingleClient retrieveArrivals:kFlightStatsMaxCount completionBlock:^(NSArray *arrData) {
         
         if (arrData){
-            
+            [MSAnalytics trackEvent:@"retrieveAirportFIDSArrivals"];
             BaseClass *baseFids =  (BaseClass*) [arrData firstObject];
             
             if (baseFids){
@@ -270,7 +270,7 @@
     [NetworkAPISingleClient retrieveDepartures:kFlightStatsMaxCount completionBlock:^(NSArray *destData) {
         
         if (destData){
-            
+            [MSAnalytics trackEvent:@"retrieveAirportFIDSDepartures"];
             BaseClass *baseFids =  (BaseClass*) [destData firstObject];
             
             if (baseFids){
@@ -427,6 +427,10 @@
 }
 
 
+-(void) initMobileCenter{
+    [MSMobileCenter start:kMobileCenterKey withServices:@[[MSAnalytics class],[MSCrashes class]]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _language = @"English";
@@ -451,6 +455,7 @@
     [self extractCurrentBuildInformation];
     [self initLocationServices];
     [self initAzureStorage];
+    [self initMobileCenter];
     [self prepareAirportbackgrounds];
     [self retrieveAirportInfo];
     [self retrieveAirportFIDSArrivals];

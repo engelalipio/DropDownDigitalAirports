@@ -887,6 +887,10 @@
         
         launchURL = [NSString stringWithFormat:@"%@?name=%@",kOMTNApp,currentName];
         
+        message = [NSString stringWithFormat:@"Airport:Dining:ROP->%@",launchURL];
+        
+        [MSAnalytics trackEvent:message];
+        
         url=  [[NSURL alloc] initWithString:launchURL];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]){
@@ -895,6 +899,7 @@
             url=  [[NSURL alloc] initWithString:kOMTN];
             message = [NSString stringWithFormat:@"Launching OMTN Web-> %@",url];
         }
+        [MSAnalytics trackEvent:message];
         [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {

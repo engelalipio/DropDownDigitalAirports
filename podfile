@@ -13,5 +13,6 @@ pod 'ParseUI'
 pod 'ProjectOxfordFace'
 pod 'AZSClient'
 pod 'MicrosoftAzureMobile'
+pod 'MobileCenter'
 end
 
