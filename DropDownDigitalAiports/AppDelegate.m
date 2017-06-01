@@ -439,11 +439,11 @@
     _isiPhone = NO;
     _useAPI = NO;
     _restaurantTable     = @"Welcome To DropDownDigitalMenus.Com\n Proudly Serving All Airports";
-    _restaurantName      = @"Baltimore/Washington International Thurgood Marshall Airport";
-    _restaurantAddress   = @"7050 Friendship Road BWI Airport";
-    _restaurantCity      = @"Maryland";
-    _restaurantState     = @"MD";
-    _restaurantZip       = @"21240-0766";
+    _restaurantName      = @"Hartsfield-Jackson Atlanta International Airport";
+    _restaurantAddress   = @"6000 N Terminal Parkway";
+    _restaurantCity      = @"Atlanta";
+    _restaurantState     = @"GA";
+    _restaurantZip       = @"30320";
     _interval            = 5;
     
     

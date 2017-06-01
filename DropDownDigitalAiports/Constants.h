@@ -55,7 +55,7 @@
 #define kFlightStatsDepartureURI @"{airport}/departures"
 #define kFlightStatsAirportInfoURI @"{airport}/today"
 
-#define kFlightStatsAirport @"BWI"
+#define kFlightStatsAirport @"ATL"
 #define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,temperatureF,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"
