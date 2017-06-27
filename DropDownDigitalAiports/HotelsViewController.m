@@ -697,7 +697,7 @@
     NSArray<NSString *> *searchCrit = nil;
     @try {
         
-        currentName = selectedStore;
+        /*currentName = selectedStore;
         
         
         searchCrit = [currentName componentsSeparatedByString:@" "];
@@ -709,6 +709,13 @@
         if ([currentName length] > 0){
             //currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             NSLog(@"Invoking OMSN for %@",currentName);
+        }*/
+        
+        currentName = @"Hotel Rooms";
+        
+        if ([currentName length] > 0){
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMSN from Airport for %@",currentName);
         }
         
         launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];

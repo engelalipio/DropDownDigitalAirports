@@ -500,18 +500,18 @@
     NSArray<NSString *> *searchCrit = nil;
     @try {
         
-         currentName = selectedStore;
+         //currentName = selectedStore;
+         currentName = @"Rental Cars";
         
-        
-         searchCrit = [currentName componentsSeparatedByString:@" "];
+        /* searchCrit = [currentName componentsSeparatedByString:@" "];
         
         if (searchCrit.count > 0){
             currentName = [searchCrit firstObject];
-        }
+        }*/
         
         if ([currentName length] > 0){
-            //currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            NSLog(@"Invoking OMSN for %@",currentName);
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMSN from Airport App for %@",currentName);
         }
         
         launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];

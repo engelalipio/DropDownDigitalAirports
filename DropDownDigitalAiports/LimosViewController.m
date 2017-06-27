@@ -504,12 +504,13 @@
     @try {
         
        // currentName = selectedStore;
-        currentName = @"Limousines";
+        currentName = @"Limousine Services";
         
         if ([currentName length] > 0){
             currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
             NSLog(@"Invoking OMSN for %@",currentName);
         }
+        
         
         launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSNApp,currentName];
         
