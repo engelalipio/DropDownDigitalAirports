@@ -73,7 +73,7 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSArray  *hotelbackgrounds;
 @property (strong, nonatomic) NSArray  *groundbackgrounds;
 @property (strong, nonatomic) NSArray  *sightseeingbackgrounds;
-
+@property (strong, nonatomic) NSArray  *missingPersonbackgrounds;
 @property (strong, nonatomic)  UIImage *missingPersonImage;
 
 @property (nonatomic) Reachability *hostReachability;

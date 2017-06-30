@@ -48,6 +48,7 @@
 @synthesize hotelbackgrounds = _hotelbackgrounds;
 @synthesize groundbackgrounds = _groundbackgrounds;
 @synthesize sightseeingbackgrounds = _sightseeingbackgrounds;
+@synthesize missingPersonbackgrounds = _missingPersonbackgrounds;
 @synthesize screenHeight = _screenHeight;
 @synthesize arrivals = _arrivals;
 @synthesize departures = _departures;
@@ -56,8 +57,8 @@
 @synthesize selectedAirlineLogo = _selectedAirlineLogo;
 @synthesize locationManager = _locationManager;
 @synthesize useAPI = _useAPI;
-@synthesize  isMissingPerson = _isMissingPerson;
-@synthesize  missingPersonImage = _missingPersonImage;
+@synthesize isMissingPerson = _isMissingPerson;
+@synthesize missingPersonImage = _missingPersonImage;
 @synthesize currentBuildInfo = _currentBuildInfo;
 @synthesize hostReachability = _hostReachability;
 @synthesize internetReachability = _internetReachability;
@@ -978,34 +979,46 @@
         
         //End Sightseeing
         
+        //BEGIN MissingPerson
         
-        /*
-        query = [PFQuery queryWithClassName:@"AirportLuggage"];
+        menuTable = [self.azureClient tableWithName:kAzureMissingPersonBackgroundsTableName];
+        query =  [menuTable query];
         
         if (query){
-
-            query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
             
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-                NSString *message= @"";
-                
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"MissingPerson"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
                 if (error){
-                    message = [NSString stringWithFormat: @"AirportLuggage:findObjectsInBackgroundWithBlock:Error->%@",error.description ];
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
                 }else{
-                    message = [NSString stringWithFormat: @"AirportLuggage:findObjectsInBackgroundWithBlock:Hotels Image Count->%lu",(unsigned long)objects.count ];
-                    if (objects){
-                        _groundbackgrounds = objects;
-                    }
                     
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:MissingPerson->%d",backgroundsCount];
+                    _missingPersonbackgrounds =  result.items;
+                    
+                    
+                   
                 }
-                NSLog(@"%@",message);
+                NSLog(@"%@",queryMessage);
             }];
+            
             
         }
         
- 
-        */
         
+        //End MissingPerson
+        
+ 
         
         
     }

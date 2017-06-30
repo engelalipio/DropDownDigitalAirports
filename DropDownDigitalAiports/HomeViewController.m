@@ -792,39 +792,67 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         isMissingPerson = [appDelegate isMissingPerson];
         //Check on the server first
         
-       /* if (! isMissingPerson){
-            MSQuery *query = nil;//TODO-> Missing Person[PFQuery queryWithClassName:@"MissingPerson"];
-        
-        if (query){
-            
-           query.cachePolicy = kPFCachePolicyIgnoreCache;//kPFCachePolicyCacheElseNetwork;
-            
-            NSArray *missingPeople =  (NSArray*) [query findObjects];
-            
-            if (missingPeople.count){
-                
-                missingPerson = (PFObject*) [missingPeople objectAtIndex:0];
-                
-                file = [missingPerson objectForKey:@"Image"];
-                
-                if (file){
-                    
-                    missingChildData =  [file getData];
-                    
-                    if (missingChildData){
-                        missingChildImage = [UIImage imageWithData:missingChildData];
-                        if (missingChildImage){
-                            [appDelegate setMissingPersonImage:missingChildImage];
-                            [appDelegate setIsMissingPerson:YES];
-                        }
-                    }
-                    
+       if (! isMissingPerson){
+           //BEGIN MissingPerson
+           
+          MSTable *menuTable = [appDelegate.azureClient tableWithName:kAzureMissingPersonBackgroundsTableName];
+          MSQuery *query =  [menuTable query];
+           
+          NSDictionary *imageObject = nil;
+           if (query){
+               
+               
+               [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                   NSString *queryMessage = @"";
+                   int backgroundsCount = 0;
+                   if (error){
+                       queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                   }else{
+                       
+                       backgroundsCount =  result.items.count;
+                       
+                       queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:MissingPerson->%d",backgroundsCount];
+ 
+                       
+                       
+                       appDelegate.missingPersonbackgrounds =  result.items;
+                       
+                       
+                   }
+                   NSLog(@"%@",queryMessage);
+               }];
+               
+               
+           }
+           
+           
+           if ([appDelegate.missingPersonbackgrounds count] > 0){
+               imageObject = [appDelegate.missingPersonbackgrounds objectAtIndex:0];
+               
+               if (imageObject != nil){
+                   
+                 UIImage *image  = [imageObject objectForKey:@"Image"];
+                   BOOL active = [imageObject objectForKey:@"Active"];
+                   
+                   if (active){
+                   
+                       
+                       if (image ){
+                           [appDelegate setMissingPersonImage:missingChildImage];
+                           [appDelegate setIsMissingPerson:YES];
+                       }
+                   
                 }
-                
-            }
-            
-        }
-       }*/
+               
+           }
+           
+
+         }
+           
+           //End MissingPerson
+
+ 
+       }
         
         if (! isMissingPerson){
             

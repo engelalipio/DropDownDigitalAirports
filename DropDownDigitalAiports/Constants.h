@@ -98,6 +98,8 @@
 #define kAzureAirportLoungesBackgroundsTableName    @"AirportLounges"
 #define kAzureAirportHotelsBackgroundsTableName     @"AirportHotels"
 #define kAzureSightSeeingBackgroundsTableName       @"Sightseeing"
+#define kAzureMissingPersonBackgroundsTableName     @"MissingPerson"
+
 
 
 

@@ -212,7 +212,8 @@
     [client detectWithData:data
               returnFaceId:YES
        returnFaceLandmarks:YES
-      returnFaceAttributes:@[@(MPOFaceAttributeTypeAge), @(MPOFaceAttributeTypeFacialHair), @(MPOFaceAttributeTypeGender), @(MPOFaceAttributeTypeSmile), @(MPOFaceAttributeTypeGender),@(MPOFaceAttributeTypeHeadPose)]
+      //returnFaceAttributes:@[@(MPOFaceAttributeTypeAge), @(MPOFaceAttributeTypeFacialHair), @(MPOFaceAttributeTypeGender), @(MPOFaceAttributeTypeSmile), @(MPOFaceAttributeTypeGender),@(MPOFaceAttributeTypeHeadPose)]
+     returnFaceAttributes:nil
            completionBlock:^(NSArray<MPOFace *> *collection, NSError *error) {
         
         if (error) {
