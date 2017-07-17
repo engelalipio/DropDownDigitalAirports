@@ -185,8 +185,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = [AppDelegate currentDelegate];
-    baseURL = @"http://www.dropdowndigitalmenus.com/Home/Contact";
-    NSString *title = @"Menus Provided By DropDropDownDigitalMenus.Com\n A Subsidiary Of Digital World International";
+    baseURL = @"http://DigitalWorldInternational.Com/Home/Contact";
+    NSString *title = @"Menus Provided By DigitalWorldInternational.Com\n";
     [self.navigationItem setTitleView:[self getSpecialTitleView:title]];
     [self initWebView];
 }

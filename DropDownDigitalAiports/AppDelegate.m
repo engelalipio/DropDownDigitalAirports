@@ -439,7 +439,7 @@
     _isSent   = NO;
     _isiPhone = NO;
     _useAPI = NO;
-    _restaurantTable     = @"Welcome To DropDownDigitalMenus.Com\n Proudly Serving All Airports";
+    _restaurantTable     = @"Welcome To DigitalWorldInternational.Com\n Proudly Serving All Airports";
     _restaurantName      = @"Hartsfield-Jackson Atlanta International Airport";
     _restaurantAddress   = @"6000 N Terminal Parkway";
     _restaurantCity      = @"Atlanta";

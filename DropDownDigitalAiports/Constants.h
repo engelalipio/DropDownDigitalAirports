@@ -23,7 +23,7 @@
 #define kOMSN @"http://ordermyguestservicesnow.com"
 #define kOMSS @"http://ordermysightseeingeventnow.com"
 #define kOMTN @"http://www.ordermytablenow.com"
-#define kDDDM @"http://dropdowndigitalmenus.com"
+#define kDDDM @"http://DigitalWorldInternational.Com"
 
 #define kFaceBook       @ "facebook"
 #define kTwitter            @ "twitter"
