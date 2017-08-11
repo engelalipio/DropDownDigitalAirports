@@ -674,7 +674,7 @@
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger rowCount = 9;
+    NSInteger rowCount = 18;
        return rowCount;
 }
 

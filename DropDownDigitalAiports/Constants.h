@@ -5,6 +5,9 @@
 #import "UIColor+ColorWithHexString.h"
 //Providers
 
+
+
+
 #define ProjectOxfordFaceSubscriptionKey  @"a5d41fea7c804f46baff41653dd81f10"
 #define ComputerVisionSubscriptionKey @"fc0a1a92167d4769a7842721df0d776b"
 
@@ -25,9 +28,17 @@
 #define kOMTN @"http://www.ordermytablenow.com"
 #define kDDDM @"http://DigitalWorldInternational.Com"
 
-#define kFaceBook       @ "facebook"
-#define kTwitter            @ "twitter"
-#define kStandard         @ "standard"
+#define kFaceBook          @"facebook"
+#define kFaceBookAppSecret @"beef6adc4084af5fa4a25654fa9de177"
+#define kFaceBookAppID     @"160374644521185"
+
+#define kTwitter        @"twitter"
+#define kTwitterAPIKey  @"4vjmnu2YIozdMGJh9UijtnyB7"
+#define kTwitterSecret  @"9czgV6WN206HI8bPLKczJQIOmyOTwegupoBHxY7H3u3bhdJAse"
+
+#define kStandard       @ "standard"
+
+
 
 #define kOpenTableURL         @"http://opentable.herokuapp.com/api/"
 #define kOpenTableStats       @"stats"
@@ -43,6 +54,7 @@
 #define kYelpBaseURL     @"api.yelp.com/v2/"
 #define kYelpSearchURL   @"search"
 
+#define BWIMapURL @"https://www.bwiairport.com/wayfinding"
 
 #define kBingSearchKey @"a6ca68495f7a492e8883264a6698f002i"
 #define kFligthStatsApp @"54300528"
@@ -55,7 +67,7 @@
 #define kFlightStatsDepartureURI @"{airport}/departures"
 #define kFlightStatsAirportInfoURI @"{airport}/today"
 
-#define kFlightStatsAirport @"ATL"
+#define kFlightStatsAirport @"BWI"
 #define kFlightStatsFIDSFields @"airlineName,airlineLogoUrlPng,flightNumber,city,currentTime,gate,terminal,baggage,remarksCode,remarks,weather,temperatureF,destinationFamiliarName"
 
 #define kFlightStatsMaxCount @"10"
@@ -104,7 +116,7 @@
 
 
 #define kAzureMenuTable      @"http://ordermytablenow.azure-mobile.net"
-
+#define kAirportConcierge    @"http://airportconciergedirectory.azurewebsites.net"
 
 /*
  

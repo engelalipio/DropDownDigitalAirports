@@ -134,7 +134,7 @@
         
         if (appDelegate.isiPhone){
             fontSize = kTitleIPhoneSize;
-            anyTitle = @"A Subsidiary Of Digital World International";
+            anyTitle = @"Passenger Survey";
         }
         
         titleView = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 65.0f)];
@@ -185,8 +185,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = [AppDelegate currentDelegate];
-    baseURL = @"http://DigitalWorldInternational.Com/Home/Contact";
-    NSString *title = @"Menus Provided By DigitalWorldInternational.Com\n";
+    baseURL = @"http://dropdowndigitalmenuswp.azurewebsites.net/example-survey/"; //@"http://DigitalWorldInternational.Com/Home/Contact";
+    NSString *title = @"App Created By Digital World International\n";
     [self.navigationItem setTitleView:[self getSpecialTitleView:title]];
     [self initWebView];
 }

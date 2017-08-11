@@ -406,21 +406,30 @@
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     cell.accessoryView.tintColor = [UIColor whiteColor];
  //   [cell.imageView setImage:[UIImage imageNamed:restaurantImageName]];
-    
-        [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:indexPath.row tableCell:cell];
+
+    if (indexPath.row == 3){
+       // imageId = 4;
+    }
+        [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:imageId tableCell:cell];
     
     return cell;
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *message   = @"";
+    NSInteger imageid = 0;
     @try {
         
         if (cell){
             //This will set the background of all of the views within the tablecell
             cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
+                imageid = indexPath.row;
+            if (indexPath.row == 3){
+                
+              //  imageid = 4;
+            }
             
-            [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:indexPath.row tableCell:cell];
+            [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:imageid tableCell:cell];
             UIImage *cellImage = nil;
             
             if (appDelegate.isiPhone){

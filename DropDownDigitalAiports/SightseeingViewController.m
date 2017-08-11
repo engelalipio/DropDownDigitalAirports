@@ -711,22 +711,42 @@
 - (IBAction)actionReserveClicked:(UIButton *)sender {
     NSURL  *url= nil;
     
-    NSString *message= @"",
-    *launchURL = @"";
+    NSString *currentName = @"",
+    *message     = @"",
+    *launchURL   = @"";
     
+    NSArray<NSString *> *searchCrit = nil;
     @try {
         
+        //currentName = selectedStore;
+        currentName = @"Attractions";
         
-        launchURL = kOMSENApp;
+        /* searchCrit = [currentName componentsSeparatedByString:@" "];
+         
+         if (searchCrit.count > 0){
+         currentName = [searchCrit firstObject];
+         }*/
+        
+        if ([currentName length] > 0){
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking kOMSENApp from Airport App for %@",currentName);
+        }
+        
+        launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMSENApp,currentName];
+        
+        message = [NSString stringWithFormat:@"Airport:Attractions:ROP->%@",launchURL];
+        
+        [MSAnalytics trackEvent:message];
         
         url=  [[NSURL alloc] initWithString:launchURL];
         
         if ([[UIApplication sharedApplication] canOpenURL:url]){
-            message = [NSString stringWithFormat:@"Launching OMSS App-> %@",url];
+            message = [NSString stringWithFormat:@"Launching kOMSENApp App-> %@",url];
         }else{
             url=  [[NSURL alloc] initWithString:kOMSN];
-            message = [NSString stringWithFormat:@"Launching OMSS Web-> %@",url];
+            message = [NSString stringWithFormat:@"Launching kOMSENApp Web-> %@",url];
         }
+        [MSAnalytics trackEvent:message];
         [[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
@@ -735,7 +755,6 @@
     @finally {
         url = nil;
     }
-    
 
 
 }

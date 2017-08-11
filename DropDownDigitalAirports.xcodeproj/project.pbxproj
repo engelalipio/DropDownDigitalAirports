@@ -652,10 +652,64 @@
 		AC6189161E3AC2770058E621 /* WWAN5.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189131E3AC2770058E621 /* WWAN5.png */; };
 		AC6189181E3AD8060058E621 /* Online.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189171E3AD8060058E621 /* Online.png */; };
 		AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */; };
+		ACA46AAA1F24F47500230B49 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */; };
+		ACAE99E61F3CF99F0013AF0D /* Services_15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */; };
+		ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E71F3CFF570013AF0D /* Services_16.jpg */; };
 		ACB3A44A1E5361D8007ADD95 /* TaxiService.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */; };
 		ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */; };
 		ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A44E1E536D65007ADD95 /* Airport.m */; };
 		ACB3A4521E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A4511E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m */; };
+		ACB4715F1F37FDEA007E9ECF /* Services_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB4715E1F37FDEA007E9ECF /* Services_10.jpg */; };
+		ACB471611F380564007E9ECF /* Services_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB471601F380564007E9ECF /* Services_11.jpg */; };
+		ACB471631F3809A4007E9ECF /* Services_12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB471621F3809A4007E9ECF /* Services_12.jpg */; };
+		ACB471651F389E6C007E9ECF /* Services_13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB471641F389E6C007E9ECF /* Services_13.jpg */; };
+		ACD3BBB71F3556ED000B4323 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBB61F3556ED000B4323 /* account.png */; };
+		ACD3BBB91F376B9F000B4323 /* your_ad_here_banner_new.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */; };
+		ACD3BBBB1F3774DC000B4323 /* BWIlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */; };
+		ACF06C141F3A9C800098261F /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF06C131F3A9C800098261F /* GamesViewController.m */; };
+		ACF06C281F3AA16D0098261F /* Air-Hockey.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C161F3AA16D0098261F /* Air-Hockey.gif */; };
+		ACF06C291F3AA16D0098261F /* Bingo.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C171F3AA16D0098261F /* Bingo.gif */; };
+		ACF06C2A1F3AA16D0098261F /* CartoonFlight.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C181F3AA16D0098261F /* CartoonFlight.png */; };
+		ACF06C2B1F3AA16D0098261F /* Celebro.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C191F3AA16D0098261F /* Celebro.png */; };
+		ACF06C2C1F3AA16D0098261F /* Curve.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1A1F3AA16D0098261F /* Curve.gif */; };
+		ACF06C2D1F3AA16D0098261F /* Dodge.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1B1F3AA16D0098261F /* Dodge.gif */; };
+		ACF06C2E1F3AA16D0098261F /* Hexxagon.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1C1F3AA16D0098261F /* Hexxagon.gif */; };
+		ACF06C2F1F3AA16D0098261F /* KartPatrol.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1D1F3AA16D0098261F /* KartPatrol.png */; };
+		ACF06C301F3AA16D0098261F /* LightBots.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1E1F3AA16D0098261F /* LightBots.png */; };
+		ACF06C311F3AA16D0098261F /* Meteor.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C1F1F3AA16D0098261F /* Meteor.png */; };
+		ACF06C321F3AA16D0098261F /* Mini-Putt.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C201F3AA16D0098261F /* Mini-Putt.gif */; };
+		ACF06C331F3AA16D0098261F /* Pacman.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C211F3AA16D0098261F /* Pacman.gif */; };
+		ACF06C341F3AA16D0098261F /* Simon.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C221F3AA16D0098261F /* Simon.gif */; };
+		ACF06C351F3AA16D0098261F /* Simon.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C231F3AA16D0098261F /* Simon.png */; };
+		ACF06C361F3AA16D0098261F /* SmartyBubbles.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C241F3AA16D0098261F /* SmartyBubbles.png */; };
+		ACF06C371F3AA16D0098261F /* Snap.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C251F3AA16D0098261F /* Snap.png */; };
+		ACF06C381F3AA16D0098261F /* SpaceJumper.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C261F3AA16D0098261F /* SpaceJumper.png */; };
+		ACF06C391F3AA16D0098261F /* Tic-Tac-Toe.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C271F3AA16D0098261F /* Tic-Tac-Toe.gif */; };
+		ACF06C3B1F3AA1D30098261F /* BugCrush.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C3A1F3AA1D30098261F /* BugCrush.png */; };
+		ACF06C3D1F3AA20E0098261F /* DrawPad.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C3C1F3AA20E0098261F /* DrawPad.png */; };
+		ACF06C401F3AB2DB0098261F /* imgTwitterLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C3E1F3AB2DB0098261F /* imgTwitterLogin.png */; };
+		ACF06C411F3AB2DB0098261F /* imgFaceBookLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C3F1F3AB2DB0098261F /* imgFaceBookLogin.png */; };
+		ACF06C541F3B88110098261F /* Airlines-XTRA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C421F3B88110098261F /* Airlines-XTRA.jpg */; };
+		ACF06C551F3B88110098261F /* Airlines-wow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C431F3B88110098261F /* Airlines-wow.jpg */; };
+		ACF06C561F3B88110098261F /* Airlines-united.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C441F3B88110098261F /* Airlines-united.jpg */; };
+		ACF06C571F3B88110098261F /* Airlines-VA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C451F3B88110098261F /* Airlines-VA.jpg */; };
+		ACF06C581F3B88110098261F /* Airlines-sunwing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C461F3B88110098261F /* Airlines-sunwing.jpg */; };
+		ACF06C591F3B88110098261F /* Airlines-spirit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C471F3B88110098261F /* Airlines-spirit.jpg */; };
+		ACF06C5A1F3B88110098261F /* Airlines-southwest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C481F3B88110098261F /* Airlines-southwest.jpg */; };
+		ACF06C5B1F3B88110098261F /* Airlines-southern.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C491F3B88110098261F /* Airlines-southern.jpg */; };
+		ACF06C5C1F3B88110098261F /* Airlines-jetblu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4A1F3B88110098261F /* Airlines-jetblu.jpg */; };
+		ACF06C5D1F3B88110098261F /* Airlines-delta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4B1F3B88110098261F /* Airlines-delta.jpg */; };
+		ACF06C5E1F3B88110098261F /* contourlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4C1F3B88110098261F /* contourlogo.png */; };
+		ACF06C5F1F3B88110098261F /* Airlines-condor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4D1F3B88110098261F /* Airlines-condor.jpg */; };
+		ACF06C601F3B88110098261F /* Airlines-British.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4E1F3B88110098261F /* Airlines-British.jpg */; };
+		ACF06C611F3B88110098261F /* Airlines-boutique.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C4F1F3B88110098261F /* Airlines-boutique.jpg */; };
+		ACF06C621F3B88110098261F /* Airlines-AMERICAN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C501F3B88110098261F /* Airlines-AMERICAN.jpg */; };
+		ACF06C631F3B88110098261F /* Airlines-ALLEGIANT.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C511F3B88110098261F /* Airlines-ALLEGIANT.jpg */; };
+		ACF06C641F3B88110098261F /* Airlines-ALASKA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C521F3B88110098261F /* Airlines-ALASKA.jpg */; };
+		ACF06C651F3B88110098261F /* Airlines-AirCAN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C531F3B88110098261F /* Airlines-AirCAN.jpg */; };
+		ACF06C671F3B9A890098261F /* icons8-adventure_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C661F3B9A890098261F /* icons8-adventure_filled.png */; };
+		ACF06C691F3BA4950098261F /* Services_14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C681F3BA4950098261F /* Services_14.jpg */; };
+		ACF7BCB41F354A6E0020CB6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7BCB31F354A6E0020CB6B /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1380,18 +1434,75 @@
 		AAE68BB31B5C33AF00DA7A53 /* Services_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_7.jpg; sourceTree = "<group>"; };
 		AAE68BB61B5C342700DA7A53 /* Services_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_9.jpg; sourceTree = "<group>"; };
 		AC2973EA1E32E98200983F06 /* BWI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWI.png; sourceTree = "<group>"; };
+		AC45E6341F24E99A00A00073 /* HubInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubInfo.h; sourceTree = "<group>"; };
 		AC6189111E3AC2770058E621 /* Airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airport.png; sourceTree = "<group>"; };
 		AC6189121E3AC2770058E621 /* stop-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-32.png"; sourceTree = "<group>"; };
 		AC6189131E3AC2770058E621 /* WWAN5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WWAN5.png; sourceTree = "<group>"; };
 		AC6189171E3AD8060058E621 /* Online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Online.png; sourceTree = "<group>"; };
 		AC8CADFD1E3A8B1D00B21C8C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
+		ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_15.jpg; sourceTree = "<group>"; };
+		ACAE99E71F3CFF570013AF0D /* Services_16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_16.jpg; sourceTree = "<group>"; };
 		ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TaxiService.jpeg; sourceTree = "<group>"; };
 		ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PublicTransportation.jpeg; sourceTree = "<group>"; };
 		ACB3A44D1E536D65007ADD95 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
 		ACB3A44E1E536D65007ADD95 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		ACB3A4501E536E11007ADD95 /* NetworkAPISingleClient+Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkAPISingleClient+Airport.h"; sourceTree = "<group>"; };
 		ACB3A4511E536E1C007ADD95 /* NetworkAPISingleClient+Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkAPISingleClient+Airport.m"; sourceTree = "<group>"; };
+		ACB4715E1F37FDEA007E9ECF /* Services_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_10.jpg; sourceTree = "<group>"; };
+		ACB471601F380564007E9ECF /* Services_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_11.jpg; sourceTree = "<group>"; };
+		ACB471621F3809A4007E9ECF /* Services_12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_12.jpg; sourceTree = "<group>"; };
+		ACB471641F389E6C007E9ECF /* Services_13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_13.jpg; sourceTree = "<group>"; };
+		ACD3BBB61F3556ED000B4323 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner_new.jpg; sourceTree = "<group>"; };
+		ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWIlogo.png; sourceTree = "<group>"; };
+		ACF06C121F3A9C800098261F /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
+		ACF06C131F3A9C800098261F /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
+		ACF06C161F3AA16D0098261F /* Air-Hockey.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Air-Hockey.gif"; sourceTree = "<group>"; };
+		ACF06C171F3AA16D0098261F /* Bingo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bingo.gif; sourceTree = "<group>"; };
+		ACF06C181F3AA16D0098261F /* CartoonFlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CartoonFlight.png; sourceTree = "<group>"; };
+		ACF06C191F3AA16D0098261F /* Celebro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celebro.png; sourceTree = "<group>"; };
+		ACF06C1A1F3AA16D0098261F /* Curve.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Curve.gif; sourceTree = "<group>"; };
+		ACF06C1B1F3AA16D0098261F /* Dodge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Dodge.gif; sourceTree = "<group>"; };
+		ACF06C1C1F3AA16D0098261F /* Hexxagon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hexxagon.gif; sourceTree = "<group>"; };
+		ACF06C1D1F3AA16D0098261F /* KartPatrol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KartPatrol.png; sourceTree = "<group>"; };
+		ACF06C1E1F3AA16D0098261F /* LightBots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBots.png; sourceTree = "<group>"; };
+		ACF06C1F1F3AA16D0098261F /* Meteor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meteor.png; sourceTree = "<group>"; };
+		ACF06C201F3AA16D0098261F /* Mini-Putt.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mini-Putt.gif"; sourceTree = "<group>"; };
+		ACF06C211F3AA16D0098261F /* Pacman.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Pacman.gif; sourceTree = "<group>"; };
+		ACF06C221F3AA16D0098261F /* Simon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Simon.gif; sourceTree = "<group>"; };
+		ACF06C231F3AA16D0098261F /* Simon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simon.png; sourceTree = "<group>"; };
+		ACF06C241F3AA16D0098261F /* SmartyBubbles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmartyBubbles.png; sourceTree = "<group>"; };
+		ACF06C251F3AA16D0098261F /* Snap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snap.png; sourceTree = "<group>"; };
+		ACF06C261F3AA16D0098261F /* SpaceJumper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceJumper.png; sourceTree = "<group>"; };
+		ACF06C271F3AA16D0098261F /* Tic-Tac-Toe.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Tic-Tac-Toe.gif"; sourceTree = "<group>"; };
+		ACF06C3A1F3AA1D30098261F /* BugCrush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BugCrush.png; sourceTree = "<group>"; };
+		ACF06C3C1F3AA20E0098261F /* DrawPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawPad.png; sourceTree = "<group>"; };
+		ACF06C3E1F3AB2DB0098261F /* imgTwitterLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgTwitterLogin.png; sourceTree = "<group>"; };
+		ACF06C3F1F3AB2DB0098261F /* imgFaceBookLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgFaceBookLogin.png; sourceTree = "<group>"; };
+		ACF06C421F3B88110098261F /* Airlines-XTRA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-XTRA.jpg"; sourceTree = "<group>"; };
+		ACF06C431F3B88110098261F /* Airlines-wow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-wow.jpg"; sourceTree = "<group>"; };
+		ACF06C441F3B88110098261F /* Airlines-united.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-united.jpg"; sourceTree = "<group>"; };
+		ACF06C451F3B88110098261F /* Airlines-VA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-VA.jpg"; sourceTree = "<group>"; };
+		ACF06C461F3B88110098261F /* Airlines-sunwing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-sunwing.jpg"; sourceTree = "<group>"; };
+		ACF06C471F3B88110098261F /* Airlines-spirit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-spirit.jpg"; sourceTree = "<group>"; };
+		ACF06C481F3B88110098261F /* Airlines-southwest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-southwest.jpg"; sourceTree = "<group>"; };
+		ACF06C491F3B88110098261F /* Airlines-southern.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-southern.jpg"; sourceTree = "<group>"; };
+		ACF06C4A1F3B88110098261F /* Airlines-jetblu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-jetblu.jpg"; sourceTree = "<group>"; };
+		ACF06C4B1F3B88110098261F /* Airlines-delta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-delta.jpg"; sourceTree = "<group>"; };
+		ACF06C4C1F3B88110098261F /* contourlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contourlogo.png; sourceTree = "<group>"; };
+		ACF06C4D1F3B88110098261F /* Airlines-condor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-condor.jpg"; sourceTree = "<group>"; };
+		ACF06C4E1F3B88110098261F /* Airlines-British.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-British.jpg"; sourceTree = "<group>"; };
+		ACF06C4F1F3B88110098261F /* Airlines-boutique.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-boutique.jpg"; sourceTree = "<group>"; };
+		ACF06C501F3B88110098261F /* Airlines-AMERICAN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-AMERICAN.jpg"; sourceTree = "<group>"; };
+		ACF06C511F3B88110098261F /* Airlines-ALLEGIANT.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-ALLEGIANT.jpg"; sourceTree = "<group>"; };
+		ACF06C521F3B88110098261F /* Airlines-ALASKA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-ALASKA.jpg"; sourceTree = "<group>"; };
+		ACF06C531F3B88110098261F /* Airlines-AirCAN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Airlines-AirCAN.jpg"; sourceTree = "<group>"; };
+		ACF06C661F3B9A890098261F /* icons8-adventure_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-adventure_filled.png"; sourceTree = "<group>"; };
+		ACF06C681F3BA4950098261F /* Services_14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_14.jpg; sourceTree = "<group>"; };
+		ACF7BCB21F354A6E0020CB6B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		ACF7BCB31F354A6E0020CB6B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1401,6 +1512,7 @@
 			files = (
 				AA8664721B37AEE600CFC7D5 /* MapKit.framework in Frameworks */,
 				2B40758406134508D87E2349 /* Pods_DropDownDigitalAirports.framework in Frameworks */,
+				ACA46AAA1F24F47500230B49 /* WindowsAzureMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,6 +1591,10 @@
 		0F5841F51A23D49C00A51F3A /* Ads */ = {
 			isa = PBXGroup;
 			children = (
+				ACF06C3E1F3AB2DB0098261F /* imgTwitterLogin.png */,
+				ACF06C3F1F3AB2DB0098261F /* imgFaceBookLogin.png */,
+				ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */,
+				ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */,
 				AA51984A1B51E0FC00398A4F /* DWILogo.png */,
 				0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */,
 			);
@@ -1540,6 +1656,7 @@
 		0FF46D2119F881FA00E51218 = {
 			isa = PBXGroup;
 			children = (
+				ACA46AA71F24F47400230B49 /* azuresdk-iOS-v1 */,
 				AAE1FE581BD82B5D0006410F /* podfile */,
 				AA8664731B37AFC800CFC7D5 /* DropDownDigitalAirports.entitlements */,
 				AA8664711B37AEE600CFC7D5 /* MapKit.framework */,
@@ -1613,6 +1730,7 @@
 		0FF46D5619F88B0200E51218 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ACF06C151F3A9FF80098261F /* Games */,
 				AAAF19B11CFF7FB100BED8EE /* Maps */,
 				AAE68BA11B5C30CB00DA7A53 /* Services */,
 				AAE68B7B1B5B0C7B00DA7A53 /* Limos */,
@@ -1630,6 +1748,8 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				ACF06C661F3B9A890098261F /* icons8-adventure_filled.png */,
+				ACD3BBB61F3556ED000B4323 /* account.png */,
 				AC6189171E3AD8060058E621 /* Online.png */,
 				AC6189111E3AC2770058E621 /* Airport.png */,
 				AC6189121E3AC2770058E621 /* stop-32.png */,
@@ -1869,6 +1989,7 @@
 				0F2ACD2D19FAC4690028B6E2 /* UI */,
 				0FF46E1919F9977600E51218 /* Categories */,
 				0FF46E1719F995CA00E51218 /* Constants.h */,
+				AC45E6341F24E99A00A00073 /* HubInfo.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1993,6 +2114,10 @@
 				0F4D5D441A8AA2140040DC12 /* PaymentMethodViewController.m */,
 				AA88FCDE1B5179CF0054A65C /* ProvidedByViewController.h */,
 				AA88FCDF1B5179CF0054A65C /* ProvidedByViewController.m */,
+				ACF7BCB21F354A6E0020CB6B /* LoginViewController.h */,
+				ACF7BCB31F354A6E0020CB6B /* LoginViewController.m */,
+				ACF06C121F3A9C800098261F /* GamesViewController.h */,
+				ACF06C131F3A9C800098261F /* GamesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -2087,6 +2212,24 @@
 		AA8664461B3455B700CFC7D5 /* Airlines */ = {
 			isa = PBXGroup;
 			children = (
+				ACF06C421F3B88110098261F /* Airlines-XTRA.jpg */,
+				ACF06C431F3B88110098261F /* Airlines-wow.jpg */,
+				ACF06C441F3B88110098261F /* Airlines-united.jpg */,
+				ACF06C451F3B88110098261F /* Airlines-VA.jpg */,
+				ACF06C461F3B88110098261F /* Airlines-sunwing.jpg */,
+				ACF06C471F3B88110098261F /* Airlines-spirit.jpg */,
+				ACF06C481F3B88110098261F /* Airlines-southwest.jpg */,
+				ACF06C491F3B88110098261F /* Airlines-southern.jpg */,
+				ACF06C4A1F3B88110098261F /* Airlines-jetblu.jpg */,
+				ACF06C4B1F3B88110098261F /* Airlines-delta.jpg */,
+				ACF06C4C1F3B88110098261F /* contourlogo.png */,
+				ACF06C4D1F3B88110098261F /* Airlines-condor.jpg */,
+				ACF06C4E1F3B88110098261F /* Airlines-British.jpg */,
+				ACF06C4F1F3B88110098261F /* Airlines-boutique.jpg */,
+				ACF06C501F3B88110098261F /* Airlines-AMERICAN.jpg */,
+				ACF06C511F3B88110098261F /* Airlines-ALLEGIANT.jpg */,
+				ACF06C521F3B88110098261F /* Airlines-ALASKA.jpg */,
+				ACF06C531F3B88110098261F /* Airlines-AirCAN.jpg */,
 				AAB6A8891CE4F26D008F767B /* Varig_Arline.png */,
 				AA86649A1B40815D00CFC7D5 /* Varig.png */,
 				AA8664471B34573100CFC7D5 /* Southwest_Airlines.png */,
@@ -2522,6 +2665,13 @@
 		AAE68BA11B5C30CB00DA7A53 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				ACAE99E71F3CFF570013AF0D /* Services_16.jpg */,
+				ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */,
+				ACF06C681F3BA4950098261F /* Services_14.jpg */,
+				ACB471641F389E6C007E9ECF /* Services_13.jpg */,
+				ACB471621F3809A4007E9ECF /* Services_12.jpg */,
+				ACB471601F380564007E9ECF /* Services_11.jpg */,
+				ACB4715E1F37FDEA007E9ECF /* Services_10.jpg */,
 				AA297D201D0C5E910019B185 /* facial_recognition_scan_filled.png */,
 				AA297D0B1D0C59920019B185 /* MissingPerson.jpg */,
 				AAE68BA31B5C329300DA7A53 /* Services_0.jpg */,
@@ -2545,6 +2695,41 @@
 				AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */,
 			);
 			name = Reachability;
+			sourceTree = "<group>";
+		};
+		ACA46AA71F24F47400230B49 /* azuresdk-iOS-v1 */ = {
+			isa = PBXGroup;
+			children = (
+				ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */,
+			);
+			path = "azuresdk-iOS-v1";
+			sourceTree = "<group>";
+		};
+		ACF06C151F3A9FF80098261F /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				ACF06C3C1F3AA20E0098261F /* DrawPad.png */,
+				ACF06C3A1F3AA1D30098261F /* BugCrush.png */,
+				ACF06C161F3AA16D0098261F /* Air-Hockey.gif */,
+				ACF06C171F3AA16D0098261F /* Bingo.gif */,
+				ACF06C181F3AA16D0098261F /* CartoonFlight.png */,
+				ACF06C191F3AA16D0098261F /* Celebro.png */,
+				ACF06C1A1F3AA16D0098261F /* Curve.gif */,
+				ACF06C1B1F3AA16D0098261F /* Dodge.gif */,
+				ACF06C1C1F3AA16D0098261F /* Hexxagon.gif */,
+				ACF06C1D1F3AA16D0098261F /* KartPatrol.png */,
+				ACF06C1E1F3AA16D0098261F /* LightBots.png */,
+				ACF06C1F1F3AA16D0098261F /* Meteor.png */,
+				ACF06C201F3AA16D0098261F /* Mini-Putt.gif */,
+				ACF06C211F3AA16D0098261F /* Pacman.gif */,
+				ACF06C221F3AA16D0098261F /* Simon.gif */,
+				ACF06C231F3AA16D0098261F /* Simon.png */,
+				ACF06C241F3AA16D0098261F /* SmartyBubbles.png */,
+				ACF06C251F3AA16D0098261F /* Snap.png */,
+				ACF06C261F3AA16D0098261F /* SpaceJumper.png */,
+				ACF06C271F3AA16D0098261F /* Tic-Tac-Toe.gif */,
+			);
+			name = Games;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2582,6 +2767,7 @@
 					0FF46D2919F881FC00E51218 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = B7QMBU3EE6;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -2597,6 +2783,9 @@
 							};
 							com.apple.Passbook = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -2629,6 +2818,7 @@
 				AA6D14731B6593B900F71348 /* Chocolates_2.jpg in Resources */,
 				0F2ACD5B1A004B830028B6E2 /* geo_fence-32.png in Resources */,
 				AA6D13BE1B63FD6C00F71348 /* AirportShops_4_1.jpg in Resources */,
+				ACF06C3B1F3AA1D30098261F /* BugCrush.png in Resources */,
 				AA6D141B1B655D5700F71348 /* IceCream_2.png in Resources */,
 				AA86645C1B34573100CFC7D5 /* Hawaiian_Airlines.png in Resources */,
 				AA6D13DC1B6404DA00F71348 /* AirportShops_8_3.jpg in Resources */,
@@ -2636,6 +2826,7 @@
 				AA88FCB61B5090590054A65C /* mens_shoe_filled-50.png in Resources */,
 				AA86645F1B34573100CFC7D5 /* Delta.png in Resources */,
 				0F5841F71A23D4A800A51F3A /* your_ad_here_banner.jpg in Resources */,
+				ACB471611F380564007E9ECF /* Services_11.jpg in Resources */,
 				AAD93DFA1B484685009B354B /* jacket-100.png in Resources */,
 				AA8FA9441B2A70BD003E79B4 /* Icon.png in Resources */,
 				AAD93DCE1B473C26009B354B /* StoreNames.json in Resources */,
@@ -2643,16 +2834,20 @@
 				AA88FC9F1B4E12200054A65C /* currency_exchange-256.png in Resources */,
 				AA88FCAC1B50675D0054A65C /* carousel-50.png in Resources */,
 				0F2ACD3C19FAE1B20028B6E2 /* ContainerCellViewCell.xib in Resources */,
+				ACF06C301F3AA16D0098261F /* LightBots.png in Resources */,
 				AA6D13C81B63FDF300F71348 /* AirportShops_4_6.jpg in Resources */,
 				AAE68B9E1B5C28E800DA7A53 /* champagne-100.png in Resources */,
 				AA8FA9411B2A70BD003E79B4 /* Icon-Small@2x.png in Resources */,
+				ACF06C601F3B88110098261F /* Airlines-British.jpg in Resources */,
 				AA6D13E01B64150000F71348 /* AirportShops_1_4.jpg in Resources */,
+				ACF06C631F3B88110098261F /* Airlines-ALLEGIANT.jpg in Resources */,
 				AA8664B21B40B72B00CFC7D5 /* City_10.jpg in Resources */,
 				AA4CAC3F1BC0265D003C1948 /* Icon-152.png in Resources */,
 				0FCAD8E51A3E1A2300BE42E5 /* RUSSIAN.png in Resources */,
 				AA8FA9381B2A70BD003E79B4 /* DDDA@2x.png in Resources */,
 				AAE68B631B5AD34B00DA7A53 /* GiftStore_0.jpg in Resources */,
 				AA5198A41B52136E00398A4F /* AirportShops_2_1.jpg in Resources */,
+				ACF06C5E1F3B88110098261F /* contourlogo.png in Resources */,
 				AA89A20B1B6C4D4300874971 /* hair_band-100.png in Resources */,
 				AAD93DF41B47814C009B354B /* waiter-100.png in Resources */,
 				AA6D14161B655B0600F71348 /* FrenchBakery_2.png in Resources */,
@@ -2665,24 +2860,29 @@
 				0F4D5D471A8AA80E0040DC12 /* card_in_use-50.png in Resources */,
 				AAD93E0E1B48617E009B354B /* Lounge_3.jpeg in Resources */,
 				AA9238351D5B76A700F21B54 /* hot_air_balloon_filled.png in Resources */,
+				ACF06C691F3BA4950098261F /* Services_14.jpg in Resources */,
 				AAD93DCD1B473C26009B354B /* Amenities.json in Resources */,
 				0FB6E1881A38C264006DE76C /* weather-32.png in Resources */,
+				ACF06C2F1F3AA16D0098261F /* KartPatrol.png in Resources */,
 				AA51985D1B51F79600398A4F /* multiple_devices_filled-100.png in Resources */,
 				AAE68B221B5A184A00DA7A53 /* Thai_3.png in Resources */,
 				AA20FB451B71763E00DEE957 /* minus_1hour-50.png in Resources */,
 				AAE68B3C1B5AC9F100DA7A53 /* Burgers&Fries_2.png in Resources */,
 				AAD93DEC1B476A94009B354B /* Irish_1.png in Resources */,
 				AAE68B681B5AD9E500DA7A53 /* macaron-100.png in Resources */,
+				ACF06C611F3B88110098261F /* Airlines-boutique.jpg in Resources */,
 				AAB6A88A1CE4F26D008F767B /* Varig_Arline.png in Resources */,
 				0FCAD8B71A3B7AA300BE42E5 /* language-32.png in Resources */,
 				AAE1FE591BD82B5D0006410F /* podfile in Resources */,
 				AAE1FE621BD9C14B0006410F /* PlaceHolder.png in Resources */,
+				ACF06C381F3AA16D0098261F /* SpaceJumper.png in Resources */,
 				AAE68B491B5AC9F100DA7A53 /* ChineseFood_1.png in Resources */,
 				AAE68B261B5A204300DA7A53 /* wheelchair-50.png in Resources */,
 				AA5198A21B52135C00398A4F /* Shops_55.jpg in Resources */,
 				AA89A20D1B6C4E3200874971 /* pin_cushion-100.png in Resources */,
 				AAE68AEC1B59F1DA00DA7A53 /* noodles-100.png in Resources */,
 				AA88FCE21B517D080054A65C /* treatment_plan-100.png in Resources */,
+				ACD3BBB91F376B9F000B4323 /* your_ad_here_banner_new.jpg in Resources */,
 				AAC6EEEF1D087A1A0037A6C3 /* Directions.jpg in Resources */,
 				AAE68B5F1B5AD34B00DA7A53 /* GiftStore_4.jpg in Resources */,
 				AA6D13A81B63F67300F71348 /* AirportShops_1_3.jpg in Resources */,
@@ -2699,6 +2899,7 @@
 				AA1AE11D1CC07A8D00FDAC2F /* ItemViewiPhoneController_6Plus.xib in Resources */,
 				AA8FA8AA1B27E26B003E79B4 /* AirportTerminal_2.png in Resources */,
 				AA51994C1B55A41B00398A4F /* copy-100.png in Resources */,
+				ACF06C5B1F3B88110098261F /* Airlines-southern.jpg in Resources */,
 				AA8FA93C1B2A70BD003E79B4 /* Icon-76@2x.png in Resources */,
 				AAD93DCA1B473C26009B354B /* Dining.json in Resources */,
 				AA6D14301B6569A600F71348 /* Donuts_2.png in Resources */,
@@ -2706,11 +2907,13 @@
 				AA8664AE1B40B0E300CFC7D5 /* City_9.jpg in Resources */,
 				AA9238371D5B76C600F21B54 /* earth_element_filled.png in Resources */,
 				AA5198821B51FD7100398A4F /* Airline_7.gif in Resources */,
+				ACF06C411F3AB2DB0098261F /* imgFaceBookLogin.png in Resources */,
 				AAE68BAF1B5C329300DA7A53 /* Services_4.jpg in Resources */,
 				0FCAD8E11A3E1A2300BE42E5 /* ROMANSH.png in Resources */,
 				AA5198A61B52137B00398A4F /* AirportShops_1_1.jpg in Resources */,
 				0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */,
 				AA51984D1B51E7F300398A4F /* Rental_1.png in Resources */,
+				ACD3BBBB1F3774DC000B4323 /* BWIlogo.png in Resources */,
 				AAE68B5D1B5AD34B00DA7A53 /* SmartShop_4.jpg in Resources */,
 				AA51996E1B55FC0700398A4F /* gps_receiving-100.png in Resources */,
 				AAE68B0F1B5A13A200DA7A53 /* Mexican_4.png in Resources */,
@@ -2718,6 +2921,7 @@
 				AA8FA9401B2A70BD003E79B4 /* Icon-Small.png in Resources */,
 				AA5198981B5212E500398A4F /* AirportShops_0_0.jpg in Resources */,
 				AA6D13A61B63F3FF00F71348 /* AirportShops_0_5.jpg in Resources */,
+				ACF06C591F3B88110098261F /* Airlines-spirit.jpg in Resources */,
 				AA5199421B559EE200398A4F /* news-100.png in Resources */,
 				AA9238251D5B75E400F21B54 /* train_filled.png in Resources */,
 				AA92382F1D5B764E00F21B54 /* statue_filled.png in Resources */,
@@ -2746,9 +2950,12 @@
 				0FCAD8F21A3E306D00BE42E5 /* xlarge_icons-32.png in Resources */,
 				AA6D142F1B6569A600F71348 /* Donuts_3.png in Resources */,
 				AA6D14501B65867D00F71348 /* Chimichangas_1.png in Resources */,
+				ACF06C281F3AA16D0098261F /* Air-Hockey.gif in Resources */,
 				AAE68B7D1B5B0C8600DA7A53 /* Limo_7.png in Resources */,
 				AAD93DF81B482AC5009B354B /* survey-100.png in Resources */,
 				AAE68AFD1B59F8FF00DA7A53 /* Sushi_1.png in Resources */,
+				ACF06C2D1F3AA16D0098261F /* Dodge.gif in Resources */,
+				ACB471651F389E6C007E9ECF /* Services_13.jpg in Resources */,
 				AA88FCA11B4E12750054A65C /* currency_exchange-32.png in Resources */,
 				AAE68AF41B59F22A00DA7A53 /* bread-100.png in Resources */,
 				AA8FA93A1B2A70BD003E79B4 /* Icon-72@2x.png in Resources */,
@@ -2766,6 +2973,7 @@
 				AA6D14851B66A15F00F71348 /* SkinCare_1.jpg in Resources */,
 				AAD93E141B48685F009B354B /* shower-100.png in Resources */,
 				AAE68AEE1B59F1E500DA7A53 /* pizza-100.png in Resources */,
+				ACF06C371F3AA16D0098261F /* Snap.png in Resources */,
 				AAD93E0A1B48611F009B354B /* Lounge_1.jpeg in Resources */,
 				AAD93E241B48834F009B354B /* registered_trademark-100.png in Resources */,
 				AA880D531B72619C0064CED7 /* AirportShops_5_1.jpg in Resources */,
@@ -2789,10 +2997,13 @@
 				AAE68B621B5AD34B00DA7A53 /* GiftStore_1.jpg in Resources */,
 				AAE68B7F1B5B0C8D00DA7A53 /* Limo_6.png in Resources */,
 				0FD438F51A10489D00A2436F /* forward-25.png in Resources */,
+				ACF06C331F3AA16D0098261F /* Pacman.gif in Resources */,
 				AA6D140C1B65561C00F71348 /* Wendy_1.png in Resources */,
 				AA89A2031B6C4A2000874971 /* button-100.png in Resources */,
 				AAE68B741B5AF0AC00DA7A53 /* AirportShops_6_0.jpg in Resources */,
+				ACF06C2C1F3AA16D0098261F /* Curve.gif in Resources */,
 				AA88FCF61B51BE290054A65C /* Hotel_2.jpg in Resources */,
+				ACF06C651F3B88110098261F /* Airlines-AirCAN.jpg in Resources */,
 				AA6D146A1B658E7E00F71348 /* ChineseFood_2.png in Resources */,
 				AAE68B601B5AD34B00DA7A53 /* GiftStore_3.jpg in Resources */,
 				AA5198AA1B5213A700398A4F /* AirportShops_2_0.jpg in Resources */,
@@ -2811,6 +3022,7 @@
 				AAE68B1C1B5A15EB00DA7A53 /* Irish_4.png in Resources */,
 				AAE68B3B1B5AC9F100DA7A53 /* Burgers&Fries_1.png in Resources */,
 				AA20FB3D1B6D419600DEE957 /* walkie_talkie_radio-25.png in Resources */,
+				ACF06C641F3B88110098261F /* Airlines-ALASKA.jpg in Resources */,
 				AA6D13B81B63F7B600F71348 /* AirportShops_3_8.jpg in Resources */,
 				AAE68AEA1B59F1C900DA7A53 /* taco-100.png in Resources */,
 				AA9238271D5B75FE00F21B54 /* ferry_filled.png in Resources */,
@@ -2820,6 +3032,7 @@
 				0F153D371A3A9EA40073DED2 /* weather-256.png in Resources */,
 				0F2ACD5D1A004C380028B6E2 /* user_male4-32.png in Resources */,
 				AA89A2051B6C4A4200874971 /* german_hat-100.png in Resources */,
+				ACF06C2B1F3AA16D0098261F /* Celebro.png in Resources */,
 				AA6D148B1B66A39F00F71348 /* Gadgets_2.jpg in Resources */,
 				AA6D13D01B63FF9B00F71348 /* AirportShops_6_4.jpg in Resources */,
 				AAD93DB71B4719C4009B354B /* air_element-100.png in Resources */,
@@ -2832,8 +3045,10 @@
 				AA88FCB21B50678A0054A65C /* handle_with_care-50.png in Resources */,
 				AA6D146B1B658E7E00F71348 /* ChineseFood_3.png in Resources */,
 				AA9238331D5B768200F21B54 /* paddling_filled.png in Resources */,
+				ACF06C561F3B88110098261F /* Airlines-united.jpg in Resources */,
 				AA880D5D1B75157C0064CED7 /* glasses_filled-50.png in Resources */,
 				AA6D140A1B6555C400F71348 /* Wendy_0.png in Resources */,
+				ACF06C361F3AA16D0098261F /* SmartyBubbles.png in Resources */,
 				AA89A2011B6C49C100874971 /* teams-100.png in Resources */,
 				AAD93DCF1B473C26009B354B /* Store.json in Resources */,
 				AA5198811B51FD7100398A4F /* Airline_8.gif in Resources */,
@@ -2878,6 +3093,7 @@
 				AA5199661B55F70300398A4F /* RentalCar_5.jpg in Resources */,
 				AAE68B451B5AC9F100DA7A53 /* FrenchBakery_1.png in Resources */,
 				AA6D145A1B658AF300F71348 /* NYStylePizza_0.png in Resources */,
+				ACAE99E61F3CF99F0013AF0D /* Services_15.jpg in Resources */,
 				AA20FB411B715A4300DEE957 /* plus_1hour-100.png in Resources */,
 				0FD438921A047FEA00A2436F /* HorizontalTableViewCell.xib in Resources */,
 				AA8FA8AC1B27E26B003E79B4 /* AirportTerminal_1.jpg in Resources */,
@@ -2892,6 +3108,7 @@
 				AA88FCC81B509A2C0054A65C /* Rental_3.png in Resources */,
 				AA20FB4B1B7176C700DEE957 /* red_hat-50.png in Resources */,
 				AA8FA93D1B2A70BD003E79B4 /* Icon-120.png in Resources */,
+				ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */,
 				AA6D145C1B658BF200F71348 /* Sandwiches_0.png in Resources */,
 				AA86645E1B34573100CFC7D5 /* Alaska_Airlines.png in Resources */,
 				AA6D139A1B63F24F00F71348 /* AirportShops_3_1.jpg in Resources */,
@@ -2913,6 +3130,7 @@
 				AAE68B181B5A157100DA7A53 /* Irish_2.png in Resources */,
 				0FCAD8E81A3E1A2300BE42E5 /* ENGLISH.png in Resources */,
 				AA92382B1D5B762300F21B54 /* palace_filled.png in Resources */,
+				ACF06C581F3B88110098261F /* Airlines-sunwing.jpg in Resources */,
 				AA880D521B72619C0064CED7 /* AirportShops_5_2.jpg in Resources */,
 				0FCAD8E21A3E1A2300BE42E5 /* ITALIAN.png in Resources */,
 				AA20FB3F1B6D437F00DEE957 /* walkie_talkie_radio_filled-25.png in Resources */,
@@ -2931,12 +3149,14 @@
 				AAD93E2A1B4883EF009B354B /* hotel_information-100.png in Resources */,
 				AA6D14801B669EA200F71348 /* Magazines_0.jpg in Resources */,
 				AAE68B421B5AC9F100DA7A53 /* Coffee&Tea_1.png in Resources */,
+				ACF06C5F1F3B88110098261F /* Airlines-condor.jpg in Resources */,
 				AAD93DB31B47197C009B354B /* sleet-100.png in Resources */,
 				AA20FB471B71765300DEE957 /* plus_1hour-50.png in Resources */,
 				AA6D14791B6699B000F71348 /* News&Events_2.jpg in Resources */,
 				AA8FA91D1B2A2C54003E79B4 /* Hotel_5.jpg in Resources */,
 				AAA600FB1BC57BA000F7B4E4 /* Main.storyboard in Resources */,
 				AAD93DEB1B476A94009B354B /* Italian_3.png in Resources */,
+				ACF06C571F3B88110098261F /* Airlines-VA.jpg in Resources */,
 				AA8664A81B40B0E300CFC7D5 /* City_3.jpg in Resources */,
 				0FCAD8F01A3E305A00BE42E5 /* content-32.png in Resources */,
 				AA92382D1D5B763D00F21B54 /* cross_filled.png in Resources */,
@@ -2950,8 +3170,12 @@
 				AC6189181E3AD8060058E621 /* Online.png in Resources */,
 				0F2ACD2C19FAA93E0028B6E2 /* control_panel-32.png in Resources */,
 				AAE68AF81B59F51000DA7A53 /* hot_dog-100.png in Resources */,
+				ACF06C2E1F3AA16D0098261F /* Hexxagon.gif in Resources */,
+				ACF06C2A1F3AA16D0098261F /* CartoonFlight.png in Resources */,
 				AA5199681B55F70300398A4F /* RentalCar_3.jpg in Resources */,
+				ACD3BBB71F3556ED000B4323 /* account.png in Resources */,
 				AAE68B6E1B5ADBD400DA7A53 /* scarf-100.png in Resources */,
+				ACF06C551F3B88110098261F /* Airlines-wow.jpg in Resources */,
 				AAE68B9C1B5C27D100DA7A53 /* LimoCar_5.jpg in Resources */,
 				AAE68B411B5AC9F100DA7A53 /* Donuts_1.png in Resources */,
 				AAE68B5E1B5AD34B00DA7A53 /* GiftStore_5.jpg in Resources */,
@@ -2971,6 +3195,7 @@
 				0FD438C51A0DAF0B00A2436F /* Images.xcassets in Resources */,
 				AA5199651B55F70300398A4F /* RentalCar_6.jpg in Resources */,
 				0F2ACD4F1A004AC20028B6E2 /* put_in_motion-32.png in Resources */,
+				ACF06C621F3B88110098261F /* Airlines-AMERICAN.jpg in Resources */,
 				0FCAD8B21A3AAE8E00BE42E5 /* delete_sign-32.png in Resources */,
 				AAD93E001B4847C0009B354B /* womens_shoe-100.png in Resources */,
 				0FCAD8F61A3EA5AC00BE42E5 /* JAPANESE.png in Resources */,
@@ -2981,10 +3206,12 @@
 				AA6D14121B655A6200F71348 /* FrenchBakery_0.png in Resources */,
 				AAD93E261B48839F009B354B /* bell_service-100.png in Resources */,
 				AA6D13C21B63FDC400F71348 /* AirportShops_4_3.jpg in Resources */,
+				ACF06C311F3AA16D0098261F /* Meteor.png in Resources */,
 				AAD93DAF1B471879009B354B /* rain-100.png in Resources */,
 				AA5198861B51FD7100398A4F /* Airline_2.gif in Resources */,
 				AAA600FD1BC6E19B00F7B4E4 /* ItemViewiPhoneController.xib in Resources */,
 				AA6D14521B6589C200F71348 /* AmericanFood_0.png in Resources */,
+				ACF06C321F3AA16D0098261F /* Mini-Putt.gif in Resources */,
 				0FD438FA1A104C4D00A2436F /* ItemViewController.xib in Resources */,
 				AA88FCB41B5067A70054A65C /* garage-50.png in Resources */,
 				AAD93DEE1B477E84009B354B /* restaurant-100.png in Resources */,
@@ -2995,6 +3222,7 @@
 				AA88FCB01B50677B0054A65C /* christmas_gift-50.png in Resources */,
 				AA5199441B55A37C00398A4F /* controller_filled-100.png in Resources */,
 				AA6D13CC1B63FE9500F71348 /* AirportShops_6_2.jpg in Resources */,
+				ACF06C351F3AA16D0098261F /* Simon.png in Resources */,
 				AA88FCF31B51BE290054A65C /* Hotel_0.jpg in Resources */,
 				AA8664AA1B40B0E300CFC7D5 /* City_5.jpg in Resources */,
 				0F4D5D491A8AA8180040DC12 /* banknotes-50.png in Resources */,
@@ -3014,6 +3242,7 @@
 				AA8FA9391B2A70BD003E79B4 /* Icon-72.png in Resources */,
 				AA51984F1B51E8C000398A4F /* Rental_4.png in Resources */,
 				AA8FA9431B2A70BD003E79B4 /* Icon-Spotlight-iOS7@2x.png in Resources */,
+				ACF06C341F3AA16D0098261F /* Simon.gif in Resources */,
 				AAE68AFC1B59F8FF00DA7A53 /* Sushi_3.png in Resources */,
 				AA6D14371B657FDB00F71348 /* IndianFood_2.png in Resources */,
 				AA6D13FC1B65519000F71348 /* Burgers&Fries_3.png in Resources */,
@@ -3062,6 +3291,7 @@
 				AA297D0A1D0B9BB70019B185 /* FIDS.json in Resources */,
 				AAE68B901B5C25D200DA7A53 /* LimoCar_4.jpg in Resources */,
 				AAE68BAB1B5C329300DA7A53 /* Services_2.jpg in Resources */,
+				ACF06C5C1F3B88110098261F /* Airlines-jetblu.jpg in Resources */,
 				AA89A1FC1B6C036F00874971 /* SouthernCooking_2.png in Resources */,
 				AA89A1FB1B6C036F00874971 /* SouthernCooking_3.png in Resources */,
 				AA880D591B7514FB0064CED7 /* wallet_filled-100.png in Resources */,
@@ -3097,10 +3327,12 @@
 				AA6D13CE1B63FF5500F71348 /* AirportShops_6_3.jpg in Resources */,
 				0F4D5D4B1A8AA82C0040DC12 /* sell-50.png in Resources */,
 				AA86646E1B37A0DD00CFC7D5 /* airplane_takeoff-100.png in Resources */,
+				ACF06C391F3AA16D0098261F /* Tic-Tac-Toe.gif in Resources */,
 				AAE68B5B1B5AD34B00DA7A53 /* Gadgets_4.jpg in Resources */,
 				AAE68B4A1B5AC9F100DA7A53 /* Tacos_2.png in Resources */,
 				AAD93DFE1B4847A7009B354B /* mens_shoe-100.png in Resources */,
 				AA5198511B51E90700398A4F /* Rental_6.png in Resources */,
+				ACF06C5D1F3B88110098261F /* Airlines-delta.jpg in Resources */,
 				AAE68AE21B59F19A00DA7A53 /* coffee_to_go-100.png in Resources */,
 				AA6D13D61B64012500F71348 /* AirportShops_7_2.jpg in Resources */,
 				AA88FCF41B51BE290054A65C /* Hotel_1.jpg in Resources */,
@@ -3118,8 +3350,11 @@
 				AAE68B3E1B5AC9F100DA7A53 /* AmericanFood_2.png in Resources */,
 				AA8FA9451B2A70BD003E79B4 /* Icon@2x.png in Resources */,
 				AAD93DE41B476A84009B354B /* Italian_4.png in Resources */,
+				ACF06C671F3B9A890098261F /* icons8-adventure_filled.png in Resources */,
 				0FCAD8E41A3E1A2300BE42E5 /* FRENCH.png in Resources */,
+				ACF06C3D1F3AA20E0098261F /* DrawPad.png in Resources */,
 				AAE68B3D1B5AC9F100DA7A53 /* AmericanFood_1.png in Resources */,
+				ACF06C541F3B88110098261F /* Airlines-XTRA.jpg in Resources */,
 				ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */,
 				AA6D13F01B641CC700F71348 /* cream_tube-100.png in Resources */,
 				AA6D13E61B64196300F71348 /* t_shirt-100.png in Resources */,
@@ -3127,6 +3362,7 @@
 				AA6D13BA1B63F7B600F71348 /* AirportShops_3_10.jpg in Resources */,
 				AAE68B401B5AC9F100DA7A53 /* Tacos_1.png in Resources */,
 				AAE68ADE1B59F16E00DA7A53 /* ice_cream_cone-100.png in Resources */,
+				ACF06C291F3AA16D0098261F /* Bingo.gif in Resources */,
 				AA6D14051B65558200F71348 /* Wendy_2.png in Resources */,
 				AA6D13EA1B64199500F71348 /* baseball_cap-100.png in Resources */,
 				0FF46D9619F8900600E51218 /* waiter-50.png in Resources */,
@@ -3174,6 +3410,7 @@
 				AA8FA93F1B2A70BD003E79B4 /* Icon-Small-50.png in Resources */,
 				AA6D13B51B63F7B600F71348 /* AirportShops_3_5.jpg in Resources */,
 				AAD93DB91B471C0B009B354B /* temperature-100.png in Resources */,
+				ACF06C5A1F3B88110098261F /* Airlines-southwest.jpg in Resources */,
 				AA880D551B7271140064CED7 /* Thai_1.png in Resources */,
 				AA6D14101B65571100F71348 /* Wendy_5.png in Resources */,
 				AA51996B1B55F70300398A4F /* RentalCar_0.jpg in Resources */,
@@ -3182,6 +3419,7 @@
 				AA5199741B55FC7E00398A4F /* receive_cash-100.png in Resources */,
 				AA6D14481B65839A00F71348 /* Coffee_3.png in Resources */,
 				AA8FA8CD1B27F4D7003E79B4 /* AirportGarage_4.jpg in Resources */,
+				ACB4715F1F37FDEA007E9ECF /* Services_10.jpg in Resources */,
 				AA51984B1B51E0FC00398A4F /* DWILogo.png in Resources */,
 				AA5198871B51FD7100398A4F /* Airline_3.gif in Resources */,
 				AAE1FE5C1BD93E830006410F /* AirportFlight_1.jpg in Resources */,
@@ -3193,6 +3431,8 @@
 				AA6D146E1B658EEE00F71348 /* Thai_0.png in Resources */,
 				0FF46D9C19F890C500E51218 /* geo_fence-50.png in Resources */,
 				AAE68B3A1B5AC9F100DA7A53 /* MexicanFood_1.png in Resources */,
+				ACF06C401F3AB2DB0098261F /* imgTwitterLogin.png in Resources */,
+				ACB471631F3809A4007E9ECF /* Services_12.jpg in Resources */,
 				AA6D14351B657FDB00F71348 /* IndianFood_4.png in Resources */,
 				AAE68B4C1B5ACAF300DA7A53 /* Chimichangas_0.png in Resources */,
 				AAE68B6C1B5ADABE00DA7A53 /* idea-100.png in Resources */,
@@ -3300,6 +3540,7 @@
 				0FF46E0C19F9953500E51218 /* JTValidMappingKey.m in Sources */,
 				0F2ACD3B19FAE1B20028B6E2 /* ContainerCellViewCell.m in Sources */,
 				ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */,
+				ACF06C141F3A9C800098261F /* GamesViewController.m in Sources */,
 				AA6D14991B66D9FA00F71348 /* HotelsShuttleViewController.m in Sources */,
 				0FF46E0A19F9953500E51218 /* JTMappings.m in Sources */,
 				0FF46E1519F9958300E51218 /* SWRevealViewController.m in Sources */,
@@ -3309,6 +3550,7 @@
 				0F2ACD7F1A01B7A80028B6E2 /* GameViewController.m in Sources */,
 				0FE60AE41A11B47800435F32 /* NewsViewController.m in Sources */,
 				AA297D131D0C5D4F0019B185 /* MPOImageCollectionViewCell.m in Sources */,
+				ACF7BCB41F354A6E0020CB6B /* LoginViewController.m in Sources */,
 				AAB41B0A1CF54B7F0078CB75 /* BaseClass.m in Sources */,
 				AA297D141D0C5D4F0019B185 /* MPOUtilities.m in Sources */,
 				AA297D191D0C5D710019B185 /* MPODetectionCollectionViewCell.m in Sources */,
@@ -3476,9 +3718,13 @@
 				CODE_SIGN_ENTITLEMENTS = DropDownDigitalAirports.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Engel/Downloads/azuresdk-iOS-v1.2.4",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/azuresdk-iOS-v1",
 				);
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -3487,6 +3733,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3500,9 +3747,13 @@
 				CODE_SIGN_ENTITLEMENTS = DropDownDigitalAirports.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Engel/Downloads/azuresdk-iOS-v1.2.4",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/azuresdk-iOS-v1",
 				);
 				INFOPLIST_FILE = DropDownDigitalAiports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -3511,6 +3762,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

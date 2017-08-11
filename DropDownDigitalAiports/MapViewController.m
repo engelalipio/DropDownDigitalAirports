@@ -34,9 +34,9 @@
     }
     
     if ([appDelegate airportCode]){
-        if ([appDelegate.airportCode isEqualToString:@"LAS"]){
+       /* if ([appDelegate.airportCode isEqualToString:@"LAS"]){
             [self.imageMap setImage:[UIImage imageNamed:@"MIA_Parking.jpg"]];
-        }
+        }*/
     }
 }
 
@@ -44,13 +44,19 @@
 {
     [super viewDidLoad];
  
-        
-  /*  self.btnMenu  = self.splitViewController.displayModeButtonItem;
-    [self.navigationItem setLeftBarButtonItem:self.btnMenu];*/
+    
+    
+    self.btnMenu  = self.splitViewController.displayModeButtonItem;
+    [self.navigationItem setLeftBarButtonItem:self.btnMenu];
  
+    /*[self loadSafari];
+    [self loadWebView];
+    return;*/
+    
     [self.imageMap.layer setCornerRadius:5.0f];
     [self.imageMap.layer setMasksToBounds:YES];
     [self.imageMap setContentMode:UIViewContentModeScaleAspectFit];
+ 
     
     self.scrollView.minimumZoomScale=0.5;
     self.stpZoom.minimumValue = 0.5;
@@ -59,8 +65,182 @@
     self.scrollView.maximumZoomScale=3.0;
     self.scrollView.contentSize=CGSizeMake(self.imageMap.size.width, self.imageMap.size.height);
     [self.scrollView setDelegate:self];
+
 }
 
+
+#pragma -mark Web View Methods
+
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    
+    NSString *errMessage = @"";
+    BOOL     isHidden = NO;
+    
+    @try{
+        [self.imageMap setAlpha:0.30f];
+        
+    }
+    @catch(NSException *exception){
+        errMessage = [exception description];
+    }
+    @finally{
+        if ([errMessage length] > 0){
+            NSLog(@"%@",errMessage);
+        }
+        errMessage = @"";
+        isHidden = NO;
+    }
+}
+
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    
+    BOOL result   = NO,
+    isHidden = NO;
+    
+    NSString *message= @"";
+    
+    @try {
+        if (request != nil){
+            
+            result = YES;
+            message = [NSString stringWithFormat:@"shouldStartLoadWithRequest for %@",request.URL.description];
+        }
+    }
+    @catch (NSException *exception) {
+        message = [exception description];
+    }
+    @finally {
+        if ([message length]> 0){
+            NSLog(@"%@",message);
+        }
+        message = @"";
+        isHidden = NO;
+    }
+    return  result;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    NSString *errMessage = @"";
+    
+    @try{
+ 
+        [self.imageMap setAlpha:0.0f];
+    }
+    @catch(NSException *exception){
+        errMessage = [exception description];
+    }
+    @finally{
+        if ([errMessage length] > 0){
+            NSLog(@"%@",errMessage);
+        }
+        errMessage = @"";
+        
+    }
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSString *errMessage = @"";
+    NSURLRequest *urlRequest = nil;
+    @try{
+        if (error){
+            
+            errMessage = [NSString stringWithFormat:@"Error Loading %@ in WebView with the following %@, trying again...",
+                          [webView.request.URL description] ,
+                          [error description]];
+            
+            urlRequest = [[NSURLRequest alloc] initWithURL:webView.request.URL];
+            
+            [self webView:webView shouldStartLoadWithRequest:urlRequest navigationType:UIWebViewNavigationTypeReload];
+            
+        }
+    }
+    @catch(NSException *exception){
+        errMessage = [error description];
+    }
+    @finally{
+        if ([errMessage length] > 0){
+            NSLog(@"%@",errMessage);
+        }
+        errMessage = @"";
+        urlRequest = nil;
+    }
+    
+}
+
+#pragma mark - Safari Delegate Method(s)
+
+-(void) safariViewControllerDidFinish:(SFSafariViewController *)controller{
+    NSLog(@"safariViewController:safariViewControllerDidFinish::Invoked");
+    
+}
+
+-(void) safariViewController:(SFSafariViewController *)controller didCompleteInitialLoad:(BOOL)didLoadSuccessfully{
+    NSLog(@"safariViewController:didCompleteInitialLoad::Invoked");
+}
+
+
+-(void) loadWebView{
+    
+    NSString *vUrl = @"";
+    
+    NSURLRequest *request = nil;
+    
+    NSURL *url = nil;
+    
+    @try {
+        
+        vUrl = BWIMapURL;
+        
+        url = [NSURL URLWithString:vUrl];
+        
+        request = [[NSURLRequest alloc] initWithURL:url];
+        
+        if ([vUrl length] > 0){
+            
+            url  = [NSURL URLWithString:vUrl];
+            
+            [self.webView setDelegate:self];
+            
+            [self.webView loadRequest:request];
+        }
+        
+        
+    } @catch (NSException *exception) {
+        NSLog(@"loadWebViewError::->%@",exception.debugDescription);
+    } @finally {
+        vUrl = @"";
+        request = nil;
+    }
+    
+    
+    
+}
+
+-(void) loadSafari{
+    
+    SFSafariViewController *safariVC = nil;
+    NSString *message = @"";
+    
+    @try {
+        
+        message = [NSString stringWithFormat:@"loadSafari invoked for %@",BWIMapURL];
+        NSLog(@"%@",message);
+ 
+        safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:BWIMapURL] entersReaderIfAvailable:NO];
+        
+        if (safariVC){
+            [safariVC setDelegate:self];
+            [self presentViewController:safariVC animated:YES completion:nil];
+        }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception.debugDescription);
+    } @finally {
+        safariVC = nil;
+        message  = @"";
+    }
+}
 
 #pragma mark -UISplitViewController
 
@@ -115,24 +295,35 @@
     
     NSMutableArray *sharingItems = [NSMutableArray new];
     
-    
-   [sharingItems addObject:self.imageMap.image];
-    
- 
-    
-    UIActivityViewController *activityController = nil;
-    
-    activityController = [[UIActivityViewController alloc]
-                          initWithActivityItems:sharingItems
-                           applicationActivities:nil];
-    activityController.popoverPresentationController.barButtonItem = sender;
+    @try {
+        
+                [self doneAction:sender];
+        return;
+        
+        [sharingItems addObject:self.imageMap.image];
+        
+        
+        
+        UIActivityViewController *activityController = nil;
+        
+        activityController = [[UIActivityViewController alloc]
+                              initWithActivityItems:sharingItems
+                              applicationActivities:nil];
+        activityController.popoverPresentationController.barButtonItem = sender;
+        
+        [activityController setExcludedActivityTypes:@[UIActivityTypeAssignToContact, UIActivityTypeAddToReadingList,
+                                                       UIActivityTypeCopyToPasteboard, UIActivityTypeMail,
+                                                       UIActivityTypeMessage,UIActivityTypePostToFlickr,
+                                                       UIActivityTypePostToTencentWeibo]];
+        
+        [self presentViewController:activityController animated:YES completion:nil];
+    } @catch (NSException *exception) {
+        NSLog(@"Error-> %@",exception.description);
+        [self doneAction:sender];
+    } @finally {
+        
+    }
 
-    [activityController setExcludedActivityTypes:@[UIActivityTypeAssignToContact, UIActivityTypeAddToReadingList,
-                                                   UIActivityTypeCopyToPasteboard, UIActivityTypeMail,
-                                                   UIActivityTypeMessage,UIActivityTypePostToFlickr,
-                                                   UIActivityTypePostToTencentWeibo]];
-    
-    [self presentViewController:activityController animated:YES completion:nil];
 }
 
 - (IBAction)actionZoom:(UIStepper *)sender {

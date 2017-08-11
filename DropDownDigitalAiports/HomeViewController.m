@@ -924,7 +924,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     @try {
         
         if (appDelegate.isiPhone){
-            fontSize = kTitleIPhoneSize;
+            fontSize = kTitleIPhoneSize - 3;
         }
         
         titleView = [[UILabel alloc]initWithFrame:CGRectMake(0.0f, 0.0f, size, titleViewSize)];
@@ -998,6 +998,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     @try{
         
         [self.navigationItem setTitleView:[self getSpecialTitleView:appDelegate.restaurantTable]];
+        
         [self.addressLabel setText: appDelegate.restaurantName ];
         
         categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Fine Dining/Meals To Go/The Food Court",
@@ -1273,7 +1274,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) initMenuSettings{
     
     BOOL isDynamic = NO;
-    NSString *welcomeMessage = @"%@ \n %@";
+    NSString *welcomeMessage = @"%@, %@\n%@, %@";
     
     isDynamic = [appDelegate isDynamic];
  
@@ -1290,7 +1291,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
    // welcomeMessage = appDelegate.restaurantName;
     
-    welcomeMessage = [NSString stringWithFormat:welcomeMessage,appDelegate.restaurantName, appDelegate.currentBuildInfo];
+    welcomeMessage = [NSString stringWithFormat:welcomeMessage,appDelegate.restaurantAddress,appDelegate.restaurantCity,
+                      appDelegate.restaurantState, appDelegate.restaurantZip/*, appDelegate.currentBuildInfo*/];
     
     [self.addressLabel setNumberOfLines:0];
     [self.addressLabel setText:welcomeMessage];

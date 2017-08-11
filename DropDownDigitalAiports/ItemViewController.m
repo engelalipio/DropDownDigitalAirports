@@ -129,17 +129,17 @@
 
 - (void)timerFireMethod:(NSTimer *)t{
     
-    NSString *message                     = @"",
-                    *rndFoodImgFormat  =  rndImageFormat,
-                    *rndFoodImgName    = @"",
-                    *rndStatus                   = @"",
-                    *rndStatusImgName   = @"";
+    NSString *message           = @"",
+             *rndFoodImgFormat  = rndImageFormat,
+             *rndFoodImgName    = @"",
+             *rndStatus  = @"",
+             *rndStatusImgName   = @"";
     
-    UIImage  *image           = nil;
+    UIImage  *image              = nil;
     
     NSInteger rndFoodImgId        = 0,
-                      imageUBId             = rndImageUpperBounds,
-                      rndMessageId        = 0;
+              imageUBId             = rndImageUpperBounds,
+              rndMessageId        = 0;
         
     @try {
         

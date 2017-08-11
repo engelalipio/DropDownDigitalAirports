@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
+#import "HubInfo.h"
 
 @import MobileCenter;
 @import MobileCenterAnalytics;

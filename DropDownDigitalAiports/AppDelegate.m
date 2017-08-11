@@ -421,6 +421,7 @@
         
     } @catch (NSException *exception) {
         NSLog(@"notReachableAction:Error->%@",exception.description);
+        [MSAnalytics trackEvent:exception.description];
     } @finally {
         alert = nil;
         okAction = nil;
@@ -434,17 +435,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    _language = @"English";
+    _language  = @"English";
     _isDynamic = YES;
-    _isSent   = NO;
-    _isiPhone = NO;
-    _useAPI = NO;
-    _restaurantTable     = @"Welcome To DigitalWorldInternational.Com\n Proudly Serving All Airports";
-    _restaurantName      = @"Hartsfield-Jackson Atlanta International Airport";
-    _restaurantAddress   = @"6000 N Terminal Parkway";
-    _restaurantCity      = @"Atlanta";
-    _restaurantState     = @"GA";
-    _restaurantZip       = @"30320";
+    _isSent    = NO;
+    _isiPhone  = NO;
+    _useAPI    = NO;
+    _restaurantName      = @"Baltimore/Washington International Thurgood Marshall Airport";
+    _restaurantTable     = [NSString stringWithFormat:@"Welcome to BWI Marshall’s Digital – Ordering Concierge Directory\n %@",_restaurantName];
+
+    _restaurantAddress   = @"7035 Elm Road";
+    _restaurantCity      = @"Baltimore";
+    _restaurantState     = @"Maryland";
+    _restaurantZip       = @"21240";
     _interval            = 5;
     
     
@@ -457,6 +459,7 @@
     [self initLocationServices];
     [self initAzureStorage];
     [self initMobileCenter];
+    [self registerAPNSNotifications];
     [self prepareAirportbackgrounds];
     [self retrieveAirportInfo];
     [self retrieveAirportFIDSArrivals];
@@ -476,15 +479,36 @@
     }
     
     
+
+    
     NSLog(@"Screen Height -> %ld",(long)_screenHeight);
     
     return YES;
 }
 
+-(void) registerAPNSNotifications{
+    UIUserNotificationSettings *settings = nil;
+    
+    @try {
+        settings = [UIUserNotificationSettings
+                    settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge
+                    categories:nil];
+        
+        if (settings){
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [[UIApplication sharedApplication] registerForRemoteNotifications];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"registerAPNSNotifications::Error::%@",exception.description);
+    } @finally {
+        settings = nil;
+    }
+}
+
 -(void) extractCurrentBuildInformation{
     
-    NSString *appVersionString = @"",
-             *appBuildString = @"",
+    NSString *appVersionString   = @"",
+             *appBuildString     = @"",
              *versionBuildString = @"";
     
     @try {
@@ -518,11 +542,40 @@
     
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    BOOL result = NO;
+    
+    MSClient *azureClient = nil;
+    
+    NSURL *airportURL = nil;
+    
+    @try {
+        
+        airportURL = [[NSURL alloc] initWithString:kAirportConcierge];
+        
+        azureClient = [[MSClient alloc] initWithApplicationURL:airportURL];
+        
+        if ([[url.scheme lowercaseString] isEqualToString:@"ddda"]) {
+            // Resume login flow
+            result = [azureClient resumeWithURL:url];
+        }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Open URL Error -> %@",exception.description);
+    } @finally {
+        airportURL = nil;
+        azureClient = nil;
+    }
+    
+    return result;
+}
+
 -(void) initAzureStorage{
     
     
-    NSString *message  = @"",
-             *appKey   = kParseAppId,
+    NSString *message   = @"",
+             *appKey    = kParseAppId,
              *clientKey = kParseKey;
     
     AZSCloudStorageAccount *account = nil;
@@ -630,7 +683,7 @@
             
             query = [menuTable query];
             
-            
+ 
         }
         
         
@@ -1031,6 +1084,59 @@
         
     }
 }
+
+#pragma mark -APNS Notifications
+
+-(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSString *message = @"";
+    @try{
+        
+        if (userInfo){
+            message = [NSString stringWithFormat:@"didReceiveRemoteNotification:For->%@",userInfo];
+            [MSAnalytics trackEvent:message];
+        }
+        
+    }
+    @catch(NSException *exception){
+            message = [NSString stringWithFormat:@"didReceiveRemoteNotification:Error->%@",exception.description];
+            [MSAnalytics trackEvent:message];
+    }
+    @finally{
+        message = @"";
+    }
+}
+
+-(void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+ 
+    SBNotificationHub *hub = nil;
+
+    @try {
+        hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                              notificationHubPath:HUBNAME];
+        if (hub){
+            [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError *error){
+                NSString *message = @"";
+                if (error != nil){
+                    message = [NSString stringWithFormat:@"Error Registering for notification: %@", error];
+
+                }
+                else{
+                    message = [NSString stringWithFormat:@"didRegisterForRemoteNotificationsWithDeviceToken::Status:->Registered::->%@",deviceToken.description];
+                }
+                NSLog(@"%@", message);
+                [MSAnalytics trackEvent:message];
+            }];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken:Error::->%@", exception);
+    } @finally {
+        hub = nil;
+    }
+    
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

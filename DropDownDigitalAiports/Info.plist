@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>BWI Concierge Directory</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -40,16 +42,45 @@
 	<string>1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.dwi.DropDownDigitalAirports</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ddda</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>FacebookDisplayName</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>AirportConciergeDirectory</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1.53</string>
+	<string>1.55</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>RBGY</string>
+		<string>Snap</string>
+		<string>CLBR</string>
+		<string>MTOR</string>
+		<string>DrawPad</string>
+		<string>BugCrush</string>
+		<string>ddda</string>
 		<string>OMTN</string>
 		<string>OMPN</string>
 		<string>OMSN</string>
 		<string>OMSEN</string>
+		<string>fbapi</string>
+		<string>fbauth</string>
+		<string>fbauth2</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -69,6 +100,8 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Granting location Camera Usage to Digital Directory Menu applications, will allow for better User Experience</string>
