@@ -718,6 +718,12 @@
     NSArray<NSString *> *searchCrit = nil;
     @try {
         
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OMSEN" message:@"Coming Soon" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        return;
+        
         //currentName = selectedStore;
         currentName = @"Attractions";
         

@@ -48,7 +48,7 @@
 		0F4D5D4B1A8AA82C0040DC12 /* sell-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4A1A8AA82C0040DC12 /* sell-50.png */; };
 		0F4D5D4D1A8AA8390040DC12 /* pos_terminal-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4C1A8AA8390040DC12 /* pos_terminal-50.png */; };
 		0F4D5D501A8ACA310040DC12 /* camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D5D4F1A8ACA310040DC12 /* camera-50.png */; };
-		0F5841F71A23D4A800A51F3A /* your_ad_here_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */; };
+		0F5841F71A23D4A800A51F3A /* your_ad_here_banner_old.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F5841F61A23D4A800A51F3A /* your_ad_here_banner_old.jpg */; };
 		0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */; };
 		0F72708D1A1ED65E00F9C2E2 /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F72708C1A1ED65E00F9C2E2 /* DiningViewController.m */; };
 		0F7270901A1ED68300F9C2E2 /* ShopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F72708F1A1ED68300F9C2E2 /* ShopsViewController.m */; };
@@ -664,7 +664,7 @@
 		ACB471631F3809A4007E9ECF /* Services_12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB471621F3809A4007E9ECF /* Services_12.jpg */; };
 		ACB471651F389E6C007E9ECF /* Services_13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB471641F389E6C007E9ECF /* Services_13.jpg */; };
 		ACD3BBB71F3556ED000B4323 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBB61F3556ED000B4323 /* account.png */; };
-		ACD3BBB91F376B9F000B4323 /* your_ad_here_banner_new.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */; };
+		ACD3BBB91F376B9F000B4323 /* your_ad_here_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBB81F376B9F000B4323 /* your_ad_here_banner.jpg */; };
 		ACD3BBBB1F3774DC000B4323 /* BWIlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */; };
 		ACF06C141F3A9C800098261F /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF06C131F3A9C800098261F /* GamesViewController.m */; };
 		ACF06C281F3AA16D0098261F /* Air-Hockey.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF06C161F3AA16D0098261F /* Air-Hockey.gif */; };
@@ -765,7 +765,7 @@
 		0F4D5D4A1A8AA82C0040DC12 /* sell-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sell-50.png"; sourceTree = "<group>"; };
 		0F4D5D4C1A8AA8390040DC12 /* pos_terminal-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pos_terminal-50.png"; sourceTree = "<group>"; };
 		0F4D5D4F1A8ACA310040DC12 /* camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-50.png"; sourceTree = "<group>"; };
-		0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner.jpg; sourceTree = "<group>"; };
+		0F5841F61A23D4A800A51F3A /* your_ad_here_banner_old.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner_old.jpg; sourceTree = "<group>"; };
 		0F5B76A81A7C3F9B00E59486 /* office_lamp-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office_lamp-32.png"; sourceTree = "<group>"; };
 		0F72708B1A1ED65E00F9C2E2 /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
 		0F72708C1A1ED65E00F9C2E2 /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
@@ -1455,7 +1455,7 @@
 		ACB471621F3809A4007E9ECF /* Services_12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_12.jpg; sourceTree = "<group>"; };
 		ACB471641F389E6C007E9ECF /* Services_13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_13.jpg; sourceTree = "<group>"; };
 		ACD3BBB61F3556ED000B4323 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
-		ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner_new.jpg; sourceTree = "<group>"; };
+		ACD3BBB81F376B9F000B4323 /* your_ad_here_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = your_ad_here_banner.jpg; sourceTree = "<group>"; };
 		ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWIlogo.png; sourceTree = "<group>"; };
 		ACF06C121F3A9C800098261F /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
 		ACF06C131F3A9C800098261F /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
@@ -1594,9 +1594,9 @@
 				ACF06C3E1F3AB2DB0098261F /* imgTwitterLogin.png */,
 				ACF06C3F1F3AB2DB0098261F /* imgFaceBookLogin.png */,
 				ACD3BBBA1F3774DC000B4323 /* BWIlogo.png */,
-				ACD3BBB81F376B9F000B4323 /* your_ad_here_banner_new.jpg */,
+				ACD3BBB81F376B9F000B4323 /* your_ad_here_banner.jpg */,
 				AA51984A1B51E0FC00398A4F /* DWILogo.png */,
-				0F5841F61A23D4A800A51F3A /* your_ad_here_banner.jpg */,
+				0F5841F61A23D4A800A51F3A /* your_ad_here_banner_old.jpg */,
 			);
 			name = Ads;
 			sourceTree = "<group>";
@@ -2825,7 +2825,7 @@
 				AA5198AB1B5213A700398A4F /* AirportShops_1_2.jpg in Resources */,
 				AA88FCB61B5090590054A65C /* mens_shoe_filled-50.png in Resources */,
 				AA86645F1B34573100CFC7D5 /* Delta.png in Resources */,
-				0F5841F71A23D4A800A51F3A /* your_ad_here_banner.jpg in Resources */,
+				0F5841F71A23D4A800A51F3A /* your_ad_here_banner_old.jpg in Resources */,
 				ACB471611F380564007E9ECF /* Services_11.jpg in Resources */,
 				AAD93DFA1B484685009B354B /* jacket-100.png in Resources */,
 				AA8FA9441B2A70BD003E79B4 /* Icon.png in Resources */,
@@ -2882,7 +2882,7 @@
 				AA89A20D1B6C4E3200874971 /* pin_cushion-100.png in Resources */,
 				AAE68AEC1B59F1DA00DA7A53 /* noodles-100.png in Resources */,
 				AA88FCE21B517D080054A65C /* treatment_plan-100.png in Resources */,
-				ACD3BBB91F376B9F000B4323 /* your_ad_here_banner_new.jpg in Resources */,
+				ACD3BBB91F376B9F000B4323 /* your_ad_here_banner.jpg in Resources */,
 				AAC6EEEF1D087A1A0037A6C3 /* Directions.jpg in Resources */,
 				AAE68B5F1B5AD34B00DA7A53 /* GiftStore_4.jpg in Resources */,
 				AA6D13A81B63F67300F71348 /* AirportShops_1_3.jpg in Resources */,

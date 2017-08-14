@@ -16,8 +16,8 @@
     UIImageView *selectedImageView;
     NSString *selectedRestaurant ;
     NSArray *restaurants ,
-                    *toGo,
-                    *foodCourt;
+            *toGo,
+            *foodCourt;
 
 }
 -(void) checkOrderCount;
@@ -25,6 +25,40 @@
 @end
 
 @implementation DiningViewController
+
+
+- (void)imageUpdated:(NSNotification *)notif {
+    
+ 
+   /* NSDictionary *modelData = nil;
+    NSIndexPath *indexPath = (NSIndexPath *) [notif object];
+    
+    if (indexPath){
+    
+        if (indexPath ){
+            
+            if (model.imageData){
+                //   NSLog(@"Reloading index path to display image %@", model.imageUrl);
+                
+                @try {
+                    [self.tableView beginUpdates];
+                    
+                    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                          withRowAnimation:UITableViewRowAnimationNone];
+                    
+                    [self.tableView endUpdates];
+                }
+                @catch (NSException *exception) {
+                    NSLog(@"Error Reloading index Path Image = %@",exception.description);
+                }
+                @finally {
+                    model = nil;
+                }
+            }
+            
+        }
+    }*/
+}
 
 
 - (CGRect)approximateFrameForTabBarItemAtIndex:(NSUInteger)barItemIndex inTabBar:(UITabBar *)tabBar {
@@ -475,8 +509,6 @@
                 isParse = YES;
             
             if (isParse) {
-            
-                
                 
                 [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
                 
@@ -537,7 +569,8 @@
 
             switch (indexPath.section) {
                 case 0:
-                        [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                    
+                    [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
                     break;
                     
                 case 1:
@@ -952,20 +985,47 @@
     return titleView;
 }
 
+-(void) unRegisterImageDowloadNotification{
+    // At end of viewDidUnLoad
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kImageDownloadDiningNotifications
+                                                  object:nil];
+}
+
+-(void) registerImageDowloadNotification{
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:kImageDownloadDiningNotifications
+                                                      object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
+                                                          
+                                                          [self imageUpdated:note];
+                                                          
+                                                      }];
+    
+    
+    
+}
+
+
 -(void) viewDidLoad{
     
     if (! appDelegate){
         appDelegate = [AppDelegate currentDelegate];
     }
-    
     [self initTableView];
     
     [self.navigationItem setTitleView:[self getSpecialTitleView:@"Fine Dining/Meals To Go/The Food Court"]];
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self unRegisterImageDowloadNotification];
+}
+
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self checkOrderCount];
+    [self registerImageDowloadNotification];
 }
 
 @end

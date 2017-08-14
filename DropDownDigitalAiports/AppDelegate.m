@@ -66,6 +66,8 @@
 @synthesize storageClient = _storageClient;
 @synthesize azureClient = _azureClient;
 @synthesize airportCode = _airportCode;
+@synthesize userSettings = _userSettings;
+@synthesize urlSession = _urlSession;
 
 +(AppDelegate *) currentDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -453,6 +455,8 @@
     if (! self.airportCode){
         _airportCode = kFlightStatsAirport;
     }
+    
+    _userSettings = [NSUserDefaults standardUserDefaults];
 
     [self initReachabilityCheck];
     [self extractCurrentBuildInformation];
@@ -460,6 +464,7 @@
     [self initAzureStorage];
     [self initMobileCenter];
     [self registerAPNSNotifications];
+    [self registerAzureLoadedNotications];
     [self prepareAirportbackgrounds];
     [self retrieveAirportInfo];
     [self retrieveAirportFIDSArrivals];
@@ -635,6 +640,79 @@
     
 }
 
+#pragma mark -ImageCaching setup
+
+- (NSURLSession *)prepareSessionForRequest
+{
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    [sessionConfiguration setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json", @"Accept": @"application/json"}];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    return session;
+}
+
+- (void)setSharedCacheForImages
+{
+    // Set app-wide shared cache (first number is megabyte value)
+    NSUInteger cashSize = 250 * 1024 * 1024;
+    NSUInteger cashDiskSize = 250 * 1024 * 1024;
+    NSURLCache *imageCache = [[NSURLCache alloc] initWithMemoryCapacity:cashSize diskCapacity:cashDiskSize diskPath:@"someCachePath"];
+    [NSURLCache setSharedURLCache:imageCache];
+    sleep(1); // Critically important line, sadly, but it's worth it!
+}
+
+
+-(void) downloadRestaurantImage:(NSIndexPath *) imageDetails;{
+    //TODO
+}
+
+- (void)diningDownloaded:(NSNotification *)notif {
+    MSQueryResult *queryResult = nil;
+    if(! [notif.object isKindOfClass:[MSQueryResult class]]){
+        _diningbackgrounds = (NSArray*) [notif object];
+        NSLog(@"Total of %lu Dining loaded from Cache",(unsigned long)_diningbackgrounds.count);
+    }else{
+        queryResult = (MSQueryResult*) [notif object];
+        if (queryResult){
+            _diningbackgrounds = queryResult.items;
+            if (_diningbackgrounds){
+                NSLog(@"Total of %lu Dining loaded",(unsigned long)_diningbackgrounds.count);
+                [self saveCustomObject:_diningbackgrounds key:kAzureAirportDiningBackgroundsTableName];
+            }
+        }
+    }
+}
+
+
+- (void)saveCustomObject:(NSArray *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (NSArray *)loadCustomObjectWithKey:(NSString *)key {
+    if (! _userSettings){
+        _userSettings = [NSUserDefaults standardUserDefaults];
+    }
+    NSData *encodedObject = [_userSettings objectForKey:key];
+    NSArray *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
+
+
+-(void)  registerAzureLoadedNotications{
+    
+    NSLog(@"Adding Observer for %@",kAzureAirportDiningBackgroundsTableName);
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:kAzureAirportDiningBackgroundsTableName
+                                                      object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *objNot){
+                                                          
+                                                          [self diningDownloaded:objNot];
+                                                          
+                                                      }];
+}
+
 -(void) prepareAirportbackgrounds{
     
     
@@ -783,9 +861,15 @@
                 }else{
                     
                     backgroundsCount =  result.items.count;
-                    
                     queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:DiningBackgrounds->%d",backgroundsCount];
                     _diningbackgrounds =  result.items;
+                    
+                   /* if (result){
+                        //Raise the notification
+                        [[NSNotificationCenter defaultCenter]
+                         postNotificationName:kAzureAirportDiningBackgroundsTableName
+                         object:result];
+                    }*/
                     
                     
                 }

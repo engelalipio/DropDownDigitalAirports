@@ -6,7 +6,7 @@
 //Providers
 
 
-
+#define kImageDownloadDiningNotifications     @"Airport.Images.Download.Notification.Dining"
 
 #define ProjectOxfordFaceSubscriptionKey  @"a5d41fea7c804f46baff41653dd81f10"
 #define ComputerVisionSubscriptionKey @"fc0a1a92167d4769a7842721df0d776b"

@@ -3449,19 +3449,19 @@ Cg
         <image name="treatment_plan-100.png" width="100" height="100"/>
         <image name="weather-256.png" width="256" height="256"/>
         <image name="weather-32.png" width="32" height="32"/>
-        <image name="your_ad_here_banner.jpg" width="768" height="60"/>
+        <image name="your_ad_here_banner.jpg" width="765" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jae-ms-EYb"/>
-        <segue reference="zEC-4U-h7j"/>
         <segue reference="VUB-hd-5ET"/>
-        <segue reference="KMJ-xx-IwF"/>
-        <segue reference="74s-xb-a1G"/>
-        <segue reference="OPI-6w-qjA"/>
+        <segue reference="0iv-O6-VKS"/>
         <segue reference="tJP-0D-Tol"/>
+        <segue reference="OPI-6w-qjA"/>
+        <segue reference="zEC-4U-h7j"/>
+        <segue reference="KMJ-xx-IwF"/>
         <segue reference="zRY-xX-kr3"/>
         <segue reference="aze-Na-iDU"/>
-        <segue reference="S76-n6-MOA"/>
+        <segue reference="Jae-ms-EYb"/>
+        <segue reference="uaT-oU-rqu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 
 @implementation Utilities
+ 
 
 +(void) setParseImageView:(NSArray *) imageSourceArray anyIndex:(NSInteger) imageIndex tableCell:(UIImageView *) anyView{
     
@@ -150,6 +151,7 @@
             
             NSLog(@"setParseImageCell->setting Azure Storage Image -> %@ to UITableViewCell", imageName);
             if (message){
+                
                 
                 NSURL *imageURL = [[NSURL alloc] initWithString:message];
                 

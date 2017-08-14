@@ -78,6 +78,9 @@ typedef int OrderTypeSelection;
 @property (strong, nonatomic) NSArray  *missingPersonbackgrounds;
 @property (strong, nonatomic)  UIImage *missingPersonImage;
 
+@property (strong, nonatomic) NSURLSession *urlSession;
+@property (strong, nonatomic) NSUserDefaults *userSettings;
+
 @property (nonatomic) Reachability *hostReachability;
 @property (nonatomic) Reachability *internetReachability;
 
@@ -89,7 +92,7 @@ typedef int OrderTypeSelection;
 -(void) retrieveAirportInfo;
 -(void) retrieveAirportFIDSArrivals;
 -(void) retrieveAirportFIDSDepartures;
-
+-(void) downloadRestaurantImage:(NSIndexPath *) imageDetails;
 @end
 
 
