@@ -49,9 +49,9 @@
     self.btnMenu  = self.splitViewController.displayModeButtonItem;
     [self.navigationItem setLeftBarButtonItem:self.btnMenu];
  
-    /*[self loadSafari];
+    //[self loadSafari];
     [self loadWebView];
-    return;*/
+    return;
     
     [self.imageMap.layer setCornerRadius:5.0f];
     [self.imageMap.layer setMasksToBounds:YES];
@@ -95,14 +95,27 @@
 -(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     
     BOOL result   = NO,
-    isHidden = NO;
+         isHidden = NO;
     
     NSString *message= @"";
     
+    SFSafariViewController *safariVC = nil;
+    
     @try {
         if (request != nil){
-            
-            result = YES;
+            if (navigationType == UIWebViewNavigationTypeLinkClicked){
+             
+                safariVC = [[SFSafariViewController alloc] initWithURL:request.URL entersReaderIfAvailable:NO];
+                
+                if (safariVC){
+                    [safariVC setDelegate:self];
+                    [self presentViewController:safariVC animated:YES completion:nil];
+                }
+                
+            }else{
+                result = YES;
+            }
+
             message = [NSString stringWithFormat:@"shouldStartLoadWithRequest for %@",request.URL.description];
         }
     }

@@ -3516,36 +3516,41 @@ Please click on the 'Menu' button to view new settings.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stepper hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="0.5" maximumValue="3" stepValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="JMk-xs-CiQ">
-                                <rect key="frame" x="300" y="17" width="94" height="29"/>
+                                <rect key="frame" x="654" y="14" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stepper>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MIA_Gates.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-oF-kLg">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="903"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="903" id="LDX-Mz-nHA"/>
-                                    <constraint firstAttribute="width" constant="768" id="hTE-RH-siF"/>
-                                </constraints>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BWIlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-oF-kLg">
+                                <rect key="frame" x="223" y="397" width="323" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFy-FH-nZe">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Xc7-oF-kLg" secondAttribute="trailing" id="DLv-oE-aop"/>
-                            <constraint firstItem="Xc7-oF-kLg" firstAttribute="top" secondItem="oSP-97-uhK" secondAttribute="topMargin" constant="64" id="H5j-49-tXu"/>
-                            <constraint firstItem="Xc7-oF-kLg" firstAttribute="leading" secondItem="oSP-97-uhK" secondAttribute="leading" id="RwB-pg-T1B"/>
-                        </constraints>
                     </scrollView>
-                    <navigationItem key="navigationItem" title="Airport Map" id="qcW-GX-Jnj">
+                    <navigationItem key="navigationItem" title="Explore BWI" id="qcW-GX-Jnj">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="gtJ-ZU-wT4">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="doneAction:" destination="EHi-a9-csk" id="dfA-bg-cz4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Scg-US-lA2">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="actionPrint:" destination="EHi-a9-csk" id="gSH-Vv-hGR"/>
+                                <action selector="actionPrint:" destination="EHi-a9-csk" id="0Y0-sw-aDg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="btnOrientation" destination="Scg-US-lA2" id="gpn-2H-5Dq"/>
-                        <outlet property="btnPrint" destination="Scg-US-lA2" id="vKy-n9-JZa"/>
+                        <outlet property="btnDone" destination="gtJ-ZU-wT4" id="Y7n-q3-PGk"/>
+                        <outlet property="btnPrint" destination="Scg-US-lA2" id="447-mv-f0K"/>
+                        <outlet property="imageMap" destination="Xc7-oF-kLg" id="kYu-38-asF"/>
+                        <outlet property="webView" destination="LFy-FH-nZe" id="hbx-WJ-bfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khS-5S-RWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3964,7 +3969,6 @@ Please click on the 'Menu' button to view new settings.</string>
         <image name="Limo_0.png" width="200" height="84"/>
         <image name="Limos.jpg" width="700" height="500"/>
         <image name="Location_0.jpg" width="700" height="500"/>
-        <image name="MIA_Gates.jpg" width="700" height="942"/>
         <image name="Map.gif" width="240" height="68"/>
         <image name="MissingPerson.jpg" width="700" height="500"/>
         <image name="Online.png" width="30" height="30"/>
@@ -4008,7 +4012,7 @@ Please click on the 'Menu' button to view new settings.</string>
         <image name="treatment_plan-100.png" width="100" height="100"/>
         <image name="weather-256.png" width="256" height="256"/>
         <image name="weather-32.png" width="32" height="32"/>
-        <image name="your_ad_here_banner.jpg" width="768" height="60"/>
+        <image name="your_ad_here_banner.jpg" width="765" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VUB-hd-5ET"/>

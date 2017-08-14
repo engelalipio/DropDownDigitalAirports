@@ -881,8 +881,11 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         indexPath = [NSIndexPath indexPathForRow:randomSection inSection:0];
         
         indexSet = [[NSIndexSet alloc] initWithIndex:randomSection];
+      
         
-        [self.tableView beginUpdates];
+        //TODO remove reuturn if anymation
+        return ;
+       [self.tableView beginUpdates];
         
         images = [[NSArray alloc] initWithObjects:indexPath, nil];
         

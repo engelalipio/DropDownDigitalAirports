@@ -655,6 +655,8 @@
 		ACA46AAA1F24F47500230B49 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */; };
 		ACAE99E61F3CF99F0013AF0D /* Services_15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */; };
 		ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E71F3CFF570013AF0D /* Services_16.jpg */; };
+		ACAE99ED1F41EE910013AF0D /* icons8-motherboard.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */; };
+		ACAE99EF1F41EED60013AF0D /* icons8-tree_structure_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99EE1F41EED60013AF0D /* icons8-tree_structure_filled.png */; };
 		ACB3A44A1E5361D8007ADD95 /* TaxiService.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */; };
 		ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */; };
 		ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A44E1E536D65007ADD95 /* Airport.m */; };
@@ -1444,6 +1446,8 @@
 		ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_15.jpg; sourceTree = "<group>"; };
 		ACAE99E71F3CFF570013AF0D /* Services_16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_16.jpg; sourceTree = "<group>"; };
+		ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-motherboard.png"; sourceTree = "<group>"; };
+		ACAE99EE1F41EED60013AF0D /* icons8-tree_structure_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-tree_structure_filled.png"; sourceTree = "<group>"; };
 		ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TaxiService.jpeg; sourceTree = "<group>"; };
 		ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PublicTransportation.jpeg; sourceTree = "<group>"; };
 		ACB3A44D1E536D65007ADD95 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
@@ -1818,6 +1822,7 @@
 				AAE68AED1B59F1E500DA7A53 /* pizza-100.png */,
 				AAE68AEB1B59F1DA00DA7A53 /* noodles-100.png */,
 				AAE68AE91B59F1C900DA7A53 /* taco-100.png */,
+				ACAE99EE1F41EED60013AF0D /* icons8-tree_structure_filled.png */,
 				AAE68AE71B59F1C000DA7A53 /* wrap-100.png */,
 				AAE68AE51B59F1AF00DA7A53 /* french_fries-100.png */,
 				AAE68AE31B59F1A400DA7A53 /* hamburger-100.png */,
@@ -1885,6 +1890,7 @@
 				AAD93DF11B478120009B354B /* food-100.png */,
 				AAD93DEF1B4780A4009B354B /* wine-100.png */,
 				AAD93DED1B477E84009B354B /* restaurant-100.png */,
+				ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */,
 				AAD93DB81B471C0B009B354B /* temperature-100.png */,
 				AAD93DBA1B471C4C009B354B /* temperature_filled-100.png */,
 				AAD93DB61B4719C4009B354B /* air_element-100.png */,
@@ -3349,6 +3355,7 @@
 				AA8542311C83C085009E1441 /* Icon-167.png in Resources */,
 				AAE68B3E1B5AC9F100DA7A53 /* AmericanFood_2.png in Resources */,
 				AA8FA9451B2A70BD003E79B4 /* Icon@2x.png in Resources */,
+				ACAE99ED1F41EE910013AF0D /* icons8-motherboard.png in Resources */,
 				AAD93DE41B476A84009B354B /* Italian_4.png in Resources */,
 				ACF06C671F3B9A890098261F /* icons8-adventure_filled.png in Resources */,
 				0FCAD8E41A3E1A2300BE42E5 /* FRENCH.png in Resources */,
@@ -3443,6 +3450,7 @@
 				0FF46D9819F8901300E51218 /* restaurant-50.png in Resources */,
 				AAD93DF61B48281A009B354B /* average_2-100.png in Resources */,
 				AA88508C1B44B69700ACB7F7 /* sun-100.png in Resources */,
+				ACAE99EF1F41EED60013AF0D /* icons8-tree_structure_filled.png in Resources */,
 				AA88508E1B44BC6800ACB7F7 /* thermometer_automation-100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
