@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SurveyMonkeyiOSSDK/SurveyMonkeyiOSSDK.h>
 
-@interface ProvidedByViewController : UIViewController<UIWebViewDelegate>
+@interface ProvidedByViewController : UIViewController<UIWebViewDelegate,SMFeedbackDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UINavigationItem *providedNav;
 @property (strong, nonatomic) IBOutlet UIImageView *providedImage;
+@property (nonatomic, strong) SMFeedbackViewController * feedbackController;
 
-
-
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue;
 @end

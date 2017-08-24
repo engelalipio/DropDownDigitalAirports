@@ -674,8 +674,8 @@
     NSURL  *url= nil;
     
     NSString *currentName = @"",
-    *message= @"",
-    *launchURL = @"";
+             *message= @"",
+             *launchURL = @"";
     
     @try {
         

@@ -23,6 +23,7 @@
 
 @implementation ProvidedByViewController
 
+@synthesize feedbackController = _feedbackController;
 
 #pragma -mark Web View Methods
 
@@ -181,6 +182,37 @@
     
 }
 
+
+- (void)respondentDidEndSurvey:(SMRespondent *)respondent error:(NSError *) error {
+    if (respondent != nil) {
+        SMQuestionResponse * questionResponse = respondent.questionResponses[0];
+        NSString * questionID = questionResponse.questionID;
+    }
+    else {
+        NSLog(@"%@", error.description);
+    }
+    
+    [self.providedImage setImage:[UIImage imageNamed:@"BWIlogo.png"]];
+    
+    
+    _feedbackController = nil;
+    
+    [self performSegueWithIdentifier:@"segUnload" sender:self];
+    
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+
+    if (! _feedbackController){
+        _feedbackController = [[SMFeedbackViewController alloc] initWithSurvey:SurveyKey ];
+        [_feedbackController setDelegate:self];
+        [_feedbackController presentFromViewController:self animated:YES completion:nil];
+    }
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -188,7 +220,8 @@
     baseURL = @"http://dropdowndigitalmenuswp.azurewebsites.net/example-survey/"; //@"http://DigitalWorldInternational.Com/Home/Contact";
     NSString *title = @"App Created By Digital World International\n";
     [self.navigationItem setTitleView:[self getSpecialTitleView:title]];
-    [self initWebView];
+    
+    //[self initWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -201,6 +234,26 @@
 - (IBAction)backAction:(UIButton *)sender {
     
     [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    NSString *message = @"";
+    
+    @try {
+        message = @"Unwinding...";
+    }
+    @catch (NSException *exception) {
+        message = exception.debugDescription;
+    }
+    @finally {
+        if (message.length > 0){
+            NSLog(@"prepareForUnwind->%@",message);
+        }
+        message = @"";
+    }
+    
+    
 }
 
 @end

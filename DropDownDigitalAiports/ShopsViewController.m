@@ -18,7 +18,7 @@
     
     UIImageView *selectedImageView;
         NSArray *shops,
-                        *gifts;
+                *gifts;
 }
 -(void) checkOrderCount;
 -(void) initTableView;
@@ -613,30 +613,30 @@
          */
         
         NSArray *cuisines = [[NSArray alloc] initWithObjects:@"Fashionable Accessories\n & Clothing", @"Fragrances",
-                                                                                              @"Fashionable Accessories\n & Clothing", @"Menswear",
-                                                                                              @"Fashionable Accessories\n & Clothing" , @"Luxury Leather\n Accessories",
-                                                                                              @"Fashionable Accessories", @"Women’s Accessories", @"Designer Fashion",  nil],
+                                                             @"Fashionable Accessories\n & Clothing", @"Menswear",
+                                                             @"Fashionable Accessories\n & Clothing" , @"Luxury Leather\n Accessories",
+                                                             @"Fashionable Accessories", @"Women’s Accessories", @"Designer Fashion",  nil],
         
                        *cuisinesImages = [[NSArray alloc] initWithObjects:@"coat-50.png", @"perfume_bottle-100.png", @"wallet_filled-50.png",
-                                                                                                          @"jacket-100.png",@"glasses_filled-50.png" ,@"shopping_bag-100.png",
-                                                                                                          @"womens_shoe-100.png",@"shopping_bag_filled-100.png", @"market_square_filled-100.png",nil],
+                                                                          @"jacket-100.png",@"glasses_filled-50.png" ,@"shopping_bag-100.png",
+                                                                          @"womens_shoe-100.png",@"shopping_bag_filled-100.png", @"market_square_filled-100.png",nil],
         
                         *clothes = [[NSArray alloc] initWithObjects:@"Neck Ties", @"Jackets", @"T-Shirts", @"Trousers", @"Hats" , nil],
         
                         *clothesImages = [[NSArray alloc] initWithObjects:@"tie_filled-100.png",@"jacket-100.png", @"t_shirt-100.png",
-                                                                                                          @"trousers-100.png",@"baseball_cap-100.png",nil],
+                                                                          @"trousers-100.png",@"baseball_cap-100.png",nil],
         
                         *skin = [[NSArray alloc] initWithObjects:@"Make Up", @"Moisturizers", @"Beauty", @"Perfumes",  nil],
         
                         *skinImages = [[NSArray alloc] initWithObjects:@"costmetic_brush-100.png" @"cream_tube-100.png",
-                                                                                                          @"mirror-100.png",@"perfum_bottle_filled-100.png",nil],
+                                                                       @"mirror-100.png",@"perfum_bottle_filled-100.png",nil],
         
-                    *giftTypes =[[NSArray alloc] initWithObjects:@"Chocolates", @"News & Events", @"Magazines",@"Skin Care" ,@"Gadgets", @"Smart Shop",nil],
+                        *giftTypes =[[NSArray alloc] initWithObjects:@"Chocolates", @"News & Events", @"Magazines",@"Skin Care" ,@"Gadgets", @"Smart Shop",nil],
         
-                    *giftImages = [[NSArray alloc] initWithObjects:@"macaron-100.png", @"news-100.png", @"news-100.png",
-                                                                                                @"cosmetic_brush-100.png" ,@"electro_devices_filled-100.png",@"idea-100.png",nil],
+                        *giftImages = [[NSArray alloc] initWithObjects:@"macaron-100.png", @"news-100.png", @"news-100.png",
+                                                                   @"cosmetic_brush-100.png" ,@"electro_devices_filled-100.png",@"idea-100.png",nil],
         
-                       *ratings  = [[NSArray alloc] initWithObjects:@"Online Pay", @"InStore Pay", nil];
+                        *ratings  = [[NSArray alloc] initWithObjects:@"Online Pay", @"InStore Pay", nil];
         
         NSInteger cuisineId = indexPath.row,
                          giftId      = indexPath.row,

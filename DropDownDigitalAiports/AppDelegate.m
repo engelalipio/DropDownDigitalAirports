@@ -12,6 +12,8 @@
 #import "NetworkAPISingleClient+Airport.h"
 #import "DataModels.h"
 
+
+
 @interface AppDelegate ()
 
 @end
@@ -500,6 +502,7 @@
                     categories:nil];
         
         if (settings){
+         
             [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
             [[UIApplication sharedApplication] registerForRemoteNotifications];
         }
@@ -1043,7 +1046,13 @@
         
         if (query){
             
-            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportHotels"]];
+            NSString *hotelFilter = @"AirportHotels";
+            
+            if ([_airportCode isEqualToString:@"BWI"]){
+           //     hotelFilter = [NSString stringWithFormat:@"%@_Hotels",_airportCode];
+            }
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,hotelFilter]];
             
             query = [menuTable queryWithPredicate:tableFilter];
             
@@ -1171,6 +1180,41 @@
 
 #pragma mark -APNS Notifications
 
+
+
+- (void)userNotificationCenter:(UNUserNotificationCenter* )center willPresentNotification:(UNNotification* )notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    NSLog(@"Here handle push notification in foreground" );
+          //For notification Banner - when app in foreground
+          
+          completionHandler(UNNotificationPresentationOptionAlert);
+          
+          // Print Notification info
+          NSLog(@"Userinfo %@",notification.request.content.userInfo);
+}
+
+-(void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+    NSString *message = @"";
+    @try{
+        
+        
+        if (notification){
+            message = [NSString stringWithFormat:@"didReceiveRemoteNotification:For->%@",notification];
+            [MSAnalytics trackEvent:message];
+        }
+        
+    }
+    @catch(NSException *exception){
+        message = [NSString stringWithFormat:@"didReceiveRemoteNotification:Error->%@",exception.description];
+        [MSAnalytics trackEvent:message];
+    }
+    @finally{
+        message = @"";
+    }
+    
+}
+
 -(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     NSString *message = @"";
     @try{
@@ -1188,6 +1232,10 @@
     @finally{
         message = @"";
     }
+}
+
+-(void) application:(UIApplication *) application didRegisterUserNotificationSettings:(nonnull UIUserNotificationSettings *)notificationSettings{
+    
 }
 
 -(void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{

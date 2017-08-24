@@ -15,6 +15,7 @@
 @import MobileCenter;
 @import MobileCenterAnalytics;
 @import MobileCenterCrashes;
+@import UserNotifications;
 //@import MobileCenterDistribute;
 
 enum OrderType {
@@ -26,7 +27,7 @@ enum OrderType {
 
 typedef int OrderTypeSelection;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,CLLocationManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,CLLocationManagerDelegate,UNUserNotificationCenterDelegate>
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (assign,nonatomic) Boolean isDynamic;
 

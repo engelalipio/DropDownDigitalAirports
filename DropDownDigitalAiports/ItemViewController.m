@@ -12,6 +12,7 @@
 #import "DiningViewController.h"
 #import "GroundTransportationViewController.h"
 #import "itemModel.h"
+@import UserNotifications;
 
 @interface ItemViewController ()
 {
@@ -302,6 +303,115 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(void) showTrackConfirmation{
+    UIAlertController *alert = nil;
+    UIAlertAction *okAction = nil,
+                  *cancelAction = nil;
+    
+    @try {
+        
+ 
+            alert = [UIAlertController alertControllerWithTitle:@"Track Flight Status"
+                                                        message:@"Would You Like to Receive Notifications About This Flight?"
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+            
+            okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                style:UIAlertActionStyleDefault
+                                              handler:^(UIAlertAction *anyAction){
+                                                  [self trackFlight];
+                                              }];
+        
+        cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                            style:UIAlertActionStyleDefault
+                                          handler:nil];
+        
+            [alert addAction:okAction];
+            [alert addAction:cancelAction];
+        
+        
+        id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        if([rootViewController isKindOfClass:[UINavigationController class]])
+        {
+            rootViewController = ((UINavigationController *)rootViewController).viewControllers.firstObject;
+        }
+        if([rootViewController isKindOfClass:[UITabBarController class]])
+        {
+            rootViewController = ((UITabBarController *)rootViewController).selectedViewController;
+        }
+        
+        if (! appDelegate.isiPhone){
+         [rootViewController presentViewController:alert animated:YES completion:nil];
+        }else{
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }
+      
+        
+        
+    } @catch (NSException *exception) {
+        [self trackFlight];
+    } @finally {
+        alert = nil;
+        okAction = nil;
+    }
+
+}
+
+-(void) trackFlight{
+    UNMutableNotificationContent *content = nil;
+    UNTimeIntervalNotificationTrigger *trigger = nil;
+    UNNotificationRequest *request = nil;
+    UNUserNotificationCenter *center = nil;
+    
+ 
+    
+    @try {
+        
+        
+    
+        content = [[UNMutableNotificationContent alloc] init];
+        
+        content.title = [NSString localizedUserNotificationStringForKey:@"BWI Flight Tracking" arguments:nil];
+        content.body = [NSString localizedUserNotificationStringForKey:self.FlightValue.text
+                                                             arguments:nil];
+        
+        content.sound = [UNNotificationSound defaultSound];
+        
+        // Deliver the notification in five seconds.
+        trigger = [UNTimeIntervalNotificationTrigger
+                   triggerWithTimeInterval:20 repeats:NO];
+        request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
+                                                       content:content
+                                                       trigger:trigger];
+        
+        // Schedule the notification.
+        center = [UNUserNotificationCenter currentNotificationCenter];
+        [center setDelegate:appDelegate];
+        [center addNotificationRequest:request withCompletionHandler:^(NSError *error){
+            
+            if (error){
+                NSLog(@"%@",error.description);
+            }
+        }];
+        
+        [self.instructionsLabel setText:@"Flight Successfully Tracked"];
+        
+    } @catch (NSException *exception) {
+        
+        NSLog(@"%@",exception.description);
+        
+    } @finally {
+        content = nil;
+    }
+
+}
+
+- (IBAction)trackAction:(UIButton *)sender {
+    [self showTrackConfirmation];
+    
+}
 
 - (IBAction)cancelOrder:(UIButton *)sender {
     [self stopTimer];

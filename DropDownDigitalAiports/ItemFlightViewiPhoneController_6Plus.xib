@@ -29,6 +29,7 @@
                 <outlet property="imageView" destination="MYk-H7-aaR" id="7FS-IO-WvB"/>
                 <outlet property="instructionsLabel" destination="h0a-rq-6gU" id="Mpb-3H-Sdi"/>
                 <outlet property="labelDescription" destination="vgn-h7-Fqn" id="Wef-1W-Zu7"/>
+                <outlet property="trackButton" destination="kbh-M5-ID2" id="lcm-aM-zuN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherIMGView" destination="jBh-XC-8OI" id="uzF-8p-Yxy"/>
             </connections>
@@ -196,6 +197,19 @@ Gate:</string>
                     <color key="textColor" red="0.99825239181518555" green="0.91959869861602783" blue="0.77015537023544312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbh-M5-ID2">
+                    <rect key="frame" x="302" y="372" width="112" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                    <state key="normal" title="Track Flight">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="trackAction:" destination="-1" eventType="touchUpInside" id="6tF-fg-Rdz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="545" y="497"/>

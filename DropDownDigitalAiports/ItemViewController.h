@@ -41,6 +41,8 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *trackButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *FlightLabel;
 @property (strong, nonatomic) IBOutlet UILabel *FlightValue;
 
@@ -64,6 +66,9 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet UILabel  *rndLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *rndImage;
+
+- (IBAction)trackAction:(UIButton *)sender;
+
 
 - (IBAction)cancelOrder:(UIButton *)sender;
 

@@ -6,6 +6,10 @@
 //Providers
 
 
+#define SurveyKey @"RNSHPFL"
+
+#define kGoogleMapsAPIKey @"AIzaSyCtxfFL5Zpeis_PHRX8h5VOcM5LvQasd04"
+
 #define kImageDownloadDiningNotifications     @"Airport.Images.Download.Notification.Dining"
 
 #define ProjectOxfordFaceSubscriptionKey  @"a5d41fea7c804f46baff41653dd81f10"

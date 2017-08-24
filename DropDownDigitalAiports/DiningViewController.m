@@ -12,12 +12,18 @@
 #import "AppDelegate.h"
 
 @interface DiningViewController(){
+    
     AppDelegate *appDelegate;
+    
     UIImageView *selectedImageView;
+    
     NSString *selectedRestaurant ;
+    
     NSArray *restaurants ,
             *toGo,
-            *foodCourt;
+            *foodCourt,
+            *shops,
+            *gifts;
 
 }
 -(void) checkOrderCount;
@@ -362,17 +368,29 @@
                            @"Tapastre",@"Cafe Prague",nil];*/
             
             restaurants = [[NSArray alloc] initWithObjects:@"Andaluca" ,@"BRIO", @"Cafe Prague",@"Carbone Ristorante Italiano",@"Chart House",
-                                                                                       @"Orsay",@"SkyLine Terrace", @"Tapastre",@"Terra Bistro",nil];
+                                                           @"Orsay",@"SkyLine Terrace", @"Tapastre",@"Terra Bistro",nil];
         }
         
         if (! toGo){
             toGo= [[NSArray alloc] initWithObjects:@"Arby's", @"Ben & Jerry's", @"Chipotle",@"Dunkin' Donuts",@"Moe's",
-                                                                            @"Peet's Coffee & Tea",@"StarBucks",@"Tijuana Flats",@"Wendy's",nil];
+                                                   @"Peet's Coffee & Tea",@"StarBucks",@"Tijuana Flats",@"Wendy's",nil];
         }
         
         if (! foodCourt){
             foodCourt = [[NSArray alloc] initWithObjects:@"Au Bon Pain",@"Burger King", @"Curry Kitchen",@"KFC",
-                                                                                      @"Mc Donald's",@"SBarro",@"Subway",@"Taco Bell",@"Wok Box",nil];
+                                                         @"Mc Donald's",@"SBarro",@"Subway",@"Taco Bell",@"Wok Box",nil];
+        }
+        
+        if (! shops){
+            shops = [[NSArray alloc] initWithObjects: @"Burberry",@"Chanel",@"Coach", @"Emporio Armani",
+                                                      @"Gucci", @"LongChamp",@"Louis Vuitton", @"Michael Kors",  @"Prada", nil];
+            
+        }
+        
+        if (! gifts){
+            gifts = [[NSArray alloc] initWithObjects: @"Chocolate La Maison - Chocolates",@"Hudson News - News & Events",@"La Relay - Magazines",
+                                                      @"Loccitane - Skin Care",@"Le Brookstone - Gadgets", @"News CNBC - Smart Shop", nil];
+            
         }
         
         if (! self.tableView){
@@ -422,9 +440,15 @@
         case 1:
             [header setText:@"Meals to Go"];
             break;
-        default:
+        case 2:
             [header setText:@"The Food Court"];
             break;
+        case 3:
+            [header setText:@"Shopping"];
+            break;
+        case 4:
+            [header setText:@"Concessions & Gift Stores"];
+            
     }
     return header;
 }
@@ -440,8 +464,14 @@
         case 1:
             sectionId = toGo.count;
             break;
-        default:
+        case 2:
             sectionId = foodCourt.count;
+            break;
+        case 3:
+            sectionId = shops.count;
+            break;
+        case 4:
+            sectionId = gifts.count;
             break;
     }
     return  sectionId;
@@ -466,22 +496,22 @@
     NSArray *Terminals = [[NSArray alloc] initWithObjects:@"N", @"C",  @"S", nil],
     
                     *cuisines = [[NSArray alloc] initWithObjects: @"Mexican", @"American", @"Thai",
-                                                                                            @"Italian",@"French", @"Sushi",@"Irish",
-                                                                                            @"Spanish", @"American",nil],
+                                                                  @"Italian",@"French", @"Sushi",@"Irish",
+                                                                  @"Spanish", @"American",nil],
     
                     *toGos = [[NSArray alloc] initWithObjects: @"Burgers & Fries", @"Ice Cream", @"Tacos",
-                                                                                            @"Donuts",@"Burritos", @"Coffee & Tea",@"Coffee",
-                                                                                            @"Chimichangas", @"Burgers & Fries",nil],
+                                                               @"Donuts",@"Burritos", @"Coffee & Tea",@"Coffee",
+                                                               @"Chimichangas", @"Burgers & Fries",nil],
 
     
                     *courts = [[NSArray alloc] initWithObjects: @"French Bakery", @"American Food", @"Indian Food",
-                                                                                            @"Southern Cooking",@"American Food", @"NY Style Pizza",@"Sandwiches",
-                                                                                            @"Mexican Food", @"Chinese Food",nil];
+                                                                @"Southern Cooking",@"American Food", @"NY Style Pizza",@"Sandwiches",
+                                                                @"Mexican Food", @"Chinese Food",nil];
     
     
     NSInteger terminalId = arc4random_uniform(Terminals.count),
-                     gateId = arc4random_uniform(50),
-                    imageId = 1;
+              gateId = arc4random_uniform(50),
+              imageId = 1;
     
     BOOL isParse = NO;
     
@@ -529,7 +559,7 @@
             
             break;
             
-        default:
+        case 2:
                 restaurantImageNameFormat = @"FoodCourt_%d.jpg",
                 restaurantName = [foodCourt objectAtIndex:indexPath.row];
                 cuisine = [courts objectAtIndex:indexPath.row];
@@ -537,18 +567,38 @@
             isParse = YES;
             
             if (isParse) {
-                
-
-                
+            
                 [Utilities setParseImageCell:appDelegate.foodcourtbackgrounds anyIndex:indexPath.row tableCell:cell];
             }
+            break;
+        case 3:
+            
+            restaurantName = [shops objectAtIndex:indexPath.row];
+            isParse = YES;
+            
+            if (isParse) {
+                
+                UIImage *cellImage = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:indexPath.row];
+                
+                [cell.imageView setImage:cellImage];
+            }
+            
+            break;
+        case 4:
+            restaurantImageNameFormat = @"GiftStore_%d.jpg";
+            restaurantName = [gifts objectAtIndex:indexPath.row];
             break;
     }
    restaurantImageName = [NSString stringWithFormat:restaurantImageNameFormat,imageId];
     
     terminal = [NSString stringWithFormat:@"%@",terminal];
     finalLocation = [NSString stringWithFormat:locationFormat, terminal,gateId];
+    if (indexPath.section < 3){
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ - %@",restaurantName,cuisine]];
+    }
+    else{
+        [cell.textLabel setText:restaurantName];
+    }
     [cell.detailTextLabel setText:finalLocation];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     cell.accessoryView.tintColor = [UIColor whiteColor];
@@ -560,7 +610,10 @@
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *message   = @"";
+    
+    NSString *message                   = @"",
+             *restaurantImageNameFormat = @"",
+             *restaurantImageName       = @"";
     @try {
         
         if (cell){
@@ -574,11 +627,21 @@
                     break;
                     
                 case 1:
-                        [Utilities setParseImageCell:appDelegate.foodtogobackgrounds anyIndex:indexPath.row tableCell:cell];
+                    [Utilities setParseImageCell:appDelegate.foodtogobackgrounds anyIndex:indexPath.row tableCell:cell];
                     break;
                 
                 case 2:
                     [Utilities setParseImageCell:appDelegate.foodcourtbackgrounds anyIndex:indexPath.row tableCell:cell];
+                    break;
+                case 3:
+                      [Utilities setParseImageCell:appDelegate.shopsbackgrounds anyIndex:indexPath.row tableCell:cell];
+                    break;
+                    
+                case 4:
+                    
+                     restaurantImageNameFormat = @"GiftStore_%d.jpg",
+                     restaurantImageName = [NSString stringWithFormat:restaurantImageNameFormat,indexPath.row];
+                     [cell.imageView setImage:[UIImage imageNamed:restaurantImageName]];
                     break;
             }
             
@@ -688,8 +751,9 @@
     
     [self presentViewController:item animated:YES completion:^(void) {
         
-        NSString *rndFoodImgFormat = @"Food_%d.png",
-                        *rndFoodImgName  = @"";
+        NSString *rndFoodImgFormat       = @"Food_%d.png",
+                 *rndFoodImgFormatToo    = @"AirportShops_X_%d.jpg",
+                 *rndFoodImgName         = @"";
         
         NSInteger rndFoodImgId = arc4random_uniform(13);
         
@@ -715,28 +779,61 @@
 
      
         
-        NSArray *cuisines = [[NSArray alloc] initWithObjects: @"American", @"Steakhouse", @"Chinese", @"Seafood", @"Italian",@"Burgers and Fries",@"Latin", @"Thai",@"Mexican", nil],
-                       *prices    = [[NSArray alloc] initWithObjects:@"$", @"$$", @"$$$", @"$$$$", nil],
-                        *ratings   =  [[NSArray alloc] initWithObjects:@"**", @"***", @"****", @"*****", nil],
+        NSArray *cuisines = [[NSArray alloc] initWithObjects: @"American", @"Steakhouse", @"Chinese", @"Seafood",
+                                                              @"Italian",@"Burgers and Fries",@"Latin", @"Thai",@"Mexican", nil],
+                *prices    = [[NSArray alloc] initWithObjects:@"$", @"$$", @"$$$", @"$$$$", nil],
+                *ratings   = [[NSArray alloc] initWithObjects:@"**", @"***", @"****", @"*****", nil],
+                *toGoImgs  = [[NSArray alloc] initWithObjects:@"hamburger-100.png", @"ice_cream_cone-100.png", @"taco-100.png",
+                                                              @"doughnut-100.png",@"wrap-100.png", @"tea-100.png",@"coffee_to_go-100.png",
+                                                              @"wrap-100.png", @"french_fries-100.png",nil],
+                *courtImgs = [[NSArray alloc] initWithObjects:@"bread-100.png", @"hamburger-100.png", @"chili_pepper-100.png",
+                                                              @"cook-100.png",@"french_fries-100.png", @"pizza-100.png",@"hot_dog-100.png",
+                                                              @"taco-100.png", @"noodles-100.png",nil];
         
-        *toGoImgs = [[NSArray alloc] initWithObjects: @"hamburger-100.png", @"ice_cream_cone-100.png", @"taco-100.png",
-                     @"doughnut-100.png",@"wrap-100.png", @"tea-100.png",@"coffee_to_go-100.png",
-                     @"wrap-100.png", @"french_fries-100.png",nil],
- 
-        *courtImgs = [[NSArray alloc] initWithObjects: @"bread-100.png", @"hamburger-100.png", @"chili_pepper-100.png",
-                                        @"cook-100.png",@"french_fries-100.png", @"pizza-100.png",@"hot_dog-100.png",
-                            @"taco-100.png", @"noodles-100.png",nil];
         
         
-        NSInteger cuisineId = arc4random_uniform(cuisines.count),
-                         priceId     = arc4random_uniform(prices.count),
-                         rateId      = arc4random_uniform(ratings.count);
+        NSArray *shopsTypes = [[NSArray alloc] initWithObjects:@"Fashionable Accessories\n & Clothing", @"Fragrances",
+                             @"Fashionable Accessories\n & Clothing", @"Menswear",
+                             @"Fashionable Accessories\n & Clothing" , @"Luxury Leather\n Accessories",
+                             @"Fashionable Accessories", @"Women’s Accessories", @"Designer Fashion",  nil],
+        
+                *shopImages = [[NSArray alloc] initWithObjects:@"coat-50.png", @"perfume_bottle-100.png", @"wallet_filled-50.png",
+                             @"jacket-100.png",@"glasses_filled-50.png" ,@"shopping_bag-100.png",
+                             @"womens_shoe-100.png",@"shopping_bag_filled-100.png", @"market_square_filled-100.png",nil],
+        
+        *clothes = [[NSArray alloc] initWithObjects:@"Neck Ties", @"Jackets", @"T-Shirts", @"Trousers", @"Hats" , nil],
+        
+        *clothesImages = [[NSArray alloc] initWithObjects:@"tie_filled-100.png",@"jacket-100.png", @"t_shirt-100.png",
+                          @"trousers-100.png",@"baseball_cap-100.png",nil],
+        
+        *skin = [[NSArray alloc] initWithObjects:@"Make Up", @"Moisturizers", @"Beauty", @"Perfumes",  nil],
+        
+        *skinImages = [[NSArray alloc] initWithObjects:@"costmetic_brush-100.png" @"cream_tube-100.png",
+                       @"mirror-100.png",@"perfum_bottle_filled-100.png",nil],
+        
+        *giftTypes =[[NSArray alloc] initWithObjects:@"Chocolates", @"News & Events", @"Magazines",@"Skin Care" ,@"Gadgets", @"Smart Shop",nil],
+        
+        *giftImages = [[NSArray alloc] initWithObjects:@"macaron-100.png", @"news-100.png", @"news-100.png",
+                       @"cosmetic_brush-100.png" ,@"electro_devices_filled-100.png",@"idea-100.png",nil];
+        
+       // *ratings  = [[NSArray alloc] initWithObjects:@"Online Pay", @"InStore Pay", nil];
+        
+        
+        NSInteger cuisineId  = arc4random_uniform(cuisines.count),
+                  shopsid    = arc4random_uniform(shops.count),
+                  clothesid  = arc4random_uniform(clothes.count),
+                  priceId    = arc4random_uniform(prices.count),
+                  giftid     = arc4random_uniform(giftTypes.count),
+                  rateId     = arc4random_uniform(ratings.count);
         
         NSString *cuisine = [cuisines objectAtIndex:cuisineId],
-                        *price = [prices objectAtIndex:priceId],
-                        *rating = [ratings objectAtIndex:rateId],
-                        *hours  = @"Monday to Sunday 10 AM - 9 PM",
-                        *site    = @"";
+                 *clothe  = [clothes objectAtIndex:clothesid],
+                 *gift    = [giftTypes objectAtIndex:giftid],
+                 *price   = [prices objectAtIndex:priceId],
+                 *rating  = [ratings objectAtIndex:rateId],
+                 *shop    = [shops objectAtIndex:shopsid],
+                 *hours   = @"Monday to Sunday 10 AM - 9 PM",
+                 *site    = @"";
     
         [item.WeatherValue setText:cuisine];
         [item.WeatherValue setHidden:YES];
@@ -758,7 +855,12 @@
             [btnReserve  setUserInteractionEnabled:YES];
             [btnReserve setShowsTouchWhenHighlighted:YES];
             
-            [btnReserve addTarget:self action:@selector(actionReserveClicked:) forControlEvents:UIControlEventTouchUpInside];
+            if (indexPath.section < 3){
+              [btnReserve addTarget:self action:@selector(actionReserveClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }else{
+              [btnReserve addTarget:self action:@selector(actionShopReserveClicked:) forControlEvents:UIControlEventTouchUpInside];
+                
+            }
             
             [item.TempIMGView setHidden:YES];
             [item.view addSubview:btnReserve];
@@ -776,9 +878,10 @@
         NSArray *titleData = [title componentsSeparatedByString:@"-"];
         
         NSString *Newtitle = title,
-                        *NewType = cuisine,
-                        *NewSite = title,
-                        *phone    = [ItemViewController generateRandomPhone];
+                 *NewType = cuisine,
+                 *NewSite = title,
+                 *phone    = [ItemViewController generateRandomPhone],
+                 *shopTypeImageName  = @"";
     
         if (titleData){
            Newtitle = [titleData firstObject];
@@ -818,8 +921,15 @@
         NSInteger t = 1;
         rndFoodImgFormat = [rndFoodImgFormat stringByReplacingOccurrencesOfString:@"Food" withString:NewType];
         rndFoodImgFormat =  [rndFoodImgFormat stringByReplacingOccurrencesOfString:@" " withString:@""];
+ 
+        UIImage *nImage = nil;
+        
+        CGSize newSize = CGSizeMake(100, 100);
+        
+        BOOL NeedsImage = YES;
         
         switch (indexPath.section) {
+
             case 0:
                 switch (indexPath.row) {
                     case 5:
@@ -841,7 +951,7 @@
 
                 }
                     [item startTimer: rndFoodImgFormat : t];
-                break;
+            break;
             case 1:
                     [item.ArrDepIMGView setImage:[UIImage imageNamed:[toGoImgs objectAtIndex:indexPath.row]]];
 
@@ -869,8 +979,8 @@
                 }
                 [item startTimer: rndFoodImgFormat : t];
             
-                break;
-            default:
+            break;
+            case 2:
                    [item.ArrDepIMGView setImage:[UIImage imageNamed:[courtImgs objectAtIndex:indexPath.row]]];
 
                 switch (indexPath.row) {
@@ -894,12 +1004,153 @@
                 }
                 [item startTimer: rndFoodImgFormat : t];
                 
+            break;
+            case 3:
+                shopsid = indexPath.row;
+                shop =   [shopsTypes objectAtIndex:shopsid];
+                [item.Arrival_DepartureValue setText:shop];
+                shopTypeImageName = [shopImages objectAtIndex:shopsid];
+                rndFoodImgId = shopsid;
+                rndFoodImgFormat          = @"AirportShops_%d_%d.jpg";
+                rndFoodImgName =  [Utilities getParseColumnValue:appDelegate.shopsbackgrounds anyIndex:shopsid anyColumn:@"ImageURL"];//[NSString stringWithFormat:rndFoodImgFormat,rndFoodImgId,0];
+                
+                 nImage = [UIImage imageNamed:shopTypeImageName];
+                 newSize = CGSizeMake(100, 100);
+                
+                [item.AirlineIMGView setImage:[UIImage imageNamed:rndFoodImgName]];
+                [item.AirlineIMGView setContentMode:UIViewContentModeScaleToFill];
+                [item.AirlineIMGView.layer setBorderWidth:1.0f];
+                
+                [item.AirlineIMGView.layer setBorderColor: borderColor.CGColor];
+                
+                if ([clothe length] > 18 && indexPath.section == 3){
+                    newSize = CGSizeMake(60, 60);
+                    [item.Arrival_DepartureValue setFont:[UIFont fontWithName:@"Avenir Next" size:15.0f]];
+                }
+                
+                nImage = [ItemViewController imageResize:nImage andResizeTo:newSize];
+                [item.ArrDepIMGView setImage:nImage];
+                
+                
+                rndFoodImgFormatToo  = [rndFoodImgFormatToo stringByReplacingOccurrencesOfString:@"X"
+                                                                                      withString:[NSString stringWithFormat:@"%d",indexPath.row]];
+                
+                clothes = skin;
+                clothesImages = skinImages;
+                
+
+ 
+                NeedsImage = NO;
+                
+                t = 5;
+                [item startTimer:rndFoodImgFormatToo :t];
+                
+
+                
+            break;
+            case 4:
+                giftid = indexPath.row;
+                
+                gift =  [giftTypes objectAtIndex:giftid],
+                [item.Arrival_DepartureValue setText:gift];
+                shopTypeImageName = [giftImages objectAtIndex:giftid];
+                rndFoodImgName =[NSString stringWithFormat:@"%@_%d.jpg", [gift stringByReplacingOccurrencesOfString:@" " withString:@""], giftid];
+                
+                [item.AirlineIMGView setImage:[UIImage imageNamed:rndFoodImgName]];
+                [item.AirlineIMGView setContentMode:UIViewContentModeScaleToFill];
+                [item.AirlineIMGView.layer setBorderWidth:1.0f];
+                
+                [item.AirlineIMGView.layer setBorderColor: borderColor.CGColor];
+                
+                nImage = [UIImage imageNamed:shopTypeImageName];
+                newSize = CGSizeMake(100, 100);
+                
+ 
+                nImage = [ItemViewController imageResize:nImage andResizeTo:newSize];
+                [item.ArrDepIMGView setImage:nImage];
+                
+                NeedsImage = NO;
+                
+                switch (indexPath.row) {
+                    case 0:
+                        rndFoodImgFormat = @"Chocolates_%d.jpg";
+                        t = 4;
+                        break;
+                    case 1:
+                        rndFoodImgFormat = @"News&Events_%d.jpg";
+                        t = 4;
+                        break;
+                    case 2:
+                        rndFoodImgFormat = @"Magazines_%d.jpg";
+                        t = 4;
+                        break;
+                    case 3:
+                        rndFoodImgFormat = @"SkinCare_%d.jpg";
+                        t = 4;
+                        break;
+                    case 4:
+                        rndFoodImgFormat = @"Gadgets_%d.jpg";
+                        t = 4;
+                        break;
+                    case 5:
+                        rndFoodImgFormat = @"SmartShop_%d.jpg";
+                        t = 4;
+                        break;
+                }
+                [item startTimer:rndFoodImgFormat :t];
+                
                 break;
         }
-        rndFoodImgName = [NSString stringWithFormat:rndFoodImgFormat,1];
-        [item.AirlineIMGView setImage:[UIImage imageNamed:rndFoodImgName]];
+        
+        if (NeedsImage){
+            rndFoodImgName = [NSString stringWithFormat:rndFoodImgFormat,1];
+            [item.AirlineIMGView setImage:[UIImage imageNamed:rndFoodImgName]];
+        }
+ 
 
     }];
+}
+
+- (IBAction)actionShopReserveClicked:(UIButton *)sender {
+    NSURL  *url= nil;
+    
+    NSString *currentName = @"",
+    *message= @"",
+    *launchURL = @"";
+    
+    @try {
+        
+        currentName = selectedRestaurant;
+        if ([currentName length] > 0){
+            currentName = [currentName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            NSLog(@"Invoking OMPN for %@",currentName);
+        }
+        
+        launchURL = [NSString stringWithFormat:@"%@?term=%@",kOMPNApp,currentName];
+        
+        
+        message = [NSString stringWithFormat:@"Airport:Shops:ROP->%@",launchURL];
+        
+        [MSAnalytics trackEvent:message];
+        
+        url=  [[NSURL alloc] initWithString:launchURL];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url]){
+            message = [NSString stringWithFormat:@"Launching OMPN App-> %@",url];
+        }else{
+            url=  [[NSURL alloc] initWithString:kOMPN];
+            message = [NSString stringWithFormat:@"Launching OMPN Web-> %@",url];
+        }
+        [MSAnalytics trackEvent:message];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    @catch (NSException *exception) {
+        message = exception.description;
+    }
+    @finally {
+        url = nil;
+    }
+    
 }
 
 

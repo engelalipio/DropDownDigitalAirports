@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemViewController">
@@ -25,6 +29,7 @@
                 <outlet property="imageView" destination="MYk-H7-aaR" id="7FS-IO-WvB"/>
                 <outlet property="instructionsLabel" destination="h0a-rq-6gU" id="Mpb-3H-Sdi"/>
                 <outlet property="labelDescription" destination="vgn-h7-Fqn" id="Wef-1W-Zu7"/>
+                <outlet property="trackButton" destination="6cM-73-ktG" id="Al7-fE-e0x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherIMGView" destination="jBh-XC-8OI" id="uzF-8p-Yxy"/>
             </connections>
@@ -36,73 +41,72 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4H-d7-1T3">
                     <rect key="frame" x="737" y="30" width="22" height="22"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <state key="normal" title="X">
-                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                        <rect key="frame" x="1056" y="28" width="22" height="22"/>
-                    </variation>
                     <connections>
                         <action selector="cancelOrder:" destination="-1" eventType="touchUpInside" id="jNz-ix-9AG"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999983" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgn-h7-Fqn" userLabel="Description">
                     <rect key="frame" x="0.0" y="592" width="768" height="432"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <accessibility key="accessibilityConfiguration" label="Description"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0a-rq-6gU" userLabel="Instructions">
                     <rect key="frame" x="184" y="20" width="400" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi4-U9-Kvx" userLabel="BorderLabel">
                     <rect key="frame" x="0.0" y="60" width="768" height="410"/>
-                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="60" width="1086" height="407"/>
-                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W36-0g-c11" userLabel="FlightLabel">
                     <rect key="frame" x="5" y="619" width="200" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <string key="text">Flight
 Details:</string>
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
-                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqX-iy-xTN" userLabel="AircraftLabel">
                     <rect key="frame" x="5" y="895" width="200" height="87"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <string key="text">Destination’s
 Forecasted
 Weather:</string>
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AirportBack_0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MYk-H7-aaR" userLabel="CityImage">
                     <rect key="frame" x="0.0" y="60" width="768" height="400"/>
-                    <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="60" width="1086" height="400"/>
-                    </variation>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZd-Sn-rVw">
                     <rect key="frame" x="342" y="983" width="85" height="35"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
                     <state key="normal" title="Close">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="cancelOrder:" destination="-1" eventType="touchUpInside" id="ukL-TQ-eX7"/>
@@ -110,81 +114,107 @@ Weather:</string>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJU-9Q-nPJ" userLabel="Arrive_Departure">
                     <rect key="frame" x="633" y="475" width="60" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBh-XC-8OI" userLabel="Weather_Image">
                     <rect key="frame" x="510" y="475" width="80" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-VD-CYA" userLabel="Temp_Image">
                     <rect key="frame" x="425" y="475" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peo-xz-6Vv" userLabel="TempLabel">
                     <rect key="frame" x="360" y="536" width="180" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
-                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04H-tn-Ec3" userLabel="WeatherLabel">
                     <rect key="frame" x="485" y="563" width="130" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
-                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4F-0j-9Cv" userLabel="Airline_Image">
                     <rect key="frame" x="50" y="478" width="280" height="106"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remarks:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrz-Z3-xko" userLabel="StatusLabel">
                     <rect key="frame" x="5" y="822" width="200" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
-                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLZ-8f-Tv1" userLabel="Arrive_DepartureLabel">
                     <rect key="frame" x="567" y="543" width="193" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
-                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRO-79-UhX" userLabel="TerminalValue">
                     <rect key="frame" x="203" y="715" width="565" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.99825239181518555" green="0.91959869861602783" blue="0.77015537023544312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-X5-5as" userLabel="StatusValue">
                     <rect key="frame" x="203" y="822" width="565" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.99825239181518555" green="0.91959869861602783" blue="0.77015537023544312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHS-Z1-pAC" userLabel="TerminalLabel">
                     <rect key="frame" x="5" y="715" width="200" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <string key="text">Terminal/
 Gate:</string>
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
-                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-YE-8rp" userLabel="FlightValue">
                     <rect key="frame" x="203" y="642" width="565" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.99825239181518555" green="0.91959869861602783" blue="0.77015537023544312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHE-2Q-Lt5" userLabel="AircraftValue">
                     <rect key="frame" x="203" y="927" width="565" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Item Title"/>
                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.93333333330000001" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.99825239181518555" green="0.91959869861602783" blue="0.77015537023544312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cM-73-ktG">
+                    <rect key="frame" x="656" y="556" width="112" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                    <state key="normal" title="Track Flight">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelOrder:" destination="-1" eventType="touchUpInside" id="GLh-0O-OJr"/>
+                        <action selector="trackAction:" destination="-1" eventType="touchUpInside" id="4A6-Qo-UUP"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="546" y="543"/>
         </view>
     </objects>

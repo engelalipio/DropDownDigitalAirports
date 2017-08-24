@@ -14,11 +14,11 @@
 #import "MenuViewController.h"
 #import "AppDelegate.h"
 #import "ItemViewController.h"
-
+#import "CategoriesTableViewController.h"
 @interface HomeViewController ()
 {
     NSArray *categorySections,
-                   *categoryHomeData,
+            *categoryHomeData,
                    *dining,
                    *flights,
                    *shops,
@@ -31,6 +31,7 @@
     
     AppDelegate *appDelegate;
     BOOL isFirstLoaded;
+    NSString *segName;
 }
 -(void) initPreferredLanguage;
 -(void) initMenuSettings;
@@ -49,11 +50,11 @@
 #pragma mark - TableView Events
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-        NSInteger size = 60;
+        NSInteger size = 90;
     if (appDelegate.isiPhone){
         switch (appDelegate.screenHeight) {
             case 736:
-                size = 50;
+                size = 74;
                 break;
                 
             default:
@@ -66,7 +67,8 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
    // return CGFLOAT_MIN;
-    NSInteger size = 60;
+    NSInteger size =1.0f;//90;
+
     
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) || appDelegate.isiPhone){
         size = 1.0f;
@@ -75,7 +77,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    NSInteger size = 60;
+    NSInteger size = 1.0f;//90;
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) || appDelegate.isiPhone){
         size = 1.0f;
     }
@@ -85,8 +87,8 @@
 
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    NSInteger size = 60,
-                     fontSize = 20;
+    NSInteger size = 90,
+              fontSize = 20;
     
     UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, size)];
     
@@ -186,14 +188,14 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
-                    *title     = @"",
-                    *cellId    = @"",
-                    *imageName = @"";
+             *title     = @"",
+             *cellId    = @"",
+             *imageName = @"";
     
     UITableViewCell *cell = nil;
     
     BOOL isDynamic  = appDelegate.isDynamic,
-                isParse      = NO;
+         isParse    = NO;
     
     NSArray *images = nil;
     
@@ -203,7 +205,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         isDynamic = appDelegate.isDynamic;
         
-       //@"Flights",@"Dining",@"Shopping",@"Lounges",@"Terminals",@"Hotels", nil];
+       //@"Flights",@"Dining/Shopping",@"Ground",@"Hotels/Sight", nil];
         
         switch (indexPath.row) {
             case 0:
@@ -237,7 +239,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     images = dining;
                 }
                 break;
-            case 2:
+           /* case 2:
                 cellId = @"cbShopsCell";
                 if (shops){
                     
@@ -251,6 +253,22 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     }
                     
                     images = shops;
+                }
+                break;*/
+            case 2:
+                
+                cellId = @"cbTerminalsCell";
+                if (terminals){
+                    
+                    if (terminals.count ==1){
+                        if (appDelegate.groundbackgrounds){
+                            terminals = appDelegate.groundbackgrounds;
+                            isParse = YES;
+                        }
+                    }else{
+                        isParse = YES;
+                    }
+                    images = terminals;
                 }
                 break;
             case 3:
@@ -271,23 +289,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 }
                 
             break;
-            case 4:
 
-                
-                cellId = @"cbTerminalsCell";
-                if (terminals){
-                    
-                    if (terminals.count ==1){
-                        if (appDelegate.groundbackgrounds){
-                            terminals = appDelegate.groundbackgrounds;
-                            isParse = YES;
-                        }
-                    }else{
-                        isParse = YES;
-                    }
-                    images = terminals;
-                }
-                break;
             case 5:
 
                 
@@ -313,7 +315,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         
         if (! cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                           reuseIdentifier:cellId];
             
         }
@@ -338,7 +340,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             
             if (appDelegate.isiPhone){
                 if (cellImage){
-                    cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(100, 50)];
+                    cellImage = [ItemViewController imageResize:cellImage andResizeTo:CGSizeMake(100, 74)];
                 }
             }
 
@@ -353,6 +355,17 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         if (appDelegate.isiPhone){
             fontSize = 14.8f;
+            
+            switch (appDelegate.screenHeight) {
+                case 736:
+                    fontSize = 16.0f;
+                    break;
+                    
+                default:
+                    fontSize = 14.8f;
+                    break;
+            }
+            
             [cell.textLabel setNumberOfLines:0];
             if (indexPath.row > 2){
                 fontSize = 15.0f;
@@ -1004,9 +1017,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         [self.addressLabel setText: appDelegate.restaurantName ];
         
-        categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Fine Dining/Meals To Go/The Food Court",
-                                                                                                 @"Shopping/Concessions & Gift Stores",@"Nearby Hotels",
-                                                                                                 @"Ground Transportation",@"SightSeeing Attractions", nil];
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Explore BWI’s Restaurants/Shops",
+                                                            @"Ground Transportation",@"Hotels/Area Attractions", nil];
         
         if (appDelegate.isDynamic){
             
@@ -1277,7 +1289,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) initMenuSettings{
     
     BOOL isDynamic = NO;
-    NSString *welcomeMessage = @"%@, %@\n%@, %@";
+    NSString *welcomeMessage = @"%@\n %@, %@, %@";
     
     isDynamic = [appDelegate isDynamic];
  
@@ -1378,10 +1390,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     BOOL result = YES;
-      NSString *segName = identifier;
+      segName = identifier;
      
-     if (! [segName length] > 0){
-     result = NO;
+     if (! [identifier length] > 0){
+         result = NO;
      }
     
     return result;
@@ -1395,12 +1407,18 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     NSIndexPath *selectedIP = [self.tableView indexPathForSelectedRow];
     
-    MenuViewController *destVC = (MenuViewController*) [segue destinationViewController];
+    CategoriesTableViewController *destVC = (CategoriesTableViewController*) [segue destinationViewController];
     
     NSString *message = @"";
     
     @try {
         message = [NSString stringWithFormat:@"%@",destVC.description];
+        if ([segName isEqualToString:@"segCategories"] ){
+            [destVC setIsRetail:YES];
+        }
+        if ([segName isEqualToString:@"segHotels"]){
+            [destVC setIsRetail:NO];
+        }
     }
     @catch (NSException *exception) {
         message = [exception description];
@@ -1418,7 +1436,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 -(void) viewDidLayoutSubviews{
     
  
-     [self setupViewForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+     [self setupViewForOrientation:UIInterfaceOrientationPortrait];
  
 }
 

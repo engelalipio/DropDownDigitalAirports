@@ -324,9 +324,16 @@
     @try{
         
         if (! hotels){
+            
+            if (appDelegate.hotelbackgrounds){
+                hotels = appDelegate.hotelbackgrounds;
+                
+            }else{
+            
             hotels = [[NSArray alloc] initWithObjects: @"Block Hotel",@"Cabana Hotel",@"Eastin Hotel",@"Hyatt House Hotel",
                                                                                 @"Hilton Hotel",@"Radisson Hotel", @"Regal Airport Hotel", @"Safari Court Hotel",
                                                                                 @"Sheraton Suites Hotel",@"The Towers Hotel",nil];
+            }
         }
         
         if (! self.tableView){
@@ -399,8 +406,13 @@
                                       reuseIdentifier:cellID];
     }
     restaurantImageName = [NSString stringWithFormat:restaurantImageNameFormat,imageId];
-    restaurantName = [hotels objectAtIndex:indexPath.row];
-    finalLocation = [NSString stringWithFormat:locationFormat, gateId,terminal,appDelegate.restaurantCity,appDelegate.restaurantState,appDelegate.restaurantZip];
+    
+    restaurantName = [Utilities getParseColumnValue:hotels anyIndex:indexPath.row anyColumn:@"Name"];
+    
+    finalLocation = [Utilities getParseColumnValue:hotels anyIndex:indexPath.row anyColumn:@"Address"];
+    
+    //restaurantName = [hotels objectAtIndex:indexPath.row];
+    //finalLocation = [NSString stringWithFormat:locationFormat, gateId,terminal,appDelegate.restaurantCity,appDelegate.restaurantState,appDelegate.restaurantZip];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ - %d %@",restaurantName,distanceId, (distanceId > 1 ? @"Miles" : @"Mile")]];
     [cell.detailTextLabel setText:finalLocation];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -429,7 +441,8 @@
               //  imageid = 4;
             }
             
-            [Utilities setParseImageCell:appDelegate.hotelbackgrounds anyIndex:imageid tableCell:cell];
+            [Utilities setParseImageCell:hotels anyIndex:imageid tableCell:cell];
+            
             UIImage *cellImage = nil;
             
             if (appDelegate.isiPhone){
@@ -457,11 +470,13 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ItemViewController *item = [[ItemViewController alloc] init];
+    
     [item setFoodType:Hotel];
+    
     NSString *price = @"$0.00",
-                    *title = @"",
-                    *data  = @"",
-                    *desc  = @"";
+             *title = @"",
+             *data  = @"",
+             *desc  = @"";
     
     UIImage *image = nil;
     
@@ -573,14 +588,13 @@
         [item setFoodType:Dining];
         
     
-      NSArray *cuisines =   [[NSArray alloc] initWithObjects:@"Quiet Rooms", @"Mail Services",@"Shuttle",@"Wi-Fi", @"News Papers", @"Fax Machines",
-                   @"Taxis", @"5 Star Hotel",@"Internet Stations", @"Room Service",nil],
-                                *cuisineImages =  [[NSArray alloc] initWithObjects:@"hotel_information-100.png",@"post_office-100.png",@"bus-100.png",@"WiFi_logo_filled-100.png", @"news-100.png", @"copy-100.png", @"taxi-100.png", @"5_star_hotel-100.png",@"workstation_filled-100.png",@"bell_service-100.png",nil],
-
-                       *prices    = [[NSArray alloc] initWithObjects:@"", @"Taxi", @"Tram", nil],
-                       *ratings  = [[NSArray alloc] initWithObjects:@"Online CheckIn", nil];
+      NSArray *cuisines      =  [[NSArray alloc] initWithObjects:@"Quiet Rooms", @"Mail Services",@"Shuttle",@"Wi-Fi", @"News Papers", @"Fax Machines",
+                                                             @"Taxis", @"5 Star Hotel",@"Internet Stations", @"Room Service",nil],
+              *cuisineImages =  [[NSArray alloc] initWithObjects:@"hotel_information-100.png",@"post_office-100.png",@"bus-100.png",@"WiFi_logo_filled-100.png",                      @"news-100.png", @"copy-100.png", @"taxi-100.png", @"5_star_hotel-100.png",@"workstation_filled-100.png",@"bell_service-100.png",nil],
+              *prices    = [[NSArray alloc] initWithObjects:@"", @"Taxi", @"Tram", nil],
+              *ratings  = [[NSArray alloc] initWithObjects:@"Online CheckIn", nil];
         
-        NSInteger cuisineId = arc4random_uniform(cuisines.count),
+        NSInteger         cuisineId   = arc4random_uniform(cuisines.count),
                           priceId     = arc4random_uniform(prices.count),
                           rateId      = arc4random_uniform(ratings.count);
         
@@ -592,15 +606,15 @@
         [item.weatherIMGView setHidden:YES];
         
         NSString  *cuisine  =  [cuisines objectAtIndex:cuisineId],
-                        *price     =  [prices objectAtIndex:priceId],
-                        *phone    = [ItemViewController generateRandomPhone],
-                        *rating   =   [ratings objectAtIndex:rateId],
+                        *price    =  [prices objectAtIndex:priceId],
+                        *phone    =  [Utilities getParseColumnValue:hotels anyIndex:indexPath.row anyColumn:@"Phone"], //[ItemViewController generateRandomPhone],
+                        *rating   =  [ratings objectAtIndex:rateId],
                         *hours    =  [NSString stringWithFormat:@"%d %@",rndMiles, (rndMiles > 1 ? @"Miles":  @"Mile")],
-                        *site        = [NSString stringWithFormat:@"www.%@.com", [title stringByReplacingOccurrencesOfString:@"'" withString:@""]];
+                        *site     =  [Utilities getParseColumnValue:hotels anyIndex:indexPath.row anyColumn:@"URL"]; //[NSString stringWithFormat:@"www.%@.com", [title stringByReplacingOccurrencesOfString:@"'" withString:@""]];
         
-        NSArray *siteNameData = [site componentsSeparatedByString:@"-"];
+        /*NSArray         *siteNameData = [site componentsSeparatedByString:@"-"];
                         site = [siteNameData firstObject];
-                        site = [site stringByAppendingString:@".com"];
+                        site = [site stringByAppendingString:@".com"];*/
         
         NSArray *titleSplit = [title componentsSeparatedByString:@"- "];
         

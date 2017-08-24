@@ -657,6 +657,7 @@
 		ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E71F3CFF570013AF0D /* Services_16.jpg */; };
 		ACAE99ED1F41EE910013AF0D /* icons8-motherboard.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */; };
 		ACAE99EF1F41EED60013AF0D /* icons8-tree_structure_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99EE1F41EED60013AF0D /* icons8-tree_structure_filled.png */; };
+		ACAE99F41F4E05850013AF0D /* CategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAE99F31F4E05850013AF0D /* CategoriesTableViewController.m */; };
 		ACB3A44A1E5361D8007ADD95 /* TaxiService.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */; };
 		ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */; };
 		ACB3A44F1E536D65007ADD95 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB3A44E1E536D65007ADD95 /* Airport.m */; };
@@ -1448,6 +1449,8 @@
 		ACAE99E71F3CFF570013AF0D /* Services_16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_16.jpg; sourceTree = "<group>"; };
 		ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-motherboard.png"; sourceTree = "<group>"; };
 		ACAE99EE1F41EED60013AF0D /* icons8-tree_structure_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-tree_structure_filled.png"; sourceTree = "<group>"; };
+		ACAE99F21F4E05850013AF0D /* CategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesTableViewController.h; sourceTree = "<group>"; };
+		ACAE99F31F4E05850013AF0D /* CategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesTableViewController.m; sourceTree = "<group>"; };
 		ACB3A4491E5361D8007ADD95 /* TaxiService.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TaxiService.jpeg; sourceTree = "<group>"; };
 		ACB3A44B1E5361FE007ADD95 /* PublicTransportation.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PublicTransportation.jpeg; sourceTree = "<group>"; };
 		ACB3A44D1E536D65007ADD95 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
@@ -2124,6 +2127,8 @@
 				ACF7BCB31F354A6E0020CB6B /* LoginViewController.m */,
 				ACF06C121F3A9C800098261F /* GamesViewController.h */,
 				ACF06C131F3A9C800098261F /* GamesViewController.m */,
+				ACAE99F21F4E05850013AF0D /* CategoriesTableViewController.h */,
+				ACAE99F31F4E05850013AF0D /* CategoriesTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -3572,6 +3577,7 @@
 				0FF46D3319F881FC00E51218 /* AppDelegate.m in Sources */,
 				0FF46D3619F881FC00E51218 /* CurrencyExchangeViewController.m in Sources */,
 				AAB41B0E1CF54C480078CB75 /* NetworkAPISingleClient.m in Sources */,
+				ACAE99F41F4E05850013AF0D /* CategoriesTableViewController.m in Sources */,
 				AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */,
 				0FF46DF519F9952A00E51218 /* AFJSONRequestOperation.m in Sources */,
 				0FD438FE1A110CFF00A2436F /* Formatter.m in Sources */,
