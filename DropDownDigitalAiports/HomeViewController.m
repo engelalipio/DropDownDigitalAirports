@@ -1415,9 +1415,12 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         message = [NSString stringWithFormat:@"%@",destVC.description];
         if ([segName isEqualToString:@"segCategories"] ){
             [destVC setIsRetail:YES];
+            [destVC setCategoryTitle:@"Explore BWI’s Restaurants/Shops"];
+        
         }
         if ([segName isEqualToString:@"segHotels"]){
             [destVC setIsRetail:NO];
+            [destVC setCategoryTitle:@"Area Attractions/Nearby Hotels"];
         }
     }
     @catch (NSException *exception) {

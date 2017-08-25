@@ -23,7 +23,7 @@
     UIImageView *selectedImageView;
     
     NSString *airlineName,
-    *airlineLogo;
+             *airlineLogo;
     
 }
 
@@ -34,7 +34,7 @@
 
 
 @synthesize  isRetail = _isRetail;
-
+@synthesize categoryTitle = _categoryTitle;
 #pragma -mark Table View Events
 
 
@@ -92,7 +92,10 @@
             [header setTextAlignment:alignment];
             [header setTextColor:[UIColor whiteColor]];
             [header setBackgroundColor:[UIColor blackColor]];
-            [header setText:[NSString stringWithFormat:@"%lu Total Categories",(unsigned long)airportCategories.count]];
+            if (_categoryTitle){
+                [header setText:_categoryTitle];
+            }
+           //[header setText:[NSString stringWithFormat:@"%lu Total Categories",(unsigned long)airportCategories.count]];
             break;
             
     }
@@ -164,10 +167,10 @@
             
             break;
             
-        default:
+        case 1:
             if (_isRetail){
                 terminalId = arc4random_uniform(appDelegate.shopsbackgrounds.count);
-                image = [Utilities getAzureStorageImage:appDelegate.diningbackgrounds anyIndex:terminalId];
+                image = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:terminalId];
                 terminalId = (appDelegate.shopsbackgrounds.count + appDelegate.loungesbackgrounds.count );
                 finalLocation = [airportCategories objectAtIndex:indexPath.row];
                 storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
@@ -275,7 +278,7 @@
                 }
                 break;
                 
-            default:
+            case 1:
                 if (_isRetail){
                  [self performSegueWithIdentifier:@"segShops" sender:self];
                 }

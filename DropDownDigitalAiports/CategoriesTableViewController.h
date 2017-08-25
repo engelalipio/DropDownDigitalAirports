@@ -12,4 +12,5 @@
     
 }
 @property (assign,nonatomic) BOOL isRetail;
+@property (nonatomic,strong) NSString *categoryTitle;
 @end

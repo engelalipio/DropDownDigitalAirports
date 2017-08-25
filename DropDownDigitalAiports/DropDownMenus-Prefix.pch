@@ -7,12 +7,13 @@
 //
 
 
-
-#import <Availability.h>
 #import <ProjectOxfordFace/MPOFaceSDK.h>
+#import <Availability.h>
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
+
+
 
 #ifdef __OBJC__
 

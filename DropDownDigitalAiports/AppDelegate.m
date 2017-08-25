@@ -1178,6 +1178,29 @@
     }
 }
 
+#pragma mark -Apple Watch Notifications
+
+
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo
+  completionHandler:(void (^)())completionHandler {
+    
+    if ([identifier isEqualToString:@"FiveSecond"]) {
+        NSLog(@"handleActionWithIdentifier:forRemoteNotification->%@",identifier);
+    }
+    
+    completionHandler();
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification
+  completionHandler:(void (^)())completionHandler {
+    
+    if ([identifier isEqualToString:@"FiveSecond"]) {
+        NSLog(@"handleActionWithIdentifier:forLocalNotification->%@",identifier);
+    }
+    completionHandler();
+}
+
 #pragma mark -APNS Notifications
 
 

@@ -16,4 +16,3 @@ pod 'MicrosoftAzureMobile'
 pod 'MobileCenter'
 pod 'surveymonkey-ios-sdk', '~> 1.0'
 end
-
