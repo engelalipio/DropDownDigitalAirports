@@ -79,19 +79,25 @@
 
 #define kMobileCenterKey @"b9f034bb-c207-408c-b7ce-661e1251dfed"
 
-#define kAzureStorageKey1   @"YibRuhr/WTmTYxky25fvqbfdk3+kluwqJZRo3TuFquy8bP04y0bGJsyPpp8tHm5ITUphf2NJ2q2ErlbSqdzoDg=="
-#define kAzureStorageKey2   @"aLTmf973dD0qCZQPYzmAWyRTT0vjAR9a/jH/3ylTaUYBb6GtrM+X797eWYHrqvUElXU+anVo3o9wNu0dymevzQ=="
+#define kAzureStorageKey1   @"kzBmMYd1xemLPOY5YU2w0+MMkntdUqc6/Uchnz+VDLLn2RArF1yGV6cr3WWYE+xeM9q2EZ+Op1/5nAMaKcr5xw=="
+//@"YibRuhr/WTmTYxky25fvqbfdk3+kluwqJZRo3TuFquy8bP04y0bGJsyPpp8tHm5ITUphf2NJ2q2ErlbSqdzoDg=="
+#define kAzureStorageKey2   @"MzR8rDZJZ0JGU6dLpye1gE/DPlCXPPXqZGy2ykUuNj1RJNLnwpgKnA1x/SQcJ46ncst07L64ov/kKUkUbAJHnQ=="
+//@"aLTmf973dD0qCZQPYzmAWyRTT0vjAR9a/jH/3ylTaUYBb6GtrM+X797eWYHrqvUElXU+anVo3o9wNu0dymevzQ=="
 
-#define kAzureStorageName    @"dwistore"
+
+
+#define kAzureStorageName    @"digitalworldint"//@"dwistore"
 #define kAzureContainerName  @"dwicontainer"
 
-#define kAzureBlobRootURL    @"https://dwistore.blob.core.windows.net/"
-#define kAzureFileRootURL    @"https://dwistore.file.core.windows.net/"
-#define kAzureBlobRootURL    @"https://dwistore.blob.core.windows.net/"
-#define kAzureTableRootURL   @"https://dwistore.table.core.windows.net/"
-#define kAzureStorageURL     @"https://dwistore.blob.core.windows.net/dwicontainer"
+#define kAzureBlobRootURL    @"https://digitalworldint.blob.core.windows.net/"//@"https://dwistore.blob.core.windows.net/"
+#define kAzureFileRootURL    @"https://digitalworldint.file.core.windows.net/"
+#define kAzureBlobRootURL    @"https://digitalworldint.blob.core.windows.net/"
+#define kAzureTableRootURL   @"https://digitalworldint.table.core.windows.net/"
+#define kAzureStorageURL     @"https://digitalworldint.blob.core.windows.net/dwicontainer"
 
-#define kAzureSharedKey @"?sv=2015-12-11&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-02-02T23:59:46Z&st=2017-02-02T15:59:46Z&spr=https,http&sig=eksh%2F9Q6GMUbWAlQIfcw%2BgYNlKdRcfxQ3TPgMPrhOUA%3D"
+
+#define kAzureSharedKey @"?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2017-09-02T05:41:49Z&st=2017-09-01T21:41:49Z&spr=https&sig=Td783FhBDYpw0ZN%2F3flMB7B46vS4Ete5e%2Bj85YnqinM%3D"
+//@"?sv=2015-12-11&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-02-02T23:59:46Z&st=2017-02-02T15:59:46Z&spr=https,http&sig=eksh%2F9Q6GMUbWAlQIfcw%2BgYNlKdRcfxQ3TPgMPrhOUA%3D"
 
 #define kAzureStorageAirport               @"Airport/"
 #define kAzureStorageAirportBackgrounds    @"Airport/AirportBackgrounds/"
@@ -102,7 +108,8 @@
 #define kAzureStorageAirportHotels         @"Airport/Hotels/"
 #define kAzureStorageAirportSightSeeing    @"Airport/SightSeeing/"
 
-#define kAzureMenuPayLoad    @"https://dwistore.file.core.windows.net/dwifiles/OMTN/MenuPayload.json"
+#define kAzureMenuPayLoad    @"https://digitalworldint.file.core.windows.net/dwifiles/OMTN/MenuPayload.json"
+//@"https://dwistore.file.core.windows.net/dwifiles/OMTN/MenuPayload.json"
 
 
 #define kAzureAirportBackgroundsTableName           @"AirportBackgrounds"

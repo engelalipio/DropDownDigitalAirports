@@ -2924,7 +2924,7 @@
 				TargetAttributes = {
 					0FF46D2919F881FC00E51218 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = B7QMBU3EE6;
+						DevelopmentTeam = J749562KY5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -2943,13 +2943,13 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
 					ACAE9A2E1F4FD74D0013AF0D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = B7QMBU3EE6;
+						DevelopmentTeam = J749562KY5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes.watchos.app = {
@@ -2959,7 +2959,7 @@
 					};
 					ACAE9A3A1F4FD74D0013AF0D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = B7QMBU3EE6;
+						DevelopmentTeam = J749562KY5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3943,7 +3943,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J749562KY5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3955,7 +3955,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports;
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3971,7 +3971,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J749562KY5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3983,7 +3983,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dwi.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports;
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4000,11 +4000,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = B7QMBU3EE6;
+				DEVELOPMENT_TEAM = J749562KY5;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "AirportWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -4024,11 +4024,11 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = B7QMBU3EE6;
+				DEVELOPMENT_TEAM = J749562KY5;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "AirportWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -4048,12 +4048,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = B7QMBU3EE6;
+				DEVELOPMENT_TEAM = J749562KY5;
 				GCC_PREFIX_HEADER = "";
 				IBSC_MODULE = AirportWatch_Extension;
 				INFOPLIST_FILE = AirportWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4074,13 +4075,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = B7QMBU3EE6;
+				DEVELOPMENT_TEAM = J749562KY5;
 				GCC_PREFIX_HEADER = "";
 				IBSC_MODULE = AirportWatch_Extension;
 				INFOPLIST_FILE = AirportWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
