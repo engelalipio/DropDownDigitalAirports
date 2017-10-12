@@ -25,7 +25,7 @@
 @end
 
 @implementation ShopsViewController
-
+@synthesize isExternal = _isExternal;
 
 - (CGRect)approximateFrameForTabBarItemAtIndex:(NSUInteger)barItemIndex inTabBar:(UITabBar *)tabBar {
     
@@ -337,6 +337,12 @@
         }
         
         
+        if (_isExternal){
+            if (appDelegate.extShopsbackgrounds){
+                shops = appDelegate.extShopsbackgrounds;
+            }
+        }
+        
         self.tableView.backgroundColor =  kVerticalTableBackgroundColor;
         
         [self.tableView setDelegate:self];
@@ -403,13 +409,24 @@
     
     switch (indexPath.section) {
         case 0:
-
-            restaurantName = [shops objectAtIndex:indexPath.row];
+            if (_isExternal){
+             restaurantName =   [Utilities getParseColumnValue:shops anyIndex:indexPath.row anyColumn:@"Name"];
+            }else{
+             restaurantName = [shops objectAtIndex:indexPath.row];
+            }
             isParse = YES;
             
             if (isParse) {
                 
-                UIImage *cellImage = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:indexPath.row];
+                UIImage *cellImage = nil;
+                
+                if (_isExternal){
+                   cellImage = [Utilities getAzureStorageImage:appDelegate.extShopsbackgrounds anyIndex:indexPath.row];
+                }else{
+                  cellImage =   [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:indexPath.row];
+                }
+                
+                
                 
                 [cell.imageView setImage:cellImage];
             }
@@ -429,6 +446,10 @@
     terminal = [NSString stringWithFormat:@"%@",terminal];
     
     finalLocation = [NSString stringWithFormat:locationFormat, terminal,gateId];
+    
+    if (_isExternal){
+         finalLocation =   [Utilities getParseColumnValue:shops anyIndex:indexPath.row anyColumn:@"Location"];
+    }
     
     [cell.textLabel setText:restaurantName];
     
@@ -482,13 +503,16 @@
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *header = nil;
     header = [[UILabel alloc] init];
-    [header setFont:[UIFont fontWithName:@"Avenir Medium" size:20]];
+    [header setFont:[UIFont fontWithName:@"Avenir Medium" size:18]];
     [header setTextAlignment:NSTextAlignmentCenter];
     [header setTextColor:[UIColor whiteColor]];
     [header setBackgroundColor:[UIColor blackColor]];
     switch (section) {
         case 0:
             [header setText:@"Shopping"];
+            if (_isExternal){
+                [header setText:@"Local Area Retail Stores"];
+            }
             break;
         case 1:
             [header setText:@"Concessions & Gift Stores"];
@@ -585,9 +609,9 @@
         
     
         NSString *rndFoodImgFormat          = @"AirportShops_%d_%d.jpg",
-                        *rndFoodImgFormatToo    = @"AirportShops_X_%d.jpg",
-                        *rndFoodImgName            = @"",
-                        *shopTypeImageName       = @"";
+                 *rndFoodImgFormatToo    = @"AirportShops_X_%d.jpg",
+                 *rndFoodImgName            = @"",
+                 *shopTypeImageName       = @"";
         
         NSInteger rndFoodImgId = arc4random_uniform(10);
         
@@ -657,8 +681,23 @@
                         *phone    = [ItemViewController generateRandomPhone],
                         *site    = @"";
         
+        
+        if (_isExternal){
+            phone = [Utilities getParseColumnValue:appDelegate.extShopsbackgrounds anyIndex:indexPath.row anyColumn:@"Phone"];
+        }
+        
         NSArray *titleData = [title componentsSeparatedByString:@"-"];
         NSString *newTitle =  title;
+        
+        NSArray *externalItems = [[NSArray alloc] initWithObjects:@"Cellular Phones", @"Electronics",
+                                  @"Couch & Sofas", @"Groceries",
+                                  @"Pharmacy" , @"Fishing & Hunting",
+                                  @"Recreational", @"Groceries", @"Pharmacy",  nil],
+        
+        *externalImages = [[NSArray alloc] initWithObjects:@"shake_phone.png", @"apple_tv.png", @"couch.png",
+                           @"groceries.png",@"pharmacy.png" ,@"fishing_pole.png",
+                           @"fishing_pole.png",@"groceries.png", @"pharmacy.png",nil];
+        
         if (titleData){
             newTitle = [titleData firstObject];
 
@@ -667,9 +706,15 @@
         
         switch (indexPath.section) {
             case 0:
-                cuisine =   [cuisines objectAtIndex:cuisineId];
+
+                if (_isExternal){
+                    cuisine =   [externalItems objectAtIndex:cuisineId];
+                    shopTypeImageName = [externalImages objectAtIndex:cuisineId];
+                }else{
+                    cuisine =   [cuisines objectAtIndex:cuisineId];
+                    shopTypeImageName = [cuisinesImages objectAtIndex:cuisineId];
+                }
                  [item.Arrival_DepartureValue setText:cuisine];
-                  shopTypeImageName = [cuisinesImages objectAtIndex:cuisineId];
                 rndFoodImgId = cuisineId;
                 rndFoodImgName = [NSString stringWithFormat:rndFoodImgFormat,rndFoodImgId,0];
                 break;
@@ -683,6 +728,9 @@
         }
         
         [item.AirlineIMGView setImage:[UIImage imageNamed:rndFoodImgName]];
+        if (_isExternal){
+            [item.AirlineIMGView setImage:image];
+        }
         [item.AirlineIMGView setContentMode:UIViewContentModeScaleToFill];
         [item.AirlineIMGView.layer setBorderWidth:1.0f];
         UIColor *borderColor = [UIColor colorWithHexString:@"f0f0f0"];
@@ -695,8 +743,13 @@
             newSize = CGSizeMake(60, 60);
             [item.Arrival_DepartureValue setFont:[UIFont fontWithName:@"Avenir Next" size:15.0f]];
         }
-         nImage = [ItemViewController imageResize:nImage andResizeTo:newSize];
+        
+
+        nImage = [ItemViewController imageResize:nImage andResizeTo:newSize];
+        
+        //NSLog(@"%@",shopTypeImageName);
         [item.ArrDepIMGView setImage:nImage];
+ 
         
         [item.TempValue setNumberOfLines:0];
         [item.TempValue setText:@"R.O.P.\n (Reserve, Order & Pay)"];
@@ -773,9 +826,13 @@
                 }
                 
               //  [item startRandomStatus:clothes :clothesImages :item.Arrival_DepartureValue :item.ArrDepIMGView];
-                imgCount = 5;
-                [item startTimer:rndFoodImgFormatToo :imgCount];
 
+                if (_isExternal){
+                    
+                }else{
+                    imgCount = 5;
+                    [item startTimer:rndFoodImgFormatToo :imgCount];
+                }
                 break;
                 
             case 1:
@@ -860,6 +917,11 @@
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     NSInteger sectionCount = 2  ;
+    
+    if (_isExternal){
+        sectionCount = 1;
+    }
+    
     return sectionCount;
 }
 
@@ -906,7 +968,14 @@
         appDelegate = [AppDelegate currentDelegate];
     }
     [self initTableView];
-    [self.navigationItem setTitleView:[self getSpecialTitleView:@"Shopping/Concessions & Gift Stores"]];
+    
+    NSString *shopTitle = @"Shopping/Concessions & Gift Stores";
+    
+    if (_isExternal){
+        shopTitle = @"";
+    }
+    
+    [self.navigationItem setTitleView:[self getSpecialTitleView:shopTitle]];
 }
 
 -(void) viewDidAppear:(BOOL)animated

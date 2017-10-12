@@ -16,7 +16,8 @@
 @interface CategoriesTableViewController()
 {
     NSMutableArray *menuTitles,
-                   *airportCategories;
+                   *airportCategories,
+                   *externalCategories;
     
     AppDelegate *appDelegate;
     
@@ -83,7 +84,7 @@
     
     
     if (appDelegate.isiPhone){
-        size = 15.0f;
+        size = 18.0f;
     }
     switch (section) {
         case 0:
@@ -93,9 +94,31 @@
             [header setTextColor:[UIColor whiteColor]];
             [header setBackgroundColor:[UIColor blackColor]];
             if (_categoryTitle){
-                [header setText:_categoryTitle];
+                if (_isRetail){
+                    [header setText:@"Explore BWI’s Restaurants/Shops"];
+                }else{
+                    [header setText:@"Local Area Restaurants/Retail Stores"];
+                }
+                //[header setText:_categoryTitle];
             }
            //[header setText:[NSString stringWithFormat:@"%lu Total Categories",(unsigned long)airportCategories.count]];
+            break;
+        case 1:
+            header = [[UILabel alloc] init];
+            [header setFont:[UIFont fontWithName:@"Avenir Medium" size:size]];
+            [header setTextAlignment:alignment];
+            [header setTextColor:[UIColor whiteColor]];
+            [header setBackgroundColor:[UIColor blackColor]];
+            if (_categoryTitle){
+                if (_isRetail){
+                    [header setText:@"Local Area Restaurants/Retail Stores"];
+                }else{
+                    [header setText:@"Explore BWI’s Restaurants/Shops"];
+                }
+                //[header setText:_categoryTitle];
+            }
+        
+            
             break;
             
     }
@@ -126,7 +149,12 @@
     UIImage *image = nil;
     
     
-    int row = 0;
+    int row = 0,
+        sec = 0;
+    
+    if (indexPath.section){
+        sec = indexPath.section;
+    }
     
     if (indexPath.row){
         row = indexPath.row;
@@ -148,42 +176,125 @@
     
     NSInteger terminalId = arc4random_uniform(Terminals.count);
     
-    switch (indexPath.row) {
+    switch (sec) {
         case 0:
             
             if (_isRetail){
-            terminalId = arc4random_uniform(appDelegate.diningbackgrounds.count);
-            image = [Utilities getAzureStorageImage:appDelegate.diningbackgrounds anyIndex:terminalId];
-            terminalId = (appDelegate.diningbackgrounds.count + appDelegate.foodtogobackgrounds.count + appDelegate.foodcourtbackgrounds.count);
-            finalLocation = [airportCategories objectAtIndex:indexPath.row];
-            storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
-            }else{
-                terminalId = arc4random_uniform(appDelegate.sightseeingbackgrounds.count);
-                image = [Utilities getAzureStorageImage:appDelegate.sightseeingbackgrounds anyIndex:terminalId];
-                terminalId = (appDelegate.sightseeingbackgrounds.count);
-                finalLocation = [airportCategories objectAtIndex:indexPath.row];
-                storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                switch (indexPath.row) {
+                    case 0:
+                        
+
+                            terminalId = arc4random_uniform(appDelegate.diningbackgrounds.count);
+                            image = [Utilities getAzureStorageImage:appDelegate.diningbackgrounds anyIndex:terminalId];
+                            terminalId = (appDelegate.diningbackgrounds.count + appDelegate.foodtogobackgrounds.count + appDelegate.foodcourtbackgrounds.count);
+                            finalLocation = [airportCategories objectAtIndex:indexPath.row];
+                            storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                       
+                        
+                        break;
+                        
+                    case 1:
+
+                            terminalId = arc4random_uniform(appDelegate.shopsbackgrounds.count);
+                            image = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:terminalId];
+                            terminalId = (appDelegate.shopsbackgrounds.count + appDelegate.loungesbackgrounds.count );
+                            finalLocation = [airportCategories objectAtIndex:indexPath.row];
+                            storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+                        break;
+                        
+                        
+ 
             }
-            
+        }
+            else{
+                switch (indexPath.row) {
+                    case 0:
+                        
+                        terminalId = arc4random_uniform(appDelegate.extDiningbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.extDiningbackgrounds anyIndex:terminalId];
+                        finalLocation = [externalCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+                        
+                        break;
+                        
+                    case 1:
+                        
+                        terminalId = arc4random_uniform(appDelegate.extShopsbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.extShopsbackgrounds anyIndex:terminalId];
+                        finalLocation = [externalCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+                        break;
+                        
+                        
+                }
+            }
             break;
             
+         
         case 1:
+            
             if (_isRetail){
-                terminalId = arc4random_uniform(appDelegate.shopsbackgrounds.count);
-                image = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:terminalId];
-                terminalId = (appDelegate.shopsbackgrounds.count + appDelegate.loungesbackgrounds.count );
-                finalLocation = [airportCategories objectAtIndex:indexPath.row];
-                storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
-            }else{
-                terminalId = arc4random_uniform(appDelegate.hotelbackgrounds.count);
-                image = [Utilities getAzureStorageImage:appDelegate.hotelbackgrounds anyIndex:terminalId];
-                terminalId = (appDelegate.hotelbackgrounds.count );
-                finalLocation = [airportCategories objectAtIndex:indexPath.row];
-                storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                switch (indexPath.row) {
+                    case 0:
+                        
+                        terminalId = arc4random_uniform(appDelegate.extDiningbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.extDiningbackgrounds anyIndex:terminalId];
+                        finalLocation = [externalCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+
+                        
+                        
+                        break;
+                        
+                    case 1:
+                        terminalId = arc4random_uniform(appDelegate.extShopsbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.extShopsbackgrounds anyIndex:terminalId];
+                        finalLocation = [externalCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+
+                        break;
+                        
+                        
+                }
             }
+            else{
+                switch (indexPath.row) {
+                    case 0:
+                        
+                        terminalId = arc4random_uniform(appDelegate.diningbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.diningbackgrounds anyIndex:terminalId];
+                        terminalId = (appDelegate.diningbackgrounds.count + appDelegate.foodtogobackgrounds.count + appDelegate.foodcourtbackgrounds.count);
+                        finalLocation = [airportCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+                        
+                        break;
+                        
+                    case 1:
+                        
+                        terminalId = arc4random_uniform(appDelegate.shopsbackgrounds.count);
+                        image = [Utilities getAzureStorageImage:appDelegate.shopsbackgrounds anyIndex:terminalId];
+                        terminalId = (appDelegate.shopsbackgrounds.count + appDelegate.loungesbackgrounds.count );
+                        finalLocation = [airportCategories objectAtIndex:indexPath.row];
+                        storeCount = [NSString stringWithFormat:@"%ld",(long)terminalId];
+                        
+                        
+                        break;
+                        
+                        
+                }
+            }
+            
             
             break;
     }
+    
+
  
         
 
@@ -195,7 +306,7 @@
             if (appDelegate.isiPhone){
                 
                 
-                image = [ItemViewController imageResize:image andResizeTo:CGSizeMake(120, 100)];
+                image = [ItemViewController imageResize:image andResizeTo:CGSizeMake(180, 150)];
                
  
             }else{
@@ -205,7 +316,7 @@
  
         
  
-    
+    [cell.textLabel setNumberOfLines:0];
     [cell.textLabel setText:finalLocation] ;
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ Stores",storeCount]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -271,20 +382,15 @@
         
         switch (row) {
             case 0:
-                if (_isRetail){
-                    [self performSegueWithIdentifier:@"segDining" sender:self];
-                }else{
-                    [self performSegueWithIdentifier:@"segAttractions" sender:self];
-                }
+
+                [self performSegueWithIdentifier:@"segDining" sender:self];
+
                 break;
                 
             case 1:
-                if (_isRetail){
-                 [self performSegueWithIdentifier:@"segShops" sender:self];
-                }
-                else{
-                  [self performSegueWithIdentifier:@"segHotels" sender:self];
-                }
+ 
+                [self performSegueWithIdentifier:@"segShops" sender:self];
+               
                 break;
         }
 
@@ -300,8 +406,25 @@
 }
 
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger size = 215;
+    if (appDelegate.isiPhone){
+        switch (appDelegate.screenHeight) {
+            case 736:
+                size = 150;
+                break;
+                
+            default:
+                size = 65;
+                break;
+        }
+    }
+    return size;
+}
+
+
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 1  ;
+    NSInteger sectionCount = 2  ;
     return sectionCount;
 }
 
@@ -309,7 +432,19 @@
     NSInteger rowCount = 0;
     switch (section) {
         case 0:
-            rowCount = airportCategories.count;
+            if (_isRetail){
+                rowCount = airportCategories.count;
+            }else{
+                rowCount = externalCategories.count;
+            }
+            
+            break;
+        case 1:
+            if (_isRetail){
+                rowCount = airportCategories.count;
+            }else{
+                rowCount = externalCategories.count;
+            }
             break;
             
     }
@@ -351,13 +486,15 @@
         appDelegate = [AppDelegate currentDelegate];
     }
     
-    if (! _isRetail){
-        airportCategories = [[NSArray alloc] initWithObjects:@"Area Attractions",@"Nearby Hotels", nil];
-    }else{
  
-        airportCategories = [[NSArray alloc] initWithObjects:@"Fine Dining/Meals To Go/The Food Court",@"Shopping/Concessions & Gift Stores", nil];
-    }
- 
+        airportCategories = [[NSArray alloc] initWithObjects:
+                             @"Fine Dining/Meals To Go/The Food Court",
+                             @"Shopping/Concessions & Gift Stores", nil];
+        
+        externalCategories = [[NSArray alloc] initWithObjects:
+                             @"Local Area Restaurants",
+                             @"Local Area Retail Stores", nil];
+    
     
     
     [self initTableView];
@@ -394,13 +531,12 @@
     
     DiningViewController *dVC = (DiningViewController*) [segue destinationViewController];
     
-    switch (self.tableView.indexPathForSelectedRow.row) {
-        case 0:
-             
-            break;
-            
-        default:
-            break;
+    if ([categoryName isEqualToString:@"Local Area Retail Stores"]){
+        [fVC setIsExternal:YES];
+    }
+    
+    if ([categoryName isEqualToString:@"Local Area Restaurants"]){
+        [dVC setIsExternal:YES];
     }
  
     

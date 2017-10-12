@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopsViewController : UITableViewController
-
+@property (assign,nonatomic) BOOL isExternal;
 @end

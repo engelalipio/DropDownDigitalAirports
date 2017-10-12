@@ -646,6 +646,12 @@
 		AAE68BB41B5C33AF00DA7A53 /* Services_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB21B5C33AF00DA7A53 /* Services_8.jpg */; };
 		AAE68BB51B5C33AF00DA7A53 /* Services_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB31B5C33AF00DA7A53 /* Services_7.jpg */; };
 		AAE68BB71B5C342700DA7A53 /* Services_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAE68BB61B5C342700DA7A53 /* Services_9.jpg */; };
+		AC0B7C8D1F8BD29700FBED09 /* fishing_pole.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C8C1F8AFA0F00FBED09 /* fishing_pole.png */; };
+		AC0B7C8E1F8BD29700FBED09 /* pharmacy.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C8B1F8AF9DC00FBED09 /* pharmacy.png */; };
+		AC0B7C8F1F8BD29700FBED09 /* groceries.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C8A1F8AF9BA00FBED09 /* groceries.png */; };
+		AC0B7C901F8BD29700FBED09 /* couch.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C891F8AF99500FBED09 /* couch.png */; };
+		AC0B7C911F8BD29700FBED09 /* apple_tv.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C881F8AF95800FBED09 /* apple_tv.png */; };
+		AC0B7C921F8BD29700FBED09 /* shake_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = AC0B7C871F8AF8C000FBED09 /* shake_phone.png */; };
 		AC2973EB1E32E98200983F06 /* BWI.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2973EA1E32E98200983F06 /* BWI.png */; };
 		AC6189141E3AC2770058E621 /* Airport.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189111E3AC2770058E621 /* Airport.png */; };
 		AC6189151E3AC2770058E621 /* stop-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189121E3AC2770058E621 /* stop-32.png */; };
@@ -1487,6 +1493,12 @@
 		AAE68BB21B5C33AF00DA7A53 /* Services_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_8.jpg; sourceTree = "<group>"; };
 		AAE68BB31B5C33AF00DA7A53 /* Services_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_7.jpg; sourceTree = "<group>"; };
 		AAE68BB61B5C342700DA7A53 /* Services_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_9.jpg; sourceTree = "<group>"; };
+		AC0B7C871F8AF8C000FBED09 /* shake_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shake_phone.png; sourceTree = "<group>"; };
+		AC0B7C881F8AF95800FBED09 /* apple_tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple_tv.png; sourceTree = "<group>"; };
+		AC0B7C891F8AF99500FBED09 /* couch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = couch.png; sourceTree = "<group>"; };
+		AC0B7C8A1F8AF9BA00FBED09 /* groceries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groceries.png; sourceTree = "<group>"; };
+		AC0B7C8B1F8AF9DC00FBED09 /* pharmacy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pharmacy.png; sourceTree = "<group>"; };
+		AC0B7C8C1F8AFA0F00FBED09 /* fishing_pole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fishing_pole.png; sourceTree = "<group>"; };
 		AC2973EA1E32E98200983F06 /* BWI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWI.png; sourceTree = "<group>"; };
 		AC45E6341F24E99A00A00073 /* HubInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubInfo.h; sourceTree = "<group>"; };
 		AC6189111E3AC2770058E621 /* Airport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Airport.png; sourceTree = "<group>"; };
@@ -1831,6 +1843,12 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AC0B7C8C1F8AFA0F00FBED09 /* fishing_pole.png */,
+				AC0B7C8B1F8AF9DC00FBED09 /* pharmacy.png */,
+				AC0B7C8A1F8AF9BA00FBED09 /* groceries.png */,
+				AC0B7C891F8AF99500FBED09 /* couch.png */,
+				AC0B7C881F8AF95800FBED09 /* apple_tv.png */,
+				AC0B7C871F8AF8C000FBED09 /* shake_phone.png */,
 				ACF06C661F3B9A890098261F /* icons8-adventure_filled.png */,
 				ACD3BBB61F3556ED000B4323 /* account.png */,
 				AC6189171E3AD8060058E621 /* Online.png */,
@@ -2924,7 +2942,7 @@
 				TargetAttributes = {
 					0FF46D2919F881FC00E51218 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = J749562KY5;
+						DevelopmentTeam = B7QMBU3EE6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -2949,7 +2967,7 @@
 					};
 					ACAE9A2E1F4FD74D0013AF0D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = J749562KY5;
+						DevelopmentTeam = B7QMBU3EE6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes.watchos.app = {
@@ -2959,7 +2977,7 @@
 					};
 					ACAE9A3A1F4FD74D0013AF0D = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = J749562KY5;
+						DevelopmentTeam = B7QMBU3EE6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3030,6 +3048,7 @@
 				AA6D14841B66A15F00F71348 /* SkinCare_2.jpg in Resources */,
 				AA4CAC411BC027B0003C1948 /* Icon-60.png in Resources */,
 				AA6D13E41B64194E00F71348 /* trousers-100.png in Resources */,
+				AC0B7C8F1F8BD29700FBED09 /* groceries.png in Resources */,
 				AA8FA9471B2A70BD003E79B4 /* iTunesArtwork@2x in Resources */,
 				AA51993E1B559EBA00398A4F /* blu_ray_disc_player-100.png in Resources */,
 				0F4D5D471A8AA80E0040DC12 /* card_in_use-50.png in Resources */,
@@ -3085,6 +3104,7 @@
 				ACF06C411F3AB2DB0098261F /* imgFaceBookLogin.png in Resources */,
 				AAE68BAF1B5C329300DA7A53 /* Services_4.jpg in Resources */,
 				0FCAD8E11A3E1A2300BE42E5 /* ROMANSH.png in Resources */,
+				AC0B7C8E1F8BD29700FBED09 /* pharmacy.png in Resources */,
 				AA5198A61B52137B00398A4F /* AirportShops_1_1.jpg in Resources */,
 				0F5B76A91A7C3F9B00E59486 /* office_lamp-32.png in Resources */,
 				AA51984D1B51E7F300398A4F /* Rental_1.png in Resources */,
@@ -3281,6 +3301,7 @@
 				AA6D148E1B66A3BC00F71348 /* Gadgets_1.jpg in Resources */,
 				0F2ACD3719FAD93E0028B6E2 /* ContainerCellView.xib in Resources */,
 				AA88FCC81B509A2C0054A65C /* Rental_3.png in Resources */,
+				AC0B7C901F8BD29700FBED09 /* couch.png in Resources */,
 				AA20FB4B1B7176C700DEE957 /* red_hat-50.png in Resources */,
 				AA8FA93D1B2A70BD003E79B4 /* Icon-120.png in Resources */,
 				ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */,
@@ -3329,6 +3350,7 @@
 				AA20FB471B71765300DEE957 /* plus_1hour-50.png in Resources */,
 				AA6D14791B6699B000F71348 /* News&Events_2.jpg in Resources */,
 				AA8FA91D1B2A2C54003E79B4 /* Hotel_5.jpg in Resources */,
+				AC0B7C921F8BD29700FBED09 /* shake_phone.png in Resources */,
 				AAA600FB1BC57BA000F7B4E4 /* Main.storyboard in Resources */,
 				AAD93DEB1B476A94009B354B /* Italian_3.png in Resources */,
 				ACF06C571F3B88110098261F /* Airlines-VA.jpg in Resources */,
@@ -3532,6 +3554,7 @@
 				AAE68B3D1B5AC9F100DA7A53 /* AmericanFood_1.png in Resources */,
 				ACF06C541F3B88110098261F /* Airlines-XTRA.jpg in Resources */,
 				ACB3A44C1E5361FE007ADD95 /* PublicTransportation.jpeg in Resources */,
+				AC0B7C911F8BD29700FBED09 /* apple_tv.png in Resources */,
 				AA6D13F01B641CC700F71348 /* cream_tube-100.png in Resources */,
 				AA6D13E61B64196300F71348 /* t_shirt-100.png in Resources */,
 				AA6D13A01B63F37300F71348 /* AirportShops_0_2.jpg in Resources */,
@@ -3593,6 +3616,7 @@
 				AA6D13C71B63FDF300F71348 /* AirportShops_4_5.jpg in Resources */,
 				AAE68BAE1B5C329300DA7A53 /* Services_6.jpg in Resources */,
 				AA5199741B55FC7E00398A4F /* receive_cash-100.png in Resources */,
+				AC0B7C8D1F8BD29700FBED09 /* fishing_pole.png in Resources */,
 				AA6D14481B65839A00F71348 /* Coffee_3.png in Resources */,
 				AA8FA8CD1B27F4D7003E79B4 /* AirportGarage_4.jpg in Resources */,
 				ACB4715F1F37FDEA007E9ECF /* Services_10.jpg in Resources */,
@@ -3943,7 +3967,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3955,7 +3979,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports;
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3971,7 +3995,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3983,7 +4007,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports;
 				PRODUCT_NAME = DropDownDigitalAirports;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4000,11 +4024,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "AirportWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -4024,11 +4048,11 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "AirportWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -4050,11 +4074,11 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				GCC_PREFIX_HEADER = "";
 				IBSC_MODULE = AirportWatch_Extension;
 				INFOPLIST_FILE = AirportWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4078,12 +4102,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = J749562KY5;
+				DEVELOPMENT_TEAM = B7QMBU3EE6;
 				GCC_PREFIX_HEADER = "";
 				IBSC_MODULE = AirportWatch_Extension;
 				INFOPLIST_FILE = AirportWatch/Info.plist;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DigitalAirports.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwi.DropDownDigitalAirports.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

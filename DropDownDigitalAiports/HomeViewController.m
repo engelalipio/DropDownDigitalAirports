@@ -50,11 +50,11 @@
 #pragma mark - TableView Events
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-        NSInteger size = 90;
+        NSInteger size = 70;
     if (appDelegate.isiPhone){
         switch (appDelegate.screenHeight) {
             case 736:
-                size = 74;
+                size = 50;
                 break;
                 
             default:
@@ -87,7 +87,7 @@
 
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    NSInteger size = 90,
+    NSInteger size = 70,
               fontSize = 20;
     
     UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, size)];
@@ -185,6 +185,35 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = -1;
+    
+    @try {
+        
+        
+        row = indexPath.row;
+        
+
+        switch (row) {
+            case 4:
+                
+                [self performSegueWithIdentifier:@"segHotels" sender:self];
+                
+                break;
+                
+         
+        }
+        
+        
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception.description);
+    } @finally {
+        row = -1;
+    }
+    
+    
+}
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *message   = @"",
@@ -205,7 +234,23 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         isDynamic = appDelegate.isDynamic;
         
-       //@"Flights",@"Dining/Shopping",@"Ground",@"Hotels/Sight", nil];
+       /*
+        @"Arriving/Departing Flights",
+        @"Explore BWI’s Restaurants/Shops",
+        @"Local Area Restaurants/Retail Stores",
+        @"Ground Transportation",
+        @"Nearby Hotels",
+        @"Area Attractions",
+        */
+        
+        /*
+         cbFlightsCell
+         cbInternalCell
+         cbExternalCell
+         cbTerminalsCell
+         cbHotelsCell
+         cbAttractionsCell
+         */
         
         switch (indexPath.row) {
             case 0:
@@ -224,7 +269,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
                 break;
             case 1:
-                cellId = @"cbDiningCell";
+                cellId = @"cbInternalCell";
                 if (dining){
                     
                     if (dining.count == 1){
@@ -239,8 +284,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     images = dining;
                 }
                 break;
-           /* case 2:
-                cellId = @"cbShopsCell";
+            case 2:
+                cellId = @"cbExternalCell";
                 if (shops){
                     
                     if (shops.count == 1){
@@ -254,8 +299,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     
                     images = shops;
                 }
-                break;*/
-            case 2:
+                break;
+            case 3:
                 
                 cellId = @"cbTerminalsCell";
                 if (terminals){
@@ -271,7 +316,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                     images = terminals;
                 }
                 break;
-            case 3:
+            case 4:
                 
                 cellId = @"cbHotelsCells";
                 if (hotels){
@@ -293,7 +338,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             case 5:
 
                 
-                cellId = @"cbLoungesCell";
+                cellId = @"cbAttractionsCell";
                 if (lounges){
                     
                     if (lounges.count ==1){
@@ -310,6 +355,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                 
 
                 break;
+
+
         }
         
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -496,8 +543,10 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
                      restaurantImages = [[NSArray alloc] initWithArray:appDelegate.backgrounds];
                     }else{
                     restaurantImages = [[NSArray alloc]
-                                        initWithObjects:@"AirportBack_0.jpg",@"AirportBack_2.jpg",@"AirportBack_3.jpg",
-                                                        @"AirportBack_4.jpg", @"AirportBack_5.jpg", @"AirportBack_7.jpg",@"AirportBack_8.jpg",@"AirportBack_9.jpg",
+                                        initWithObjects:@"AirportBack_0.jpg",@"AirportBack_2.jpg",
+                                                        @"AirportBack_3.jpg",@"AirportBack_4.jpg",
+                                                        @"AirportBack_5.jpg", @"AirportBack_7.jpg",
+                                                        @"AirportBack_8.jpg",@"AirportBack_9.jpg",
                                                         @"AirportBack_0.jpg" ,@"AirportBack_10.jpg",nil];
                     }
                 }
@@ -897,7 +946,7 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
       
         
         //TODO remove reuturn if anymation
-        return ;
+       // return ;
        [self.tableView beginUpdates];
         
         images = [[NSArray alloc] initWithObjects:indexPath, nil];
@@ -1017,8 +1066,22 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
         [self.addressLabel setText: appDelegate.restaurantName ];
         
-        categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",@"Explore BWI’s Restaurants/Shops",
-                                                            @"Ground Transportation",@"Hotels/Area Attractions", nil];
+        /*
+         7a. Arriving/Departing Flights –  ok as is
+         7b. Explore BWI’s Restaurants/Shops will remain as it is on the home page.
+         7c. The Next row will say: Local Area Restaurants/Retail Stores
+         7d. The next row stays as it is, reading: Ground Transportation
+         7e The next row will read:  Nearby Hotels
+         7f. The following row will read:  Area Attractions
+         
+         */
+        
+        categoryHomeData = [[NSArray alloc] initWithObjects:@"Arriving/Departing Flights",
+                                                            @"Explore BWI’s Restaurants/Shops",
+                                                            @"Local Area Restaurants/Retail Stores",
+                                                            @"Ground Transportation",
+                                                            @"Nearby Hotels",
+                                                            @"Area Attractions", nil];
         
         if (appDelegate.isDynamic){
             
@@ -1388,6 +1451,8 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
 #pragma mark - Navigation
 
+
+
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     BOOL result = YES;
       segName = identifier;
@@ -1418,9 +1483,9 @@ self.addressLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
             [destVC setCategoryTitle:@"Explore BWI’s Restaurants/Shops"];
         
         }
-        if ([segName isEqualToString:@"segHotels"]){
+        if ([segName isEqualToString:@"segExternals"]){
             [destVC setIsRetail:NO];
-            [destVC setCategoryTitle:@"Area Attractions/Nearby Hotels"];
+            [destVC setCategoryTitle:@"Local Area Restaurants/Retail Stores"];
         }
     }
     @catch (NSException *exception) {

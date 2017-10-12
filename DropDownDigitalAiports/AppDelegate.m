@@ -42,9 +42,11 @@
 @synthesize backgrounds = _backgrounds;
 @synthesize flightbackgrounds = _flightbackgrounds;
 @synthesize diningbackgrounds = _diningbackgrounds;
+@synthesize extDiningbackgrounds = _extDiningbackgrounds;
 @synthesize foodcourtbackgrounds = _foodcourtbackgrounds;
 @synthesize foodtogobackgrounds = _foodtogobackgrounds;
 @synthesize shopsbackgrounds = _shopsbackgrounds;
+@synthesize extShopsbackgrounds = _extShopsbackgrounds;
 @synthesize loungesbackgrounds = _loungesbackgrounds;
 @synthesize clubsbackgrounds = _clubsbackgrounds;
 @synthesize hotelbackgrounds = _hotelbackgrounds;
@@ -886,6 +888,50 @@
         
         
         
+        //BEGIN AirportExtDining
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportExtDiningBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportExtDining"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:ExtDiningBackgrounds->%d",backgroundsCount];
+                    _extDiningbackgrounds =  result.items;
+                    
+                    /* if (result){
+                     //Raise the notification
+                     [[NSNotificationCenter defaultCenter]
+                     postNotificationName:kAzureAirportDiningBackgroundsTableName
+                     object:result];
+                     }*/
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        //END AirportExtDining
+        
+        
         //BEGIN Food Courts
         
         menuTable = [self.azureClient tableWithName:kAzureAirportFoodCourtBackgroundsTableName];
@@ -998,6 +1044,45 @@
         
         
         //End Airport Shops
+        
+        
+        //BEGIN Airport External Shops
+        
+        menuTable = [self.azureClient tableWithName:kAzureAirportExtShopsBackgroundsTableName];
+        query =  [menuTable query];
+        
+        if (query){
+            
+            tableFilter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:filterFormat,@"AirportExtShops"]];
+            
+            query = [menuTable queryWithPredicate:tableFilter];
+            
+            [query orderByAscending:@"PartitionKey"];
+            [query orderByAscending:@"RowKey"];
+            
+            
+            [query readWithCompletion:^(MSQueryResult *result, NSError *error){
+                NSString *queryMessage = @"";
+                int backgroundsCount = 0;
+                if (error){
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:Error->%@",error.description];
+                }else{
+                    
+                    backgroundsCount =  result.items.count;
+                    
+                    queryMessage = [NSString stringWithFormat: @"loadAzureStorageData:AirportExtShops->%d",backgroundsCount];
+                    _extShopsbackgrounds =  result.items;
+                    
+                    
+                }
+                NSLog(@"%@",queryMessage);
+            }];
+            
+            
+        }
+        
+        
+        //End Airport External Shops
         
         
         //BEGIN Airport Lounges

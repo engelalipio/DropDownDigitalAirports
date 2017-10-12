@@ -32,7 +32,7 @@
 
 @implementation DiningViewController
 
-
+@synthesize isExternal = _isExternal;
 - (void)imageUpdated:(NSNotification *)notif {
     
  
@@ -369,6 +369,10 @@
             
             restaurants = [[NSArray alloc] initWithObjects:@"Andaluca" ,@"BRIO", @"Cafe Prague",@"Carbone Ristorante Italiano",@"Chart House",
                                                            @"Orsay",@"SkyLine Terrace", @"Tapastre",@"Terra Bistro",nil];
+            
+            if (_isExternal){
+                restaurants = [appDelegate extDiningbackgrounds];
+            }
         }
         
         if (! toGo){
@@ -429,13 +433,16 @@
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *header = nil;
     header = [[UILabel alloc] init];
-    [header setFont:[UIFont fontWithName:@"Avenir Medium" size:20]];
+    [header setFont:[UIFont fontWithName:@"Avenir Medium" size:18]];
     [header setTextAlignment:NSTextAlignmentCenter];
     [header setTextColor:[UIColor whiteColor]];
     [header setBackgroundColor:[UIColor blackColor]];
     switch (section) {
         case 0:
             [header setText:@"Fine Dining"];
+            if (_isExternal){
+                [header setText:@"Local Area Restaurants"];
+            }
             break;
         case 1:
             [header setText:@"Meals to Go"];
@@ -478,7 +485,13 @@
 }
 
 -(NSInteger)  numberOfSectionsInTableView:(UITableView *)tableView{
-    return  3;
+    NSInteger count = 0;
+    if (_isExternal){
+        count = 1;
+    }else{
+        count = 3;
+    }
+    return  count;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -506,7 +519,11 @@
     
                     *courts = [[NSArray alloc] initWithObjects: @"French Bakery", @"American Food", @"Indian Food",
                                                                 @"Southern Cooking",@"American Food", @"NY Style Pizza",@"Sandwiches",
-                                                                @"Mexican Food", @"Chinese Food",nil];
+                                                                @"Mexican Food", @"Chinese Food",nil],
+    
+                    *extTypes = [[NSArray alloc] initWithObjects:@"Italian", @"Burgers & Fries", @"Sushi", @"American",
+                                 @"Irish",@"NY Style Pizza",@"Irish", @"Spanish",@"Sandwiches", nil];
+    
     
     
     NSInteger terminalId = arc4random_uniform(Terminals.count),
@@ -533,14 +550,28 @@
     
     switch (indexPath.section) {
         case 0:
-                restaurantImageNameFormat = @"AirportDining_%d.jpg",
-                restaurantName = [restaurants objectAtIndex:indexPath.row];
+            restaurantImageNameFormat = @"AirportDining_%d.jpg";
+           
+            
+            if (_isExternal){
+                restaurantName =   [Utilities getParseColumnValue:appDelegate.extDiningbackgrounds anyIndex:indexPath.row anyColumn:@"Name"];
+                cuisine = [extTypes objectAtIndex:indexPath.row];
+            }else{
+                 restaurantName = [restaurants objectAtIndex:indexPath.row];
                 cuisine = [cuisines objectAtIndex:indexPath.row];
+            }
+            
+            
+            
                 isParse = YES;
             
             if (isParse) {
-                
-                [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                if (_isExternal){
+                   [Utilities setParseImageCell:appDelegate.extDiningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                }else{
+                     [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                }
+              
                 
             }
             break;
@@ -593,6 +624,11 @@
     
     terminal = [NSString stringWithFormat:@"%@",terminal];
     finalLocation = [NSString stringWithFormat:locationFormat, terminal,gateId];
+    
+    if (_isExternal){
+         finalLocation =   [Utilities getParseColumnValue:appDelegate.extDiningbackgrounds anyIndex:indexPath.row anyColumn:@"Location"];
+    }
+    
     if (indexPath.section < 3){
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ - %@",restaurantName,cuisine]];
     }
@@ -622,8 +658,11 @@
 
             switch (indexPath.section) {
                 case 0:
-                    
+                    if (_isExternal){
+                     [Utilities setParseImageCell:appDelegate.extDiningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                    }else{
                     [Utilities setParseImageCell:appDelegate.diningbackgrounds anyIndex:indexPath.row tableCell:cell];
+                    }
                     break;
                     
                 case 1:
@@ -818,6 +857,15 @@
         
        // *ratings  = [[NSArray alloc] initWithObjects:@"Online Pay", @"InStore Pay", nil];
         
+      
+        NSArray  *extTypes = [[NSArray alloc] initWithObjects:@"Italian", @"Burgers & Fries", @"Sushi", @"American",
+                                               @"Irish",@"NY Style Pizza",@"Irish", @"Spanish",@"Sandwiches", nil],
+    
+            
+        *extImages = [[NSArray alloc] initWithObjects:@"food-100.png", @"hamburger-100.png",@"sushi_filled-100.png",@"french_fries-100.png",@"food-100.png",@"pizza-100.png",@"cook-100.png",
+                      @"food-100.png", @"bread-100.png",nil];
+        
+        
         
         NSInteger cuisineId  = arc4random_uniform(cuisines.count),
                   shopsid    = arc4random_uniform(shops.count),
@@ -838,6 +886,10 @@
         [item.WeatherValue setText:cuisine];
         [item.WeatherValue setHidden:YES];
         
+        if (_isExternal){
+            cuisineId = indexPath.row;
+            cuisine = [extTypes objectAtIndex:cuisineId];
+        }
         
         rating = @"R.O.P.\n (Reserve, Order & Pay)";
         [item.TempValue setNumberOfLines:0];
@@ -882,6 +934,10 @@
                  *NewSite = title,
                  *phone    = [ItemViewController generateRandomPhone],
                  *shopTypeImageName  = @"";
+        
+        if (_isExternal){
+            phone = [Utilities getParseColumnValue:appDelegate.extDiningbackgrounds anyIndex:indexPath.row anyColumn:@"Phone"];
+        }
     
         if (titleData){
            Newtitle = [titleData firstObject];
@@ -933,8 +989,11 @@
             case 0:
                 switch (indexPath.row) {
                     case 5:
+                        
                         t = 4;
-                        [item.ArrDepIMGView setImage:[UIImage imageNamed:@"sushi_filled-100.png"]];
+                        if (! _isExternal){
+                            [item.ArrDepIMGView setImage:[UIImage imageNamed:@"sushi_filled-100.png"]];
+                        }
                         break;
                     case 1:
                     case 8:
@@ -950,7 +1009,13 @@
                         break;
 
                 }
+                if (! _isExternal){
                     [item startTimer: rndFoodImgFormat : t];
+                }else{
+                    
+                      [item.ArrDepIMGView setImage:[UIImage imageNamed:[extImages objectAtIndex:indexPath.row]]];
+                   
+                }
             break;
             case 1:
                     [item.ArrDepIMGView setImage:[UIImage imageNamed:[toGoImgs objectAtIndex:indexPath.row]]];
@@ -1264,8 +1329,11 @@
         appDelegate = [AppDelegate currentDelegate];
     }
     [self initTableView];
-    
+    if (_isExternal){
+         [self.navigationItem setTitleView:[self getSpecialTitleView:@""]];
+    }else{
     [self.navigationItem setTitleView:[self getSpecialTitleView:@"Fine Dining/Meals To Go/The Food Court"]];
+    }
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
