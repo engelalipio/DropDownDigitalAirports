@@ -659,6 +659,8 @@
 		AC6189181E3AD8060058E621 /* Online.png in Resources */ = {isa = PBXBuildFile; fileRef = AC6189171E3AD8060058E621 /* Online.png */; };
 		AC8CADFF1E3A8B1D00B21C8C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */; };
 		ACA46AAA1F24F47500230B49 /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */; };
+		ACAD9F261F952EAB009A07D7 /* EntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAD9F251F952EAB009A07D7 /* EntViewController.m */; };
+		ACAD9F281F954EFA009A07D7 /* icons8-clapperboard_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD9F271F954EE9009A07D7 /* icons8-clapperboard_filled.png */; };
 		ACAE99E61F3CF99F0013AF0D /* Services_15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */; };
 		ACAE99E81F3CFF570013AF0D /* Services_16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99E71F3CFF570013AF0D /* Services_16.jpg */; };
 		ACAE99ED1F41EE910013AF0D /* icons8-motherboard.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */; };
@@ -1508,6 +1510,9 @@
 		AC8CADFD1E3A8B1D00B21C8C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AC8CADFE1E3A8B1D00B21C8C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ACA46AA81F24F47400230B49 /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
+		ACAD9F241F952EAB009A07D7 /* EntViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntViewController.h; sourceTree = "<group>"; };
+		ACAD9F251F952EAB009A07D7 /* EntViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntViewController.m; sourceTree = "<group>"; };
+		ACAD9F271F954EE9009A07D7 /* icons8-clapperboard_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-clapperboard_filled.png"; sourceTree = "<group>"; };
 		ACAE99E51F3CF99F0013AF0D /* Services_15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_15.jpg; sourceTree = "<group>"; };
 		ACAE99E71F3CFF570013AF0D /* Services_16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Services_16.jpg; sourceTree = "<group>"; };
 		ACAE99EC1F41EE910013AF0D /* icons8-motherboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-motherboard.png"; sourceTree = "<group>"; };
@@ -1843,6 +1848,7 @@
 		0FF46D5719F88B1500E51218 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				ACAD9F271F954EE9009A07D7 /* icons8-clapperboard_filled.png */,
 				AC0B7C8C1F8AFA0F00FBED09 /* fishing_pole.png */,
 				AC0B7C8B1F8AF9DC00FBED09 /* pharmacy.png */,
 				AC0B7C8A1F8AF9BA00FBED09 /* groceries.png */,
@@ -2194,6 +2200,8 @@
 				0FD438B41A0B376B00A2436F /* LoungesViewController.h */,
 				0FD438B51A0B376B00A2436F /* LoungesViewController.m */,
 				AAD71FCB1D5A7DE600CF4FC7 /* SightseeingViewController.h */,
+				ACAD9F241F952EAB009A07D7 /* EntViewController.h */,
+				ACAD9F251F952EAB009A07D7 /* EntViewController.m */,
 				AAD71FCC1D5A7DF300CF4FC7 /* SightseeingViewController.m */,
 				0FE60AD81A116F9900435F32 /* GroundTransportationViewController.h */,
 				0FE60AD91A116F9900435F32 /* GroundTransportationViewController.m */,
@@ -3192,6 +3200,7 @@
 				AAE68B621B5AD34B00DA7A53 /* GiftStore_1.jpg in Resources */,
 				AAE68B7F1B5B0C8D00DA7A53 /* Limo_6.png in Resources */,
 				0FD438F51A10489D00A2436F /* forward-25.png in Resources */,
+				ACAD9F281F954EFA009A07D7 /* icons8-clapperboard_filled.png in Resources */,
 				ACF06C331F3AA16D0098261F /* Pacman.gif in Resources */,
 				AA6D140C1B65561C00F71348 /* Wendy_1.png in Resources */,
 				AA89A2031B6C4A2000874971 /* button-100.png in Resources */,
@@ -3772,6 +3781,7 @@
 				AAB41B0A1CF54B7F0078CB75 /* BaseClass.m in Sources */,
 				AA297D141D0C5D4F0019B185 /* MPOUtilities.m in Sources */,
 				AA297D191D0C5D710019B185 /* MPODetectionCollectionViewCell.m in Sources */,
+				ACAD9F261F952EAB009A07D7 /* EntViewController.m in Sources */,
 				0FF46DF219F9952A00E51218 /* AFHTTPClient.m in Sources */,
 				0FF46E0919F9953500E51218 /* JTDateMappings.m in Sources */,
 				0FF46DF919F9952A00E51218 /* AFXMLRequestOperation.m in Sources */,

@@ -71,9 +71,32 @@
 
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    CGFloat headerH = 30.0f;
+    CGFloat headerH = 1.0f;
     
     return headerH;
+}
+
+-(UIView *) customLabelRow:(NSString *)anyText{
+    UILabel *header = nil;
+    NSInteger size = 20.0f;
+    
+    NSTextAlignment alignment = NSTextAlignmentCenter;
+    
+    
+    if (appDelegate.isiPhone){
+        size = 18.0f;
+    }
+   
+            header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , 35)];
+            [header setFont:[UIFont fontWithName:@"Avenir Medium" size:size]];
+            [header setTextAlignment:alignment];
+            [header setTextColor:[UIColor whiteColor]];
+            [header setBackgroundColor:[UIColor blackColor]];
+ 
+            [header setText:anyText];
+  
+
+    return header;
 }
 
 -(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -95,9 +118,11 @@
             [header setBackgroundColor:[UIColor blackColor]];
             if (_categoryTitle){
                 if (_isRetail){
-                    [header setText:@"Explore BWI’s Restaurants/Shops"];
+                    [self.navigationItem setTitle:@"Explore BWI’s Restaurants/Shops"];
+                    //[header setText:@"Explore BWI’s Restaurants/Shops"];
                 }else{
-                    [header setText:@"Local Area Restaurants/Retail Stores"];
+                     [self.navigationItem setTitle:@"Local Area Restaurants/Retail Stores"];
+                    //[header setText:@"Local Area Restaurants/Retail Stores"];
                 }
                 //[header setText:_categoryTitle];
             }
@@ -111,9 +136,11 @@
             [header setBackgroundColor:[UIColor blackColor]];
             if (_categoryTitle){
                 if (_isRetail){
-                    [header setText:@"Local Area Restaurants/Retail Stores"];
+                    [self.navigationItem setTitle:@"Local Area Restaurants/Retail Stores"];
+                  //  [header setText:@"Local Area Restaurants/Retail Stores"];
                 }else{
-                    [header setText:@"Explore BWI’s Restaurants/Shops"];
+                     [self.navigationItem setTitle:@"Explore BWI’s Restaurants/Shops"];
+                  //  [header setText:@"Explore BWI’s Restaurants/Shops"];
                 }
                 //[header setText:_categoryTitle];
             }
@@ -306,7 +333,7 @@
             if (appDelegate.isiPhone){
                 
                 
-                image = [ItemViewController imageResize:image andResizeTo:CGSizeMake(180, 150)];
+                image = [Utilities imageResize:image andResizeTo:CGSizeMake(700.0f, 600.0f)];
                
  
             }else{
@@ -317,11 +344,14 @@
         
  
     [cell.textLabel setNumberOfLines:0];
+    [cell.textLabel setHidden:YES];
     [cell.textLabel setText:finalLocation] ;
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ Stores",storeCount]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     cell.accessoryView.tintColor = [UIColor whiteColor];
     [cell.imageView setImage:image];
+    
+    [cell.contentView addSubview: [self customLabelRow:finalLocation]];
     
     return cell;
 }
@@ -332,8 +362,9 @@
         
         if (cell){
             //This will set the background of all of the views within the tablecell
-            cell.contentView.superview.backgroundColor = kVerticalTableBackgroundColor;
-            
+            [tableView setBackgroundColor:UIColor.blackColor];
+            cell.contentView.superview.backgroundColor =    UIColor.blackColor;;// kVerticalTableBackgroundColor;
+          
             UIImage *cellImage = nil;
             
             if (appDelegate.isiPhone){
@@ -407,7 +438,7 @@
 
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger size = 215;
+    NSInteger size = 220;
     if (appDelegate.isiPhone){
         switch (appDelegate.screenHeight) {
             case 736:
@@ -419,12 +450,13 @@
                 break;
         }
     }
+    size = (size * 2);
     return size;
 }
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    NSInteger sectionCount = 2  ;
+    NSInteger sectionCount = 1  ;
     return sectionCount;
 }
 
