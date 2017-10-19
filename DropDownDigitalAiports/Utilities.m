@@ -86,8 +86,8 @@
 
 
 +(NSString*) getParseColumnValue:(NSArray *) imageSourceArray  anyIndex:(NSInteger) imageIndex anyColumn:(NSString *) columnName{
-    PFObject *imageObject = nil;
-    NSString  *message       = @"";
+    NSDictionary *imageObject;
+   NSString  *message       = @"";
     
     @try {
         
@@ -110,6 +110,7 @@
         imageObject = nil;
     }
     return message;
+    return @"";
 }
 
 
